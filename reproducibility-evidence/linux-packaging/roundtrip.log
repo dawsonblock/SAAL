@@ -1,0 +1,25 @@
+{
+  "version": "0.9.4.3",
+  "physical_files_verified": 4,
+  "parent_files": 1,
+  "accounted_changes": [],
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false,
+  "signer_identity": "REQUIRES_INDEPENDENT_PIN_AUTHENTICATION",
+  "results_scope": "NO_ADDITIONAL_FILES"
+}
+{
+  "version": "0.9.4.3",
+  "physical_files_verified": 4,
+  "parent_files": 1,
+  "accounted_changes": [],
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false,
+  "signer_identity": "REQUIRES_INDEPENDENT_PIN_AUTHENTICATION",
+  "results_scope": "NO_ADDITIONAL_FILES",
+  "archive": "/tmp/tmpgh20pnkz/out.zip",
+  "sha256": "efc350daff0b800a60bb63a2b99ac1dd384cdc1de7d3817229747a3b07bd7964",
+  "archive_files": 7,
+  "bytes": 2187
+}
+signed roundtrip and private-key boundary PASS

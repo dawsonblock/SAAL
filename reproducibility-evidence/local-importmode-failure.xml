@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="1.462" timestamp="2026-10-11T02:03:53.120232-06:00" hostname="Mac.gateway.sasktel.net"><testcase classname="" name="tests.integration.test_validation_repairs" time="0.000"><error message="collection failure">ImportError while importing test module '/Users/dawsonblock/Downloads/SAAL-repair-0.9.4.3/tests/integration/test_validation_repairs.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+tests/integration/test_validation_repairs.py:8: in &lt;module&gt;
+    from test_corrective_evidence_chain import make, resign_tail
+E   ModuleNotFoundError: No module named 'test_corrective_evidence_chain'</error></testcase></testsuite></testsuites>

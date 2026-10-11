@@ -1,0 +1,23 @@
+{
+  "local": {
+    "tests": 545,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "linux_t4": {
+    "tests": 545,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "linux_packaging": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "dedicated_cleanup": "CONFIRMED_PER_EXACT_SESSION",
+  "unrelated_session": "PRESERVED",
+  "qualification_status": "NOT_EVALUATED"
+}

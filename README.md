@@ -1,22 +1,9 @@
-# SAAL-RSI v0.9.4.2 — Validation repairs
+# SAAL-RSI v0.9.4.3 — Reproducibility repair
 
-This release fixes reproducible validation defects in v0.9.4.1. It preserves the historical model workers, checkpoints, training predictions and negative research results.
+This is a repair of v0.9.4.2, not the proposed v0.9.5 learning/generalization milestone. The Python3.13 mTLS test certificates now contain explicit subject/authority key identifiers and key usage. Production transport, model-learning algorithms and authority gates are unchanged.
 
-- Malformed or inconsistent classifier probabilities cannot pass sequence replay; invalid numerical tolerances fail closed.
-- Public checkpoint selection explicitly rejects missing pair metrics and mixed measured/unmeasured pair coverage. Use null consistently when pairs are unmeasured.
-- Artifact-chain receipts must satisfy attempt-specific maximum alpha and plausible event sequence. This is additional consistency checking, not proof of an independent witness deployment.
+Use the complete hydrated release archives for artifact reproduction. GitHub branch source ZIPs may contain Git LFS pointers. A pointer is not a checkpoint, PDF or nested archive. Clone with Git LFS and run `git lfs pull`, or use the separately verified release ZIPs. Physical release verification rejects pointers, missing files, changed hashes and unaccounted changes from the parent main commit.
 
-Read RELEASE_REPORT.md for actual validation results and limitations. Historical documentation and reproduction instructions remain in docs/. The previous README and report are preserved under corrective-evidence/history/v0.9.4.1/.
+Run `python tools/verify_reproducible_release.py --pin PUBLIC_KEY_HEX` using an independently authenticated pin; the bundled public key verifies self-consistency only. Read RELEASE_REPORT.md for exact runs, environment identities and pending gates. Older signed reports and manifests remain historical; do not run old verifiers against changed source and interpret their rejection as fresh validation.
 
-Candidates remain NOT_EVALUATED. Independent generalization is not established. External deployment remains prohibited. This patch performs no new training or Colab run and does not improve previously recorded model accuracy.
-
-Validate with the pinned environment described in docs/CORRECTIVE_REPRODUCTION.md:
-
-```sh
-PYTHONPATH=src python -m pytest
-python tools/verify_validation_repair_history.py
-python tools/verify_corrective_history.py
-python tools/verify_corrective_release.py --pin YOUR_PINNED_RELEASE_PUBLIC_KEY
-```
-
-Release signatures prove controller attribution and file integrity only. Authenticate the public-key pin independently. Heavy pretrained weights remain outside this source ZIP.
+The 600-record corpus remains a review candidate with zero completed human reviews and unresolved semantic split review. Historical fixed/dynamic LoRA learning failures are preserved. There is no new training, independent generalization or model qualification. External deployment remains prohibited.

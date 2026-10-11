@@ -1,0 +1,14 @@
+
+==================================== ERRORS ====================================
+________ ERROR collecting tests/integration/test_validation_repairs.py _________
+ImportError while importing test module '/Users/dawsonblock/Downloads/SAAL-repair-0.9.4.3/tests/integration/test_validation_repairs.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+tests/integration/test_validation_repairs.py:8: in <module>
+    from test_corrective_evidence_chain import make, resign_tail
+E   ModuleNotFoundError: No module named 'test_corrective_evidence_chain'
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-repair-0.9.4.3/reproducibility-evidence/local-combined.xml -
+=========================== short test summary info ============================
+ERROR tests/integration/test_validation_repairs.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 1.46s

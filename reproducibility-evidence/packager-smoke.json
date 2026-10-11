@@ -1,0 +1,4 @@
+{
+  "signed_freeze_archive_roundtrip": "PASS",
+  "in_checkout_signing_key_rejected": "PASS"
+}

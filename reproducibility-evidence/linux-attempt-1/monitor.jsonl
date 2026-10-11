@@ -1,0 +1,6 @@
+{"stage": "VERIFY_TRANSFER", "elapsed_seconds": 0.002542257308959961}
+{"stage": "CREATE_ENV", "elapsed_seconds": 16.315987586975098}
+{"stage": "HASH_LOCKED_DOWNLOAD", "elapsed_seconds": 16.433475255966187}
+{"stage": "HASH_LOCKED_INSTALL", "elapsed_seconds": 174.1719467639923}
+{"stage": "ENVIRONMENT_FREEZE", "elapsed_seconds": 314.51968240737915}
+{"stage": "FAILED", "elapsed_seconds": 314.55675411224365}

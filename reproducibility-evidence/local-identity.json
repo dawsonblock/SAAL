@@ -1,0 +1,21 @@
+{
+  "versions": {
+    "pytest": "8.4.2",
+    "cryptography": "48.0.1",
+    "torch": "2.10.0",
+    "numpy": "2.4.6",
+    "safetensors": "0.8.0",
+    "transformers": "5.19.0",
+    "peft": "0.21.2",
+    "huggingface-hub": "1.33.0"
+  },
+  "locks": {
+    "linux-x86_64-py313.txt": "d3c8635a4d34a6a6fda8a0c1fbb2a1141eba8838d314080cc45be27d885c0ced",
+    "macos-arm64-py312.txt": "77510c93d2824e292b00e4a6f7e525f2cc34c5542d5055ee52a006915340a419",
+    "pretrained-macos-arm64-py312.txt": "941d0aeadcde3baa1e9b14882d64b790981c4cb3081bfb2f0b7ba05312fc6cc2",
+    "pretrained-linux-x86_64-py313.txt": "fe75c6508354d719c74d50cba540d1d5306d5c74d3b77d7ebc23f1f1f34e04b4"
+  },
+  "limits": "Installed environment inspected; this turn does not claim a fresh Mac hash-locked reinstall.",
+  "python": "3.12.0 (main, Apr 26 2026, 15:36:24) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.2-arm64-arm-64bit"
+}

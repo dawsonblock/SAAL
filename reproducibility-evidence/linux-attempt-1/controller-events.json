@@ -1,0 +1,271 @@
+[
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part000",
+      "/content/input.part000"
+    ],
+    "time": 1791705249.968075,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part000' to '/content/input.part000'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part001",
+      "/content/input.part001"
+    ],
+    "time": 1791705255.535668,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part001' to '/content/input.part001'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part002",
+      "/content/input.part002"
+    ],
+    "time": 1791705264.763102,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part002' to '/content/input.part002'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part003",
+      "/content/input.part003"
+    ],
+    "time": 1791705270.310113,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part003' to '/content/input.part003'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part004",
+      "/content/input.part004"
+    ],
+    "time": 1791705276.112627,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part004' to '/content/input.part004'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part005",
+      "/content/input.part005"
+    ],
+    "time": 1791705281.5330749,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part005' to '/content/input.part005'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part006",
+      "/content/input.part006"
+    ],
+    "time": 1791705286.979151,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part006' to '/content/input.part006'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part007",
+      "/content/input.part007"
+    ],
+    "time": 1791705292.555377,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part007' to '/content/input.part007'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part008",
+      "/content/input.part008"
+    ],
+    "time": 1791705298.023683,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part008' to '/content/input.part008'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part009",
+      "/content/input.part009"
+    ],
+    "time": 1791705303.6567261,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part009' to '/content/input.part009'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part010",
+      "/content/input.part010"
+    ],
+    "time": 1791705327.803474,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part010' to '/content/input.part010'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part011",
+      "/content/input.part011"
+    ],
+    "time": 1791705333.610291,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part011' to '/content/input.part011'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part012",
+      "/content/input.part012"
+    ],
+    "time": 1791705339.7088,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part012' to '/content/input.part012'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part013",
+      "/content/input.part013"
+    ],
+    "time": 1791705345.741529,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part013' to '/content/input.part013'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part014",
+      "/content/input.part014"
+    ],
+    "time": 1791705352.1260679,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part014' to '/content/input.part014'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part015",
+      "/content/input.part015"
+    ],
+    "time": 1791705353.473442,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/input.part015' to '/content/input.part015'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "upload",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/parts.json",
+      "/content/parts.json"
+    ],
+    "time": 1791705354.308225,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/parts.json' to '/content/parts.json'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "exec",
+      "--session",
+      "saal-0943-audit-20261011",
+      "--file",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/remote.py",
+      "--timeout",
+      "2100"
+    ],
+    "time": 1791705671.550823,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\nVERIFY_TRANSFER\nCREATE_ENV\nHASH_LOCKED_DOWNLOAD\nHASH_LOCKED_INSTALL\nENVIRONMENT_FREEZE\nFAILED\n{\n  \"schema\": \"saal-0943-linux-validation-v1\",\n  \"status\": \"FAIL\",\n  \"qualification_status\": \"NOT_EVALUATED\",\n  \"training_experiment\": false,\n  \"stage\": \"FAILED\",\n  \"elapsed_seconds\": 314.55675411224365,\n  \"input_zip_sha256\": \"dc3b60f57898c7ed6ab175f3d0a8bc405d2b1ff58b2f211484140b6bab387ae9\",\n  \"source_files_verified\": 2167,\n  \"supplemental_builder_sha256\": \"13a631f1435ebef91e52356268452a0acce3ac8d7d3c8f4f20a72a2450d1e05f\",\n  \"runtime\": {\n    \"python\": \"3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]\",\n    \"platform\": \"Linux-6.6.122+-x86_64-with-glibc2.39\"\n  },\n  \"lock_sha256\": \"fe75c6508354d719c74d50cba540d1d5306d5c74d3b77d7ebc23f1f1f34e04b4\",\n  \"error\": \"ENVIRONMENT_FREEZE exit 1\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "download",
+      "--session",
+      "saal-0943-audit-20261011",
+      "/content/saal-0943-evidence.zip",
+      "/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/remote-evidence.zip"
+    ],
+    "time": 1791705672.468042,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Downloaded '/content/saal-0943-evidence.zip' to '/Users/dawsonblock/Downloads/SAAL-0943-Colab-20261011/remote-evidence.zip'\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "stop",
+      "--session",
+      "saal-0943-audit-20261011"
+    ],
+    "time": 1791705673.461154,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Stopping session 'saal-0943-audit-20261011'...\n[colab] Session terminated.\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "sessions"
+    ],
+    "time": 1791705674.092905,
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[v1646-qual] gpu-t4-s-kkb-usw4a1-2qkyatl5doybc | Hardware: T4 | Variant: GPU\n[saal-0943-package-20261011] m-s-kkb-usc1a0-p7xvkgvidvs0 | Hardware: CPU | Variant: DEFAULT\n",
+    "stderr": ""
+  }
+]

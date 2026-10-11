@@ -1,11 +1,9 @@
-# SAAL repository branches
+# SAAL repository branches and complete artifacts
 
-`main` preserves the complete SAAL-RSI v0.9.4.2 Validation Repairs source release, including its inherited examples, checkpoints, negative evidence and provenance. Its original MANIFEST.sha256 remains unchanged. The additive `reviewed-decision-corpus/` directory is a 600-record,300-pair review candidate with its own source,tests,manifest and review workflow. It has zero completed human reviews and is not training-ready.
+`main` is the v0.9.4.3 reproducibility repair of the preserved v0.9.4.2 build. It retains historical model workers, checkpoints, public learning failures and provenance. The mTLS test fixture and version metadata are changed deliberately; parent-inventory.json and changes.json identify every edited parent file. reviewed-decision-corpus/ remains a 600-record,300-pair review candidate, not a completed human-reviewed corpus.
 
-`results/saal-rsi-20261011` adds published experiment and Colab validation evidence under `results/`. Results are research evidence, not model qualification or external execution authorization. Current corpus validation passed38tests on local CPU and Colab CPU. The prior full Colab suite and GPU probe are distinct from actual pretrained GPU training.
+`results/saal-rsi-0943` adds prior research evidence and fresh validation records under results/. Main files remain unchanged in this additive branch. Verify main explicitly with --allow-results and verify results separately. The older results/saal-rsi-20261011 branch remains historical.
 
-Clone with Git LFS installed and run `git lfs pull` to materialize historical archives/checkpoints. Root release verification needs the full materialized files. Do not interpret LFS pointer files as valid checkpoint bytes.
+Use complete physical release assets or a hydrated Git LFS checkout. GitHub automatic source ZIPs may contain pointers. Neither a Git blob pointer nor a successful source inspection proves a checkpoint can be replayed. REPRODUCIBILITY.md documents physical verification and exact test commands.
 
-Use the pinned runtime documented in docs/CORRECTIVE_REPRODUCTION.md for the inherited tests. Corpus integration tests: `PYTHONPATH=reviewed-decision-corpus/src:src python -m pytest reviewed-decision-corpus/tests -q`. Corpus verification: `python reviewed-decision-corpus/tools/verify_capsule.py`.
-
-Independent qualification remains NOT_EVALUATED; external deployment remains prohibited. This publication does not generate human approvals, new training results or fresh qualification signatures.
+Human reviews are zero; independent generalization is not established. No new pretrained learning campaign, independent assurance deployment or protected final evaluation was performed in the repair. Research qualification remains NOT_EVALUATED and external deployment remains prohibited. Do not interpret successful software tests as model qualification.
