@@ -1,0 +1,27 @@
+--- admitted-original/worker.py
++++ admitted-corrected/worker.py
+@@ -10,6 +10,15 @@
+ from .contract import validate,source_identity,ADAPTER
+ from .backend import DynamicBackend
+ from .training import train_backend
++
++def normalize_mask_pattern(pattern,expected_names):
++    # PEFT 0.21.2 stores underlying-model names; exported tensors include this exact wrapper.
++    if type(pattern)is not dict:raise ValueError('rank mask mapping')
++    if not pattern:return {}
++    mapped={'base_model.model.'+n:mask for n,mask in pattern.items() if type(n)is str}
++    if len(mapped)!=len(pattern) or set(mapped)!=set(expected_names):raise ValueError('rank mask inventory')
++    if any(type(mask)is not list or len(mask)!=ADAPTER['init_r'] or any(type(v)is not bool for v in mask) for mask in mapped.values()):raise ValueError('rank mask inventory')
++    return mapped
+ 
+ def load(root,cache):
+     import torch
+@@ -37,7 +46,7 @@
+             if not prediction_equal(predictions[split],result['snapshots'][name]['predictions'][split],'modernbert-seqcls-v1',1e-4):raise ValueError('dynamic fresh-process prediction mismatch')
+         allocation=result['snapshot_allocations'][name];pattern=allocation['assigned_rank_pattern']
+         expected_names={n for n in backend.trainable if 'lora_E.default' in n}
+-        if pattern and (set(pattern)!=expected_names or any(type(m)is not list or len(m)!=ADAPTER['init_r'] or any(type(v)is not bool for v in m) for m in pattern.values())):raise ValueError('rank mask inventory')
++        pattern=normalize_mask_pattern(pattern,expected_names)
+         if pattern:
+             for n,mask in pattern.items():
+                 if any(not keep and backend.trainable[n][i].detach().item()!=0 for i,keep in enumerate(mask)):raise ValueError('rank mask/weight substitution')

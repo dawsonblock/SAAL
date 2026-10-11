@@ -1,0 +1,18 @@
+{
+  "frozen_inventory_files": 211,
+  "unchanged_files": 210,
+  "documented_test_only_changes": {
+    "tests/integration/test_attempt_mtls_process.py": {
+      "original": "e496244c24eb11e02757dafe2ed1091c3af995bf1f0c9601bf202a571e512388",
+      "actual": "8fa0071d185273a9283a4d7c2ac514deb0f07c7b0165f28c44640316980a9d49"
+    }
+  },
+  "production_source_changes": 0,
+  "dependency_consistency": "No broken requirements found.",
+  "cuda_probe_counts": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

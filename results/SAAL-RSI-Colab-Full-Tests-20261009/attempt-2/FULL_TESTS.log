@@ -1,0 +1,124 @@
+................................FF.F.................................... [ 13%]
+.....s.................................................................. [ 26%]
+........................................................................ [ 39%]
+........................................................................ [ 53%]
+........................................................................ [ 66%]
+........................................................................ [ 79%]
+........................................................................ [ 92%]
+......................................                                   [ 99%]
+=================================== FAILURES ===================================
+___________ test_real_mtls_reservation_consumption_and_worker_denial ___________
+
+service = (<saal_rsi.attempt_authority.Witness object at 0x7a89da36b5f0>, <function service.<locals>.client at 0x7a89da24d800>, ...2432e35146a4ce9cd06a979d4e997d', 'evaluator': 'e685e0a978103995f3a2cde905efb9be5980221721d6d0da8f41036096797758', ...})
+
+    def test_real_mtls_reservation_consumption_and_worker_denial(service):
+        witness, client, root, _ = service
+>       mirror = CustodianMirror.initialize(root / 'mirror.db', client('custodian'), witness.enrollment, witness.pin)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_attempt_mtls_process.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/attempt_authority.py:186: in initialize
+    head = client('head', {})
+           ^^^^^^^^^^^^^^^^^^
+src/saal_rsi/attempt_service.py:58: in __call__
+    connection.connect()
+/usr/lib/python3.13/http/client.py:1527: in connect
+    self.sock = self._context.wrap_socket(self.sock,
+/usr/lib/python3.13/ssl.py:455: in wrap_socket
+    return self.sslsocket_class._create(
+/usr/lib/python3.13/ssl.py:1076: in _create
+    self.do_handshake()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ssl.SSLSocket [closed] fd=-1, family=2, type=1, proto=6>, block = False
+
+    @_sslcopydoc
+    def do_handshake(self, block=False):
+        self._check_connected()
+        timeout = self.gettimeout()
+        try:
+            if timeout == 0.0 and block:
+                self.settimeout(None)
+>           self._sslobj.do_handshake()
+E           ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1032)
+
+/usr/lib/python3.13/ssl.py:1372: SSLCertVerificationError
+_________________ test_real_mtls_server_identity_substitution __________________
+
+service = (<saal_rsi.attempt_authority.Witness object at 0x7a89da253280>, <function service.<locals>.client at 0x7a89da292de0>, ...36d11c61bd17a3774ccaae1e7e7a55', 'evaluator': '068b971460527f31c519ad99716ca57474823fd25715168e22bf11068fa309df', ...})
+
+    def test_real_mtls_server_identity_substitution(service):
+        witness, client, _, _ = service
+        c = client('custodian'); c.config['server_certificate_sha256'] = '0' * 64
+>       with pytest.raises(PermissionError): c('head', {})
+                                             ^^^^^^^^^^^^^
+
+tests/integration/test_attempt_mtls_process.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/attempt_service.py:58: in __call__
+    connection.connect()
+/usr/lib/python3.13/http/client.py:1527: in connect
+    self.sock = self._context.wrap_socket(self.sock,
+/usr/lib/python3.13/ssl.py:455: in wrap_socket
+    return self.sslsocket_class._create(
+/usr/lib/python3.13/ssl.py:1076: in _create
+    self.do_handshake()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ssl.SSLSocket [closed] fd=-1, family=2, type=1, proto=6>, block = False
+
+    @_sslcopydoc
+    def do_handshake(self, block=False):
+        self._check_connected()
+        timeout = self.gettimeout()
+        try:
+            if timeout == 0.0 and block:
+                self.settimeout(None)
+>           self._sslobj.do_handshake()
+E           ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1032)
+
+/usr/lib/python3.13/ssl.py:1372: SSLCertVerificationError
+_______ test_controller_can_only_reserve_through_real_custodian_service ________
+
+service = (<saal_rsi.attempt_authority.Witness object at 0x7a89da293930>, <function service.<locals>.client at 0x7a89da2937e0>, ...fb5e50fc2a17215341af0ce1ac89f9', 'evaluator': '7131d49c0b4bf427796f8931704e616006ecf417b3a37154b124f8076c483fe4', ...})
+
+    def test_controller_can_only_reserve_through_real_custodian_service(service):
+        witness, client, root, pins = service
+        mirror_path = root/'custodian.db'
+>       CustodianMirror.initialize(mirror_path,client('custodian'),witness.enrollment,witness.pin)
+
+tests/integration/test_attempt_mtls_process.py:90: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/attempt_authority.py:186: in initialize
+    head = client('head', {})
+           ^^^^^^^^^^^^^^^^^^
+src/saal_rsi/attempt_service.py:58: in __call__
+    connection.connect()
+/usr/lib/python3.13/http/client.py:1527: in connect
+    self.sock = self._context.wrap_socket(self.sock,
+/usr/lib/python3.13/ssl.py:455: in wrap_socket
+    return self.sslsocket_class._create(
+/usr/lib/python3.13/ssl.py:1076: in _create
+    self.do_handshake()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ssl.SSLSocket [closed] fd=-1, family=2, type=1, proto=6>, block = False
+
+    @_sslcopydoc
+    def do_handshake(self, block=False):
+        self._check_connected()
+        timeout = self.gettimeout()
+        try:
+            if timeout == 0.0 and block:
+                self.settimeout(None)
+>           self._sslobj.do_handshake()
+E           ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1032)
+
+/usr/lib/python3.13/ssl.py:1372: SSLCertVerificationError
+------------- generated xml file: /content/saal-tests-r2/tests.xml -------------
+=========================== short test summary info ============================
+FAILED tests/integration/test_attempt_mtls_process.py::test_real_mtls_reservation_consumption_and_worker_denial
+FAILED tests/integration/test_attempt_mtls_process.py::test_real_mtls_server_identity_substitution
+FAILED tests/integration/test_attempt_mtls_process.py::test_controller_can_only_reserve_through_real_custodian_service
+3 failed, 538 passed, 1 skipped in 182.25s (0:03:02)

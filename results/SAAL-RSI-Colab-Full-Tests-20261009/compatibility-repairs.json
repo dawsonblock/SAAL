@@ -1,0 +1,7 @@
+{
+  "original_test_sha256": "e496244c24eb11e02757dafe2ed1091c3af995bf1f0c9601bf202a571e512388",
+  "replacement_test_sha256": "8fa0071d185273a9283a4d7c2ac514deb0f07c7b0165f28c44640316980a9d49",
+  "scope": "Test certificate fixture compatibility; no TLS verification settings or project source modified",
+  "gpu_probe_repair": "Tiny vocabulary now has explicit in-range special token IDs",
+  "original_failures_preserved": "test-attempt-2.zip"
+}

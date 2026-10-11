@@ -1,0 +1,15 @@
+{
+  "original_source": "sha256:529700000f54fd98a4e9a8a7d37f3294a834a706eef391313301947f500aefab",
+  "corrected_source": "sha256:e52b241bd032ef999d1bef116f2f02e7f671b990c6d834e297b211cdea66dcb1",
+  "unchanged_algorithm_and_configuration_files": [
+    "backend.py",
+    "training.py",
+    "contract.py",
+    "controller.py",
+    "__init__.py"
+  ],
+  "changed_file": "worker.py",
+  "reason": "Exact normalization of PEFT raw rank-mask names to wrapper tensor names during fresh-process validation.",
+  "original_attempt": "INTERRUPTED_NOT_REUSED",
+  "qualification_status": "NOT_EVALUATED"
+}

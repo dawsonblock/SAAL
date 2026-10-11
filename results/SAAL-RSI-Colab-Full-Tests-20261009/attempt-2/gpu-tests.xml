@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="4.812" timestamp="2026-10-10T03:48:30.146103+00:00" hostname="1f5c4229cece"><testcase classname="gpu_tests" name="test_cuda_adalora_update_allocation_and_safe_reload" time="3.190" /><testcase classname="gpu_tests" name="test_cuda_modernbert_forward_backward" time="0.018"><failure message="AssertionError: Padding_idx must be within num_embeddings">def test_cuda_modernbert_forward_backward():
+     from transformers import ModernBertConfig,ModernBertForSequenceClassification
+     assert torch.cuda.is_available()
+     c=ModernBertConfig(vocab_size=64,hidden_size=32,intermediate_size=64,num_hidden_layers=2,num_attention_heads=4,max_position_embeddings=64,num_labels=4,local_attention=32,global_attn_every_n_layers=2,_attn_implementation='eager')
+&gt;    m=ModernBertForSequenceClassification(c).cuda();x=torch.randint(1,64,(2,16),device='cuda');out=m(input_ids=x,attention_mask=torch.ones_like(x),labels=torch.tensor([0,1],device='cuda'));assert torch.isfinite(out.loss);out.loss.backward();assert any(p.grad is not None for p in m.parameters());torch.cuda.synchronize()
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+../gpu_tests.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+env/lib/python3.13/site-packages/transformers/models/modernbert/modeling_modernbert.py:564: in __init__
+    self.model = ModernBertModel(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+env/lib/python3.13/site-packages/transformers/models/modernbert/modeling_modernbert.py:405: in __init__
+    self.embeddings = ModernBertEmbeddings(config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+env/lib/python3.13/site-packages/transformers/models/modernbert/modeling_modernbert.py:59: in __init__
+    self.tok_embeddings = nn.Embedding(config.vocab_size, config.hidden_size, padding_idx=config.pad_token_id)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;[AttributeError("'Embedding' object has no attribute 'padding_idx'") raised in repr()] Embedding object at 0x78f6f1446cf0&gt;
+num_embeddings = 64, embedding_dim = 32, padding_idx = 50283, max_norm = None
+norm_type = 2.0, scale_grad_by_freq = False, sparse = False, _weight = None
+_freeze = False, device = None, dtype = None
+
+    def __init__(
+        self,
+        num_embeddings: int,
+        embedding_dim: int,
+        padding_idx: int | None = None,
+        max_norm: float | None = None,
+        norm_type: float = 2.0,
+        scale_grad_by_freq: bool = False,
+        sparse: bool = False,
+        _weight: Tensor | None = None,
+        _freeze: bool = False,
+        device=None,
+        dtype=None,
+    ) -&gt; None:
+        factory_kwargs = {"device": device, "dtype": dtype}
+        super().__init__()
+        self.num_embeddings = num_embeddings
+        self.embedding_dim = embedding_dim
+        if padding_idx is not None:
+            if padding_idx &gt; 0:
+&gt;               assert padding_idx &lt; self.num_embeddings, (
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    "Padding_idx must be within num_embeddings"
+E                   AssertionError: Padding_idx must be within num_embeddings
+
+env/lib/python3.13/site-packages/torch/nn/modules/sparse.py:154: AssertionError</failure></testcase></testsuite></testsuites>

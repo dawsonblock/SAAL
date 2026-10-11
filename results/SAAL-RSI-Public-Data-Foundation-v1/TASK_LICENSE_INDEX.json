@@ -1,0 +1,167 @@
+[
+  {
+    "task": "task001_quoref_question_generation.json",
+    "instance_license": [
+      "CC BY 4.0"
+    ],
+    "source": [
+      "quoref"
+    ],
+    "categories": [
+      "Question Generation"
+    ],
+    "input_language": [
+      "English"
+    ]
+  },
+  {
+    "task": "task018_mctaco_temporal_reasoning_presence.json",
+    "instance_license": [
+      "Unknown"
+    ],
+    "source": [
+      "mctaco"
+    ],
+    "categories": [
+      "Question Understanding"
+    ],
+    "input_language": [
+      "English"
+    ]
+  },
+  {
+    "task": "task045_miscellaneous_sentence_paraphrasing.json",
+    "instance_license": [
+      "Unknown"
+    ],
+    "source": [
+      "miscellaneous"
+    ],
+    "categories": [
+      "Paraphrasing"
+    ],
+    "input_language": [
+      "English"
+    ]
+  },
+  {
+    "task": "task065_timetravel_consistent_sentence_classification.json",
+    "instance_license": [
+      "MIT"
+    ],
+    "source": [
+      "timetravel"
+    ],
+    "categories": [
+      "Coherence Classification"
+    ],
+    "input_language": [
+      "English"
+    ]
+  },
+  {
+    "task": "task073_commonsenseqa_answer_generation.json",
+    "instance_license": [
+      "Unknown"
+    ],
+    "source": [
+      "commonsenseqa"
+    ],
+    "categories": [
+      "Question Answering"
+    ],
+    "input_language": [
+      "English"
+    ]
+  },
+  {
+    "task": "task1000_pib_translation_tamil_malayalam.json",
+    "instance_license": [
+      "CC BY-SA 4.0"
+    ],
+    "source": [
+      "pib"
+    ],
+    "categories": [
+      "Translation"
+    ],
+    "input_language": [
+      "Tamil"
+    ]
+  },
+  {
+    "task": "task1290_xsum_summarization.json",
+    "instance_license": [
+      "MIT"
+    ],
+    "source": [
+      "xsum"
+    ],
+    "categories": [
+      "Summarization"
+    ],
+    "input_language": [
+      "English"
+    ]
+  },
+  {
+    "task": "task1338_peixian_equity_evaluation_corpus_sentiment_classifier.json",
+    "instance_license": [
+      "Unknown"
+    ],
+    "source": [
+      "equity_evaluation_corpus"
+    ],
+    "categories": [
+      "Sentiment Analysis"
+    ],
+    "input_language": [
+      "English"
+    ]
+  },
+  {
+    "task": "task1344_glue_entailment_classification.json",
+    "instance_license": [
+      "Unknown"
+    ],
+    "source": [
+      "rte"
+    ],
+    "categories": [
+      "Textual Entailment"
+    ],
+    "input_language": [
+      "English"
+    ]
+  },
+  {
+    "task": "task1390_wscfixed_coreference.json",
+    "instance_license": [
+      "CC BY 4.0"
+    ],
+    "source": [
+      "wsc_fiexed"
+    ],
+    "categories": [
+      "Coreference Resolution"
+    ],
+    "input_language": [
+      "English"
+    ]
+  },
+  {
+    "task": "task1410_dart_relationship_extraction.json",
+    "instance_license": [
+      "MIT"
+    ],
+    "source": [
+      "dart"
+    ],
+    "categories": [
+      "Information Extraction"
+    ],
+    "input_language": [
+      "English"
+    ]
+  }
+]

@@ -1,0 +1,2 @@
+record_id,task_family_id,generation_rule_id,parent_record_id,counterfactual_group,source_url,source_digest,prompt,candidate_decision,label_rationale,reviewer_1,reviewer_1_decision,reviewer_2,reviewer_2_decision,adjudication,review_status,split
+,,,,,,,,,,,,,,,PENDING,UNASSIGNED

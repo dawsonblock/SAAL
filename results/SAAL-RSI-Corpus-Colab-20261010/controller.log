@@ -1,0 +1,121 @@
+upload --session saal-corpus-v1-20261010 /Users/dawsonblock/Downloads/SAAL-RSI-Decision-Corpus-v1-Review-Candidate.zip /content/corpus.zip 
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-RSI-Decision-Corpus-v1-Review-Candidate.zip' to '/content/corpus.zip'
+ 
+upload --session saal-corpus-v1-20261010 /Users/dawsonblock/Downloads/SAAL-RSI-Corpus-Colab-20261010/base-source.zip /content/base-source.zip 
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-RSI-Corpus-Colab-20261010/base-source.zip' to '/content/base-source.zip'
+ 
+upload --session saal-corpus-v1-20261010 /Users/dawsonblock/Downloads/SAAL-RSI-Corpus-Colab-20261010/INPUTS.json /content/INPUTS.json 
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-RSI-Corpus-Colab-20261010/INPUTS.json' to '/content/INPUTS.json'
+ 
+exec --session saal-corpus-v1-20261010 --file /Users/dawsonblock/Downloads/SAAL-RSI-Corpus-Colab-20261010/remote_run.py --timeout 600 
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+STAGE verify_inputs
+STAGE dependencies
+STAGE full_corpus_tests
+......................................                                   [100%]
+------- generated xml file: /content/saal-corpus-run/evidence/tests.xml --------
+38 passed in 23.56s
+ 
+STAGE rebuild_and_projection_verification
+STAGE review_gate_cli
+STAGE export_evidence
+{
+  "qualification": "NOT_EVALUATED",
+  "training_run": false,
+  "human_reviews_completed": 0,
+  "runtime": {
+    "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  },
+  "status": "PASS",
+  "input_verification": "PASS",
+  "inputs": {
+    "corpus_zip_sha256": "05b07ad1d9a376c4cc5ff7022d5ae0c07b62934645aa76d031dd018acdbed4c7",
+    "base_source_zip_sha256": "5e9d95d5a5f972598aaae08b73372ee98dd6265a7ee34641a356dcc5f1e09b9c",
+    "base_source_files": 116
+  },
+  "dependencies": {
+    "pytest": "8.4.2",
+    "cryptography": "48.0.1"
+  },
+  "dependency_admission": "VERSION_PINNED_NOT_HASH_LOCKED",
+  "test_exit_code": 0,
+  "capsule_verification": {
+    "blank_review_forms": "PASS",
+    "counterfactual_pairs": 300,
+    "deterministic_rebuild": "PASS",
+    "families": 7,
+    "human_review": "PENDING",
+    "human_reviews_completed": 0,
+    "label_counts": {
+      "test": {
+        "ASK": 30,
+        "CHEAP": 30,
+        "FAST": 30,
+        "REFUSE": 30
+      },
+      "train": {
+        "ASK": 90,
+        "CHEAP": 90,
+        "FAST": 90,
+        "REFUSE": 90
+      },
+      "validation": {
+        "ASK": 30,
+        "CHEAP": 30,
+        "FAST": 30,
+        "REFUSE": 30
+      }
+    },
+    "mechanical_checks": "PASS",
+    "projection_checks": "PASS",
+    "qualification_status": "NOT_EVALUATED",
+    "records": 600,
+    "semantic_leakage_review": "PENDING",
+    "source_bindings": "PASS",
+    "splits": {
+      "test": 120,
+      "train": 360,
+      "validation": 120
+    },
+    "training_ready": false
+  }
+}
+ 
+download --session saal-corpus-v1-20261010 /content/saal-corpus-evidence.zip /Users/dawsonblock/Downloads/SAAL-RSI-Corpus-Colab-20261010/remote-evidence.zip 
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Downloaded '/content/saal-corpus-evidence.zip' to '/Users/dawsonblock/Downloads/SAAL-RSI-Corpus-Colab-20261010/remote-evidence.zip'
+ 
+stop --session saal-corpus-v1-20261010 
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Stopping session 'saal-corpus-v1-20261010'...
+[colab] Session terminated.
+ 
+sessions 
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] No active sessions found on server.
+ 

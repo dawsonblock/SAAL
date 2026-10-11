@@ -1,0 +1,6 @@
+{
+  "stage": "FAILED",
+  "elapsed_seconds": 538.8045327663422,
+  "test_exit_code": 1,
+  "error": "GPU_TESTS failed with exit 1"
+}

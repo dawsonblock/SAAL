@@ -1,0 +1,10 @@
+{
+  "stage": "COMPLETED_WITH_PLATFORM_SKIP",
+  "elapsed_seconds": 198.6636950969696,
+  "suite_counts": {
+    "tests": 542,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  }
+}
