@@ -1,0 +1,41 @@
+"""Matched public comparison; dynamic capacity is not qualification."""
+from pathlib import Path
+import json,hashlib,sys
+from saal_rsi.spec import canonical,sha
+from saal_rsi.model_contract import verify
+from saal_rsi.sequence_replay_v2 import prediction_equal
+from saal_adalora.contract import validate,SCREEN,FIXED_PIN
+root=Path(sys.argv[1]).resolve();e=root/'experiment-r2';pin=(e/'controller.pub').read_text().strip();job=verify(json.loads((e/'signed-job.json').read_text()),pin);reference=validate(job)
+files=verify(json.loads((root/'FIXED_CONTROL_FILES.json').read_text()),FIXED_PIN)['files']
+for local,prior in [('FIXED_RESULT.json','experiment/lora/result.json'),('FIXED_REPLAY.json','experiment/lora-debug-replay.json')]:
+ if hashlib.sha256((root/local).read_bytes()).hexdigest()!=files[prior]:raise ValueError('fixed evidence substitution')
+fixed=json.loads((root/'FIXED_RESULT.json').read_text());fr=json.loads((root/'FIXED_REPLAY.json').read_text());outcome=json.loads((e/'outcome.json').read_text())
+runs=[]
+for method,result,replay in [('fixed-rank-4',fixed,fr)]:
+ runs.append({'method':method,'state':'COMPLETED','snapshots':{n:v['metrics'] for n,v in replay['snapshots'].items()},'resources':result['resource_accounting'],'selected_step':result['snapshots']['best']['step'],'job_digest':job['fixed_comparison_digest']})
+if outcome['state']=='COMPLETED':
+ result=json.loads((e/'result.json').read_text());replay=json.loads((e/'fresh-replay.json').read_text())
+ if not replay['all_snapshots_reproduced']:raise ValueError('unreproduced dynamic model')
+ if not prediction_equal(replay['snapshots']['initial']['predictions']['development'],fr['snapshots']['initial']['predictions']['development'],'modernbert-seqcls-v1',1e-4):raise ValueError('unmatched initial predictions')
+ if result['resource_accounting']['tokens']!=fixed['resource_accounting']['tokens']:raise ValueError('unmatched training token exposure')
+ runs.append({'method':'adalora-8-to-average-4','state':'COMPLETED','snapshots':{n:v['metrics'] for n,v in replay['snapshots'].items()},'resources':result['resource_accounting'],'selected_step':result['snapshots']['best']['step'],'job_digest':sha(job),'real_parameter_updates':result['real_parameter_updates'],'frozen_integrity':result['frozen_integrity'],'all_snapshot_replay':True,'snapshot_allocations':result['snapshot_allocations']})
+else:runs.append({'method':'adalora-8-to-average-4',**outcome})
+for r in runs:
+ if r['state']!='COMPLETED':continue
+ r['screen_results']={}
+ for name in ('best','terminal'):
+  m=r['snapshots'][name]['development'];g={'pair_correctness':m['complete_pair_accuracy']>=SCREEN['complete_pair_accuracy'],'worst_family':m['worst_family_accuracy']>=SCREEN['worst_family_accuracy'],'class_coverage':len(m['class_accuracy'])==4 and all(v>0 for v in m['class_accuracy'].values()),'critical_proposals':m['unauthorized_proposals']==0,'invalid_outputs':m['invalid_outputs']==0};g['passed']=all(g.values());r['screen_results'][name]=g
+report={'schema':'saal-adalora-comparison-v1','runs':runs,'new_dynamic_attempts':2,'prior_interrupted_attempt':json.loads((root/'experiment/outcome.json').read_text()),'fixed_control_is_preserved_prior_attempt':True,'qualification_status':'NOT_EVALUATED','external_deployment_allowed':False,'limits':'One CPU seed; same data/update/token schedule but different physical capacity, SVD factorization, alpha scaling, orthogonal penalty and dropout random stream. Public correlated recipes; no independent qualification or causal rank-only ablation.'}
+(root/'RESULTS.json').write_bytes(canonical(report))
+lines=['# SAAL-RSI dynamic LoRA comparison','', '**NOT_EVALUATED. No independent generalization or external execution authorization.**','', 'One corrected, separately signed PEFT AdaLoRA experiment is compared with the preserved fixed-rank-4 ModernBERT run. The frozen job binds the exact same native dataset, seed 47, 600 updates, batch 8, rate 0.0003 and 1,800-second training/evaluation deadline. Dynamic pruning starts after step 100 and fixes the final mask at step 500, followed by 100 terminal updates. Initial rank is 8 over 22 query/key/value projections; the final global assigned rank budget is at most 88 (average rank 4).','', '| Method | Initial dev | Selected dev | Terminal dev | Terminal complete pairs | Terminal train | Terminal exposed regression | Critical terminal dev |','|---|---:|---:|---:|---:|---:|---:|---:|']
+for r in runs:
+ if r['state']!='COMPLETED':lines.append(f"| {r['method']} | INTERRUPTED | | | | | | |");continue
+ s=r['snapshots'];t=s['terminal'];lines.append('| '+r['method']+' | '+' | '.join(f'{v:.2%}' for v in [s['initial']['development']['accuracy'],s['best']['development']['accuracy'],t['development']['accuracy'],t['development']['complete_pair_accuracy'],t['train']['accuracy'],t['regression']['accuracy']])+f" | {t['development']['unauthorized_proposals']} |")
+lines+=['','## Rank, work and checkpoints','']
+for r in runs:
+ if r['state']!='COMPLETED':continue
+ a=r['resources'];lines.append(f"- {r['method']}: {a['trainable_parameters']:,} physically trainable parameters, {a['tokens']:,} tokens, {a['elapsed_seconds']:.2f} measured training/evaluation seconds; selected step {r['selected_step']}. Selected screen: {r['screen_results']['best']}. Terminal screen: {r['screen_results']['terminal']}.")
+ if 'snapshot_allocations' in r:
+  terminal=r['snapshot_allocations']['terminal'];lines.append(f"- Terminal assigned rank budget: {terminal['assigned_rank_budget']}; per-target assignment: {terminal['assigned_rank_per_target']}.")
+lines+=['','The allocation callback executes after every optimizer update while gradients remain available. Orthogonal regularization is added explicitly because classification uses an external cross-entropy loss, which would otherwise bypass PEFT\'s loss-based penalty. At final-mask steps, pruned singular values are remasked after optimization. Initial/best/terminal safe tensor exports retain the full initial-rank matrix shapes plus signed mask metadata. This is adaptive masking, not physical storage compaction or reduced tensor memory.','', 'Fresh-process replay validates every tensor name/shape/dtype, finite values, rank-mask inventory, pruned zeros and all three snapshots\' recorded predictions. It also checks initial-prediction parity and identical training token exposure against the authenticated fixed control. Worker self-reports are not hostile-worker attestation; the local controller signs file integrity only.','', '## Research decision and limits','', 'The preregistered public screen remains 90% complete pairs, 80% worst group, all four classes correctly represented and no invalid/critical proposals. It is unchanged by the request for dynamic rank. Failed screens remain failed. The new contract is explicitly experimental AdaLoRA; it never reinterprets or exports a native fixed-LoRA v5 result. No authority or promotion path is expanded.','', 'Rank allocation, SVD factorization, orthogonal loss and higher initial physical capacity differ from fixed LoRA. One seed and equal update/token schedules do not establish equal compute, a causal rank-only improvement or a better efficiency frontier. The same operator-authored correlated public grammar is reused; no protected alpha or holdout is touched. The first dynamic attempt was stopped when a replay-key prefix defect was found; its source, partial tensors and spent ledger are preserved. A fresh source-bound admission reruns from the same upstream initialization after adding exact mask-name normalization and two regression tests. No interrupted receipt was reused or reclassified. Complete failed attempts and the earlier curriculum results remain in the delivery.','', 'Implementation follows the [official PEFT AdaLoRA API](https://huggingface.co/docs/peft/package_reference/adalora) and the installed, version-pinned implementation; the frozen source includes the callback and regularization logic. No new Colab/T4 run, continual-learning proof, independent custody deployment or production qualification is claimed.']
+(root/'REPORT.md').write_text('\n'.join(lines)+'\n');print(json.dumps({'runs':[(r['method'],r['state']) for r in runs],'qualification_status':'NOT_EVALUATED'}))

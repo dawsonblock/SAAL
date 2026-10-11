@@ -1,0 +1,62 @@
+{
+  "qualification": "NOT_EVALUATED",
+  "training_run": false,
+  "human_reviews_completed": 0,
+  "runtime": {
+    "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  },
+  "status": "PASS",
+  "input_verification": "PASS",
+  "inputs": {
+    "corpus_zip_sha256": "05b07ad1d9a376c4cc5ff7022d5ae0c07b62934645aa76d031dd018acdbed4c7",
+    "base_source_zip_sha256": "5e9d95d5a5f972598aaae08b73372ee98dd6265a7ee34641a356dcc5f1e09b9c",
+    "base_source_files": 116
+  },
+  "dependencies": {
+    "pytest": "8.4.2",
+    "cryptography": "48.0.1"
+  },
+  "dependency_admission": "VERSION_PINNED_NOT_HASH_LOCKED",
+  "test_exit_code": 0,
+  "capsule_verification": {
+    "blank_review_forms": "PASS",
+    "counterfactual_pairs": 300,
+    "deterministic_rebuild": "PASS",
+    "families": 7,
+    "human_review": "PENDING",
+    "human_reviews_completed": 0,
+    "label_counts": {
+      "test": {
+        "ASK": 30,
+        "CHEAP": 30,
+        "FAST": 30,
+        "REFUSE": 30
+      },
+      "train": {
+        "ASK": 90,
+        "CHEAP": 90,
+        "FAST": 90,
+        "REFUSE": 90
+      },
+      "validation": {
+        "ASK": 30,
+        "CHEAP": 30,
+        "FAST": 30,
+        "REFUSE": 30
+      }
+    },
+    "mechanical_checks": "PASS",
+    "projection_checks": "PASS",
+    "qualification_status": "NOT_EVALUATED",
+    "records": 600,
+    "semantic_leakage_review": "PENDING",
+    "source_bindings": "PASS",
+    "splits": {
+      "test": 120,
+      "train": 360,
+      "validation": 120
+    },
+    "training_ready": false
+  }
+}

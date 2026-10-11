@@ -1,0 +1,7 @@
+{
+  "changed_test": "tests/integration/test_attempt_mtls_process.py",
+  "original_sha256": "e496244c24eb11e02757dafe2ed1091c3af995bf1f0c9601bf202a571e512388",
+  "new_sha256": "8fa0071d185273a9283a4d7c2ac514deb0f07c7b0165f28c44640316980a9d49",
+  "production_source_changes": 0,
+  "reason": "Strict RFC 5280 CA/leaf certificate extensions for Python 3.13"
+}

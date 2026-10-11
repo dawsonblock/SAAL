@@ -1,0 +1,11 @@
+{
+  "official_model_load": true,
+  "bounded_forward_backward": true,
+  "optimizer_updates": 0,
+  "initial_control_prediction_parity": true,
+  "trainable_parameters": 1134516,
+  "tokens": 512,
+  "loss_with_orthogonal_penalty": 1.9968541860580444,
+  "qualified": false,
+  "gpu": false
+}

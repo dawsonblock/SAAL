@@ -1,0 +1,207 @@
+{
+  "schema": "saal-public-data-acquisition-v1",
+  "sources": [
+    {
+      "repository": "google/IFEval",
+      "revision": "966cd89545d6b6acfd7638bc708b98261ca58e84",
+      "repository_type": "dataset",
+      "license_metadata": "apache-2.0",
+      "files": [
+        {
+          "path": "sources/google--IFEval/README.md",
+          "sha256": "c3e2d7da8286ae27649f526e3153cc72f071c21a6a7702d06f09cef5f9c114f1",
+          "bytes": 5523
+        },
+        {
+          "path": "sources/google--IFEval/ifeval_input_data.jsonl",
+          "sha256": "6a85310ca8ce15eff755aa08a3a4ff931c7e273e7515ebb3c492ea85fd8288f2",
+          "bytes": 207111
+        }
+      ],
+      "exposure": "PUBLIC",
+      "saal_labels_present": false,
+      "qualification_allowed": false
+    },
+    {
+      "repository": "facebook/anli",
+      "revision": "8e4813d81f46d313dac7892e1c28076917cfcdf9",
+      "repository_type": "dataset",
+      "license_metadata": [
+        "cc-by-nc-4.0"
+      ],
+      "files": [
+        {
+          "path": "sources/facebook--anli/README.md",
+          "sha256": "a35130cf40aec6976d9ff6653c25f8ad60a79e2b9a1247b86e9aa002f6887e83",
+          "bytes": 7982
+        },
+        {
+          "path": "sources/facebook--anli/plain_text/dev_r1-00000-of-00001.parquet",
+          "sha256": "72e27463177b4363be80f1fc6ccdaab44ddaeb65db58c2280f94690e15468334",
+          "bytes": 351479
+        },
+        {
+          "path": "sources/facebook--anli/plain_text/dev_r2-00000-of-00001.parquet",
+          "sha256": "43e4673665decf0b0e8487e55f98285423cb356b985e206fe5998defae2e38fa",
+          "bytes": 350606
+        },
+        {
+          "path": "sources/facebook--anli/plain_text/dev_r3-00000-of-00001.parquet",
+          "sha256": "61775ec09351f6011ce4dc9ea313f457bba6e11d7665d34d95c111665023a83e",
+          "bytes": 434044
+        },
+        {
+          "path": "sources/facebook--anli/plain_text/test_r1-00000-of-00001.parquet",
+          "sha256": "c4a3d304c4671941d6bad5a07632a79713c5a1be485ccf75b81b6df93f61045e",
+          "bytes": 353376
+        },
+        {
+          "path": "sources/facebook--anli/plain_text/test_r2-00000-of-00001.parquet",
+          "sha256": "df5daccdd5623cfcaa34be0100721783485f4181a42796b1d0ac0cd7601e7acb",
+          "bytes": 361549
+        },
+        {
+          "path": "sources/facebook--anli/plain_text/test_r3-00000-of-00001.parquet",
+          "sha256": "3232c4217979da00b2cd6ed97d099a8a8edf04530193ea52e3c8d69190de92a2",
+          "bytes": 434550
+        },
+        {
+          "path": "sources/facebook--anli/plain_text/train_r1-00000-of-00001.parquet",
+          "sha256": "de2d038ae67f1fb1872073490b9e7685e9114d5f278ddd4631905fe0a4ecbcff",
+          "bytes": 3140120
+        },
+        {
+          "path": "sources/facebook--anli/plain_text/train_r2-00000-of-00001.parquet",
+          "sha256": "209f4a15bf77224c62ffbde5f150fda928a7e2f5175366f4cacc3c7588aab13d",
+          "bytes": 6527557
+        },
+        {
+          "path": "sources/facebook--anli/plain_text/train_r3-00000-of-00001.parquet",
+          "sha256": "c1d3f614d673888ac56b9ab62324e21583c98a11c4fef84e938d0f8fc414b29a",
+          "bytes": 14333467
+        }
+      ],
+      "exposure": "PUBLIC",
+      "saal_labels_present": false,
+      "qualification_allowed": false
+    },
+    {
+      "repository": "allenai/natural-instructions",
+      "revision": "55a365637381ce7f3748fa2eac7aef1a113bbb82",
+      "repository_type": "github",
+      "task_index_count": 1613,
+      "downloaded_tasks": [
+        "tasks/task1344_glue_entailment_classification.json",
+        "tasks/task001_quoref_question_generation.json",
+        "tasks/task1290_xsum_summarization.json",
+        "tasks/task065_timetravel_consistent_sentence_classification.json",
+        "tasks/task1410_dart_relationship_extraction.json",
+        "tasks/task1000_pib_translation_tamil_malayalam.json",
+        "tasks/task045_miscellaneous_sentence_paraphrasing.json",
+        "tasks/task1338_peixian_equity_evaluation_corpus_sentiment_classifier.json",
+        "tasks/task1390_wscfixed_coreference.json",
+        "tasks/task073_commonsenseqa_answer_generation.json",
+        "tasks/task018_mctaco_temporal_reasoning_presence.json"
+      ],
+      "files": [
+        {
+          "path": "sources/allenai--natural-instructions/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "bytes": 11558
+        },
+        {
+          "path": "sources/allenai--natural-instructions/README.md",
+          "sha256": "bd5c0768d317f0184c00afd3233d166672aa63a6fee52fa368f3aa117111ccd7",
+          "bytes": 8809
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task1344_glue_entailment_classification.json",
+          "sha256": "2c7357fb287a32311113515e8e69919d521888be7884e78f85e89639d6356cda",
+          "bytes": 1277052
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task001_quoref_question_generation.json",
+          "sha256": "6fe45026a5debce9616a9bb2cc76412f7ea2141021375409ed973752b9ffddb9",
+          "bytes": 11255923
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task1290_xsum_summarization.json",
+          "sha256": "932e33f4ed3e23587076d938f9e088ae6c0a1b09a88468b493286c085cfeca41",
+          "bytes": 16364902
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task065_timetravel_consistent_sentence_classification.json",
+          "sha256": "549253bed5e17ac3cb5adb0f1bf60693f13fb92be8ca67e915eed49bd735baaa",
+          "bytes": 3487480
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task1410_dart_relationship_extraction.json",
+          "sha256": "1b0492dd4ed3264575cc53fbaf3401b6d89667a4a2e12ac7453bcecca641b1b2",
+          "bytes": 2767775
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task1000_pib_translation_tamil_malayalam.json",
+          "sha256": "b34474b4984e021afac6d4123b5810b208444fce93c29ddbe954adc05cd1d795",
+          "bytes": 1285149
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task045_miscellaneous_sentence_paraphrasing.json",
+          "sha256": "c57fce9498d64d4c6740fba9a704ca85078341b75c373988abc806381824365b",
+          "bytes": 240983
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task1338_peixian_equity_evaluation_corpus_sentiment_classifier.json",
+          "sha256": "b23208016937748e9fb156dc627b31a4b9321424535a3e02524f70408ffca0df",
+          "bytes": 1253188
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task1390_wscfixed_coreference.json",
+          "sha256": "0c67c9aec9c9d3f014a7a66c6facb15410e9f7cabc16113129d31a80544634d9",
+          "bytes": 220890
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task073_commonsenseqa_answer_generation.json",
+          "sha256": "27360ed53f5e14f5e3a402a37c536cd2ee397e5cc4247f1434f80c3e5c3bc1e5",
+          "bytes": 369508
+        },
+        {
+          "path": "sources/allenai--natural-instructions/tasks/task018_mctaco_temporal_reasoning_presence.json",
+          "sha256": "adb9a0dceb64de134f05c32d5baa34fbca87d1ec256085c57b4fea1d0ad78d7b",
+          "bytes": 210397
+        }
+      ],
+      "license_metadata": "See upstream LICENSE and per-task source/license metadata",
+      "exposure": "PUBLIC",
+      "saal_labels_present": false,
+      "qualification_allowed": false
+    }
+  ],
+  "model_references": [
+    {
+      "repository": "answerdotai/ModernBERT-base",
+      "revision": "11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88",
+      "license_metadata": "apache-2.0",
+      "weights_acquired_by_this_capsule": false,
+      "training_admitted": false,
+      "reason": "Repository pin alone is insufficient; actual files, tokenizer, worker, dependencies, adapters and budget must be authenticated separately"
+    },
+    {
+      "repository": "Qwen/Qwen3.5-0.8B-Base",
+      "revision": "dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68",
+      "license_metadata": "apache-2.0",
+      "weights_acquired_by_this_capsule": false,
+      "training_admitted": false,
+      "reason": "Repository pin alone is insufficient; actual files, tokenizer, worker, dependencies, adapters and budget must be authenticated separately"
+    },
+    {
+      "repository": "Qwen/Qwen3.5-0.8B",
+      "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+      "license_metadata": "apache-2.0",
+      "weights_acquired_by_this_capsule": false,
+      "training_admitted": false,
+      "reason": "Repository pin alone is insufficient; actual files, tokenizer, worker, dependencies, adapters and budget must be authenticated separately"
+    }
+  ],
+  "qualification_status": "NOT_EVALUATED",
+  "saal_training_admitted": false
+}

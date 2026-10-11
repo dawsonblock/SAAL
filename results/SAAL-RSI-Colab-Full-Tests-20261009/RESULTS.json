@@ -1,0 +1,75 @@
+{
+  "schema": "saal-colab-full-tests-v1",
+  "session": "saal-full-tests-20261009",
+  "hardware": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "gpu": "Tesla T4",
+    "vram_bytes": 15637086208,
+    "cuda": "12.8",
+    "packages": {
+      "torch": "2.10.0",
+      "peft": "0.21.2",
+      "transformers": "5.19.0",
+      "safetensors": "0.8.0",
+      "numpy": "2.4.6",
+      "pytest": "8.4.2"
+    },
+    "scope": "Full inherited suite plus bounded synthetic CUDA probes; no pretrained campaign or independent qualification"
+  },
+  "initial_full_suite": {
+    "tests": 542,
+    "failures": 3,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 538
+  },
+  "corrected_full_suite": {
+    "tests": 542,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 541
+  },
+  "corrected_cuda_probes": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 2
+  },
+  "qualified": false,
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false,
+  "cleanup": {
+    "session": "saal-full-tests-20261009",
+    "utc": "2026-10-10T03:54:49.228587+00:00",
+    "server_listing_exit": 0,
+    "termination_confirmed": true,
+    "output": "\n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] No active sessions found on server.\n"
+  },
+  "source_audit": {
+    "frozen_inventory_files": 211,
+    "unchanged_files": 210,
+    "documented_test_only_changes": {
+      "tests/integration/test_attempt_mtls_process.py": {
+        "original": "e496244c24eb11e02757dafe2ed1091c3af995bf1f0c9601bf202a571e512388",
+        "actual": "8fa0071d185273a9283a4d7c2ac514deb0f07c7b0165f28c44640316980a9d49"
+      }
+    },
+    "production_source_changes": 0,
+    "dependency_consistency": "No broken requirements found.",
+    "cuda_probe_counts": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "limitations": [
+    "One macOS sandbox test deliberately skipped on Linux",
+    "CUDA probes use small randomly initialized networks, not a complete pretrained GPU learning campaign",
+    "Original archive remains immutable; test-certificate compatibility patch applied only in rerun copy",
+    "Tests do not establish independent generalization or guarantee alignment"
+  ]
+}

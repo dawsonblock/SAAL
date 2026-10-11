@@ -1,0 +1,6 @@
+{"stage": "verify_inputs", "time": 1791679740.675314}
+{"stage": "dependencies", "time": 1791679740.7528796}
+{"stage": "full_corpus_tests", "time": 1791679746.5914843}
+{"stage": "rebuild_and_projection_verification", "time": 1791679771.990861}
+{"stage": "review_gate_cli", "time": 1791679772.3894434}
+{"stage": "export_evidence", "time": 1791679772.5519917}
