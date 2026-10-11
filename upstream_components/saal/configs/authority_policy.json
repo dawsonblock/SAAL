@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "principle": "deny unrecognized tools; model-supplied risk labels have no authority",
+  "tools": {
+    "schedule.read": {"risk": "LOW", "requires_human_approval": false, "external_effects": false},
+    "schedule.propose": {"risk": "LOW", "requires_human_approval": false, "external_effects": false},
+    "schedule.commit": {"risk": "HIGH", "requires_human_approval": true, "external_effects": true},
+    "filesystem.delete": {"risk": "BLOCKED"},
+    "model.promote": {"risk": "BLOCKED"},
+    "system.change_policy": {"risk": "BLOCKED"}
+  },
+  "note": "Human-readable policy example; authority.py rules are currently normative. Build a validated signed-policy loader before operational use."
+}

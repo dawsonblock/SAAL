@@ -1,0 +1,61 @@
+{
+  "schema": "saal-corrective-defect-status-v1",
+  "version": "0.9.4.1",
+  "defects": {
+    "SAAL-001": {
+      "status": "PARTIAL",
+      "evidence_scope": "Preserved pretrained backends; new fixed-candidate public LoRA gain 33.33% to 50%, but zero complete pairs and 12 unsafe proposals. Credible semantic generalization not established."
+    },
+    "SAAL-002": {
+      "status": "ENGINEERING_PRESERVED",
+      "evidence_scope": "Position-aware v0.9.3 and native pretrained architectures preserved without reinterpreting legacy tensors."
+    },
+    "SAAL-003": {
+      "status": "PARTIAL",
+      "evidence_scope": "Six new mechanisms plus protected-lineage and similarity screening. Independent authors, semantic embedding production and reviewed protected sampling unavailable."
+    },
+    "SAAL-004": {
+      "status": "IMPLEMENTED_PUBLIC_SCOPE",
+      "evidence_scope": "Distinct public research selection and qualification admission; initial/best/terminal retained; unavailable curve checkpoint weights explicitly reported."
+    },
+    "SAAL-005": {
+      "status": "CONDITIONAL_IMPLEMENTATION",
+      "evidence_scope": "Witness-owned counters and signed hash-chain, rollback/reset/concurrency tests. Separately managed witness not deployed; legacy local registry unchanged."
+    },
+    "SAAL-006": {
+      "status": "PARTIAL",
+      "evidence_scope": "Real mTLS custodian/witness services and role ACLs; evaluator consumption API; actual declared-path child restrictions. Three independently operated authorities not deployed."
+    },
+    "SAAL-007": {
+      "status": "PREVIOUSLY_TESTED_PRESERVED",
+      "evidence_scope": "Unchanged hash locks installed on prior fresh Colab T4 Python 3.13 and local ARM64 Python 3.12. No new GPU installation in this repair."
+    },
+    "SAAL-008": {
+      "status": "PREVIOUSLY_TESTED_PRESERVED",
+      "evidence_scope": "Version-5 official ModernBERT/Qwen snapshots, native tokenizers/processors, trainables and restoration identities preserved."
+    },
+    "SAAL-009": {
+      "status": "PREVIOUSLY_TESTED_PRESERVED",
+      "evidence_scope": "Both Qwen checkpoints previously completed measured FP32 LoRA T4 training/reload; nonfinite FP16 attempt retained as rejected. New sequence-v2 is local only."
+    },
+    "SAAL-010": {
+      "status": "PARTIAL",
+      "evidence_scope": "Declared reservoir/stratified replay, separate RNG streams, matched current IDs and full predictions; real bounded native smoke. Multi-seed unfamiliar-task retention advantage unestablished."
+    },
+    "SAAL-011": {
+      "status": "PARTIAL",
+      "evidence_scope": "Fresh controller replay and credential-free declared-path restrictions tested; worker reports are not independent GPU host attestation."
+    },
+    "SAAL-012": {
+      "status": "IMPLEMENTED_PUBLIC_DIAGNOSTICS",
+      "evidence_scope": "Development-only temperature fit, public regression Brier/ECE and selective curves; escalation never rewarded as correct ASK. Independent calibration qualification absent."
+    },
+    "SAAL-013": {
+      "status": "DEFERRED",
+      "evidence_scope": "No recursive-improvement claim or learner authority to change evaluator/promotion/services."
+    }
+  },
+  "qualification_status": "NOT_EVALUATED",
+  "independent_deployment_verified": false,
+  "external_deployment_allowed": false
+}

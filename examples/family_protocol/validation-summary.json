@@ -1,0 +1,25 @@
+{
+  "verified": {
+    "external_deployment_allowed": false,
+    "research_qualified": false,
+    "verified": true
+  },
+  "qualification": {
+    "external_deployment_allowed": false,
+    "report": "/Users/dawsonblock/Documents/Codex/2026-10-08/referenced-chatgpt-conversation-this-is-an/work/092-family-protocol/qualification2.json",
+    "research_qualified": false
+  },
+  "attempts": [
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "alpha": 0.0125,
+  "baseline_preserved": true,
+  "sampling": "Public diagnostic fixtures only; no independently protected evaluation. Attempt 1 retained after test-fixture source change."
+}

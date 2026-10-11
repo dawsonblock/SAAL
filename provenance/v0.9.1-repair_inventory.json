@@ -1,0 +1,294 @@
+{
+  "input_name": "SAAL-RSI-v0.9.0-Full-Upgrade.zip",
+  "input_sha256": "bdc119c93cfd1248424a74946102791ee6ed657cb1d652afbb645140b9b5b96f",
+  "modified_files": [
+    {
+      "path": "CHANGELOG.md",
+      "input_sha256": "00dc65be1a85d2cc330c240c72de06fa203459f27a1efb6179953555c708abde",
+      "upgraded_sha256": "88f4f8c7a197f8f32841ed18e05c14a144a1149344718a09ec5b487fded1db51"
+    },
+    {
+      "path": "README.md",
+      "input_sha256": "832e3e6adad8106381b5c1d4eead75aff0d3f24ea21ef30a30df6e03c128a8a9",
+      "upgraded_sha256": "17f48376f7ce7128c64b66d9c8b6c5e3c6f0b4e74436b98d5812ccec416828b6"
+    },
+    {
+      "path": "RELEASE_REPORT.md",
+      "input_sha256": "841299212296af4a04674a7ee6e895de023aa2710ec6d6c2ff50041419592bb6",
+      "upgraded_sha256": "1bb57e49fdee4ff3a394233097ba502129deefbf855be9781e0d5645e7b78f98"
+    },
+    {
+      "path": "examples/example_anchor_receipt.json",
+      "input_sha256": "c4c7a9d6330c9bfa7fdb6ff676687e475b90031d2206cceeecc27bfa9c04eb26",
+      "upgraded_sha256": "f020bc3abae20e4b6de5c93ab9d2155433186804ac33019db113693b4bdf0dcf"
+    },
+    {
+      "path": "examples/example_custodian_public_key.txt",
+      "input_sha256": "6a9707398f6c1f5319d3df431f0b100a71d12cd013ca560a6287a1198aada027",
+      "upgraded_sha256": "62c583eca451375fc9574ea7d40a2575d3bd62e3b03e04ce7bc4f705eb9d29c3"
+    },
+    {
+      "path": "examples/example_evaluator_public_key.txt",
+      "input_sha256": "d5fc907d4fd5e3b2de8777d6ed3565c457f4b24325ab1c8b06b7bcb6ee74ab66",
+      "upgraded_sha256": "b3bd3809dfea1ad53605f86f6114eb4c2e08c152a6e685bafc578c1499025678"
+    },
+    {
+      "path": "examples/example_negative_qualification.json",
+      "input_sha256": "a92b5ee893a5d06d2e2547002028d712323b32881dde0f1c46342180b0cf1f7c",
+      "upgraded_sha256": "f20a6f44aa547fd7f3910f01d1f5d5ca005eb4d6f53a92ed564b14a9506bab91"
+    },
+    {
+      "path": "examples/model_demo/checkpoint/adapter.safetensors",
+      "input_sha256": "67af8c8bfa215e6e0fe820f57e7c40779b3152ac26b39592a1240506c79f009a",
+      "upgraded_sha256": "62dae37c2be2f3c2d6bf2def2954afe1c4c03bc54c4081895cd806b37ece8be7"
+    },
+    {
+      "path": "examples/model_demo/checkpoint/baseline.safetensors",
+      "input_sha256": "4c439c5a3b4c75db9440300d66128c67d4909c0acfecc136652d164f85f99b88",
+      "upgraded_sha256": "e4a00364729b1a94986d45087f900b80c432cf6be3269869cdb7592b30242d93"
+    },
+    {
+      "path": "examples/model_demo/checkpoint/result.json",
+      "input_sha256": "ec869cb15a790f9f8308ea8bf1792122f67bcadcf5000eef5129d583481e9868",
+      "upgraded_sha256": "37b0f1ee12651a581c6591de2a586d88f508d36f2adc962b167b02b00cbf4233"
+    },
+    {
+      "path": "examples/model_demo/job.json",
+      "input_sha256": "de08d6d8d320b6786bc2019fd8b41e3e0481a3647cd61290752dd876041ea857",
+      "upgraded_sha256": "647299c44ada9cddbc4c30bdf4c7be73e3b33ab8325ff85271c300175c084a8a"
+    },
+    {
+      "path": "examples/model_demo/validation_summary.json",
+      "input_sha256": "469461df9227a600d6cb9dd30678fa37e01009d8c5b13d7f029a8f1b024e3a13",
+      "upgraded_sha256": "2f0e6b8417b2912c8059ea75a6a22d7e211b73d9f25fd4f4150ae67929ff12bb"
+    },
+    {
+      "path": "pyproject.toml",
+      "input_sha256": "915061a5e723683eafaca82e452ce1bbf5ff30ce8c2cf3fd3f6578c2171f7e64",
+      "upgraded_sha256": "e493581c872837da36c633bce97a25434e0c7a45ebfefa67740283fcdb0fdc45"
+    },
+    {
+      "path": "src/saal_rsi/__init__.py",
+      "input_sha256": "2091c168df42f9362f02265403d5d8a367a4494f119c7987aaf0040e65183f33",
+      "upgraded_sha256": "d441f22dffc3c45d07b1036ee8da6b678e809fee54f5185b75d3ce489f522a4f"
+    },
+    {
+      "path": "src/saal_rsi/model_backend.py",
+      "input_sha256": "932175e2abd3f05e4490e71e8bf7296503d2a8b986761d2e79e0f33e0e8ce8be",
+      "upgraded_sha256": "cf7a6101fd1c601c64481f60f71a9ca010c577288304c7b0c64c74255836f895"
+    },
+    {
+      "path": "src/saal_rsi/model_cli.py",
+      "input_sha256": "1af351264533173b460372b6e0eff8d865ef6130a0b9451ba39ca53dcc590563",
+      "upgraded_sha256": "4950a2e9e1be6be8017f8cb1b9be9491b09a2f4f9ceb61fa4b1e8c90b698b341"
+    },
+    {
+      "path": "src/saal_rsi/model_contract.py",
+      "input_sha256": "f5e166b8c6903fbc70cc041a7dbd100d7346ed50863d8143761c64076b07510d",
+      "upgraded_sha256": "48cbbae14b15337f36154e9e79d3109e95465c4ad5f356e7e0a85d09785bd36b"
+    },
+    {
+      "path": "src/saal_rsi/model_evaluation.py",
+      "input_sha256": "293e1fdc8c998c8d9d2f64f490410fb6aefc663ecaf745152a1bb24b839fec31",
+      "upgraded_sha256": "691aea57613a1a427a9b8d5ba7f1b76463308bf9106a8250f94182a9586c74e5"
+    },
+    {
+      "path": "src/saal_rsi/model_worker.py",
+      "input_sha256": "4453b5352193e4e1bc9fb62638e6f00ea588a81e46741241057c966bd99f3b70",
+      "upgraded_sha256": "1c3e579365e54cc1648f5d79b28a0d3d83b48f456da4538a63e354904f6288ad"
+    },
+    {
+      "path": "tests/integration/test_model_learning.py",
+      "input_sha256": "dcb16daf8fd9ac908f6032b49ed3721bf6427598d345e795817ea9d0bf51aba6",
+      "upgraded_sha256": "95dbd717a4c4716eb43a5d73d7a4cda031fd27869ca4aea0ac1eccf9641ad7dc"
+    }
+  ],
+  "new_files": [
+    {
+      "path": "docs/V0.9.1_REPAIRS.md",
+      "sha256": "b32922cbcf65f2434251d20b2836c35f84f3aa17374282e87054d77b7108f8f3"
+    },
+    {
+      "path": "docs/history/v0.8.0/MANIFEST.sha256",
+      "sha256": "8c86ab17e71bda5fca4862480e28ab086efc1beaf07bfda8d32d8918b7d4b21c"
+    },
+    {
+      "path": "docs/history/v0.8.1/MANIFEST.sha256",
+      "sha256": "66fbfa4f1282314246b1ec81d378fb8af0dc6d711523852d918579d06594026a"
+    },
+    {
+      "path": "docs/history/v0.9.0/MANIFEST.sha256",
+      "sha256": "9428305d5c60eab76b6d6935c5ce0aaf94253cadc966629233cad8457e4470f7"
+    },
+    {
+      "path": "docs/history/v0.9.0/RELEASE_REPORT.md",
+      "sha256": "841299212296af4a04674a7ee6e895de023aa2710ec6d6c2ff50041419592bb6"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/README.md",
+      "sha256": "c193acce573fba06554e156652cf6335c776416079ce4c1ad994cf75c18aed23"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/example_anchor_receipt.json",
+      "sha256": "c4c7a9d6330c9bfa7fdb6ff676687e475b90031d2206cceeecc27bfa9c04eb26"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/example_custodian_public_key.txt",
+      "sha256": "6a9707398f6c1f5319d3df431f0b100a71d12cd013ca560a6287a1198aada027"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/example_evaluator_public_key.txt",
+      "sha256": "d5fc907d4fd5e3b2de8777d6ed3565c457f4b24325ab1c8b06b7bcb6ee74ab66"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/example_negative_qualification.json",
+      "sha256": "a92b5ee893a5d06d2e2547002028d712323b32881dde0f1c46342180b0cf1f7c"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/model_demo/checkpoint/adapter.safetensors",
+      "sha256": "67af8c8bfa215e6e0fe820f57e7c40779b3152ac26b39592a1240506c79f009a"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/model_demo/checkpoint/baseline.safetensors",
+      "sha256": "4c439c5a3b4c75db9440300d66128c67d4909c0acfecc136652d164f85f99b88"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/model_demo/checkpoint/result.json",
+      "sha256": "ec869cb15a790f9f8308ea8bf1792122f67bcadcf5000eef5129d583481e9868"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/model_demo/controller-public-key.txt",
+      "sha256": "a4276ec57859490f8f240eedd1031dd78c223337a48975aee42e0161b130b8b4"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/model_demo/custodian-public-key.txt",
+      "sha256": "f81226cbc510bff1438d81b40a71678b89031b538fdf13c931a36d48a2e8d3c4"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/model_demo/evaluator-public-key.txt",
+      "sha256": "2b50f9d82aa0e2201a4a93c35893bd4d034b0b5ced3108acb38ad1a3eea11357"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/model_demo/job.json",
+      "sha256": "de08d6d8d320b6786bc2019fd8b41e3e0481a3647cd61290752dd876041ea857"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/model_demo/receipt.json",
+      "sha256": "afa304f81b36e53a0d8dba388dfcfb29fbae67e79f8347231f6c883358eb2fde"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/model_demo/report.json",
+      "sha256": "2a3ece5b429f2b335f7a9dea00fcade30521098ec2fc20077b64c4753e595277"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/model_demo/validation_summary.json",
+      "sha256": "469461df9227a600d6cb9dd30678fa37e01009d8c5b13d7f029a8f1b024e3a13"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/public_development_proposal.json",
+      "sha256": "9b4d78cabdd201f11e60a2b701487b9b7f9582d15606e1e8dd460f076be07377"
+    },
+    {
+      "path": "docs/history/v0.9.0/examples/validation_summary.json",
+      "sha256": "b1a50e783f07df8f50be70b9d42f8d5e211455c39aebe801c1a76e7252360838"
+    },
+    {
+      "path": "examples/colab_monitor/0-provisioning.log",
+      "sha256": "35a43d8838d12a334adc6974caa5f1e106cc7f2930ee807fda6e0ff701cb1502"
+    },
+    {
+      "path": "examples/colab_monitor/1-dependencies.log",
+      "sha256": "6f985dfc1906a07faf614c9296c69157955dc38172c5fa20986f920df0d153ae"
+    },
+    {
+      "path": "examples/colab_monitor/2-upload_job.log",
+      "sha256": "74e5d1acbf4dcd855949f547498b3bac1590555f8442bb73b3a60f6e43f4ab64"
+    },
+    {
+      "path": "examples/colab_monitor/3-upload_worker.log",
+      "sha256": "b2b62272d8a296b6d20947bc33bdcae2d40eba9c2c9126c34b33e2b20c4c7d9c"
+    },
+    {
+      "path": "examples/colab_monitor/4-upload_baseline.log",
+      "sha256": "131d1697ef7995bca1c77b714369a1445ab89cdbcf4b1fefe0d1cb7327bf924f"
+    },
+    {
+      "path": "examples/colab_monitor/5-training.log",
+      "sha256": "1428db2120808d66166ff85f4ea998ff812e0e7c7418ee6a2d0835d1ccf11c1e"
+    },
+    {
+      "path": "examples/colab_monitor/6-download.log",
+      "sha256": "82d6f0566da5d4c4e7f30981591c05e8c6b308fda0d0d3e13920b86f4b6386a3"
+    },
+    {
+      "path": "examples/colab_monitor/7-export_logs.log",
+      "sha256": "a458b714f1029d225a5810c3ecd4d8debaba2e8ebf494a1df609549e9cc41bc4"
+    },
+    {
+      "path": "examples/colab_monitor/README.md",
+      "sha256": "612cce877b20005c1c53c3e01d307da8417563ae820dcb9b74702845b784b36e"
+    },
+    {
+      "path": "examples/colab_monitor/cleanup-status.log",
+      "sha256": "8bf2cd93276d84f967856d4f981e629eb8a698d9f8eeec8aaee708cd5fb54822"
+    },
+    {
+      "path": "examples/colab_monitor/cleanup-stop.log",
+      "sha256": "3b7f3998977337cbc107ff30ba5c9e8b81005c00e7eee7340246e8a57e284fba"
+    },
+    {
+      "path": "examples/colab_monitor/events.jsonl",
+      "sha256": "20e22ca0584ba0ff33e212a49c1c4e0bcb495b386f3afce8cccf7f7e6524dab2"
+    },
+    {
+      "path": "examples/colab_monitor/monitor-state.json",
+      "sha256": "67ae4f861f16dcaeae601ab561c957495d1ed004628ef975b91a3b2708fb403d"
+    },
+    {
+      "path": "examples/colab_monitor/runtime-log.jsonl",
+      "sha256": "ab5957fa3f898e57a6115b8cd00db5b540f9cee932c1707283618d7e66654c98"
+    },
+    {
+      "path": "examples/colab_monitor/watchdog.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "examples/model_demo/README.md",
+      "sha256": "55368b8884cf5a4f3cc668fbcd10bbd36ab37b374dc13ba34636e4a4be5d9483"
+    },
+    {
+      "path": "examples/model_demo/development-comparison.json",
+      "sha256": "cfa9f803164c2b03b04ff53b00336e47f70a6e9e18e9c74d635b05be334fd39d"
+    },
+    {
+      "path": "examples/model_demo/development-evidence.json",
+      "sha256": "1f11853210c4fbc4cd3fec3ab4e95d94baaca61604a1915066e69a30b9a651e8"
+    },
+    {
+      "path": "examples/model_demo/evidence-public-key.txt",
+      "sha256": "2b50f9d82aa0e2201a4a93c35893bd4d034b0b5ced3108acb38ad1a3eea11357"
+    },
+    {
+      "path": "src/saal_rsi/model_monitor.py",
+      "sha256": "e799b5168b618439f0680faab7720b827ad0c0e2406faf7f24dc7460c0af9ccf"
+    },
+    {
+      "path": "tests/integration/test_model_repairs.py",
+      "sha256": "a35616dff1bbdf76fb47794e5bd019b478626400409a23a66fdb6f2be0611724"
+    }
+  ],
+  "removed_current_paths": [
+    "examples/model_demo/custodian-public-key.txt",
+    "examples/model_demo/evaluator-public-key.txt",
+    "examples/model_demo/receipt.json",
+    "examples/model_demo/report.json"
+  ],
+  "archived_byte_identically": {
+    "examples/model_demo/custodian-public-key.txt": "docs/history/v0.9.0/examples/model_demo/custodian-public-key.txt",
+    "examples/model_demo/evaluator-public-key.txt": "docs/history/v0.9.0/examples/model_demo/evaluator-public-key.txt",
+    "examples/model_demo/receipt.json": "docs/history/v0.9.0/examples/model_demo/receipt.json",
+    "examples/model_demo/report.json": "docs/history/v0.9.0/examples/model_demo/report.json"
+  },
+  "features_removed": [],
+  "inventory_scope": "Complete packaged non-provenance files excluding manifest; historical examples retained."
+}

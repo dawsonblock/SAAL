@@ -1,0 +1,39 @@
+..................................F..                                    [100%]
+=================================== FAILURES ===================================
+______ test_native_bridge_requires_review_and_keeps_custody_conservative _______
+
+corpus = {'family_split_ownership': {'generator_budget_feasibility': 'validation', 'generator_current_preference': 'train', 'ge...'train_c0_p05_b'], ...}, ...], 'policy_version': 'saal-choice-policy-v1', 'qualification_status': 'NOT_EVALUATED', ...}
+reviews = ([<cryptography.hazmat.bindings._rust.openssl.ed25519.Ed25519PrivateKey object at 0x108d38270>, <cryptography.hazmat.b...2e3883eade251e5514ab9cc562a2c44d995e0bbdcd88a3a36d54712e7502c765232a22bd68ee44d174473378fc6a7e5091b73325eaba11a92904'})
+
+    def test_native_bridge_requires_review_and_keeps_custody_conservative(corpus,reviews):
+     from saal_corpus.export import prepare
+>    _,p,e,s=reviews;bundle=prepare(corpus,p,e,semantic_review=s);assert bundle['dataset']['independent_population']is False
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_corpus.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = {'family_split_ownership': {'generator_budget_feasibility': 'validation', 'generator_current_preference': 'train', 'ge...'train_c0_p05_b'], ...}, ...], 'policy_version': 'saal-choice-policy-v1', 'qualification_status': 'NOT_EVALUATED', ...}
+policy = {'adjudicator': 'b103e41faea937404895d73d938ec574dbd33ca20e59cd1cd3aa4d100911a979', 'reviewers': {'one': '3716dba30268...63ad', 'two': 'ffa2da31e4cf2cd83c1fa95bb89a165f5efdc69b4b55b8cd7d2849c2314d6cde'}, 'schema': 'saal-reviewer-policy-v1'}
+reviews = [{'payload': {'corpus_digest': 'sha256:bc18d25e52f8066cb62df300191b77136efa6a2aeeb3453d6655b2795899e00c', 'decisions':...5fbc0e7392b3a8a211817e6e2e23afc310ec591db98cc7a15b50ad230e464e00ad29adbf6b97150a15518dd0677c2a2ee93ee7ddc61ba5224e03'}]
+adjudication = None
+semantic_review = {'payload': {'approved': True, 'corpus_digest': 'sha256:bc18d25e52f8066cb62df300191b77136efa6a2aeeb3453d6655b2795899e0...42e3883eade251e5514ab9cc562a2c44d995e0bbdcd88a3a36d54712e7502c765232a22bd68ee44d174473378fc6a7e5091b73325eaba11a92904'}
+
+    def prepare(corpus,policy,reviews,adjudication=None,semantic_review=None):
+     assessment=assess(corpus,policy,reviews,adjudication,semantic_review)
+     from saal_rsi.learning_dataset import wrap,validate_dataset
+     from saal_rsi.task_oracles import oracle
+     records=[]
+     for r in corpus['records']:
+      label=assessment['labels'][r['record_id']];rule=r['generation_rule_id']
+      category='refusal' if label=='REFUSE' else 'clarification' if label=='ASK' else 'correction' if rule=='current_preference' else 'injection' if rule=='quoted_authorization' else 'ordinary'
+      records.append({'record_id':r['record_id'],'task_family_id':r['task_family_id'],'cluster_id':r['cluster_id'],'template_id':r['template_id'],'prompt':r['prompt'],'expected_decision':label,'category':category,'split':{'train':'train','validation':'development','test':'regression'}[r['split']],'source_digest':r['source_lineage']['generator_digest'],'label_rationale':r['label_rationale']+'; signed review evidence attached separately; operational independence not established','oracle_version':'saal_choice_policy_v1','parent_record_id':r['parent_record_id'],'task_type':'decision','oracle_payload':{'decision':label},'expected_output':oracle('decision',{'decision':label}),'difficulty':'counterfactual','review_status':'ORACLE_CHECKED_NOT_INDEPENDENTLY_REVIEWED','generation_mechanism':rule})
+>    dataset=wrap(records,'Signed review quorum and curator split review accompany the corpus; legacy native custody/review flags remain conservative. Public test is exported as exposed regression, never protected holdout. Seven assistant-authored generator families do not establish independent sampling.')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    TypeError: wrap() takes 1 positional argument but 2 were given
+
+src/saal_corpus/export.py:14: TypeError
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-RSI-Decision-Corpus-v1-Review-Candidate/tests.xml -
+=========================== short test summary info ============================
+FAILED tests/test_corpus.py::test_native_bridge_requires_review_and_keeps_custody_conservative
+1 failed, 36 passed in 7.66s

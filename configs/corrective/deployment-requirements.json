@@ -1,0 +1,15 @@
+{
+  "schema": "saal-independent-role-deployment-requirements-v1",
+  "deployment_verified": false,
+  "controller": {"uid": 17001, "access": ["public-data", "candidate-artifacts"], "denied": ["holdout", "witness-state", "evaluator-keys", "promotion-key"]},
+  "custodian": {"uid": 17002, "access": ["custody-mirror", "protected-sampling-data"], "denied": ["model-training", "promotion-key", "witness-administration"]},
+  "evaluator": {"uid": 17003, "access": ["frozen-candidate-readonly", "registered-protected-tasks", "evaluator-key"], "denied": ["candidate-write", "promotion-key", "witness-administration"]},
+  "witness": {"host": "separate-administrative-domain-required", "access": ["monotonic-attempt-journal", "witness-key", "fixed-enrollment"], "denied": ["controller-admin", "custodian-admin", "model-training"]},
+  "transport": "mutual-TLS-plus-exact-peer-certificate-pins",
+  "network": "allow-only-required-service-peers",
+  "private_storage_mode": "0700 directories, 0600 private keys and databases",
+  "rootless_container_profile": "separate-volume-owners, read-only-root, drop-all-capabilities, no-new-privileges, no Docker socket",
+  "legacy_local_qualification": "Retained historical trusted-operator API; not converted to an independently deployed service.",
+  "pretrained_qualification": "BLOCKED until independent deployment, reviewed sampling and a protected pretrained evaluator exist",
+  "limits": "These are deployment requirements, not proof of deployment or operational independence. A same-administrator container or local key layout is insufficient."
+}

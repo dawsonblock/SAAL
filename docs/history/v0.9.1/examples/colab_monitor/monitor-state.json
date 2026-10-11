@@ -1,0 +1,61 @@
+{
+  "schema": "saal-colab-monitor-v2",
+  "session": "saal-1fe97c5b3cc94cb9a769",
+  "phase": "COMPLETED",
+  "job_digest": "sha256:e5e33377c621b0f127a6732d8a2a68087223553dbe01dfd6f704e53d44fa0ae7",
+  "deadline_epoch": 1791519241.1027641,
+  "heartbeat_epoch": 1791518892.7338471,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 500,
+  "total_steps": 500,
+  "external_deployment_allowed": false,
+  "elapsed_seconds": 101.63069695897866,
+  "watchdog_pid": 32354,
+  "active_command": null,
+  "last_remote_event": {
+    "monitor": "worker_complete",
+    "selected_adapter_step": 220,
+    "completed_steps": 500
+  },
+  "latest_objective_loss": 0.0007684631273150444,
+  "artifact_validation": "PASSED",
+  "checkpoint_reload_prediction_parity": {
+    "baseline": true,
+    "candidate": true
+  },
+  "runtime": {
+    "cuda": "12.8",
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "limits": "Worker self-report; not remote attestation.",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "versions": {
+      "cryptography": "48.0.1",
+      "safetensors": "0.8.0",
+      "torch": "2.10.0"
+    }
+  },
+  "selection": {
+    "class_weights": [
+      0.5,
+      0.0,
+      2.0,
+      2.0,
+      0.0
+    ],
+    "development_score": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "labels_absent_from_training": [
+      "FAST"
+    ],
+    "objective": "class-balanced-cross-entropy-v1",
+    "policy": "development-worst-category-macro-accuracy-v1",
+    "selected_adapter_step": 220,
+    "trained_adapter_steps": 500
+  }
+}

@@ -1,0 +1,40 @@
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+{"monitor": "snapshot_download", "file": "chat_template.jinja", "bytes": 7755}
+{"monitor": "snapshot_download", "file": "config.json", "bytes": 2907}
+{"monitor": "snapshot_download", "file": "merges.txt", "bytes": 3353259}
+{"monitor": "snapshot_download", "file": "model.safetensors-00001-of-00001.safetensors", "bytes": 1746942600}
+{"monitor": "snapshot_download", "file": "model.safetensors.index.json", "bytes": 50900}
+{"monitor": "snapshot_download", "file": "preprocessor_config.json", "bytes": 390}
+{"monitor": "snapshot_download", "file": "tokenizer.json", "bytes": 12807982}
+{"monitor": "snapshot_download", "file": "tokenizer_config.json", "bytes": 16709}
+{"monitor": "snapshot_download", "file": "video_preprocessor_config.json", "bytes": 385}
+{"monitor": "snapshot_download", "file": "vocab.json", "bytes": 6722759}
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:   0%|          | 1/473 [00:00<05:11,  1.52it/s]Loading weights:  31%|███       | 146/473 [00:00<00:01, 255.12it/s]Loading weights:  47%|████▋     | 224/473 [00:01<00:00, 274.88it/s]Loading weights:  59%|█████▉    | 281/473 [00:01<00:00, 295.32it/s]Loading weights:  70%|██████▉   | 330/473 [00:01<00:00, 319.81it/s]Loading weights:  89%|████████▉ | 420/473 [00:01<00:00, 437.12it/s]Loading weights: 100%|██████████| 473/473 [00:01<00:00, 319.81it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"monitor": "checkpoint_metrics", "step": 0, "development": {"accuracy": 0.3333333333333333, "family_macro_accuracy": 0.3333333333333333, "worst_family_accuracy": 0.0, "family_accuracy": {"development_decision_recipe": 0.0, "development_extract_recipe": 0.25, "development_sort_recipe": 0.75}, "class_accuracy": {"CHEAP": 0.0, "FAST": 0.0, "ASK": 0.0, "REFUSE": 0.0}, "category_accuracy": {"ordinary": 0.0, "extraction": 0.25, "transformation": 0.75}, "complete_pair_accuracy": null, "invalid_outputs": 4, "unauthorized_proposals": 0, "confusion": {}, "false_refusal_rate": null, "missing_clarification_rate": null, "brier_score": null, "expected_calibration_error": null, "invariance_pair_accuracy": null}, "regression": {"accuracy": 0.3333333333333333, "family_macro_accuracy": 0.3333333333333333, "worst_family_accuracy": 0.0, "family_accuracy": {"regression_decision_recipe": 0.0, "regression_extract_recipe": 0.5, "regression_sort_recipe": 0.5}, "class_accuracy": {"CHEAP": 0.0, "FAST": 0.0, "ASK": 0.0, "REFUSE": 0.0}, "category_accuracy": {"ordinary": 0.0, "extraction": 0.5, "transformation": 0.5}, "complete_pair_accuracy": null, "invalid_outputs": 4, "unauthorized_proposals": 0, "confusion": {}, "false_refusal_rate": null, "missing_clarification_rate": null, "brier_score": null, "expected_calibration_error": null, "invariance_pair_accuracy": null}}
+Traceback (most recent call last):
+  File "/content/saal-pretrained/worker.py", line 5, in <module>
+    main()
+    ~~~~^^
+  File "/content/saal-pretrained/src/saal_rsi/pretrained_worker.py", line 43, in main
+    result=backend.train(job['dataset'],{'job':training_job,'out':out})
+  File "/content/saal-pretrained/src/saal_rsi/learning_backend.py", line 81, in train
+    return train_backend(self,dataset,budget)
+  File "/content/saal-pretrained/src/saal_rsi/peft_training.py", line 40, in train_backend
+    if not torch.isfinite(norm):raise ValueError('nonfinite gradients; interrupted attempt')
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: nonfinite gradients; interrupted attempt
+[0;31m---------------------------------------------------------------------------[0m[0;31mRuntimeError[0m                              Traceback (most recent call last)[0;32m/tmp/ipykernel_910/3355296009.py[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m      5[0m [0mproc[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mPopen[0m[0;34m([0m[0mcommand[0m[0;34m,[0m[0mstdout[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mPIPE[0m[0;34m,[0m[0mstderr[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mSTDOUT[0m[0;34m,[0m[0menv[0m[0;34m=[0m[0menv[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0miter[0m[0;34m([0m[0mproc[0m[0;34m.[0m[0mstdout[0m[0;34m.[0m[0mreadline[0m[0;34m,[0m[0;34mb''[0m[0;34m)[0m[0;34m:[0m[0mprint[0m[0;34m([0m[0mline[0m[0;34m.[0m[0mdecode[0m[0;34m([0m[0merrors[0m[0;34m=[0m[0;34m'replace'[0m[0;34m)[0m[0;34m,[0m[0mend[0m[0;34m=[0m[0;34m''[0m[0;34m,[0m[0mflush[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mif[0m [0mproc[0m[0;34m.[0m[0mwait[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;32mraise[0m [0mRuntimeError[0m[0;34m([0m[0;34m'training child failed'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mreplay[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mPopen[0m[0;34m([0m[0mcommand[0m[0;34m+[0m[0;34m[[0m[0;34m'--replay'[0m[0;34m][0m[0;34m,[0m[0mstdout[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mPIPE[0m[0;34m,[0m[0mstderr[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mSTDOUT[0m[0;34m,[0m[0menv[0m[0;34m=[0m[0menv[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0miter[0m[0;34m([0m[0mreplay[0m[0;34m.[0m[0mstdout[0m[0;34m.[0m[0mreadline[0m[0;34m,[0m[0;34mb''[0m[0;34m)[0m[0;34m:[0m[0mprint[0m[0;34m([0m[0mline[0m[0;34m.[0m[0mdecode[0m[0;34m([0m[0merrors[0m[0;34m=[0m[0;34m'replace'[0m[0;34m)[0m[0;34m,[0m[0mend[0m[0;34m=[0m[0;34m''[0m[0;34m,[0m[0mflush[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mRuntimeError[0m: training child failed

@@ -1,0 +1,17 @@
+{
+  "schema": "saal-evaluation-integrity-summary-v2",
+  "scope": "Unchanged v0.9.1 model on 288 public correlated regression cases in 12 domain families; not independent final qualification",
+  "baseline_accuracy": 0.3368055555555556,
+  "candidate_accuracy": 0.22916666666666666,
+  "majority_accuracy": 0.4166666666666667,
+  "lexical_accuracy": 0.7083333333333334,
+  "byte_multiset_pairs": 48,
+  "both_counterfactual_answers_correct": 0,
+  "artifact_digest": "sha256:2030af86b9e9df68e10363b495339d06ba322e8547de19871544709811ed2e8f",
+  "qualification_status": "DIAGNOSTIC_ONLY",
+  "external_deployment_allowed": false,
+  "calibration": {
+    "reason": "Historical worker exports hard decisions; no probability calibration claim",
+    "status": "NOT_MEASURED"
+  }
+}

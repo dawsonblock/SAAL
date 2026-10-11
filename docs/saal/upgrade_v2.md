@@ -1,0 +1,6 @@
+# v0.1.0 → v0.2.0 fail-closed migration
+
+- **Capability protocol:** v2 tokens contain budget reservations and action/policy/limit bindings. A v1 `tokens` table lacks the required attributes and startup will **refuse** it. Stop services, revoke old delegation scopes and tokens, archive previous records off-host, provision a new signing key/epoch and v2 database under the authority host. Reconcile already-executed costs before re-enabling task budgets. Do **not** silently `ALTER TABLE` then trust old tickets.
+- **Evaluation protocol:** v0.2 reports add prereg digest and abstention metrics; pre-v0.2 reports are not eligible. Cluster bootstrap over procedural-seed units replaces episode-level IID bootstrap. Old qualification decisions must be recalculated and freshly attested.
+- **Release:** candidate qualification + authorized staging uses separate Ed25519 keys. Optional `pip install -e '.[attestation]'`. No production weight activation is implemented.
+- **Scientific validity:** `configs/preregistered_eval.json` is public and example-only. Create a new independent holdout and an externally timestamped commitment before claims of independent replication. Do not tune on the same holdout and then call it sealed.

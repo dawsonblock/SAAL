@@ -1,0 +1,42 @@
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 11181.30it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 1, "objective_loss": 1.5506782531738281, "elapsed_seconds": 5.710479500005022}
+{"monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 2, "objective_loss": 1.588369369506836, "elapsed_seconds": 6.121264916961081}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 10795.33it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 3, "objective_loss": 1.5506782531738281, "elapsed_seconds": 7.497414582991041}
+{"monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 4, "objective_loss": 1.588369369506836, "elapsed_seconds": 7.700158332940191}
+{"monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 5, "objective_loss": 1.1577428579330444, "elapsed_seconds": 8.68734033301007}
+{"monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 6, "objective_loss": 1.6226575374603271, "elapsed_seconds": 9.015082374913618}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 9954.55it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 7, "objective_loss": 1.7867225408554077, "elapsed_seconds": 10.576583832968026}
+{"monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 8, "objective_loss": 1.4361368417739868, "elapsed_seconds": 10.738652167026885}
+Completed updates: 8 qualification: NOT_EVALUATED

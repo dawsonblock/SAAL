@@ -1,0 +1,1 @@
+Actual official Colab CLI 0.6.0 T4 execution and cleanup logs. Absolute operator paths in logs describe this run only. Monitoring state is observational and not signed remote attestation. Runtime stopped and checkpoint replay passed.

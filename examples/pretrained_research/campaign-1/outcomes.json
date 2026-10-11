@@ -1,0 +1,16 @@
+{
+  "runs": [
+    {
+      "run": "run-00-b6cad2e03749",
+      "job_digest": "sha256:b6cad2e03749e10f24f593389c9003bdb3193a9569399f3731e475d445923759",
+      "model_repository": "answerdotai/ModernBERT-base",
+      "mode": "head",
+      "seed": 17,
+      "state": "INTERRUPTED",
+      "error": {
+        "type": "RuntimeError",
+        "detail": "Colab download failed (1): \n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Download failed: File or directory not found: /content/run-00-b6cad2e03749.zip\n"
+      }
+    }
+  ]
+}

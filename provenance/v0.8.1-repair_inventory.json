@@ -1,0 +1,153 @@
+{
+  "input_name": "SAAL-RSI-v0.8.0-Full-Corrected-Upgraded.zip",
+  "input_sha256": "10a183b8776cbd0026f5efcff4a9a1b0d7d51bc8954d19cafc4203ddf278e556",
+  "modified_files": [
+    {
+      "path": "CHANGELOG.md",
+      "input_sha256": "ba9b61d2a076e4ef1312771618839e62b0af328a24040e0202c9a51071353a55",
+      "upgraded_sha256": "102c0b467b946f7686b1e4ae06e9fc0cae5af43911d4040d378695614cf78553"
+    },
+    {
+      "path": "README.md",
+      "input_sha256": "bc656b3a89d94e13a545b4411c119f0053ac108bd0f0aca43887978e2f3a37bd",
+      "upgraded_sha256": "2ab8b00b4a42eab5cab956bd0f0aca567ff4945512553d481dab7ff61102b28c"
+    },
+    {
+      "path": "RELEASE_REPORT.md",
+      "input_sha256": "dc4795cbc04cbbee7908349eb05cd960d728b740e863c5d17fa54c1c52c0a3fb",
+      "upgraded_sha256": "b05f9921899cd52a46ec285eed821cecbf5ff492b940c470e967b11b0f2f14b8"
+    },
+    {
+      "path": "docs/AUDIT_RESPONSE.md",
+      "input_sha256": "3fcba536c58e6af603a7ed950dada27b478d088662c58a643a56ba5b8d7cf9fc",
+      "upgraded_sha256": "500f883f81235a7ec9e61be59dc5f28ba07bd5380299afd78e84ad416ec22d2f"
+    },
+    {
+      "path": "examples/example_anchor_receipt.json",
+      "input_sha256": "a12fda1aac69b683ad98f117de5ff05003d136300afe391528db9fc8bd7786b0",
+      "upgraded_sha256": "0d5d102bdaec76aae840e4b87f870ab31f1688462b56d15c251fcdb8718c68e3"
+    },
+    {
+      "path": "examples/example_custodian_public_key.txt",
+      "input_sha256": "4c753de66d13cefae99d6ffd2e868d77b77145a03307f3641271c350803e7b78",
+      "upgraded_sha256": "3b7cede8cd1055f003f9c006d1e7ab4f2f80a8244b148f2d5f54589dcfe41a71"
+    },
+    {
+      "path": "examples/example_evaluator_public_key.txt",
+      "input_sha256": "891115255e983c2dcd52ec2a0d7349c89789263e26ac16fc29d67af2b6acde21",
+      "upgraded_sha256": "9bee6f9b15b2f073bdd5ea9b6f12f93ed4ce5bbf094a46cf46675e457beef827"
+    },
+    {
+      "path": "examples/example_negative_qualification.json",
+      "input_sha256": "09fce432a7715627402963ce21391cbaf904c3d7159690336721dc1aa27af10c",
+      "upgraded_sha256": "e8c9700ab725ba96c0612027725b58a8f89d6e7b54039e0f7a61f9571cad0caf"
+    },
+    {
+      "path": "pyproject.toml",
+      "input_sha256": "b810151c83bda6a11ac652d1891fee4dd296f331d5d81debd1801fcea6457fd8",
+      "upgraded_sha256": "3c5bd40a6e98fb47bee1bdb3d73f195728895b5390fa17980aae81697fc66eb0"
+    },
+    {
+      "path": "src/saal_rsi/__init__.py",
+      "input_sha256": "6022bbb32c50b7dcc7f28b0a9f191760703e47caaaf449ec6c9df094f1781869",
+      "upgraded_sha256": "b008d4aa644d7a1562a0565b8aab7b1966fae96be461e3f61dc2102e7988cdf4"
+    },
+    {
+      "path": "src/saal_rsi/assurance.py",
+      "input_sha256": "a7f7359097bc643f5cf468c7e065387bed14d0b03e6726304b716567b3ac2b8b",
+      "upgraded_sha256": "c7f84183bf63cb81c80dc1fa357ebd6d7559fe3b64984a6ed05569ae58dcd68c"
+    },
+    {
+      "path": "src/saal_rsi/behavior.py",
+      "input_sha256": "a58f37696a08283603efcd88664a85e895a77c43cec50a873a13872c44ae2cc8",
+      "upgraded_sha256": "be4b38d46399b2a617c1660a293a6d641280d3de6c8bf345fb2f70f5ee3e7b1f"
+    },
+    {
+      "path": "src/saal_rsi/cli.py",
+      "input_sha256": "6cd9740028a4200769c6203b8d0d62cdf8aafd924cccc509fc8058cbf4a70c4f",
+      "upgraded_sha256": "5df745f67f61f0c43a425273a4632148d6f22a3dfb8312f76d1f2ef435d5d526"
+    },
+    {
+      "path": "src/saal_rsi/laboratory.py",
+      "input_sha256": "f498aa0fcdbb73af939a732b8427aec8b39b1178c685e43634948bb8d08dd4ef",
+      "upgraded_sha256": "3bba31b8fe68eece4ccae1a1acd8c06d8deea45ef4aa62a4fee5fc594c3450a4"
+    },
+    {
+      "path": "src/saal_rsi/processes.py",
+      "input_sha256": "4fb5f3056bddd4c46502fc4dd6fa96f8d5fc2937b4ce6ed6383b1e359dba451f",
+      "upgraded_sha256": "42094e691da514ee84c402cce927f7fb7b73620b0beb0b9cecad2656ddd69aab"
+    },
+    {
+      "path": "src/saal_rsi/promotion.py",
+      "input_sha256": "96ac5d223d688f738c82380cf254c4947ff0d15e8da8976b355427e32f8e6d3b",
+      "upgraded_sha256": "038e5717914670acc78412a6e28442475a94a5ab71a917eadd7119409cbff387"
+    },
+    {
+      "path": "src/saal_rsi/registry.py",
+      "input_sha256": "924bae26f97b8036b4c8dac4d4cff9ddebf109b6ee611aaf61d015aca0acf45b",
+      "upgraded_sha256": "0b5574c8b7adfbd9bb36b9e8550198b7275011d82cbbb2bbde953ea9d8bc1a49"
+    },
+    {
+      "path": "tests/integration/test_saal_rsi.py",
+      "input_sha256": "3b8106fd05281c4437ac75a41ecaa67a70981304e34340956dcb9f0f25501c65",
+      "upgraded_sha256": "ab6cab55af10523355b1d8ef5039250bfae219e85d8b247c0f4094c3cb0a6540"
+    },
+    {
+      "path": "tests/integration/test_upgrade.py",
+      "input_sha256": "0ecb4e21b6756aa74608e18852e5ec6718ac1872eec83b0ddd1866ac878151f2",
+      "upgraded_sha256": "092cc559bf16b77d1e47ad01d27d070d6df7f62bdb6af78128fea44bf9258806"
+    }
+  ],
+  "new_files": [
+    {
+      "path": "docs/REPAIRS_v0.8.1.md",
+      "sha256": "e36f8b259c3b0b565d3d6887aedef67c0ac982a58c8a15c185d136a874f1987a"
+    },
+    {
+      "path": "docs/history/v0.8.0/RELEASE_REPORT.md",
+      "sha256": "dc4795cbc04cbbee7908349eb05cd960d728b740e863c5d17fa54c1c52c0a3fb"
+    },
+    {
+      "path": "docs/history/v0.8.0/change_inventory.json",
+      "sha256": "3e583a5687a20a147f252e28ed986bac94ad0471a23920732b643dd465f3ee57"
+    },
+    {
+      "path": "docs/history/v0.8.0/example_anchor_receipt.json",
+      "sha256": "a12fda1aac69b683ad98f117de5ff05003d136300afe391528db9fc8bd7786b0"
+    },
+    {
+      "path": "docs/history/v0.8.0/example_custodian_public_key.txt",
+      "sha256": "4c753de66d13cefae99d6ffd2e868d77b77145a03307f3641271c350803e7b78"
+    },
+    {
+      "path": "docs/history/v0.8.0/example_evaluator_public_key.txt",
+      "sha256": "891115255e983c2dcd52ec2a0d7349c89789263e26ac16fc29d67af2b6acde21"
+    },
+    {
+      "path": "docs/history/v0.8.0/example_negative_qualification.json",
+      "sha256": "09fce432a7715627402963ce21391cbaf904c3d7159690336721dc1aa27af10c"
+    },
+    {
+      "path": "docs/history/v0.8.0/public_development_proposal.json",
+      "sha256": "9b4d78cabdd201f11e60a2b701487b9b7f9582d15606e1e8dd460f076be07377"
+    },
+    {
+      "path": "docs/history/v0.8.0/validation_summary.json",
+      "sha256": "b1a50e783f07df8f50be70b9d42f8d5e211455c39aebe801c1a76e7252360838"
+    },
+    {
+      "path": "src/saal_rsi/storage.py",
+      "sha256": "f2dacc63c5b3b2766176d1a019bec3e9172de6d07bfbe7f766e3958486d90a62"
+    },
+    {
+      "path": "src/saal_rsi/validation.py",
+      "sha256": "2bd9947bfb025f23476467e73ddb70f6e86ecab07525be79b5dd1845e707187f"
+    },
+    {
+      "path": "tests/integration/test_repairs.py",
+      "sha256": "5f1b7bda68bf5ba9df219c4a5b0603d573e860370bd1e6d27567c74327ad51b9"
+    }
+  ],
+  "removed_files": [],
+  "inventory_scope": "All packaged non-provenance files excluding final manifest; historical source and evidence retained."
+}

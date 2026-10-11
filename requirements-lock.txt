@@ -1,0 +1,9 @@
+# Exact versions used for v0.8 release validation; platform/Python identity is recorded separately.
+cryptography==48.0.1
+cffi==2.0.0
+pycparser==3.0
+pytest==8.4.2
+packaging==26.3
+pluggy==1.6.0
+iniconfig==2.3.0
+pygments==2.20.0

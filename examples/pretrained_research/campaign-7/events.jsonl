@@ -1,0 +1,68 @@
+{"at_utc": "2026-10-09T10:16:49.287328+00:00", "kind": "command_started", "phase": "PROVISIONING"}
+{"at_utc": "2026-10-09T10:16:52.911270+00:00", "kind": "command_finished", "phase": "PROVISIONING"}
+{"at_utc": "2026-10-09T10:16:52.912382+00:00", "kind": "command_started", "phase": "UPLOAD_LOCK"}
+{"at_utc": "2026-10-09T10:16:53.827886+00:00", "kind": "command_finished", "phase": "UPLOAD_LOCK"}
+{"at_utc": "2026-10-09T10:16:53.828700+00:00", "kind": "command_started", "phase": "UPLOAD_WORKER"}
+{"at_utc": "2026-10-09T10:16:54.614472+00:00", "kind": "command_finished", "phase": "UPLOAD_WORKER"}
+{"at_utc": "2026-10-09T10:16:54.615138+00:00", "kind": "command_started", "phase": "DEPENDENCIES"}
+{"at_utc": "2026-10-09T10:17:02.215721+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541022.1868043}
+{"at_utc": "2026-10-09T10:17:07.223399+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541027.192007}
+{"at_utc": "2026-10-09T10:17:12.249348+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541032.1948988}
+{"at_utc": "2026-10-09T10:17:17.233180+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541037.199738}
+{"at_utc": "2026-10-09T10:17:22.235573+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541042.2047853}
+{"at_utc": "2026-10-09T10:17:27.245439+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541047.208621}
+{"at_utc": "2026-10-09T10:17:32.284901+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541052.2114398}
+{"at_utc": "2026-10-09T10:17:37.243795+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541057.2145393}
+{"at_utc": "2026-10-09T10:17:42.257749+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541062.2179377}
+{"at_utc": "2026-10-09T10:17:47.260859+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541067.2218888}
+{"at_utc": "2026-10-09T10:17:52.249850+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541072.2234492}
+{"at_utc": "2026-10-09T10:17:57.377809+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541077.2243981}
+{"at_utc": "2026-10-09T10:18:02.260589+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541082.2269726}
+{"at_utc": "2026-10-09T10:18:07.267760+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541087.2278237}
+{"at_utc": "2026-10-09T10:18:12.323702+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791541092.2353592}
+{"at_utc": "2026-10-09T10:18:13.754064+00:00", "kind": "remote_monitor", "monitor": "dependency_complete", "hash_lock_enforced": true}
+{"at_utc": "2026-10-09T10:18:13.929224+00:00", "kind": "command_finished", "phase": "DEPENDENCIES"}
+{"at_utc": "2026-10-09T10:18:13.929758+00:00", "kind": "command_started", "phase": "UPLOAD_SEQUENCE-JOB"}
+{"at_utc": "2026-10-09T10:18:15.603130+00:00", "kind": "command_finished", "phase": "UPLOAD_SEQUENCE-JOB"}
+{"at_utc": "2026-10-09T10:18:15.604238+00:00", "kind": "command_started", "phase": "UPLOAD_SEQUENCE-PROTOCOL"}
+{"at_utc": "2026-10-09T10:18:16.532396+00:00", "kind": "command_finished", "phase": "UPLOAD_SEQUENCE-PROTOCOL"}
+{"at_utc": "2026-10-09T10:18:16.533341+00:00", "kind": "command_started", "phase": "UPLOAD_LEARNING-REPORT"}
+{"at_utc": "2026-10-09T10:18:17.477375+00:00", "kind": "command_finished", "phase": "UPLOAD_LEARNING-REPORT"}
+{"at_utc": "2026-10-09T10:18:17.478688+00:00", "kind": "command_started", "phase": "SEQUENTIAL_TRAINING"}
+{"at_utc": "2026-10-09T10:18:53.374273+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 20, "total_steps": 600, "objective_loss": 1.9443336725234985, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 16.512807891999955}
+{"at_utc": "2026-10-09T10:18:55.633859+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 40, "total_steps": 600, "objective_loss": 0.6534162759780884, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 18.77335970599995}
+{"at_utc": "2026-10-09T10:18:58.020867+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 60, "total_steps": 600, "objective_loss": 0.5900164842605591, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 21.143289014000004}
+{"at_utc": "2026-10-09T10:19:00.787482+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 80, "total_steps": 600, "objective_loss": 0.5358188152313232, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 23.92332537799996}
+{"at_utc": "2026-10-09T10:19:02.989390+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 100, "total_steps": 600, "objective_loss": 0.08594830334186554, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 26.128340111}
+{"at_utc": "2026-10-09T10:19:10.624949+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 120, "total_steps": 600, "objective_loss": 1.9443336725234985, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 33.75583684399999}
+{"at_utc": "2026-10-09T10:19:13.303801+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 140, "total_steps": 600, "objective_loss": 0.6534162759780884, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 36.44343120099995}
+{"at_utc": "2026-10-09T10:19:15.514542+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 160, "total_steps": 600, "objective_loss": 0.5900164842605591, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 38.65274566199997}
+{"at_utc": "2026-10-09T10:19:17.721006+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 180, "total_steps": 600, "objective_loss": 0.5358188152313232, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 40.85848270099996}
+{"at_utc": "2026-10-09T10:19:19.944515+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 200, "total_steps": 600, "objective_loss": 0.08594830334186554, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 43.081414128999995}
+{"at_utc": "2026-10-09T10:19:24.910291+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 220, "total_steps": 600, "objective_loss": 1.0520391464233398, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 48.04796646099999}
+{"at_utc": "2026-10-09T10:19:27.115037+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 240, "total_steps": 600, "objective_loss": 0.19090883433818817, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 50.25239507099997}
+{"at_utc": "2026-10-09T10:19:29.285018+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 260, "total_steps": 600, "objective_loss": 0.027507901191711426, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 52.422711754999966}
+{"at_utc": "2026-10-09T10:19:31.464904+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 280, "total_steps": 600, "objective_loss": 0.0012428067857399583, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 54.600693958999955}
+{"at_utc": "2026-10-09T10:19:33.632630+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 300, "total_steps": 600, "objective_loss": 1.726802838675212e-05, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 56.77120953899998}
+{"at_utc": "2026-10-09T10:19:41.681978+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 320, "total_steps": 600, "objective_loss": 0.07559066265821457, "gpu_allocated_bytes": 1333215744, "elapsed_seconds": 64.81060454799996}
+{"at_utc": "2026-10-09T10:19:43.881386+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 340, "total_steps": 600, "objective_loss": 1.0239620678476058e-05, "gpu_allocated_bytes": 1333215744, "elapsed_seconds": 67.01765172499995}
+{"at_utc": "2026-10-09T10:19:46.103281+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 360, "total_steps": 600, "objective_loss": 3.973642392907095e-08, "gpu_allocated_bytes": 1333215744, "elapsed_seconds": 69.24176106499999}
+{"at_utc": "2026-10-09T10:19:49.074150+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 380, "total_steps": 600, "objective_loss": 0.0, "gpu_allocated_bytes": 1333215744, "elapsed_seconds": 72.21182301699997}
+{"at_utc": "2026-10-09T10:19:51.345002+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 400, "total_steps": 600, "objective_loss": 1.0596378530181028e-07, "gpu_allocated_bytes": 1333215744, "elapsed_seconds": 74.42453848499997}
+{"at_utc": "2026-10-09T10:19:55.810486+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 2, "branch": "experimental", "completed_steps": 420, "total_steps": 600, "objective_loss": 0.04584880173206329, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 78.947231176}
+{"at_utc": "2026-10-09T10:19:58.009039+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 2, "branch": "experimental", "completed_steps": 440, "total_steps": 600, "objective_loss": 0.0003606699756346643, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 81.14747781599999}
+{"at_utc": "2026-10-09T10:20:01.000913+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 2, "branch": "experimental", "completed_steps": 460, "total_steps": 600, "objective_loss": 0.00030766575946472585, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 84.13309138599999}
+{"at_utc": "2026-10-09T10:20:03.163324+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 2, "branch": "experimental", "completed_steps": 480, "total_steps": 600, "objective_loss": 4.099729630979709e-05, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 86.30102240299999}
+{"at_utc": "2026-10-09T10:20:05.357736+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 2, "branch": "experimental", "completed_steps": 500, "total_steps": 600, "objective_loss": 2.953403236460872e-05, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 88.47097730899998}
+{"at_utc": "2026-10-09T10:20:13.249091+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 2, "branch": "fresh_control", "completed_steps": 520, "total_steps": 600, "objective_loss": 1.0783500671386719, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 96.37436231499998}
+{"at_utc": "2026-10-09T10:20:15.439879+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 2, "branch": "fresh_control", "completed_steps": 540, "total_steps": 600, "objective_loss": 0.6802907586097717, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 98.56777253499996}
+{"at_utc": "2026-10-09T10:20:17.662233+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 2, "branch": "fresh_control", "completed_steps": 560, "total_steps": 600, "objective_loss": 0.5488066673278809, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 100.76920327899995}
+{"at_utc": "2026-10-09T10:20:19.814276+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 2, "branch": "fresh_control", "completed_steps": 580, "total_steps": 600, "objective_loss": 0.010104435496032238, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 102.94958759399998}
+{"at_utc": "2026-10-09T10:20:22.005718+00:00", "kind": "remote_monitor", "monitor": "training_progress", "stage": 2, "branch": "fresh_control", "completed_steps": 600, "total_steps": 600, "objective_loss": 7.2119660217140336e-06, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 105.14570735799998}
+{"at_utc": "2026-10-09T10:20:25.296956+00:00", "kind": "remote_monitor", "monitor": "sequence_complete", "method": "shared", "replay_ratio": 0.25, "matrix": [[0.6666666666666666, 0.0, 0.46875], [0.7083333333333334, 1.0, 0.5], [0.625, 1.0, 0.8125]], "qualification_status": "NOT_EVALUATED"}
+{"at_utc": "2026-10-09T10:20:30.224126+00:00", "kind": "command_finished", "phase": "SEQUENTIAL_TRAINING"}
+{"at_utc": "2026-10-09T10:20:30.225110+00:00", "kind": "command_started", "phase": "DOWNLOAD_VERIFY"}
+{"at_utc": "2026-10-09T10:20:37.312952+00:00", "kind": "remote_monitor", "monitor": "sequence_artifacts_verified", "verified": true, "qualification_status": "NOT_EVALUATED"}
+{"at_utc": "2026-10-09T10:20:37.458755+00:00", "kind": "command_finished", "phase": "DOWNLOAD_VERIFY"}
+{"at_utc": "2026-10-09T10:20:37.459707+00:00", "kind": "cleanup_started"}
+{"at_utc": "2026-10-09T10:20:39.325271+00:00", "kind": "cleanup_confirmed"}

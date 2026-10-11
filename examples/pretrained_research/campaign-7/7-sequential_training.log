@@ -1,0 +1,81 @@
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 18239.02it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /content/saal-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 20, "total_steps": 600, "objective_loss": 1.9443336725234985, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 16.512807891999955}
+{"monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 40, "total_steps": 600, "objective_loss": 0.6534162759780884, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 18.77335970599995}
+{"monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 60, "total_steps": 600, "objective_loss": 0.5900164842605591, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 21.143289014000004}
+{"monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 80, "total_steps": 600, "objective_loss": 0.5358188152313232, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 23.92332537799996}
+{"monitor": "training_progress", "stage": 0, "branch": "experimental", "completed_steps": 100, "total_steps": 600, "objective_loss": 0.08594830334186554, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 26.128340111}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 4533.01it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /content/saal-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 120, "total_steps": 600, "objective_loss": 1.9443336725234985, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 33.75583684399999}
+{"monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 140, "total_steps": 600, "objective_loss": 0.6534162759780884, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 36.44343120099995}
+{"monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 160, "total_steps": 600, "objective_loss": 0.5900164842605591, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 38.65274566199997}
+{"monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 180, "total_steps": 600, "objective_loss": 0.5358188152313232, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 40.85848270099996}
+{"monitor": "training_progress", "stage": 0, "branch": "fresh_control", "completed_steps": 200, "total_steps": 600, "objective_loss": 0.08594830334186554, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 43.081414128999995}
+{"monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 220, "total_steps": 600, "objective_loss": 1.0520391464233398, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 48.04796646099999}
+{"monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 240, "total_steps": 600, "objective_loss": 0.19090883433818817, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 50.25239507099997}
+{"monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 260, "total_steps": 600, "objective_loss": 0.027507901191711426, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 52.422711754999966}
+{"monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 280, "total_steps": 600, "objective_loss": 0.0012428067857399583, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 54.600693958999955}
+{"monitor": "training_progress", "stage": 1, "branch": "experimental", "completed_steps": 300, "total_steps": 600, "objective_loss": 1.726802838675212e-05, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 56.77120953899998}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 4531.46it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /content/saal-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 320, "total_steps": 600, "objective_loss": 0.07559066265821457, "gpu_allocated_bytes": 1333215744, "elapsed_seconds": 64.81060454799996}
+{"monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 340, "total_steps": 600, "objective_loss": 1.0239620678476058e-05, "gpu_allocated_bytes": 1333215744, "elapsed_seconds": 67.01765172499995}
+{"monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 360, "total_steps": 600, "objective_loss": 3.973642392907095e-08, "gpu_allocated_bytes": 1333215744, "elapsed_seconds": 69.24176106499999}
+{"monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 380, "total_steps": 600, "objective_loss": 0.0, "gpu_allocated_bytes": 1333215744, "elapsed_seconds": 72.21182301699997}
+{"monitor": "training_progress", "stage": 1, "branch": "fresh_control", "completed_steps": 400, "total_steps": 600, "objective_loss": 1.0596378530181028e-07, "gpu_allocated_bytes": 1333215744, "elapsed_seconds": 74.42453848499997}
+{"monitor": "training_progress", "stage": 2, "branch": "experimental", "completed_steps": 420, "total_steps": 600, "objective_loss": 0.04584880173206329, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 78.947231176}
+{"monitor": "training_progress", "stage": 2, "branch": "experimental", "completed_steps": 440, "total_steps": 600, "objective_loss": 0.0003606699756346643, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 81.14747781599999}
+{"monitor": "training_progress", "stage": 2, "branch": "experimental", "completed_steps": 460, "total_steps": 600, "objective_loss": 0.00030766575946472585, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 84.13309138599999}
+{"monitor": "training_progress", "stage": 2, "branch": "experimental", "completed_steps": 480, "total_steps": 600, "objective_loss": 4.099729630979709e-05, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 86.30102240299999}
+{"monitor": "training_progress", "stage": 2, "branch": "experimental", "completed_steps": 500, "total_steps": 600, "objective_loss": 2.953403236460872e-05, "gpu_allocated_bytes": 705389568, "elapsed_seconds": 88.47097730899998}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 4676.92it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /content/saal-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"monitor": "training_progress", "stage": 2, "branch": "fresh_control", "completed_steps": 520, "total_steps": 600, "objective_loss": 1.0783500671386719, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 96.37436231499998}
+{"monitor": "training_progress", "stage": 2, "branch": "fresh_control", "completed_steps": 540, "total_steps": 600, "objective_loss": 0.6802907586097717, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 98.56777253499996}
+{"monitor": "training_progress", "stage": 2, "branch": "fresh_control", "completed_steps": 560, "total_steps": 600, "objective_loss": 0.5488066673278809, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 100.76920327899995}
+{"monitor": "training_progress", "stage": 2, "branch": "fresh_control", "completed_steps": 580, "total_steps": 600, "objective_loss": 0.010104435496032238, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 102.94958759399998}
+{"monitor": "training_progress", "stage": 2, "branch": "fresh_control", "completed_steps": 600, "total_steps": 600, "objective_loss": 7.2119660217140336e-06, "gpu_allocated_bytes": 1332625920, "elapsed_seconds": 105.14570735799998}
+{"monitor": "sequence_complete", "method": "shared", "replay_ratio": 0.25, "matrix": [[0.6666666666666666, 0.0, 0.46875], [0.7083333333333334, 1.0, 0.5], [0.625, 1.0, 0.8125]], "qualification_status": "NOT_EVALUATED"}
+358

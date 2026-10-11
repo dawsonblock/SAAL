@@ -1,0 +1,14 @@
+{
+  "qualification": {
+    "external_deployment_allowed": false,
+    "report": "/Users/dawsonblock/Documents/Codex/2026-10-08/referenced-chatgpt-conversation-this-is-an/work/092-family-protocol/qualification.json",
+    "research_qualified": false
+  },
+  "verified": {
+    "external_deployment_allowed": false,
+    "research_qualified": false,
+    "verified": true
+  },
+  "sampling": "Public correlated diagnostic fixtures; independently protected evaluation NOT performed.",
+  "baseline_preserved": true
+}

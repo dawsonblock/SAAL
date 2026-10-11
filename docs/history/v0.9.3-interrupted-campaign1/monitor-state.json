@@ -1,0 +1,31 @@
+{
+  "schema": "saal-colab-monitor-v2",
+  "session": "saal-bd22f40fa71e47bcbcad",
+  "phase": "FAILED",
+  "job_digest": "sha256:d383f7678cfe95e77a31143060bd9ac639697c51a52e3475f2f446342e2e4307",
+  "deadline_epoch": 1791541705.353963,
+  "heartbeat_epoch": 1791528138.9992151,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 0,
+  "total_steps": 0,
+  "external_deployment_allowed": false,
+  "elapsed_seconds": 133.64409854193218,
+  "watchdog_pid": 49336,
+  "active_command": null,
+  "last_remote_event": {
+    "monitor": "campaign_progress",
+    "seed": 17,
+    "mode": "full",
+    "completed_runs": 1,
+    "total_runs": 20
+  },
+  "completed_runs": 1,
+  "total_runs": 20,
+  "current_seed": 17,
+  "current_mode": "full",
+  "error": {
+    "type": "RuntimeError",
+    "detail": "Colab -I failed (1): s/SAAL-RSI-v0.9.3-Robust-Neural-Learning/tools/run_campaign_coordinator.py\", line 11, in <module>\n    run_registered_jobs(parse_unique_json((root/'protocol.json').read_bytes()),a.pin,key,parse_unique_json((root/'dataset.json').read_bytes()),root,remote_session=a.session)\n  File \"/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.3-Robust-Neural-Learning/src/saal_rsi/neural_campaign.py\", line 80, in run_registered_jobs\n    stream_command(command,attempt/(str(i)+'-'+phase.lower()+'.log'),job['max_seconds']+30,\n  File \"/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.3-Robust-Neural-Learning/src/saal_rsi/model_monitor.py\", line 49, in stream_command\n    if rc:raise RuntimeError(f'Colab {command[1]} failed ({rc}): '+tail.decode(errors='replace')[-1200:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Colab download failed (1): \n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Download failed: File or directory not found: /content/saal_result_aaa85f7589fe.zip\n\n"
+  }
+}

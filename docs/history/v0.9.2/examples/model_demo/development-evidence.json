@@ -1,0 +1,132 @@
+{
+  "payload": {
+    "baseline_checkpoint_identical_to_prior_gpu": true,
+    "baseline_accuracy": 0.8333333333333334,
+    "candidate_accuracy": 1.0,
+    "category_score": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "selection": {
+      "class_weights": [
+        0.5,
+        0.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "development_score": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "labels_absent_from_training": [
+        "FAST"
+      ],
+      "objective": "class-balanced-cross-entropy-v1",
+      "policy": "development-worst-category-macro-accuracy-v1",
+      "selected_adapter_step": 220,
+      "trained_adapter_steps": 500
+    },
+    "runtime": {
+      "cuda": "12.8",
+      "device": "cuda",
+      "gpu": "Tesla T4",
+      "limits": "Worker self-report; not remote attestation.",
+      "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+      "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+      "versions": {
+        "cryptography": "48.0.1",
+        "safetensors": "0.8.0",
+        "torch": "2.10.0"
+      }
+    },
+    "execution": {
+      "backend": "colab",
+      "session": "saal-1fe97c5b3cc94cb9a769",
+      "artifact_digest": "sha256:2030af86b9e9df68e10363b495339d06ba322e8547de19871544709811ed2e8f",
+      "qualification_status": "NOT_EVALUATED",
+      "monitor": "/Users/dawsonblock/Documents/Codex/2026-10-08/referenced-chatgpt-conversation-this-is-an/work/colab-091-frozen-gpu/public/monitor-state.json",
+      "cleanup_verified": true,
+      "checkpoint_reload_prediction_parity": {
+        "baseline": true,
+        "candidate": true
+      }
+    },
+    "final_holdout_used": false,
+    "schema": "saal-development-evidence-v1",
+    "qualification_status": "NOT_EVALUATED",
+    "scope": "48 public synthetic development cases repeatedly used for tuning; no independent qualification",
+    "source_worker_sha256": "1c3e579365e54cc1648f5d79b28a0d3d83b48f456da4538a63e354904f6288ad",
+    "local_tuning": [
+      {
+        "rank": 4,
+        "rate": 0.01,
+        "selected_step": 220,
+        "score": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "baseline_sha": "e4a00364729b1a94986d45087f900b80c432cf6be3269869cdb7592b30242d93",
+        "losses": [
+          0.5548436641693115,
+          0.025229962542653084
+        ]
+      },
+      {
+        "rank": 4,
+        "rate": 0.02,
+        "selected_step": 140,
+        "score": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "baseline_sha": "e4a00364729b1a94986d45087f900b80c432cf6be3269869cdb7592b30242d93",
+        "losses": [
+          0.5548436641693115,
+          0.018853437155485153
+        ]
+      },
+      {
+        "rank": 8,
+        "rate": 0.01,
+        "selected_step": 210,
+        "score": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "baseline_sha": "e4a00364729b1a94986d45087f900b80c432cf6be3269869cdb7592b30242d93",
+        "losses": [
+          0.5548436641693115,
+          0.031853318214416504
+        ]
+      },
+      {
+        "rank": 8,
+        "rate": 0.02,
+        "selected_step": 130,
+        "score": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "baseline_sha": "e4a00364729b1a94986d45087f900b80c432cf6be3269869cdb7592b30242d93",
+        "losses": [
+          0.5548436641693115,
+          0.03206539899110794
+        ]
+      }
+    ],
+    "losses": [
+      0.5548436641693115,
+      0.02523030899465084
+    ],
+    "loss_measurement": "full-training-unweighted-cross-entropy-at-exported-checkpoints"
+  },
+  "key_sha256": "757eba2939c3c0aaa4a7b5843644af468a3fa6f5d227c56e70627ac137b0803f",
+  "signature_b64": "3+WvgcGQ5fxCRegJoFwRreX7R73uQ5o5doyHnJgHc/5cweQigK0ds8O/CxY2ogi6L+n3ADhbPxwojRYfwexZDw=="
+}

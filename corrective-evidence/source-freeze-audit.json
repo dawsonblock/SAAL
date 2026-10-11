@@ -1,0 +1,19 @@
+{
+  "schema": "saal-source-freeze-audit-v1",
+  "change_reason": "Reject unlisted source/configuration files as well as substituted listed files; add real negative test.",
+  "accounted_source_changes": {
+    "src/saal_rsi/corrective_release.py": {
+      "previous_sha256": "fd6115e35792b2c2be90537e24ecf7f010cc0bf7e22f864c81f259854dfed70f",
+      "current_sha256": "c295a768fae7a2efdad5d9608a285f808becd12cc5d013d23010730fa11c9774"
+    },
+    "tests/integration/test_corrective_release_capsule.py": {
+      "previous_sha256": "988873b9e37db21c382f7fbfd99ec5f2247e12c6f4ccc0a03cbed9b34dc9db8c",
+      "current_sha256": "0287ae0d7038afedb34fc5c62d9c9a14abcb2c40af3dc7c7a7ca49b72e6531a1"
+    }
+  },
+  "previous_source_tests_passed": 463,
+  "previous_signed_freeze_preserved": "corrective-evidence/history/source-freeze-1",
+  "first_build_status": "UNRELEASED_NOT_CLEAN_EXTRACTION_VERIFIED",
+  "first_build_sha256": "de110df755163fc2b941378dfadeaecf9bceaa963aedc6750fd643fd953588b1",
+  "historical_research_evidence_changed": false
+}

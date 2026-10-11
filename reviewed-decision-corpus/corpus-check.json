@@ -1,0 +1,35 @@
+{
+  "records": 600,
+  "counterfactual_pairs": 300,
+  "families": 7,
+  "splits": {
+    "train": 360,
+    "validation": 120,
+    "test": 120
+  },
+  "label_counts": {
+    "train": {
+      "CHEAP": 90,
+      "FAST": 90,
+      "ASK": 90,
+      "REFUSE": 90
+    },
+    "validation": {
+      "CHEAP": 30,
+      "FAST": 30,
+      "ASK": 30,
+      "REFUSE": 30
+    },
+    "test": {
+      "CHEAP": 30,
+      "FAST": 30,
+      "ASK": 30,
+      "REFUSE": 30
+    }
+  },
+  "mechanical_checks": "PASS",
+  "human_review": "PENDING",
+  "semantic_leakage_review": "PENDING",
+  "qualification_status": "NOT_EVALUATED",
+  "training_ready": false
+}

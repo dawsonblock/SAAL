@@ -1,0 +1,56 @@
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+{"monitor": "snapshot_download", "file": "config.json", "bytes": 1217}
+{"monitor": "snapshot_download", "file": "model.safetensors", "bytes": 598635032}
+{"monitor": "snapshot_download", "file": "special_tokens_map.json", "bytes": 694}
+{"monitor": "snapshot_download", "file": "tokenizer.json", "bytes": 2132967}
+{"monitor": "snapshot_download", "file": "tokenizer_config.json", "bytes": 20837}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 7277.78it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /content/saal-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.bias   | MISSING    | 
+classifier.weight | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"monitor": "checkpoint_metrics", "step": 0, "development": {"accuracy": 0.2578125, "family_macro_accuracy": 0.2578125, "worst_family_accuracy": 0.0, "family_accuracy": {"development_mechanism_0": 0.5, "development_mechanism_1": 0.3125, "development_mechanism_2": 0.4375, "development_mechanism_3": 0.5, "development_mechanism_4": 0.0, "development_mechanism_5": 0.3125, "development_mechanism_6": 0.0, "development_mechanism_7": 0.0}, "class_accuracy": {"CHEAP": 0.7, "FAST": 0.0, "REFUSE": 0.0, "ASK": 0.3125}, "category_accuracy": {"ordinary": 0.25, "correction": 0.3125, "injection": 0.4375, "proxy": 0.5, "refusal": 0.0, "clarification": 0.3125}, "complete_pair_accuracy": 0.03125, "invalid_outputs": 0, "unauthorized_proposals": 37, "confusion": {"CHEAP->CHEAP": 28, "FAST->ASK": 15, "FAST->CHEAP": 25, "CHEAP->ASK": 12, "REFUSE->ASK": 6, "REFUSE->CHEAP": 26, "ASK->ASK": 5, "ASK->CHEAP": 11}}, "regression": {"accuracy": 0.2109375, "family_macro_accuracy": 0.2109375, "worst_family_accuracy": 0.0, "family_accuracy": {"regression_mechanism_0": 0.1875, "regression_mechanism_1": 0.5, "regression_mechanism_2": 0.5, "regression_mechanism_3": 0.25, "regression_mechanism_4": 0.0, "regression_mechanism_5": 0.0, "regression_mechanism_6": 0.25, "regression_mechanism_7": 0.0}, "class_accuracy": {"CHEAP": 0.675, "FAST": 0.0, "REFUSE": 0.0, "ASK": 0.0}, "category_accuracy": {"ordinary": 0.21875, "correction": 0.5, "injection": 0.5, "proxy": 0.25, "refusal": 0.0, "clarification": 0.0}, "complete_pair_accuracy": 0.0, "invalid_outputs": 0, "unauthorized_proposals": 48, "confusion": {"CHEAP->ASK": 13, "FAST->ASK": 14, "CHEAP->CHEAP": 27, "FAST->CHEAP": 26, "REFUSE->CHEAP": 32, "ASK->CHEAP": 16}}}
+{"monitor": "training_progress", "completed_steps": 1, "total_steps": 50, "objective_loss": 1.7024872303009033, "tokens": 209, "elapsed_seconds": 1.5298196219999909, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 2, "total_steps": 50, "objective_loss": 1.636147141456604, "tokens": 414, "elapsed_seconds": 1.574913195999983, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 3, "total_steps": 50, "objective_loss": 2.0844154357910156, "tokens": 644, "elapsed_seconds": 1.6171186009999872, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 4, "total_steps": 50, "objective_loss": 1.3859251737594604, "tokens": 849, "elapsed_seconds": 1.659474954999979, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 5, "total_steps": 50, "objective_loss": 1.1351262331008911, "tokens": 1055, "elapsed_seconds": 1.7022637289999807, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 6, "total_steps": 50, "objective_loss": 1.5308626890182495, "tokens": 1279, "elapsed_seconds": 1.7434999379999851, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 7, "total_steps": 50, "objective_loss": 1.0116788148880005, "tokens": 1491, "elapsed_seconds": 1.7845369919999996, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 8, "total_steps": 50, "objective_loss": 1.039770245552063, "tokens": 1703, "elapsed_seconds": 1.8268194139999991, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 9, "total_steps": 50, "objective_loss": 1.4151500463485718, "tokens": 1900, "elapsed_seconds": 1.8674106569999935, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 10, "total_steps": 50, "objective_loss": 1.3025864362716675, "tokens": 2104, "elapsed_seconds": 1.9079186749999906, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 11, "total_steps": 50, "objective_loss": 1.112985372543335, "tokens": 2322, "elapsed_seconds": 1.948290567999976, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 12, "total_steps": 50, "objective_loss": 1.0103267431259155, "tokens": 2521, "elapsed_seconds": 1.9888916349999874, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 13, "total_steps": 50, "objective_loss": 0.9816687107086182, "tokens": 2741, "elapsed_seconds": 2.0304774619999932, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 14, "total_steps": 50, "objective_loss": 0.8766783475875854, "tokens": 2945, "elapsed_seconds": 2.0696495109999944, "gpu_allocated_bytes": 694363648}
+{"monitor": "training_progress", "completed_steps": 15, "total_steps": 50, "objective_loss": 1.4632679224014282, "tokens": 3161, "elapsed_seconds": 2.112057071999999, "gpu_allocated_bytes": 694363648}
+Traceback (most recent call last):
+  File "/content/saal-pretrained/worker.py", line 5, in <module>
+    main()
+    ~~~~^^
+  File "/content/saal-pretrained/src/saal_rsi/pretrained_worker.py", line 43, in main
+    result=backend.train(job['dataset'],{'job':training_job,'out':out})
+  File "/content/saal-pretrained/src/saal_rsi/learning_backend.py", line 81, in train
+    return train_backend(self,dataset,budget)
+  File "/content/saal-pretrained/src/saal_rsi/peft_training.py", line 40, in train_backend
+    if not torch.isfinite(norm):raise ValueError('nonfinite gradients; interrupted attempt')
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: nonfinite gradients; interrupted attempt
+[0;31m---------------------------------------------------------------------------[0m[0;31mRuntimeError[0m                              Traceback (most recent call last)[0;32m/tmp/ipykernel_372/2939383256.py[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m      5[0m [0mproc[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mPopen[0m[0;34m([0m[0mcommand[0m[0;34m,[0m[0mstdout[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mPIPE[0m[0;34m,[0m[0mstderr[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mSTDOUT[0m[0;34m,[0m[0menv[0m[0;34m=[0m[0menv[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0miter[0m[0;34m([0m[0mproc[0m[0;34m.[0m[0mstdout[0m[0;34m.[0m[0mreadline[0m[0;34m,[0m[0;34mb''[0m[0;34m)[0m[0;34m:[0m[0mprint[0m[0;34m([0m[0mline[0m[0;34m.[0m[0mdecode[0m[0;34m([0m[0merrors[0m[0;34m=[0m[0;34m'replace'[0m[0;34m)[0m[0;34m,[0m[0mend[0m[0;34m=[0m[0;34m''[0m[0;34m,[0m[0mflush[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mif[0m [0mproc[0m[0;34m.[0m[0mwait[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;32mraise[0m [0mRuntimeError[0m[0;34m([0m[0;34m'training child failed'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mreplay[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mPopen[0m[0;34m([0m[0mcommand[0m[0;34m+[0m[0;34m[[0m[0;34m'--replay'[0m[0;34m][0m[0;34m,[0m[0mstdout[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mPIPE[0m[0;34m,[0m[0mstderr[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mSTDOUT[0m[0;34m,[0m[0menv[0m[0;34m=[0m[0menv[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0miter[0m[0;34m([0m[0mreplay[0m[0;34m.[0m[0mstdout[0m[0;34m.[0m[0mreadline[0m[0;34m,[0m[0;34mb''[0m[0;34m)[0m[0;34m:[0m[0mprint[0m[0;34m([0m[0mline[0m[0;34m.[0m[0mdecode[0m[0;34m([0m[0merrors[0m[0;34m=[0m[0;34m'replace'[0m[0;34m)[0m[0;34m,[0m[0mend[0m[0;34m=[0m[0;34m''[0m[0;34m,[0m[0mflush[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mRuntimeError[0m: training child failed

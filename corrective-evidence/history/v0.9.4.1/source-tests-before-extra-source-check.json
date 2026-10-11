@@ -1,0 +1,14 @@
+{
+  "schema": "saal-corrective-source-tests-v1",
+  "exit_code": 0,
+  "elapsed_seconds": 85.52261674997862,
+  "python": "3.12.0",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "test_log_sha256": "00a05365de52ebb008740fa88d7651f25ca04b7c85ffff600d63c8ac4a3987bf",
+  "output_tail": "........................................................................ [ 15%]\n........................................................................ [ 31%]\n........................................................................ [ 46%]\n........................................................................ [ 62%]\n........................................................................ [ 77%]\n........................................................................ [ 93%]\n...............................                                          [100%]\n",
+  "scope": "Complete inherited and additive suite in actual corrective source; independent qualification not performed",
+  "passed": 463,
+  "failed": 0,
+  "skipped": 0,
+  "count_method": "Complete passing progress markers from real full-suite log, no skip/failure markers"
+}

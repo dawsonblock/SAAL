@@ -1,0 +1,86 @@
+[
+  {
+    "digest": "sha256:d383f7678cfe95e77a31143060bd9ac639697c51a52e3475f2f446342e2e4307",
+    "protocol": {
+      "adaptation_steps": 500,
+      "backend": "colab",
+      "baseline_steps": 300,
+      "controller_digest": "sha256:7e6bc6857239342905174d699810907ab4704332bb21ec034460865dbcdd3141",
+      "dataset_digest": "sha256:501adef00358fe55b9fe2156bead59878cb3be2465a653979ecc7792f5156296",
+      "external_deployment_allowed": false,
+      "max_run_seconds": 600,
+      "model_spec": {
+        "adapter_configuration": {
+          "rank": 4,
+          "scale": 1.0,
+          "targets": [
+            "query",
+            "value"
+          ]
+        },
+        "architecture_version": "byte-cls-transformer-v2",
+        "attention_heads": 4,
+        "dropout": 0.1,
+        "encoder_layers": 2,
+        "feedforward_dimension": 256,
+        "hidden_dimension": 64,
+        "initialization_seed": 17,
+        "max_sequence_bytes": 256,
+        "model_kind": "tiny-transformer-lora-v2",
+        "output_vocabulary": [
+          "CHEAP",
+          "FAST",
+          "ASK",
+          "REFUSE"
+        ],
+        "positional_encoding": "learned-absolute-v1",
+        "tokenizer_version": "utf8-bytes-pad256-cls257-v2"
+      },
+      "modes": [
+        "frozen",
+        "full",
+        "lora-r4",
+        "lora-r8"
+      ],
+      "qualification_status": "NOT_EVALUATED",
+      "schema": "saal-neural-campaign-v1",
+      "seeds": [
+        17,
+        29,
+        43,
+        71,
+        101
+      ],
+      "selection_policy": "public-critical-class-family-pair-cost-v1",
+      "worker_digest": "sha256:14b6d513a685665825eca57110942cfdf8c9ec2a0888303167af919e1bcaddc3"
+    },
+    "state": "INTERRUPTED",
+    "outcome": {
+      "bookkeeping_recovered_after_parser_repair": true,
+      "error": {
+        "detail": "Colab -I failed (1): s/SAAL-RSI-v0.9.3-Robust-Neural-Learning/tools/run_campaign_coordinator.py\", line 11, in <module>\n    run_registered_jobs(parse_unique_json((root/'protocol.json').read_bytes()),a.pin,key,parse_unique_json((root/'dataset.json').read_bytes()),root,remote_session=a.session)\n  File \"/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.3-Robust-Neural-Learning/src/saal_rsi/neural_campaign.py\", line 80, in run_registered_jobs\n    stream_command(command,attempt/(str(i)+'-'+phase.lower()+'.log'),job['max_seconds']+30,\n  File \"/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.3-Robust-Neural-Learning/src/saal_rsi/model_monitor.py\", line 49, in stream_command\n    if rc:raise RuntimeError(f'Colab {command[1]} failed ({rc}): '+tail.decode(errors='replace')[-1200:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Colab download failed (1): \n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Download failed: File or directory not found: /content/saal_result_aaa85f7589fe.zip\n\n",
+        "type": "RuntimeError"
+      },
+      "runs": [
+        {
+          "bundle": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-1/seed-17/frozen/bundle",
+          "job": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-1/seed-17/frozen/job.json",
+          "job_digest": "sha256:a74299c50d8b3ab015c06150df35997656968b43f7a3f4cd3de43d7acf339e8d",
+          "mode": "frozen",
+          "seed": 17,
+          "status": "COMPLETED"
+        },
+        {
+          "error": {
+            "detail": "Colab download failed (1): \n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Download failed: File or directory not found: /content/saal_result_aaa85f7589fe.zip\n",
+            "type": "RuntimeError"
+          },
+          "job_digest": "sha256:aaa85f7589fe8b83573e2cf172a138b11d25436234bc14be6866e34a2843c237",
+          "mode": "full",
+          "seed": 17,
+          "status": "INTERRUPTED"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "schema": "saal-colab-campaign-plan-v1",
+  "session": "saal-bd22f40fa71e47bcbcad",
+  "job_digest": "sha256:d383f7678cfe95e77a31143060bd9ac639697c51a52e3475f2f446342e2e4307",
+  "commands": [
+    [
+      "colab",
+      "new",
+      "-s",
+      "saal-bd22f40fa71e47bcbcad",
+      "--gpu",
+      "T4"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-bd22f40fa71e47bcbcad",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-1/setup/gpu-lock.txt",
+      "/content/saal_gpu_lock.txt"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-bd22f40fa71e47bcbcad",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-1/setup/worker.zip",
+      "/content/saal_worker.zip"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-bd22f40fa71e47bcbcad",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-1/setup/install.py",
+      "--timeout",
+      "960"
+    ],
+    [
+      "/private/tmp/saal093-env/bin/python",
+      "-I",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.3-Robust-Neural-Learning/tools/run_campaign_coordinator.py",
+      "--workspace",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-1",
+      "--pin",
+      "2fb28f528dc3e2e24d04600c32b5dfb89e17d3c02f104c0f6649c3dd4c0903c6",
+      "--controller-key",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v093-controller.key",
+      "--session",
+      "saal-bd22f40fa71e47bcbcad"
+    ],
+    [
+      "colab",
+      "log",
+      "-s",
+      "saal-bd22f40fa71e47bcbcad",
+      "-o",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-1/runtime-log.jsonl"
+    ],
+    [
+      "colab",
+      "stop",
+      "-s",
+      "saal-bd22f40fa71e47bcbcad"
+    ]
+  ],
+  "phases": [
+    "PROVISIONING",
+    "UPLOAD_GPU-LOCK",
+    "UPLOAD_WORKER",
+    "DEPENDENCIES",
+    "CAMPAIGN",
+    "EXPORT_LOGS"
+  ],
+  "estimated_max_seconds": 13700,
+  "billing_limit_enforced": false,
+  "includes_final_holdout": false
+}

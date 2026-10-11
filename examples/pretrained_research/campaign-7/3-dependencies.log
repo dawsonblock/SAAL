@@ -1,0 +1,21 @@
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+{"monitor": "dependency_heartbeat", "at": 1791541022.1868043}
+{"monitor": "dependency_heartbeat", "at": 1791541027.192007}
+{"monitor": "dependency_heartbeat", "at": 1791541032.1948988}
+{"monitor": "dependency_heartbeat", "at": 1791541037.199738}
+{"monitor": "dependency_heartbeat", "at": 1791541042.2047853}
+{"monitor": "dependency_heartbeat", "at": 1791541047.208621}
+{"monitor": "dependency_heartbeat", "at": 1791541052.2114398}
+{"monitor": "dependency_heartbeat", "at": 1791541057.2145393}
+{"monitor": "dependency_heartbeat", "at": 1791541062.2179377}
+{"monitor": "dependency_heartbeat", "at": 1791541067.2218888}
+{"monitor": "dependency_heartbeat", "at": 1791541072.2234492}
+{"monitor": "dependency_heartbeat", "at": 1791541077.2243981}
+{"monitor": "dependency_heartbeat", "at": 1791541082.2269726}
+{"monitor": "dependency_heartbeat", "at": 1791541087.2278237}
+{"monitor": "dependency_heartbeat", "at": 1791541092.2353592}
+{"monitor": "dependency_complete", "hash_lock_enforced": true}

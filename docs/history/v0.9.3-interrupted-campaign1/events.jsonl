@@ -1,0 +1,27 @@
+{"at_utc": "2026-10-09T06:40:05.367862+00:00", "kind": "command_started", "phase": "PROVISIONING"}
+{"at_utc": "2026-10-09T06:40:10.098628+00:00", "kind": "command_finished", "phase": "PROVISIONING"}
+{"at_utc": "2026-10-09T06:40:10.100522+00:00", "kind": "command_started", "phase": "UPLOAD_GPU-LOCK"}
+{"at_utc": "2026-10-09T06:40:22.450147+00:00", "kind": "command_finished", "phase": "UPLOAD_GPU-LOCK"}
+{"at_utc": "2026-10-09T06:40:22.451381+00:00", "kind": "command_started", "phase": "UPLOAD_WORKER"}
+{"at_utc": "2026-10-09T06:40:29.023272+00:00", "kind": "command_finished", "phase": "UPLOAD_WORKER"}
+{"at_utc": "2026-10-09T06:40:29.023961+00:00", "kind": "command_started", "phase": "DEPENDENCIES"}
+{"at_utc": "2026-10-09T06:40:37.264493+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528037.1528187}
+{"at_utc": "2026-10-09T06:40:42.264840+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528042.1598916}
+{"at_utc": "2026-10-09T06:40:47.279585+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528047.1636226}
+{"at_utc": "2026-10-09T06:40:52.279736+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528052.1709666}
+{"at_utc": "2026-10-09T06:40:57.281864+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528057.174739}
+{"at_utc": "2026-10-09T06:41:02.291363+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528062.176049}
+{"at_utc": "2026-10-09T06:41:07.287889+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528067.179767}
+{"at_utc": "2026-10-09T06:41:12.295184+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528072.1825519}
+{"at_utc": "2026-10-09T06:41:17.287229+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528077.1847122}
+{"at_utc": "2026-10-09T06:41:22.298846+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528082.185943}
+{"at_utc": "2026-10-09T06:41:27.295671+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528087.1903226}
+{"at_utc": "2026-10-09T06:41:32.298853+00:00", "kind": "remote_monitor", "monitor": "dependency_heartbeat", "at": 1791528092.1937826}
+{"at_utc": "2026-10-09T06:41:36.752585+00:00", "kind": "remote_monitor", "monitor": "dependency_complete", "hash_lock_enforced": true}
+{"at_utc": "2026-10-09T06:41:37.103851+00:00", "kind": "command_finished", "phase": "DEPENDENCIES"}
+{"at_utc": "2026-10-09T06:41:37.104417+00:00", "kind": "command_started", "phase": "CAMPAIGN"}
+{"at_utc": "2026-10-09T06:41:38.168359+00:00", "kind": "remote_monitor", "monitor": "campaign_progress", "seed": 17, "mode": "frozen", "completed_runs": 0, "total_runs": 20}
+{"at_utc": "2026-10-09T06:42:06.850758+00:00", "kind": "remote_monitor", "monitor": "campaign_progress", "seed": 17, "mode": "full", "completed_runs": 1, "total_runs": 20}
+{"at_utc": "2026-10-09T06:42:17.412731+00:00", "kind": "run_failed", "error": {"type": "RuntimeError", "detail": "Colab -I failed (1): s/SAAL-RSI-v0.9.3-Robust-Neural-Learning/tools/run_campaign_coordinator.py\", line 11, in <module>\n    run_registered_jobs(parse_unique_json((root/'protocol.json').read_bytes()),a.pin,key,parse_unique_json((root/'dataset.json').read_bytes()),root,remote_session=a.session)\n  File \"/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.3-Robust-Neural-Learning/src/saal_rsi/neural_campaign.py\", line 80, in run_registered_jobs\n    stream_command(command,attempt/(str(i)+'-'+phase.lower()+'.log'),job['max_seconds']+30,\n  File \"/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.3-Robust-Neural-Learning/src/saal_rsi/model_monitor.py\", line 49, in stream_command\n    if rc:raise RuntimeError(f'Colab {command[1]} failed ({rc}): '+tail.decode(errors='replace')[-1200:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Colab download failed (1): \n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Download failed: File or directory not found: /content/saal_result_aaa85f7589fe.zip\n\n"}}
+{"at_utc": "2026-10-09T06:42:17.413698+00:00", "kind": "cleanup_started"}
+{"at_utc": "2026-10-09T06:42:18.998486+00:00", "kind": "cleanup_confirmed"}

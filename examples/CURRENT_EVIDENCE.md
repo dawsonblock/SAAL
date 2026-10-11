@@ -1,0 +1,1 @@
+The current v0.9.3 evidence is in neural_campaign/. Existing model_demo, public_benchmark, family_protocol and rule examples retain their original version identities and negative findings. Original v0.9.2 source and evidence can be restored from provenance/SAAL-RSI-v0.9.2-Evaluation-Integrity.zip. Older source-bound attestations are not attestations of the modified v0.9.3 source.

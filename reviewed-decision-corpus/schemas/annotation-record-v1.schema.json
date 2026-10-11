@@ -1,0 +1,115 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "changed_field",
+    "cluster_id",
+    "counterfactual_pair_id",
+    "generation_rule_id",
+    "human_reviews",
+    "label_rationale",
+    "parent_record_id",
+    "policy_version",
+    "prompt",
+    "prompt_digest",
+    "proposed_decision",
+    "record_id",
+    "review_status",
+    "schema",
+    "source_lineage",
+    "split",
+    "state",
+    "state_digest",
+    "task_family_id",
+    "template_id"
+  ],
+  "properties": {
+    "changed_field": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cluster_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "counterfactual_pair_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generation_rule_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "human_reviews": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "label_rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_record_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "policy_version": {
+      "const": "saal-choice-policy-v1"
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prompt_digest": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposed_decision": {
+      "enum": [
+        "CHEAP",
+        "FAST",
+        "ASK",
+        "REFUSE"
+      ]
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review_status": {
+      "const": "PENDING"
+    },
+    "schema": {
+      "const": "saal-annotation-record-v1"
+    },
+    "source_lineage": {
+      "type": "object"
+    },
+    "split": {
+      "enum": [
+        "train",
+        "validation",
+        "test"
+      ]
+    },
+    "state": {
+      "type": "object"
+    },
+    "state_digest": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_family_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "template_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAAL draft annotation record v1",
+  "description": "Structural schema for draft records. saal_corpus.integrity.validate enforces state, digests, oracle, lineage, pair and split constraints."
+}

@@ -1,0 +1,70 @@
+{
+  "arm_metrics": {
+    "A_frozen_no_inference": {
+      "clarification_rate": 0.0,
+      "constraint_violations": 0,
+      "correction_failures": 40,
+      "episodes": 600,
+      "mean_regret": 2.132354166433333,
+      "mean_true_utility": -2.6558263887666667,
+      "unauthorized_execution": null
+    },
+    "B_frozen_uncertainty": {
+      "clarification_rate": 0.7566666666666667,
+      "constraint_violations": 0,
+      "correction_failures": 0,
+      "episodes": 600,
+      "mean_regret": 0.002881944433333333,
+      "mean_true_utility": -0.5263541667833334,
+      "unauthorized_execution": null
+    },
+    "C_offline_model_no_ask": {
+      "clarification_rate": 0.0,
+      "constraint_violations": 0,
+      "correction_failures": 0,
+      "episodes": 600,
+      "mean_regret": 0.7456319444666667,
+      "mean_true_utility": -1.2691041667333334,
+      "unauthorized_execution": null
+    },
+    "D_offline_model_and_ask": {
+      "clarification_rate": 0.665,
+      "constraint_violations": 0,
+      "correction_failures": 0,
+      "episodes": 600,
+      "mean_regret": 0.015173611100000001,
+      "mean_true_utility": -0.5386458334166666,
+      "unauthorized_execution": null
+    },
+    "E_frozen_controlled": {
+      "clarification_rate": 0.7566666666666667,
+      "constraint_violations": 0,
+      "correction_failures": 0,
+      "episodes": 600,
+      "mean_regret": 0.002881944433333333,
+      "mean_true_utility": -0.5263541667833334,
+      "unauthorized_execution": 0
+    },
+    "F_offline_model_controlled": {
+      "clarification_rate": 0.665,
+      "constraint_violations": 0,
+      "correction_failures": 0,
+      "episodes": 600,
+      "mean_regret": 0.015173611100000001,
+      "mean_true_utility": -0.5386458334166666,
+      "unauthorized_execution": 0
+    }
+  },
+  "causal_human_welfare_claim": false,
+  "conclusion": "This public demonstration does not establish independent alignment, human welfare, or safe deployment. v3 replay/identity/security are tested independently by regression tests.",
+  "model_metadata": {
+    "epochs": 55,
+    "train_seed": 1201
+  },
+  "report_sha256": "7b31e5e6840f7198e542fac358f03bade57534cf73880c1b33a9e24eb016b9e1",
+  "sealed_benchmark": false,
+  "seeds_are_public": true,
+  "signing_status": "UNSIGNED_DEMO",
+  "type": "PUBLIC_DETERMINISTIC_SIMULATOR_DEMONSTRATION",
+  "version": "0.3.0"
+}

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "saal-rsi-governed"
+version = "0.9.4.2"
+description = "SAAL and Dream-RSI combined governed research, simulated evaluator and bounded discovery"
+requires-python = ">=3.11"
+dependencies = ["cryptography>=41"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+model = ["torch==2.10.0", "safetensors==0.8.0", "numpy==2.4.6"]
+colab = ["google-colab-cli>=0.6,<0.8"]
+train-lora = ["torch==2.10.0", "transformers==5.19.0", "peft==0.21.2", "safetensors==0.8.0", "huggingface-hub==1.33.0"]
+pretrained = ["torch==2.10.0", "transformers==5.19.0", "peft==0.21.2", "safetensors==0.8.0", "huggingface-hub==1.33.0", "numpy==2.4.6"]
+
+[project.scripts]
+saal-rsi = "saal_rsi.cli:main"
+saal-model = "saal_rsi.model_cli:main"
+saal-pretrained = "saal_rsi.pretrained_cli:main"
+saal-repair = "saal_rsi.corrective_cli:main"
+saal = "saal.cli:main"
+dream-rsi = "dream_rsi_governed.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

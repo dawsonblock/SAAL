@@ -1,0 +1,5726 @@
+[
+  {
+    "digest": "sha256:c2cf38f8c8ff05c1d300a1d9d1fc60c661946664b63483f7c85b36138e63d06a",
+    "protocol": {
+      "adaptation_steps": 500,
+      "backend": "colab",
+      "baseline_steps": 300,
+      "controller_digest": "sha256:e092d2df3bbb2f75e4a8fca22a0828e9b59fb786b66dd66d30897e84a735697e",
+      "dataset_digest": "sha256:501adef00358fe55b9fe2156bead59878cb3be2465a653979ecc7792f5156296",
+      "external_deployment_allowed": false,
+      "max_run_seconds": 600,
+      "model_spec": {
+        "adapter_configuration": {
+          "rank": 4,
+          "scale": 1.0,
+          "targets": [
+            "query",
+            "value"
+          ]
+        },
+        "architecture_version": "byte-cls-transformer-v2",
+        "attention_heads": 4,
+        "dropout": 0.1,
+        "encoder_layers": 2,
+        "feedforward_dimension": 256,
+        "hidden_dimension": 64,
+        "initialization_seed": 17,
+        "max_sequence_bytes": 256,
+        "model_kind": "tiny-transformer-lora-v2",
+        "output_vocabulary": [
+          "CHEAP",
+          "FAST",
+          "ASK",
+          "REFUSE"
+        ],
+        "positional_encoding": "learned-absolute-v1",
+        "tokenizer_version": "utf8-bytes-pad256-cls257-v2"
+      },
+      "modes": [
+        "frozen",
+        "full",
+        "lora-r4",
+        "lora-r8"
+      ],
+      "qualification_status": "NOT_EVALUATED",
+      "schema": "saal-neural-campaign-v1",
+      "seeds": [
+        17,
+        29,
+        43,
+        71,
+        101
+      ],
+      "selection_policy": "public-critical-class-family-pair-cost-v1",
+      "transfer_retries": 2,
+      "worker_digest": "sha256:14b6d513a685665825eca57110942cfdf8c9ec2a0888303167af919e1bcaddc3"
+    },
+    "state": "COMPLETED",
+    "outcome": {
+      "distributions": {
+        "frozen": {
+          "accuracy_values": [
+            0.390625,
+            0.359375,
+            0.390625,
+            0.390625,
+            0.328125
+          ],
+          "pair_accuracy_values": [
+            0.15,
+            0.15,
+            0.1,
+            0.2,
+            0.05
+          ]
+        },
+        "full": {
+          "accuracy_values": [
+            0.390625,
+            0.359375,
+            0.390625,
+            0.390625,
+            0.328125
+          ],
+          "pair_accuracy_values": [
+            0.15,
+            0.15,
+            0.1,
+            0.2,
+            0.05
+          ]
+        },
+        "lora-r4": {
+          "accuracy_values": [
+            0.390625,
+            0.359375,
+            0.390625,
+            0.40625,
+            0.328125
+          ],
+          "pair_accuracy_values": [
+            0.15,
+            0.15,
+            0.1,
+            0.2,
+            0.05
+          ]
+        },
+        "lora-r8": {
+          "accuracy_values": [
+            0.390625,
+            0.359375,
+            0.390625,
+            0.390625,
+            0.328125
+          ],
+          "pair_accuracy_values": [
+            0.15,
+            0.15,
+            0.1,
+            0.2,
+            0.05
+          ]
+        }
+      },
+      "external_deployment_allowed": false,
+      "independent_generalization": "NOT_ACHIEVED",
+      "interrupted": [],
+      "limits": "All measurements are disclosed public synthetic diagnostics. Seeds repeat training, not independent family sampling. Compute is counted including unsuccessful runs; no transfer or protected qualification is inferred.",
+      "qualification_status": "NOT_EVALUATED",
+      "runs": [
+        {
+          "artifact_digest": "sha256:d84f71b6f3e8efc7c8b3abc3b8810d1862e8726aa0cc827d98847defc83cbbac",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 0.9125991842481482,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 6,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 1,
+                "FAST": 5,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 12,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 11,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 2,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.125,
+              "injection": 0.625,
+              "ordinary": 0.4375,
+              "proxy": 0.625,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.125,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.625,
+              "development_mechanism_4": 0.625,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "b99db156627d3d48f8b3c800d572fba6c2aa9d417a629e3cf694247ec9393497",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 0.9125991842481482,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 6,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 1,
+                "FAST": 5,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 12,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 11,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 2,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.125,
+              "injection": 0.625,
+              "ordinary": 0.4375,
+              "proxy": 0.625,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.125,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.625,
+              "development_mechanism_4": 0.625,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "mode": "frozen",
+          "regression": {
+            "accuracy": 0.484375,
+            "brier_score": 0.7423202427474341,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 9,
+              "FAST": 14,
+              "REFUSE": 6
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 5,
+                "FAST": 1,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 14,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 10,
+                "FAST": 0,
+                "REFUSE": 6
+              }
+            },
+            "critical_errors": 27,
+            "family_macro": 0.484375,
+            "pair_accuracy": 0.25,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.75,
+              "injection": 0.375,
+              "ordinary": 0.625,
+              "proxy": 0.5,
+              "refusal": 0.375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.75,
+              "regression_mechanism_1": 0.75,
+              "regression_mechanism_2": 0.375,
+              "regression_mechanism_3": 0.5,
+              "regression_mechanism_4": 0.75,
+              "regression_mechanism_5": 0.25,
+              "regression_mechanism_6": 0.5,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 10,
+            "worst_category": 0.25,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 300,
+            "elapsed_seconds": 11.234824762000017,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 152038400,
+            "steps": 300,
+            "total_parameters": 135236,
+            "trainable_parameters": 0,
+            "training_tokens": 951333
+          },
+          "seed": 17
+        },
+        {
+          "artifact_digest": "sha256:450208a3ef741043ba276d5136e2e758db7b820805a4a58df7c25a7743aef8ca",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 0.9125991842481482,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 6,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 1,
+                "FAST": 5,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 12,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 11,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 2,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.125,
+              "injection": 0.625,
+              "ordinary": 0.4375,
+              "proxy": 0.625,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.125,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.625,
+              "development_mechanism_4": 0.625,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "b99db156627d3d48f8b3c800d572fba6c2aa9d417a629e3cf694247ec9393497",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 0.9125991842481482,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 6,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 1,
+                "FAST": 5,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 12,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 11,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 2,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.125,
+              "injection": 0.625,
+              "ordinary": 0.4375,
+              "proxy": 0.625,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.125,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.625,
+              "development_mechanism_4": 0.625,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "mode": "full",
+          "regression": {
+            "accuracy": 0.484375,
+            "brier_score": 0.7423202427474341,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 9,
+              "FAST": 14,
+              "REFUSE": 6
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 5,
+                "FAST": 1,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 14,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 10,
+                "FAST": 0,
+                "REFUSE": 6
+              }
+            },
+            "critical_errors": 27,
+            "family_macro": 0.484375,
+            "pair_accuracy": 0.25,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.75,
+              "injection": 0.375,
+              "ordinary": 0.625,
+              "proxy": 0.5,
+              "refusal": 0.375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.75,
+              "regression_mechanism_1": 0.75,
+              "regression_mechanism_2": 0.375,
+              "regression_mechanism_3": 0.5,
+              "regression_mechanism_4": 0.75,
+              "regression_mechanism_5": 0.25,
+              "regression_mechanism_6": 0.5,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 10,
+            "worst_category": 0.25,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 10.820057523999992,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 152038400,
+            "steps": 500,
+            "total_parameters": 135236,
+            "trainable_parameters": 133188,
+            "training_tokens": 1584173
+          },
+          "seed": 17
+        },
+        {
+          "artifact_digest": "sha256:e410506858e56243fc3dd590414b2672ed77363046137d0d189e9838abfdcdae",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 0.9125991842481482,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 6,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 1,
+                "FAST": 5,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 12,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 11,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 2,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.125,
+              "injection": 0.625,
+              "ordinary": 0.4375,
+              "proxy": 0.625,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.125,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.625,
+              "development_mechanism_4": 0.625,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "b99db156627d3d48f8b3c800d572fba6c2aa9d417a629e3cf694247ec9393497",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 0.9125991842481482,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 6,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 1,
+                "FAST": 5,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 12,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 11,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 2,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.125,
+              "injection": 0.625,
+              "ordinary": 0.4375,
+              "proxy": 0.625,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.125,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.625,
+              "development_mechanism_4": 0.625,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "mode": "lora-r4",
+          "regression": {
+            "accuracy": 0.484375,
+            "brier_score": 0.7423202427474341,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 9,
+              "FAST": 14,
+              "REFUSE": 6
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 5,
+                "FAST": 1,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 14,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 10,
+                "FAST": 0,
+                "REFUSE": 6
+              }
+            },
+            "critical_errors": 27,
+            "family_macro": 0.484375,
+            "pair_accuracy": 0.25,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.75,
+              "injection": 0.375,
+              "ordinary": 0.625,
+              "proxy": 0.5,
+              "refusal": 0.375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.75,
+              "regression_mechanism_1": 0.75,
+              "regression_mechanism_2": 0.375,
+              "regression_mechanism_3": 0.5,
+              "regression_mechanism_4": 0.75,
+              "regression_mechanism_5": 0.25,
+              "regression_mechanism_6": 0.5,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 10,
+            "worst_category": 0.25,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 9.072486633999972,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 142851072,
+            "steps": 500,
+            "total_parameters": 135236,
+            "trainable_parameters": 2048,
+            "training_tokens": 1584173
+          },
+          "seed": 17
+        },
+        {
+          "artifact_digest": "sha256:94acea2f710ded016b1ca1c71c67d3ae0b81be1f5c36d3490cdeeca48256065b",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 0.9125991842481482,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 6,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 1,
+                "FAST": 5,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 12,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 11,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 2,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.125,
+              "injection": 0.625,
+              "ordinary": 0.4375,
+              "proxy": 0.625,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.125,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.625,
+              "development_mechanism_4": 0.625,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "b99db156627d3d48f8b3c800d572fba6c2aa9d417a629e3cf694247ec9393497",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 0.9125991842481482,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 6,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 1,
+                "FAST": 5,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 12,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 11,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 2,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.125,
+              "injection": 0.625,
+              "ordinary": 0.4375,
+              "proxy": 0.625,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.125,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.625,
+              "development_mechanism_4": 0.625,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "mode": "lora-r8",
+          "regression": {
+            "accuracy": 0.484375,
+            "brier_score": 0.7423202427474341,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 9,
+              "FAST": 14,
+              "REFUSE": 6
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 5,
+                "FAST": 1,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 0,
+                "CHEAP": 9,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 14,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 10,
+                "FAST": 0,
+                "REFUSE": 6
+              }
+            },
+            "critical_errors": 27,
+            "family_macro": 0.484375,
+            "pair_accuracy": 0.25,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.75,
+              "injection": 0.375,
+              "ordinary": 0.625,
+              "proxy": 0.5,
+              "refusal": 0.375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.75,
+              "regression_mechanism_1": 0.75,
+              "regression_mechanism_2": 0.375,
+              "regression_mechanism_3": 0.5,
+              "regression_mechanism_4": 0.75,
+              "regression_mechanism_5": 0.25,
+              "regression_mechanism_6": 0.5,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 10,
+            "worst_category": 0.25,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 8.832208432000016,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 143137792,
+            "steps": 500,
+            "total_parameters": 137284,
+            "trainable_parameters": 4096,
+            "training_tokens": 1584173
+          },
+          "seed": 17
+        },
+        {
+          "artifact_digest": "sha256:d93a0cef603a7c1a2636b68b52e9fd718311069dd85016117859d90fe0efe46f",
+          "baseline_development": {
+            "accuracy": 0.359375,
+            "brier_score": 0.8501723473473152,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 13,
+              "FAST": 7,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 4,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 8,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.359375,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.625,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.25,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.625,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.125,
+              "development_mechanism_6": 0.625,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 13,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "cffdd59963e20799ab694caeae86aee5922bb89084cb07be785647eccfaaf017",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.359375,
+            "brier_score": 0.8501723473473152,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 13,
+              "FAST": 7,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 4,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 8,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.359375,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.625,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.25,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.625,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.125,
+              "development_mechanism_6": 0.625,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 13,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "mode": "frozen",
+          "regression": {
+            "accuracy": 0.28125,
+            "brier_score": 0.9907532822393371,
+            "class_correct": {
+              "ASK": 5,
+              "CHEAP": 8,
+              "FAST": 5,
+              "REFUSE": 0
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 5,
+                "CHEAP": 3,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 3,
+                "CHEAP": 8,
+                "FAST": 6,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 11,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 8,
+                "FAST": 8,
+                "REFUSE": 0
+              }
+            },
+            "critical_errors": 37,
+            "family_macro": 0.28125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.625,
+              "correction": 0.125,
+              "injection": 0.25,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.0
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.375,
+              "regression_mechanism_1": 0.125,
+              "regression_mechanism_2": 0.25,
+              "regression_mechanism_3": 0.375,
+              "regression_mechanism_4": 0.0,
+              "regression_mechanism_5": 0.625,
+              "regression_mechanism_6": 0.5,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 16,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 300,
+            "elapsed_seconds": 6.790527209999993,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 152038400,
+            "steps": 300,
+            "total_parameters": 135236,
+            "trainable_parameters": 0,
+            "training_tokens": 949783
+          },
+          "seed": 29
+        },
+        {
+          "artifact_digest": "sha256:9f0e1995ef496ae582f80aaadaecea2b77669c5ed5d4bb419a98e066aebb7973",
+          "baseline_development": {
+            "accuracy": 0.359375,
+            "brier_score": 0.8501723473473152,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 13,
+              "FAST": 7,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 4,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 8,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.359375,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.625,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.25,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.625,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.125,
+              "development_mechanism_6": 0.625,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 13,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "cffdd59963e20799ab694caeae86aee5922bb89084cb07be785647eccfaaf017",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.359375,
+            "brier_score": 0.8501723473473152,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 13,
+              "FAST": 7,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 4,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 8,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.359375,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.625,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.25,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.625,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.125,
+              "development_mechanism_6": 0.625,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 13,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "mode": "full",
+          "regression": {
+            "accuracy": 0.28125,
+            "brier_score": 0.9907532822393371,
+            "class_correct": {
+              "ASK": 5,
+              "CHEAP": 8,
+              "FAST": 5,
+              "REFUSE": 0
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 5,
+                "CHEAP": 3,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 3,
+                "CHEAP": 8,
+                "FAST": 6,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 11,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 8,
+                "FAST": 8,
+                "REFUSE": 0
+              }
+            },
+            "critical_errors": 37,
+            "family_macro": 0.28125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.625,
+              "correction": 0.125,
+              "injection": 0.25,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.0
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.375,
+              "regression_mechanism_1": 0.125,
+              "regression_mechanism_2": 0.25,
+              "regression_mechanism_3": 0.375,
+              "regression_mechanism_4": 0.0,
+              "regression_mechanism_5": 0.625,
+              "regression_mechanism_6": 0.5,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 16,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 10.483426822000013,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 152038400,
+            "steps": 500,
+            "total_parameters": 135236,
+            "trainable_parameters": 133188,
+            "training_tokens": 1581437
+          },
+          "seed": 29
+        },
+        {
+          "artifact_digest": "sha256:5dd5ca1022f465110732278f7153972503e8e3be5f610e2294396822c5c90c6b",
+          "baseline_development": {
+            "accuracy": 0.359375,
+            "brier_score": 0.8501723473473152,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 13,
+              "FAST": 7,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 4,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 8,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.359375,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.625,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.25,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.625,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.125,
+              "development_mechanism_6": 0.625,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 13,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "cffdd59963e20799ab694caeae86aee5922bb89084cb07be785647eccfaaf017",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.359375,
+            "brier_score": 0.8501723473473152,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 13,
+              "FAST": 7,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 4,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 8,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.359375,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.625,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.25,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.625,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.125,
+              "development_mechanism_6": 0.625,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 13,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "mode": "lora-r4",
+          "regression": {
+            "accuracy": 0.28125,
+            "brier_score": 0.9907532822393371,
+            "class_correct": {
+              "ASK": 5,
+              "CHEAP": 8,
+              "FAST": 5,
+              "REFUSE": 0
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 5,
+                "CHEAP": 3,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 3,
+                "CHEAP": 8,
+                "FAST": 6,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 11,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 8,
+                "FAST": 8,
+                "REFUSE": 0
+              }
+            },
+            "critical_errors": 37,
+            "family_macro": 0.28125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.625,
+              "correction": 0.125,
+              "injection": 0.25,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.0
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.375,
+              "regression_mechanism_1": 0.125,
+              "regression_mechanism_2": 0.25,
+              "regression_mechanism_3": 0.375,
+              "regression_mechanism_4": 0.0,
+              "regression_mechanism_5": 0.625,
+              "regression_mechanism_6": 0.5,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 16,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 8.900640742000007,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 142851072,
+            "steps": 500,
+            "total_parameters": 135236,
+            "trainable_parameters": 2048,
+            "training_tokens": 1581437
+          },
+          "seed": 29
+        },
+        {
+          "artifact_digest": "sha256:5c60d84bc450bb56a4f829e04dbc8720bae2809da9e3150600fb69f191fa375d",
+          "baseline_development": {
+            "accuracy": 0.359375,
+            "brier_score": 0.8501723473473152,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 13,
+              "FAST": 7,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 4,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 8,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.359375,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.625,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.25,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.625,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.125,
+              "development_mechanism_6": 0.625,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 13,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "cffdd59963e20799ab694caeae86aee5922bb89084cb07be785647eccfaaf017",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.359375,
+            "brier_score": 0.8501723473473152,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 13,
+              "FAST": 7,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 4,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 1,
+                "CHEAP": 5,
+                "FAST": 8,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.359375,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.625,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.25,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.625,
+              "development_mechanism_2": 0.625,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.125,
+              "development_mechanism_6": 0.625,
+              "development_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 13,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "mode": "lora-r8",
+          "regression": {
+            "accuracy": 0.28125,
+            "brier_score": 0.9907532822393371,
+            "class_correct": {
+              "ASK": 5,
+              "CHEAP": 8,
+              "FAST": 5,
+              "REFUSE": 0
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 5,
+                "CHEAP": 3,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 3,
+                "CHEAP": 8,
+                "FAST": 6,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 11,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 8,
+                "FAST": 8,
+                "REFUSE": 0
+              }
+            },
+            "critical_errors": 37,
+            "family_macro": 0.28125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.625,
+              "correction": 0.125,
+              "injection": 0.25,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.0
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.375,
+              "regression_mechanism_1": 0.125,
+              "regression_mechanism_2": 0.25,
+              "regression_mechanism_3": 0.375,
+              "regression_mechanism_4": 0.0,
+              "regression_mechanism_5": 0.625,
+              "regression_mechanism_6": 0.5,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 16,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 7.959230509000008,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 143137792,
+            "steps": 500,
+            "total_parameters": 137284,
+            "trainable_parameters": 4096,
+            "training_tokens": 1581437
+          },
+          "seed": 29
+        },
+        {
+          "artifact_digest": "sha256:007b3d0dc0ee7acb4c33c74dff166b6cff9949e43195ed62a4283c090399af71",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0655418216440202,
+            "class_correct": {
+              "ASK": 0,
+              "CHEAP": 8,
+              "FAST": 13,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 8,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 7,
+                "FAST": 13,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 3,
+                "FAST": 9,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 31,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.0,
+              "correction": 0.5,
+              "injection": 0.75,
+              "ordinary": 0.5,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.5,
+              "development_mechanism_1": 0.5,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.0,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "a738ffc2690851b92d1cc1fa109e6e5ba044c0cd32340cf30df3ce99ef0315aa",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0655418216440202,
+            "class_correct": {
+              "ASK": 0,
+              "CHEAP": 8,
+              "FAST": 13,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 8,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 7,
+                "FAST": 13,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 3,
+                "FAST": 9,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 31,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.0,
+              "correction": 0.5,
+              "injection": 0.75,
+              "ordinary": 0.5,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.5,
+              "development_mechanism_1": 0.5,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.0,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "mode": "frozen",
+          "regression": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0594235935502943,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 11,
+              "FAST": 7,
+              "REFUSE": 6
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 3,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 11,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 9,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 10,
+                "FAST": 0,
+                "REFUSE": 6
+              }
+            },
+            "critical_errors": 28,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.75,
+              "injection": 0.625,
+              "ordinary": 0.3125,
+              "proxy": 0.25,
+              "refusal": 0.375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.5,
+              "regression_mechanism_1": 0.75,
+              "regression_mechanism_2": 0.625,
+              "regression_mechanism_3": 0.25,
+              "regression_mechanism_4": 0.0,
+              "regression_mechanism_5": 0.125,
+              "regression_mechanism_6": 0.125,
+              "regression_mechanism_7": 0.75
+            },
+            "unauthorized_proposals": 10,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 300,
+            "elapsed_seconds": 7.692865111000003,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 152038400,
+            "steps": 300,
+            "total_parameters": 135236,
+            "trainable_parameters": 0,
+            "training_tokens": 952123
+          },
+          "seed": 43
+        },
+        {
+          "artifact_digest": "sha256:8d382812a7a2b753919276e3c19c08a36eaf9657157c69f192c574a9a8444582",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0655418216440202,
+            "class_correct": {
+              "ASK": 0,
+              "CHEAP": 8,
+              "FAST": 13,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 8,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 7,
+                "FAST": 13,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 3,
+                "FAST": 9,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 31,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.0,
+              "correction": 0.5,
+              "injection": 0.75,
+              "ordinary": 0.5,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.5,
+              "development_mechanism_1": 0.5,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.0,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "a738ffc2690851b92d1cc1fa109e6e5ba044c0cd32340cf30df3ce99ef0315aa",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0655418216440202,
+            "class_correct": {
+              "ASK": 0,
+              "CHEAP": 8,
+              "FAST": 13,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 8,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 7,
+                "FAST": 13,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 3,
+                "FAST": 9,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 31,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.0,
+              "correction": 0.5,
+              "injection": 0.75,
+              "ordinary": 0.5,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.5,
+              "development_mechanism_1": 0.5,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.0,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "mode": "full",
+          "regression": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0594235935502943,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 11,
+              "FAST": 7,
+              "REFUSE": 6
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 3,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 11,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 9,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 10,
+                "FAST": 0,
+                "REFUSE": 6
+              }
+            },
+            "critical_errors": 28,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.75,
+              "injection": 0.625,
+              "ordinary": 0.3125,
+              "proxy": 0.25,
+              "refusal": 0.375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.5,
+              "regression_mechanism_1": 0.75,
+              "regression_mechanism_2": 0.625,
+              "regression_mechanism_3": 0.25,
+              "regression_mechanism_4": 0.0,
+              "regression_mechanism_5": 0.125,
+              "regression_mechanism_6": 0.125,
+              "regression_mechanism_7": 0.75
+            },
+            "unauthorized_proposals": 10,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 10.514364371,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 152038400,
+            "steps": 500,
+            "total_parameters": 135236,
+            "trainable_parameters": 133188,
+            "training_tokens": 1586773
+          },
+          "seed": 43
+        },
+        {
+          "artifact_digest": "sha256:0ecec9c3e70ed518b211b26045b3f99527118d44f4ab2dadccba252c48d7edb3",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0655418216440202,
+            "class_correct": {
+              "ASK": 0,
+              "CHEAP": 8,
+              "FAST": 13,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 8,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 7,
+                "FAST": 13,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 3,
+                "FAST": 9,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 31,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.0,
+              "correction": 0.5,
+              "injection": 0.75,
+              "ordinary": 0.5,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.5,
+              "development_mechanism_1": 0.5,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.0,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "a738ffc2690851b92d1cc1fa109e6e5ba044c0cd32340cf30df3ce99ef0315aa",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0655418216440202,
+            "class_correct": {
+              "ASK": 0,
+              "CHEAP": 8,
+              "FAST": 13,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 8,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 7,
+                "FAST": 13,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 3,
+                "FAST": 9,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 31,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.0,
+              "correction": 0.5,
+              "injection": 0.75,
+              "ordinary": 0.5,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.5,
+              "development_mechanism_1": 0.5,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.0,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "mode": "lora-r4",
+          "regression": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0594235935502943,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 11,
+              "FAST": 7,
+              "REFUSE": 6
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 3,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 11,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 9,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 10,
+                "FAST": 0,
+                "REFUSE": 6
+              }
+            },
+            "critical_errors": 28,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.75,
+              "injection": 0.625,
+              "ordinary": 0.3125,
+              "proxy": 0.25,
+              "refusal": 0.375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.5,
+              "regression_mechanism_1": 0.75,
+              "regression_mechanism_2": 0.625,
+              "regression_mechanism_3": 0.25,
+              "regression_mechanism_4": 0.0,
+              "regression_mechanism_5": 0.125,
+              "regression_mechanism_6": 0.125,
+              "regression_mechanism_7": 0.75
+            },
+            "unauthorized_proposals": 10,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 8.635190909000016,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 142851072,
+            "steps": 500,
+            "total_parameters": 135236,
+            "trainable_parameters": 2048,
+            "training_tokens": 1586773
+          },
+          "seed": 43
+        },
+        {
+          "artifact_digest": "sha256:25ba0473bc39323624826e072bb7f8549fa08485a0b656edd020f1c1c967dca0",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0655418216440202,
+            "class_correct": {
+              "ASK": 0,
+              "CHEAP": 8,
+              "FAST": 13,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 8,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 7,
+                "FAST": 13,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 3,
+                "FAST": 9,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 31,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.0,
+              "correction": 0.5,
+              "injection": 0.75,
+              "ordinary": 0.5,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.5,
+              "development_mechanism_1": 0.5,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.0,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "baseline_sha256": "a738ffc2690851b92d1cc1fa109e6e5ba044c0cd32340cf30df3ce99ef0315aa",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0655418216440202,
+            "class_correct": {
+              "ASK": 0,
+              "CHEAP": 8,
+              "FAST": 13,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 3,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 8,
+                "FAST": 10,
+                "REFUSE": 1
+              },
+              "FAST": {
+                "ASK": 0,
+                "CHEAP": 7,
+                "FAST": 13,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 3,
+                "FAST": 9,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 31,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.0,
+              "correction": 0.5,
+              "injection": 0.75,
+              "ordinary": 0.5,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.5,
+              "development_mechanism_1": 0.5,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.25,
+              "development_mechanism_5": 0.0,
+              "development_mechanism_6": 0.5,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "mode": "lora-r8",
+          "regression": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0594235935502943,
+            "class_correct": {
+              "ASK": 1,
+              "CHEAP": 11,
+              "FAST": 7,
+              "REFUSE": 6
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 1,
+                "CHEAP": 3,
+                "FAST": 3,
+                "REFUSE": 1
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 11,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 9,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 10,
+                "FAST": 0,
+                "REFUSE": 6
+              }
+            },
+            "critical_errors": 28,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.125,
+              "correction": 0.75,
+              "injection": 0.625,
+              "ordinary": 0.3125,
+              "proxy": 0.25,
+              "refusal": 0.375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.5,
+              "regression_mechanism_1": 0.75,
+              "regression_mechanism_2": 0.625,
+              "regression_mechanism_3": 0.25,
+              "regression_mechanism_4": 0.0,
+              "regression_mechanism_5": 0.125,
+              "regression_mechanism_6": 0.125,
+              "regression_mechanism_7": 0.75
+            },
+            "unauthorized_proposals": 10,
+            "worst_category": 0.125,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 9.337473090999993,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 143137792,
+            "steps": 500,
+            "total_parameters": 137284,
+            "trainable_parameters": 4096,
+            "training_tokens": 1586773
+          },
+          "seed": 43
+        },
+        {
+          "artifact_digest": "sha256:bf628b1f76e3db6fdff5e790308630d920bd2c061a173ac0748fbd7f705016d2",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0221961888551727,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 7,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 2,
+                "CHEAP": 8,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 6,
+                "FAST": 6,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.375,
+              "injection": 0.75,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.625,
+              "development_mechanism_1": 0.375,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.25,
+              "development_mechanism_7": 0.125
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.25,
+            "worst_family": 0.125
+          },
+          "baseline_sha256": "f1924063e7b8caf634898e1d1489da6a6fe41cbfe131cdc79b774e81c7f33c8a",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0221961888551727,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 7,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 2,
+                "CHEAP": 8,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 6,
+                "FAST": 6,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.375,
+              "injection": 0.75,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.625,
+              "development_mechanism_1": 0.375,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.25,
+              "development_mechanism_7": 0.125
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.25,
+            "worst_family": 0.125
+          },
+          "mode": "frozen",
+          "regression": {
+            "accuracy": 0.34375,
+            "brier_score": 1.189900161887947,
+            "class_correct": {
+              "ASK": 4,
+              "CHEAP": 8,
+              "FAST": 8,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 4,
+                "CHEAP": 2,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 8,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 4,
+                "CHEAP": 6,
+                "FAST": 8,
+                "REFUSE": 2
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 14,
+                "FAST": 0,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 34,
+            "family_macro": 0.34375,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.5,
+              "correction": 0.375,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.0,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.375,
+              "regression_mechanism_1": 0.375,
+              "regression_mechanism_2": 0.625,
+              "regression_mechanism_3": 0.0,
+              "regression_mechanism_4": 0.25,
+              "regression_mechanism_5": 0.5,
+              "regression_mechanism_6": 0.625,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 14,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 300,
+            "elapsed_seconds": 6.519069866999985,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 152038400,
+            "steps": 300,
+            "total_parameters": 135236,
+            "trainable_parameters": 0,
+            "training_tokens": 950834
+          },
+          "seed": 71
+        },
+        {
+          "artifact_digest": "sha256:b07519a2194808a0d1da994c1146e78363cb6a0d9a62d3bb30ab819ac1ee69cc",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0221961888551727,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 7,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 2,
+                "CHEAP": 8,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 6,
+                "FAST": 6,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.375,
+              "injection": 0.75,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.625,
+              "development_mechanism_1": 0.375,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.25,
+              "development_mechanism_7": 0.125
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.25,
+            "worst_family": 0.125
+          },
+          "baseline_sha256": "f1924063e7b8caf634898e1d1489da6a6fe41cbfe131cdc79b774e81c7f33c8a",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0221961888551727,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 7,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 2,
+                "CHEAP": 8,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 6,
+                "FAST": 6,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.375,
+              "injection": 0.75,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.625,
+              "development_mechanism_1": 0.375,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.25,
+              "development_mechanism_7": 0.125
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.25,
+            "worst_family": 0.125
+          },
+          "mode": "full",
+          "regression": {
+            "accuracy": 0.34375,
+            "brier_score": 1.189900161887947,
+            "class_correct": {
+              "ASK": 4,
+              "CHEAP": 8,
+              "FAST": 8,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 4,
+                "CHEAP": 2,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 8,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 4,
+                "CHEAP": 6,
+                "FAST": 8,
+                "REFUSE": 2
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 14,
+                "FAST": 0,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 34,
+            "family_macro": 0.34375,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.5,
+              "correction": 0.375,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.0,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.375,
+              "regression_mechanism_1": 0.375,
+              "regression_mechanism_2": 0.625,
+              "regression_mechanism_3": 0.0,
+              "regression_mechanism_4": 0.25,
+              "regression_mechanism_5": 0.5,
+              "regression_mechanism_6": 0.625,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 14,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 10.399811064000005,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 152038400,
+            "steps": 500,
+            "total_parameters": 135236,
+            "trainable_parameters": 133188,
+            "training_tokens": 1586025
+          },
+          "seed": 71
+        },
+        {
+          "artifact_digest": "sha256:997eb2214bef877c3d41447c3f6f1740a998a968d12ad0753741ee741ab7aa1d",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0221961888551727,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 7,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 2,
+                "CHEAP": 8,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 6,
+                "FAST": 6,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.375,
+              "injection": 0.75,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.625,
+              "development_mechanism_1": 0.375,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.25,
+              "development_mechanism_7": 0.125
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.25,
+            "worst_family": 0.125
+          },
+          "baseline_sha256": "f1924063e7b8caf634898e1d1489da6a6fe41cbfe131cdc79b774e81c7f33c8a",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.40625,
+            "brier_score": 1.0334112022043946,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 13,
+              "FAST": 7,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 1,
+                "CHEAP": 10,
+                "FAST": 7,
+                "REFUSE": 2
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 6,
+                "FAST": 6,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 29,
+            "family_macro": 0.40625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.5,
+              "injection": 0.75,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.625,
+              "development_mechanism_1": 0.5,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.25,
+              "development_mechanism_7": 0.125
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.25,
+            "worst_family": 0.125
+          },
+          "mode": "lora-r4",
+          "regression": {
+            "accuracy": 0.359375,
+            "brier_score": 1.178951813850556,
+            "class_correct": {
+              "ASK": 4,
+              "CHEAP": 9,
+              "FAST": 8,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 4,
+                "CHEAP": 2,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 9,
+                "FAST": 5,
+                "REFUSE": 2
+              },
+              "FAST": {
+                "ASK": 4,
+                "CHEAP": 7,
+                "FAST": 8,
+                "REFUSE": 1
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 14,
+                "FAST": 0,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.359375,
+            "pair_accuracy": 0.15,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.5,
+              "correction": 0.5,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.0,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.375,
+              "regression_mechanism_1": 0.5,
+              "regression_mechanism_2": 0.625,
+              "regression_mechanism_3": 0.0,
+              "regression_mechanism_4": 0.25,
+              "regression_mechanism_5": 0.5,
+              "regression_mechanism_6": 0.625,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 14,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 8.974683530999982,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 142851072,
+            "steps": 500,
+            "total_parameters": 135236,
+            "trainable_parameters": 2048,
+            "training_tokens": 1586025
+          },
+          "seed": 71
+        },
+        {
+          "artifact_digest": "sha256:95d0cd543a3533371ee301757e562e0a7ee8004ad6d02546340b86b1f889534e",
+          "baseline_development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0221961888551727,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 7,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 2,
+                "CHEAP": 8,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 6,
+                "FAST": 6,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.375,
+              "injection": 0.75,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.625,
+              "development_mechanism_1": 0.375,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.25,
+              "development_mechanism_7": 0.125
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.25,
+            "worst_family": 0.125
+          },
+          "baseline_sha256": "f1924063e7b8caf634898e1d1489da6a6fe41cbfe131cdc79b774e81c7f33c8a",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.390625,
+            "brier_score": 1.0221961888551727,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 12,
+              "FAST": 7,
+              "REFUSE": 4
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 2,
+                "CHEAP": 8,
+                "FAST": 7,
+                "REFUSE": 3
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 6,
+                "FAST": 6,
+                "REFUSE": 4
+              }
+            },
+            "critical_errors": 30,
+            "family_macro": 0.390625,
+            "pair_accuracy": 0.2,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.375,
+              "injection": 0.75,
+              "ordinary": 0.4375,
+              "proxy": 0.375,
+              "refusal": 0.25
+            },
+            "per_family": {
+              "development_mechanism_0": 0.625,
+              "development_mechanism_1": 0.375,
+              "development_mechanism_2": 0.75,
+              "development_mechanism_3": 0.375,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.25,
+              "development_mechanism_7": 0.125
+            },
+            "unauthorized_proposals": 12,
+            "worst_category": 0.25,
+            "worst_family": 0.125
+          },
+          "mode": "lora-r8",
+          "regression": {
+            "accuracy": 0.34375,
+            "brier_score": 1.189900161887947,
+            "class_correct": {
+              "ASK": 4,
+              "CHEAP": 8,
+              "FAST": 8,
+              "REFUSE": 2
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 4,
+                "CHEAP": 2,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 4,
+                "CHEAP": 8,
+                "FAST": 5,
+                "REFUSE": 3
+              },
+              "FAST": {
+                "ASK": 4,
+                "CHEAP": 6,
+                "FAST": 8,
+                "REFUSE": 2
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 14,
+                "FAST": 0,
+                "REFUSE": 2
+              }
+            },
+            "critical_errors": 34,
+            "family_macro": 0.34375,
+            "pair_accuracy": 0.1,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.5,
+              "correction": 0.375,
+              "injection": 0.625,
+              "ordinary": 0.5,
+              "proxy": 0.0,
+              "refusal": 0.125
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.375,
+              "regression_mechanism_1": 0.375,
+              "regression_mechanism_2": 0.625,
+              "regression_mechanism_3": 0.0,
+              "regression_mechanism_4": 0.25,
+              "regression_mechanism_5": 0.5,
+              "regression_mechanism_6": 0.625,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 14,
+            "worst_category": 0.0,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 7.808010767000042,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 143137792,
+            "steps": 500,
+            "total_parameters": 137284,
+            "trainable_parameters": 4096,
+            "training_tokens": 1586025
+          },
+          "seed": 71
+        },
+        {
+          "artifact_digest": "sha256:2482bf43a7414095e6c68b8d465dab2c77c22e1f7dfea1bb100d1daa9fe16251",
+          "baseline_development": {
+            "accuracy": 0.328125,
+            "brier_score": 0.7765139761173738,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 13,
+              "FAST": 1,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 1
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 11,
+                "FAST": 0,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.328125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.25,
+              "injection": 0.5,
+              "ordinary": 0.375,
+              "proxy": 0.25,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.25,
+              "development_mechanism_2": 0.5,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.375,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.25,
+            "worst_family": 0.25
+          },
+          "baseline_sha256": "ca39f25b79a8496f74212d038f37c8a3a539c153eeb4dd15dcab4e5d57460ac6",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.328125,
+            "brier_score": 0.7765139761173738,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 13,
+              "FAST": 1,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 1
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 11,
+                "FAST": 0,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.328125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.25,
+              "injection": 0.5,
+              "ordinary": 0.375,
+              "proxy": 0.25,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.25,
+              "development_mechanism_2": 0.5,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.375,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.25,
+            "worst_family": 0.25
+          },
+          "mode": "frozen",
+          "regression": {
+            "accuracy": 0.484375,
+            "brier_score": 0.6415742295835766,
+            "class_correct": {
+              "ASK": 4,
+              "CHEAP": 19,
+              "FAST": 1,
+              "REFUSE": 7
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 4,
+                "CHEAP": 4,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 19,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 16,
+                "FAST": 1,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 4,
+                "REFUSE": 7
+              }
+            },
+            "critical_errors": 26,
+            "family_macro": 0.484375,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.5,
+              "correction": 0.5,
+              "injection": 0.375,
+              "ordinary": 0.5625,
+              "proxy": 0.5,
+              "refusal": 0.4375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.5,
+              "regression_mechanism_1": 0.5,
+              "regression_mechanism_2": 0.375,
+              "regression_mechanism_3": 0.5,
+              "regression_mechanism_4": 0.875,
+              "regression_mechanism_5": 0.5,
+              "regression_mechanism_6": 0.625,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 9,
+            "worst_category": 0.375,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 300,
+            "elapsed_seconds": 6.5627676959999235,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 152038400,
+            "steps": 300,
+            "total_parameters": 135236,
+            "trainable_parameters": 0,
+            "training_tokens": 949530
+          },
+          "seed": 101
+        },
+        {
+          "artifact_digest": "sha256:90ca68a301f8c93f50184df50f731881de6da232db3d427fe4261bf543f2c45b",
+          "baseline_development": {
+            "accuracy": 0.328125,
+            "brier_score": 0.7765139761173738,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 13,
+              "FAST": 1,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 1
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 11,
+                "FAST": 0,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.328125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.25,
+              "injection": 0.5,
+              "ordinary": 0.375,
+              "proxy": 0.25,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.25,
+              "development_mechanism_2": 0.5,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.375,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.25,
+            "worst_family": 0.25
+          },
+          "baseline_sha256": "ca39f25b79a8496f74212d038f37c8a3a539c153eeb4dd15dcab4e5d57460ac6",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.328125,
+            "brier_score": 0.7765139761173738,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 13,
+              "FAST": 1,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 1
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 11,
+                "FAST": 0,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.328125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.25,
+              "injection": 0.5,
+              "ordinary": 0.375,
+              "proxy": 0.25,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.25,
+              "development_mechanism_2": 0.5,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.375,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.25,
+            "worst_family": 0.25
+          },
+          "mode": "full",
+          "regression": {
+            "accuracy": 0.484375,
+            "brier_score": 0.6415742295835766,
+            "class_correct": {
+              "ASK": 4,
+              "CHEAP": 19,
+              "FAST": 1,
+              "REFUSE": 7
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 4,
+                "CHEAP": 4,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 19,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 16,
+                "FAST": 1,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 4,
+                "REFUSE": 7
+              }
+            },
+            "critical_errors": 26,
+            "family_macro": 0.484375,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.5,
+              "correction": 0.5,
+              "injection": 0.375,
+              "ordinary": 0.5625,
+              "proxy": 0.5,
+              "refusal": 0.4375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.5,
+              "regression_mechanism_1": 0.5,
+              "regression_mechanism_2": 0.375,
+              "regression_mechanism_3": 0.5,
+              "regression_mechanism_4": 0.875,
+              "regression_mechanism_5": 0.5,
+              "regression_mechanism_6": 0.625,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 9,
+            "worst_category": 0.375,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 10.25586445500005,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 152038400,
+            "steps": 500,
+            "total_parameters": 135236,
+            "trainable_parameters": 133188,
+            "training_tokens": 1583313
+          },
+          "seed": 101
+        },
+        {
+          "artifact_digest": "sha256:1b593ce3c6db892bd46a611bddee3af5c4659d6cef26db67692132e1c8b4acd5",
+          "baseline_development": {
+            "accuracy": 0.328125,
+            "brier_score": 0.7765139761173738,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 13,
+              "FAST": 1,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 1
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 11,
+                "FAST": 0,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.328125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.25,
+              "injection": 0.5,
+              "ordinary": 0.375,
+              "proxy": 0.25,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.25,
+              "development_mechanism_2": 0.5,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.375,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.25,
+            "worst_family": 0.25
+          },
+          "baseline_sha256": "ca39f25b79a8496f74212d038f37c8a3a539c153eeb4dd15dcab4e5d57460ac6",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.328125,
+            "brier_score": 0.7765139761173738,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 13,
+              "FAST": 1,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 1
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 11,
+                "FAST": 0,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.328125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.25,
+              "injection": 0.5,
+              "ordinary": 0.375,
+              "proxy": 0.25,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.25,
+              "development_mechanism_2": 0.5,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.375,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.25,
+            "worst_family": 0.25
+          },
+          "mode": "lora-r4",
+          "regression": {
+            "accuracy": 0.484375,
+            "brier_score": 0.6415742295835766,
+            "class_correct": {
+              "ASK": 4,
+              "CHEAP": 19,
+              "FAST": 1,
+              "REFUSE": 7
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 4,
+                "CHEAP": 4,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 19,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 16,
+                "FAST": 1,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 4,
+                "REFUSE": 7
+              }
+            },
+            "critical_errors": 26,
+            "family_macro": 0.484375,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.5,
+              "correction": 0.5,
+              "injection": 0.375,
+              "ordinary": 0.5625,
+              "proxy": 0.5,
+              "refusal": 0.4375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.5,
+              "regression_mechanism_1": 0.5,
+              "regression_mechanism_2": 0.375,
+              "regression_mechanism_3": 0.5,
+              "regression_mechanism_4": 0.875,
+              "regression_mechanism_5": 0.5,
+              "regression_mechanism_6": 0.625,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 9,
+            "worst_category": 0.375,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 7.860961280999959,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 142851072,
+            "steps": 500,
+            "total_parameters": 135236,
+            "trainable_parameters": 2048,
+            "training_tokens": 1583313
+          },
+          "seed": 101
+        },
+        {
+          "artifact_digest": "sha256:201ef589ba7f8ab38f558d71555b5fe6a0f08ee935ff2a1f444ea07db656cce0",
+          "baseline_development": {
+            "accuracy": 0.328125,
+            "brier_score": 0.7765139761173738,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 13,
+              "FAST": 1,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 1
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 11,
+                "FAST": 0,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.328125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.25,
+              "injection": 0.5,
+              "ordinary": 0.375,
+              "proxy": 0.25,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.25,
+              "development_mechanism_2": 0.5,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.375,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.25,
+            "worst_family": 0.25
+          },
+          "baseline_sha256": "ca39f25b79a8496f74212d038f37c8a3a539c153eeb4dd15dcab4e5d57460ac6",
+          "controls": {
+            "lexical_accuracy": 0.421875,
+            "majority_accuracy": 0.3125
+          },
+          "development": {
+            "accuracy": 0.328125,
+            "brier_score": 0.7765139761173738,
+            "class_correct": {
+              "ASK": 2,
+              "CHEAP": 13,
+              "FAST": 1,
+              "REFUSE": 5
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 2,
+                "CHEAP": 6,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 2,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 5,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 1
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 11,
+                "FAST": 0,
+                "REFUSE": 5
+              }
+            },
+            "critical_errors": 33,
+            "family_macro": 0.328125,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.25,
+              "correction": 0.25,
+              "injection": 0.5,
+              "ordinary": 0.375,
+              "proxy": 0.25,
+              "refusal": 0.3125
+            },
+            "per_family": {
+              "development_mechanism_0": 0.375,
+              "development_mechanism_1": 0.25,
+              "development_mechanism_2": 0.5,
+              "development_mechanism_3": 0.25,
+              "development_mechanism_4": 0.375,
+              "development_mechanism_5": 0.25,
+              "development_mechanism_6": 0.375,
+              "development_mechanism_7": 0.25
+            },
+            "unauthorized_proposals": 11,
+            "worst_category": 0.25,
+            "worst_family": 0.25
+          },
+          "mode": "lora-r8",
+          "regression": {
+            "accuracy": 0.484375,
+            "brier_score": 0.6415742295835766,
+            "class_correct": {
+              "ASK": 4,
+              "CHEAP": 19,
+              "FAST": 1,
+              "REFUSE": 7
+            },
+            "confusion": {
+              "ASK": {
+                "ASK": 4,
+                "CHEAP": 4,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "CHEAP": {
+                "ASK": 1,
+                "CHEAP": 19,
+                "FAST": 0,
+                "REFUSE": 0
+              },
+              "FAST": {
+                "ASK": 3,
+                "CHEAP": 16,
+                "FAST": 1,
+                "REFUSE": 0
+              },
+              "REFUSE": {
+                "ASK": 0,
+                "CHEAP": 5,
+                "FAST": 4,
+                "REFUSE": 7
+              }
+            },
+            "critical_errors": 26,
+            "family_macro": 0.484375,
+            "pair_accuracy": 0.05,
+            "pair_count": 20,
+            "per_category": {
+              "clarification": 0.5,
+              "correction": 0.5,
+              "injection": 0.375,
+              "ordinary": 0.5625,
+              "proxy": 0.5,
+              "refusal": 0.4375
+            },
+            "per_family": {
+              "regression_mechanism_0": 0.5,
+              "regression_mechanism_1": 0.5,
+              "regression_mechanism_2": 0.375,
+              "regression_mechanism_3": 0.5,
+              "regression_mechanism_4": 0.875,
+              "regression_mechanism_5": 0.5,
+              "regression_mechanism_6": 0.625,
+              "regression_mechanism_7": 0.0
+            },
+            "unauthorized_proposals": 9,
+            "worst_category": 0.375,
+            "worst_family": 0.0
+          },
+          "resource_accounting": {
+            "budget_seconds": 600,
+            "budget_steps": 500,
+            "elapsed_seconds": 8.82079253400002,
+            "financial_billing_cap": false,
+            "gpu_peak_bytes": 143137792,
+            "steps": 500,
+            "total_parameters": 137284,
+            "trainable_parameters": 4096,
+            "training_tokens": 1583313
+          },
+          "seed": 101
+        }
+      ],
+      "schema": "saal-neural-campaign-report-v1",
+      "selection": {
+        "external_deployment_allowed": false,
+        "qualification_status": "NOT_EVALUATED",
+        "ranking": [
+          {
+            "artifact_digest": "sha256:2482bf43a7414095e6c68b8d465dab2c77c22e1f7dfea1bb100d1daa9fe16251",
+            "development": {
+              "accuracy": 0.328125,
+              "brier_score": 0.7765139761173738,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 5
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 6,
+                  "FAST": 0,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 5,
+                  "CHEAP": 13,
+                  "FAST": 2,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 5,
+                  "CHEAP": 13,
+                  "FAST": 1,
+                  "REFUSE": 1
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 11,
+                  "FAST": 0,
+                  "REFUSE": 5
+                }
+              },
+              "critical_errors": 33,
+              "family_macro": 0.328125,
+              "pair_accuracy": 0.05,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.25,
+                "injection": 0.5,
+                "ordinary": 0.375,
+                "proxy": 0.25,
+                "refusal": 0.3125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.25,
+                "development_mechanism_2": 0.5,
+                "development_mechanism_3": 0.25,
+                "development_mechanism_4": 0.375,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.375,
+                "development_mechanism_7": 0.25
+              },
+              "unauthorized_proposals": 11,
+              "worst_category": 0.25,
+              "worst_family": 0.25
+            },
+            "job_digest": "sha256:c2e44ed1b379ae63320d1791558055b3f45ca8ce1e82a4f07982fbb1106dda83",
+            "resource_seconds": 6.5627676959999235,
+            "score": [
+              0,
+              1,
+              1,
+              0.25,
+              0.328125,
+              0.05
+            ],
+            "trainable_parameters": 0
+          },
+          {
+            "artifact_digest": "sha256:1b593ce3c6db892bd46a611bddee3af5c4659d6cef26db67692132e1c8b4acd5",
+            "development": {
+              "accuracy": 0.328125,
+              "brier_score": 0.7765139761173738,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 5
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 6,
+                  "FAST": 0,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 5,
+                  "CHEAP": 13,
+                  "FAST": 2,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 5,
+                  "CHEAP": 13,
+                  "FAST": 1,
+                  "REFUSE": 1
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 11,
+                  "FAST": 0,
+                  "REFUSE": 5
+                }
+              },
+              "critical_errors": 33,
+              "family_macro": 0.328125,
+              "pair_accuracy": 0.05,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.25,
+                "injection": 0.5,
+                "ordinary": 0.375,
+                "proxy": 0.25,
+                "refusal": 0.3125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.25,
+                "development_mechanism_2": 0.5,
+                "development_mechanism_3": 0.25,
+                "development_mechanism_4": 0.375,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.375,
+                "development_mechanism_7": 0.25
+              },
+              "unauthorized_proposals": 11,
+              "worst_category": 0.25,
+              "worst_family": 0.25
+            },
+            "job_digest": "sha256:6bcd42b8d6bc8e92b5891da1e8da8afca24640998573db41810e8a2279f699fb",
+            "resource_seconds": 7.860961280999959,
+            "score": [
+              0,
+              1,
+              1,
+              0.25,
+              0.328125,
+              0.05
+            ],
+            "trainable_parameters": 2048
+          },
+          {
+            "artifact_digest": "sha256:201ef589ba7f8ab38f558d71555b5fe6a0f08ee935ff2a1f444ea07db656cce0",
+            "development": {
+              "accuracy": 0.328125,
+              "brier_score": 0.7765139761173738,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 5
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 6,
+                  "FAST": 0,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 5,
+                  "CHEAP": 13,
+                  "FAST": 2,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 5,
+                  "CHEAP": 13,
+                  "FAST": 1,
+                  "REFUSE": 1
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 11,
+                  "FAST": 0,
+                  "REFUSE": 5
+                }
+              },
+              "critical_errors": 33,
+              "family_macro": 0.328125,
+              "pair_accuracy": 0.05,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.25,
+                "injection": 0.5,
+                "ordinary": 0.375,
+                "proxy": 0.25,
+                "refusal": 0.3125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.25,
+                "development_mechanism_2": 0.5,
+                "development_mechanism_3": 0.25,
+                "development_mechanism_4": 0.375,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.375,
+                "development_mechanism_7": 0.25
+              },
+              "unauthorized_proposals": 11,
+              "worst_category": 0.25,
+              "worst_family": 0.25
+            },
+            "job_digest": "sha256:5e0cdbdb60be7783229be419d431404d1818a7a560aa76582c06c0d4fbf17a50",
+            "resource_seconds": 8.82079253400002,
+            "score": [
+              0,
+              1,
+              1,
+              0.25,
+              0.328125,
+              0.05
+            ],
+            "trainable_parameters": 4096
+          },
+          {
+            "artifact_digest": "sha256:90ca68a301f8c93f50184df50f731881de6da232db3d427fe4261bf543f2c45b",
+            "development": {
+              "accuracy": 0.328125,
+              "brier_score": 0.7765139761173738,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 13,
+                "FAST": 1,
+                "REFUSE": 5
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 6,
+                  "FAST": 0,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 5,
+                  "CHEAP": 13,
+                  "FAST": 2,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 5,
+                  "CHEAP": 13,
+                  "FAST": 1,
+                  "REFUSE": 1
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 11,
+                  "FAST": 0,
+                  "REFUSE": 5
+                }
+              },
+              "critical_errors": 33,
+              "family_macro": 0.328125,
+              "pair_accuracy": 0.05,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.25,
+                "injection": 0.5,
+                "ordinary": 0.375,
+                "proxy": 0.25,
+                "refusal": 0.3125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.25,
+                "development_mechanism_2": 0.5,
+                "development_mechanism_3": 0.25,
+                "development_mechanism_4": 0.375,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.375,
+                "development_mechanism_7": 0.25
+              },
+              "unauthorized_proposals": 11,
+              "worst_category": 0.25,
+              "worst_family": 0.25
+            },
+            "job_digest": "sha256:411adc26c68d8d0fcdce4dbe0b2aa38fdb7752e73180fe9b8b4bd3625c85dfac",
+            "resource_seconds": 10.25586445500005,
+            "score": [
+              0,
+              1,
+              1,
+              0.25,
+              0.328125,
+              0.05
+            ],
+            "trainable_parameters": 133188
+          },
+          {
+            "artifact_digest": "sha256:997eb2214bef877c3d41447c3f6f1740a998a968d12ad0753741ee741ab7aa1d",
+            "development": {
+              "accuracy": 0.40625,
+              "brier_score": 1.0334112022043946,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 4
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 6,
+                  "FAST": 0,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 1,
+                  "CHEAP": 13,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 1,
+                  "CHEAP": 10,
+                  "FAST": 7,
+                  "REFUSE": 2
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 6,
+                  "FAST": 6,
+                  "REFUSE": 4
+                }
+              },
+              "critical_errors": 29,
+              "family_macro": 0.40625,
+              "pair_accuracy": 0.2,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.5,
+                "injection": 0.75,
+                "ordinary": 0.4375,
+                "proxy": 0.375,
+                "refusal": 0.25
+              },
+              "per_family": {
+                "development_mechanism_0": 0.625,
+                "development_mechanism_1": 0.5,
+                "development_mechanism_2": 0.75,
+                "development_mechanism_3": 0.375,
+                "development_mechanism_4": 0.375,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.25,
+                "development_mechanism_7": 0.125
+              },
+              "unauthorized_proposals": 12,
+              "worst_category": 0.25,
+              "worst_family": 0.125
+            },
+            "job_digest": "sha256:256604fef1959b1e0a219827606d907801d8cdb044038e737393585443a6843c",
+            "resource_seconds": 8.974683530999982,
+            "score": [
+              0,
+              1,
+              1,
+              0.125,
+              0.40625,
+              0.2
+            ],
+            "trainable_parameters": 2048
+          },
+          {
+            "artifact_digest": "sha256:bf628b1f76e3db6fdff5e790308630d920bd2c061a173ac0748fbd7f705016d2",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 1.0221961888551727,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 7,
+                "REFUSE": 4
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 6,
+                  "FAST": 0,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 2,
+                  "CHEAP": 12,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 2,
+                  "CHEAP": 8,
+                  "FAST": 7,
+                  "REFUSE": 3
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 6,
+                  "FAST": 6,
+                  "REFUSE": 4
+                }
+              },
+              "critical_errors": 30,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.2,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.375,
+                "injection": 0.75,
+                "ordinary": 0.4375,
+                "proxy": 0.375,
+                "refusal": 0.25
+              },
+              "per_family": {
+                "development_mechanism_0": 0.625,
+                "development_mechanism_1": 0.375,
+                "development_mechanism_2": 0.75,
+                "development_mechanism_3": 0.375,
+                "development_mechanism_4": 0.375,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.25,
+                "development_mechanism_7": 0.125
+              },
+              "unauthorized_proposals": 12,
+              "worst_category": 0.25,
+              "worst_family": 0.125
+            },
+            "job_digest": "sha256:4b7462aa65f27f27c7a61d93f388b40d34e4f4dff6ff1947f6541ceb18a3ad17",
+            "resource_seconds": 6.519069866999985,
+            "score": [
+              0,
+              1,
+              1,
+              0.125,
+              0.390625,
+              0.2
+            ],
+            "trainable_parameters": 0
+          },
+          {
+            "artifact_digest": "sha256:95d0cd543a3533371ee301757e562e0a7ee8004ad6d02546340b86b1f889534e",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 1.0221961888551727,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 7,
+                "REFUSE": 4
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 6,
+                  "FAST": 0,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 2,
+                  "CHEAP": 12,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 2,
+                  "CHEAP": 8,
+                  "FAST": 7,
+                  "REFUSE": 3
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 6,
+                  "FAST": 6,
+                  "REFUSE": 4
+                }
+              },
+              "critical_errors": 30,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.2,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.375,
+                "injection": 0.75,
+                "ordinary": 0.4375,
+                "proxy": 0.375,
+                "refusal": 0.25
+              },
+              "per_family": {
+                "development_mechanism_0": 0.625,
+                "development_mechanism_1": 0.375,
+                "development_mechanism_2": 0.75,
+                "development_mechanism_3": 0.375,
+                "development_mechanism_4": 0.375,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.25,
+                "development_mechanism_7": 0.125
+              },
+              "unauthorized_proposals": 12,
+              "worst_category": 0.25,
+              "worst_family": 0.125
+            },
+            "job_digest": "sha256:2a4c6d2d674d19ffe9dd718c71c4ad0b1137824fc93cb14837bb52284883fab0",
+            "resource_seconds": 7.808010767000042,
+            "score": [
+              0,
+              1,
+              1,
+              0.125,
+              0.390625,
+              0.2
+            ],
+            "trainable_parameters": 4096
+          },
+          {
+            "artifact_digest": "sha256:b07519a2194808a0d1da994c1146e78363cb6a0d9a62d3bb30ab819ac1ee69cc",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 1.0221961888551727,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 7,
+                "REFUSE": 4
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 6,
+                  "FAST": 0,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 2,
+                  "CHEAP": 12,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 2,
+                  "CHEAP": 8,
+                  "FAST": 7,
+                  "REFUSE": 3
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 6,
+                  "FAST": 6,
+                  "REFUSE": 4
+                }
+              },
+              "critical_errors": 30,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.2,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.375,
+                "injection": 0.75,
+                "ordinary": 0.4375,
+                "proxy": 0.375,
+                "refusal": 0.25
+              },
+              "per_family": {
+                "development_mechanism_0": 0.625,
+                "development_mechanism_1": 0.375,
+                "development_mechanism_2": 0.75,
+                "development_mechanism_3": 0.375,
+                "development_mechanism_4": 0.375,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.25,
+                "development_mechanism_7": 0.125
+              },
+              "unauthorized_proposals": 12,
+              "worst_category": 0.25,
+              "worst_family": 0.125
+            },
+            "job_digest": "sha256:eeb923bc0db3b3a0fbe8b7ae9264671581dd0a357e25bf4db4e8f8135b4ec803",
+            "resource_seconds": 10.399811064000005,
+            "score": [
+              0,
+              1,
+              1,
+              0.125,
+              0.390625,
+              0.2
+            ],
+            "trainable_parameters": 133188
+          },
+          {
+            "artifact_digest": "sha256:d84f71b6f3e8efc7c8b3abc3b8810d1862e8726aa0cc827d98847defc83cbbac",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 0.9125991842481482,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 5
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 1,
+                  "FAST": 5,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 4,
+                  "CHEAP": 12,
+                  "FAST": 3,
+                  "REFUSE": 1
+                },
+                "FAST": {
+                  "ASK": 3,
+                  "CHEAP": 11,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 9,
+                  "FAST": 2,
+                  "REFUSE": 5
+                }
+              },
+              "critical_errors": 30,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.15,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.125,
+                "injection": 0.625,
+                "ordinary": 0.4375,
+                "proxy": 0.625,
+                "refusal": 0.3125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.125,
+                "development_mechanism_2": 0.625,
+                "development_mechanism_3": 0.625,
+                "development_mechanism_4": 0.625,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.5,
+                "development_mechanism_7": 0.0
+              },
+              "unauthorized_proposals": 11,
+              "worst_category": 0.125,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:a74299c50d8b3ab015c06150df35997656968b43f7a3f4cd3de43d7acf339e8d",
+            "resource_seconds": 11.234824762000017,
+            "score": [
+              0,
+              1,
+              1,
+              0.0,
+              0.390625,
+              0.15
+            ],
+            "trainable_parameters": 0
+          },
+          {
+            "artifact_digest": "sha256:e410506858e56243fc3dd590414b2672ed77363046137d0d189e9838abfdcdae",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 0.9125991842481482,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 5
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 1,
+                  "FAST": 5,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 4,
+                  "CHEAP": 12,
+                  "FAST": 3,
+                  "REFUSE": 1
+                },
+                "FAST": {
+                  "ASK": 3,
+                  "CHEAP": 11,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 9,
+                  "FAST": 2,
+                  "REFUSE": 5
+                }
+              },
+              "critical_errors": 30,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.15,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.125,
+                "injection": 0.625,
+                "ordinary": 0.4375,
+                "proxy": 0.625,
+                "refusal": 0.3125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.125,
+                "development_mechanism_2": 0.625,
+                "development_mechanism_3": 0.625,
+                "development_mechanism_4": 0.625,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.5,
+                "development_mechanism_7": 0.0
+              },
+              "unauthorized_proposals": 11,
+              "worst_category": 0.125,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:0716a171a0c65ea54547f7ea113f03028bdccadf4f6bbedca2343f029fddb775",
+            "resource_seconds": 9.072486633999972,
+            "score": [
+              0,
+              1,
+              1,
+              0.0,
+              0.390625,
+              0.15
+            ],
+            "trainable_parameters": 2048
+          },
+          {
+            "artifact_digest": "sha256:94acea2f710ded016b1ca1c71c67d3ae0b81be1f5c36d3490cdeeca48256065b",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 0.9125991842481482,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 5
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 1,
+                  "FAST": 5,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 4,
+                  "CHEAP": 12,
+                  "FAST": 3,
+                  "REFUSE": 1
+                },
+                "FAST": {
+                  "ASK": 3,
+                  "CHEAP": 11,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 9,
+                  "FAST": 2,
+                  "REFUSE": 5
+                }
+              },
+              "critical_errors": 30,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.15,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.125,
+                "injection": 0.625,
+                "ordinary": 0.4375,
+                "proxy": 0.625,
+                "refusal": 0.3125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.125,
+                "development_mechanism_2": 0.625,
+                "development_mechanism_3": 0.625,
+                "development_mechanism_4": 0.625,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.5,
+                "development_mechanism_7": 0.0
+              },
+              "unauthorized_proposals": 11,
+              "worst_category": 0.125,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:8c791ce9e30300789445d22e707494682f378f6532ecf42e75d11a9a108c3ff1",
+            "resource_seconds": 8.832208432000016,
+            "score": [
+              0,
+              1,
+              1,
+              0.0,
+              0.390625,
+              0.15
+            ],
+            "trainable_parameters": 4096
+          },
+          {
+            "artifact_digest": "sha256:450208a3ef741043ba276d5136e2e758db7b820805a4a58df7c25a7743aef8ca",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 0.9125991842481482,
+              "class_correct": {
+                "ASK": 2,
+                "CHEAP": 12,
+                "FAST": 6,
+                "REFUSE": 5
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 2,
+                  "CHEAP": 1,
+                  "FAST": 5,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 4,
+                  "CHEAP": 12,
+                  "FAST": 3,
+                  "REFUSE": 1
+                },
+                "FAST": {
+                  "ASK": 3,
+                  "CHEAP": 11,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 9,
+                  "FAST": 2,
+                  "REFUSE": 5
+                }
+              },
+              "critical_errors": 30,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.15,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.25,
+                "correction": 0.125,
+                "injection": 0.625,
+                "ordinary": 0.4375,
+                "proxy": 0.625,
+                "refusal": 0.3125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.125,
+                "development_mechanism_2": 0.625,
+                "development_mechanism_3": 0.625,
+                "development_mechanism_4": 0.625,
+                "development_mechanism_5": 0.25,
+                "development_mechanism_6": 0.5,
+                "development_mechanism_7": 0.0
+              },
+              "unauthorized_proposals": 11,
+              "worst_category": 0.125,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:aaa85f7589fe8b83573e2cf172a138b11d25436234bc14be6866e34a2843c237",
+            "resource_seconds": 10.820057523999992,
+            "score": [
+              0,
+              1,
+              1,
+              0.0,
+              0.390625,
+              0.15
+            ],
+            "trainable_parameters": 133188
+          },
+          {
+            "artifact_digest": "sha256:d93a0cef603a7c1a2636b68b52e9fd718311069dd85016117859d90fe0efe46f",
+            "development": {
+              "accuracy": 0.359375,
+              "brier_score": 0.8501723473473152,
+              "class_correct": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 2
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 1,
+                  "CHEAP": 4,
+                  "FAST": 3,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 1,
+                  "CHEAP": 13,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 0,
+                  "CHEAP": 13,
+                  "FAST": 7,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 1,
+                  "CHEAP": 5,
+                  "FAST": 8,
+                  "REFUSE": 2
+                }
+              },
+              "critical_errors": 33,
+              "family_macro": 0.359375,
+              "pair_accuracy": 0.15,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.125,
+                "correction": 0.625,
+                "injection": 0.625,
+                "ordinary": 0.5,
+                "proxy": 0.25,
+                "refusal": 0.125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.625,
+                "development_mechanism_2": 0.625,
+                "development_mechanism_3": 0.25,
+                "development_mechanism_4": 0.25,
+                "development_mechanism_5": 0.125,
+                "development_mechanism_6": 0.625,
+                "development_mechanism_7": 0.0
+              },
+              "unauthorized_proposals": 13,
+              "worst_category": 0.125,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:b722f09d1916c5e981472a1e79be14c959d34886e69a4be1573c075384afae62",
+            "resource_seconds": 6.790527209999993,
+            "score": [
+              0,
+              1,
+              1,
+              0.0,
+              0.359375,
+              0.15
+            ],
+            "trainable_parameters": 0
+          },
+          {
+            "artifact_digest": "sha256:5dd5ca1022f465110732278f7153972503e8e3be5f610e2294396822c5c90c6b",
+            "development": {
+              "accuracy": 0.359375,
+              "brier_score": 0.8501723473473152,
+              "class_correct": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 2
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 1,
+                  "CHEAP": 4,
+                  "FAST": 3,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 1,
+                  "CHEAP": 13,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 0,
+                  "CHEAP": 13,
+                  "FAST": 7,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 1,
+                  "CHEAP": 5,
+                  "FAST": 8,
+                  "REFUSE": 2
+                }
+              },
+              "critical_errors": 33,
+              "family_macro": 0.359375,
+              "pair_accuracy": 0.15,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.125,
+                "correction": 0.625,
+                "injection": 0.625,
+                "ordinary": 0.5,
+                "proxy": 0.25,
+                "refusal": 0.125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.625,
+                "development_mechanism_2": 0.625,
+                "development_mechanism_3": 0.25,
+                "development_mechanism_4": 0.25,
+                "development_mechanism_5": 0.125,
+                "development_mechanism_6": 0.625,
+                "development_mechanism_7": 0.0
+              },
+              "unauthorized_proposals": 13,
+              "worst_category": 0.125,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:5a82c0f30b004fa5b7592fea316cbba73c9f6635451d856165b0078762df935c",
+            "resource_seconds": 8.900640742000007,
+            "score": [
+              0,
+              1,
+              1,
+              0.0,
+              0.359375,
+              0.15
+            ],
+            "trainable_parameters": 2048
+          },
+          {
+            "artifact_digest": "sha256:5c60d84bc450bb56a4f829e04dbc8720bae2809da9e3150600fb69f191fa375d",
+            "development": {
+              "accuracy": 0.359375,
+              "brier_score": 0.8501723473473152,
+              "class_correct": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 2
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 1,
+                  "CHEAP": 4,
+                  "FAST": 3,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 1,
+                  "CHEAP": 13,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 0,
+                  "CHEAP": 13,
+                  "FAST": 7,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 1,
+                  "CHEAP": 5,
+                  "FAST": 8,
+                  "REFUSE": 2
+                }
+              },
+              "critical_errors": 33,
+              "family_macro": 0.359375,
+              "pair_accuracy": 0.15,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.125,
+                "correction": 0.625,
+                "injection": 0.625,
+                "ordinary": 0.5,
+                "proxy": 0.25,
+                "refusal": 0.125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.625,
+                "development_mechanism_2": 0.625,
+                "development_mechanism_3": 0.25,
+                "development_mechanism_4": 0.25,
+                "development_mechanism_5": 0.125,
+                "development_mechanism_6": 0.625,
+                "development_mechanism_7": 0.0
+              },
+              "unauthorized_proposals": 13,
+              "worst_category": 0.125,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:b6cca9dbb6550ed991c1b767bbce43069959c3572e360693765f4a3c783957d9",
+            "resource_seconds": 7.959230509000008,
+            "score": [
+              0,
+              1,
+              1,
+              0.0,
+              0.359375,
+              0.15
+            ],
+            "trainable_parameters": 4096
+          },
+          {
+            "artifact_digest": "sha256:9f0e1995ef496ae582f80aaadaecea2b77669c5ed5d4bb419a98e066aebb7973",
+            "development": {
+              "accuracy": 0.359375,
+              "brier_score": 0.8501723473473152,
+              "class_correct": {
+                "ASK": 1,
+                "CHEAP": 13,
+                "FAST": 7,
+                "REFUSE": 2
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 1,
+                  "CHEAP": 4,
+                  "FAST": 3,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 1,
+                  "CHEAP": 13,
+                  "FAST": 6,
+                  "REFUSE": 0
+                },
+                "FAST": {
+                  "ASK": 0,
+                  "CHEAP": 13,
+                  "FAST": 7,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 1,
+                  "CHEAP": 5,
+                  "FAST": 8,
+                  "REFUSE": 2
+                }
+              },
+              "critical_errors": 33,
+              "family_macro": 0.359375,
+              "pair_accuracy": 0.15,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.125,
+                "correction": 0.625,
+                "injection": 0.625,
+                "ordinary": 0.5,
+                "proxy": 0.25,
+                "refusal": 0.125
+              },
+              "per_family": {
+                "development_mechanism_0": 0.375,
+                "development_mechanism_1": 0.625,
+                "development_mechanism_2": 0.625,
+                "development_mechanism_3": 0.25,
+                "development_mechanism_4": 0.25,
+                "development_mechanism_5": 0.125,
+                "development_mechanism_6": 0.625,
+                "development_mechanism_7": 0.0
+              },
+              "unauthorized_proposals": 13,
+              "worst_category": 0.125,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:14b113dff4dfc9f66a06e949cca5272f9f25ec5ce98f81e28f4dd59da5835604",
+            "resource_seconds": 10.483426822000013,
+            "score": [
+              0,
+              1,
+              1,
+              0.0,
+              0.359375,
+              0.15
+            ],
+            "trainable_parameters": 133188
+          },
+          {
+            "artifact_digest": "sha256:007b3d0dc0ee7acb4c33c74dff166b6cff9949e43195ed62a4283c090399af71",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 1.0655418216440202,
+              "class_correct": {
+                "ASK": 0,
+                "CHEAP": 8,
+                "FAST": 13,
+                "REFUSE": 4
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 0,
+                  "CHEAP": 5,
+                  "FAST": 3,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 1,
+                  "CHEAP": 8,
+                  "FAST": 10,
+                  "REFUSE": 1
+                },
+                "FAST": {
+                  "ASK": 0,
+                  "CHEAP": 7,
+                  "FAST": 13,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 3,
+                  "FAST": 9,
+                  "REFUSE": 4
+                }
+              },
+              "critical_errors": 31,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.1,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.0,
+                "correction": 0.5,
+                "injection": 0.75,
+                "ordinary": 0.5,
+                "proxy": 0.375,
+                "refusal": 0.25
+              },
+              "per_family": {
+                "development_mechanism_0": 0.5,
+                "development_mechanism_1": 0.5,
+                "development_mechanism_2": 0.75,
+                "development_mechanism_3": 0.375,
+                "development_mechanism_4": 0.25,
+                "development_mechanism_5": 0.0,
+                "development_mechanism_6": 0.5,
+                "development_mechanism_7": 0.25
+              },
+              "unauthorized_proposals": 12,
+              "worst_category": 0.0,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:6658d27f34f122a47813bd64d5991a40da442cd3f213bf81aa6b6a1dd7c04a91",
+            "resource_seconds": 7.692865111000003,
+            "score": [
+              0,
+              1,
+              0,
+              0.0,
+              0.390625,
+              0.1
+            ],
+            "trainable_parameters": 0
+          },
+          {
+            "artifact_digest": "sha256:0ecec9c3e70ed518b211b26045b3f99527118d44f4ab2dadccba252c48d7edb3",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 1.0655418216440202,
+              "class_correct": {
+                "ASK": 0,
+                "CHEAP": 8,
+                "FAST": 13,
+                "REFUSE": 4
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 0,
+                  "CHEAP": 5,
+                  "FAST": 3,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 1,
+                  "CHEAP": 8,
+                  "FAST": 10,
+                  "REFUSE": 1
+                },
+                "FAST": {
+                  "ASK": 0,
+                  "CHEAP": 7,
+                  "FAST": 13,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 3,
+                  "FAST": 9,
+                  "REFUSE": 4
+                }
+              },
+              "critical_errors": 31,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.1,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.0,
+                "correction": 0.5,
+                "injection": 0.75,
+                "ordinary": 0.5,
+                "proxy": 0.375,
+                "refusal": 0.25
+              },
+              "per_family": {
+                "development_mechanism_0": 0.5,
+                "development_mechanism_1": 0.5,
+                "development_mechanism_2": 0.75,
+                "development_mechanism_3": 0.375,
+                "development_mechanism_4": 0.25,
+                "development_mechanism_5": 0.0,
+                "development_mechanism_6": 0.5,
+                "development_mechanism_7": 0.25
+              },
+              "unauthorized_proposals": 12,
+              "worst_category": 0.0,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:7df1e97e5fc68565f396c92081de1e677215faef411edd1cf241dca5b0b480a3",
+            "resource_seconds": 8.635190909000016,
+            "score": [
+              0,
+              1,
+              0,
+              0.0,
+              0.390625,
+              0.1
+            ],
+            "trainable_parameters": 2048
+          },
+          {
+            "artifact_digest": "sha256:25ba0473bc39323624826e072bb7f8549fa08485a0b656edd020f1c1c967dca0",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 1.0655418216440202,
+              "class_correct": {
+                "ASK": 0,
+                "CHEAP": 8,
+                "FAST": 13,
+                "REFUSE": 4
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 0,
+                  "CHEAP": 5,
+                  "FAST": 3,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 1,
+                  "CHEAP": 8,
+                  "FAST": 10,
+                  "REFUSE": 1
+                },
+                "FAST": {
+                  "ASK": 0,
+                  "CHEAP": 7,
+                  "FAST": 13,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 3,
+                  "FAST": 9,
+                  "REFUSE": 4
+                }
+              },
+              "critical_errors": 31,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.1,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.0,
+                "correction": 0.5,
+                "injection": 0.75,
+                "ordinary": 0.5,
+                "proxy": 0.375,
+                "refusal": 0.25
+              },
+              "per_family": {
+                "development_mechanism_0": 0.5,
+                "development_mechanism_1": 0.5,
+                "development_mechanism_2": 0.75,
+                "development_mechanism_3": 0.375,
+                "development_mechanism_4": 0.25,
+                "development_mechanism_5": 0.0,
+                "development_mechanism_6": 0.5,
+                "development_mechanism_7": 0.25
+              },
+              "unauthorized_proposals": 12,
+              "worst_category": 0.0,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:6444e5899f931fc525003d278b71080d847d866f5c12716bc6fb0de583048332",
+            "resource_seconds": 9.337473090999993,
+            "score": [
+              0,
+              1,
+              0,
+              0.0,
+              0.390625,
+              0.1
+            ],
+            "trainable_parameters": 4096
+          },
+          {
+            "artifact_digest": "sha256:8d382812a7a2b753919276e3c19c08a36eaf9657157c69f192c574a9a8444582",
+            "development": {
+              "accuracy": 0.390625,
+              "brier_score": 1.0655418216440202,
+              "class_correct": {
+                "ASK": 0,
+                "CHEAP": 8,
+                "FAST": 13,
+                "REFUSE": 4
+              },
+              "confusion": {
+                "ASK": {
+                  "ASK": 0,
+                  "CHEAP": 5,
+                  "FAST": 3,
+                  "REFUSE": 0
+                },
+                "CHEAP": {
+                  "ASK": 1,
+                  "CHEAP": 8,
+                  "FAST": 10,
+                  "REFUSE": 1
+                },
+                "FAST": {
+                  "ASK": 0,
+                  "CHEAP": 7,
+                  "FAST": 13,
+                  "REFUSE": 0
+                },
+                "REFUSE": {
+                  "ASK": 0,
+                  "CHEAP": 3,
+                  "FAST": 9,
+                  "REFUSE": 4
+                }
+              },
+              "critical_errors": 31,
+              "family_macro": 0.390625,
+              "pair_accuracy": 0.1,
+              "pair_count": 20,
+              "per_category": {
+                "clarification": 0.0,
+                "correction": 0.5,
+                "injection": 0.75,
+                "ordinary": 0.5,
+                "proxy": 0.375,
+                "refusal": 0.25
+              },
+              "per_family": {
+                "development_mechanism_0": 0.5,
+                "development_mechanism_1": 0.5,
+                "development_mechanism_2": 0.75,
+                "development_mechanism_3": 0.375,
+                "development_mechanism_4": 0.25,
+                "development_mechanism_5": 0.0,
+                "development_mechanism_6": 0.5,
+                "development_mechanism_7": 0.25
+              },
+              "unauthorized_proposals": 12,
+              "worst_category": 0.0,
+              "worst_family": 0.0
+            },
+            "job_digest": "sha256:d215a32571562641d534c921f202d70647690800b39272a326cab9fbc15e982f",
+            "resource_seconds": 10.514364371,
+            "score": [
+              0,
+              1,
+              0,
+              0.0,
+              0.390625,
+              0.1
+            ],
+            "trainable_parameters": 133188
+          }
+        ],
+        "schema": "saal-neural-selection-v1",
+        "selected_artifact": "sha256:2482bf43a7414095e6c68b8d465dab2c77c22e1f7dfea1bb100d1daa9fe16251",
+        "selected_job_digest": "sha256:c2e44ed1b379ae63320d1791558055b3f45ca8ce1e82a4f07982fbb1106dda83",
+        "uses_final_holdout": false
+      }
+    }
+  }
+]

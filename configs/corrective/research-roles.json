@@ -1,0 +1,21 @@
+{
+  "schema": "saal-corrective-research-roles-v1",
+  "primary_generative_learning": {
+    "repository": "Qwen/Qwen3.5-0.8B-Base",
+    "revision": "dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68",
+    "method": "lora",
+    "precision": "float32",
+    "note": "FP16 failure remains recorded. FP32 previously completed on T4; new changes require fresh signed admission."
+  },
+  "posttrained_comparison": {
+    "repository": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17"
+  },
+  "semantic_classifier": {
+    "repository": "answerdotai/ModernBERT-base",
+    "revision": "11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88"
+  },
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false,
+  "recursive_improvement": "DEFERRED"
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "saal-historical-local-smoke-v1",
+  "source_archive": "provenance/sequence-v2-local-source-1.zip",
+  "source_archive_sha256": "0372a674599a675e283a6c746fa8e72f6cc2362e88121aef0a7a17800dadd004",
+  "status": "COMPLETED_WITH_FRESH_PER_RECORD_REPLAY",
+  "completed_updates": 8,
+  "budget_tracking": "Cumulative in-process deadline, before CLI durable-registry integration; not a quota or financial cap.",
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false
+}

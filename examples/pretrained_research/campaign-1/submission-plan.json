@@ -1,0 +1,61 @@
+{
+  "schema": "saal-pretrained-colab-plan-v1",
+  "session": "saal-06914fa86ced497caa68",
+  "job_digest": "sha256:44683cbaba804dd420dbc96fc4e733508fc2d94766982466eaa3002381339205",
+  "estimated_max_seconds": 6000,
+  "commands": [
+    [
+      "colab",
+      "new",
+      "-s",
+      "saal-06914fa86ced497caa68",
+      "--gpu",
+      "T4"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-06914fa86ced497caa68",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-1/gpu-lock.txt",
+      "/content/saal_pretrained_lock.txt"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-06914fa86ced497caa68",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-1/worker.zip",
+      "/content/saal_pretrained_worker.zip"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-06914fa86ced497caa68",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-1/install.py",
+      "--timeout",
+      "960"
+    ],
+    [
+      "/private/tmp/saal094-env/bin/python",
+      "-I",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-1/coordinator.py"
+    ],
+    [
+      "colab",
+      "stop",
+      "-s",
+      "saal-06914fa86ced497caa68"
+    ]
+  ],
+  "phases": [
+    "PROVISIONING",
+    "UPLOAD_LOCK",
+    "UPLOAD_WORKER",
+    "DEPENDENCIES",
+    "CAMPAIGN"
+  ],
+  "external_deployment_allowed": false
+}

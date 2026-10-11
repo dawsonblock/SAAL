@@ -1,0 +1,6 @@
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Download failed: 503 Server Error: Service Unavailable for url: https://8080-gpu-t4-s-kkb-usw4a0-3l71couh04bx5-a.us-west4-0.prod.colab.dev/api/contents/content/saal_result_5a82c0f30b00.zip?authuser=0&colab-runtime-proxy-token=[REDACTED]&content=1

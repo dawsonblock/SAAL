@@ -1,0 +1,7 @@
+torch==2.10.0
+safetensors==0.8.0
+numpy==2.4.6
+cryptography==48.0.1
+pytest==8.4.2
+# Colab CLI is local only; supported command contract checked against 0.6.0.
+google-colab-cli>=0.6,<0.8

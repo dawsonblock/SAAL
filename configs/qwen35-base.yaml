@@ -1,0 +1,69 @@
+model_spec:
+  model_kind: qwen35-generative-v1
+  model_repository: Qwen/Qwen3.5-0.8B-Base
+  model_revision: dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68
+  model_files_digest: sha256:f07c88d33901b1430109c11f13944e012f8f405f0d4291547b3e7f18455e05de
+  tokenizer_revision: dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68
+  tokenizer_digest: sha256:df3bdd0362887c0319bfc08570ee0d57a7dc4ca546e4e3dd069c223fcf459b91
+  processor_digest: sha256:8897efe6bd4aa976bb00516ce88726b360e8175a2385a3cbf87872fe230e1274
+  architecture: Qwen3_5ForConditionalGeneration
+  max_input_tokens: 256
+  output_schema_version: synthetic-json-v1
+  adapter_type: lora
+  adapter_rank: 8
+  adapter_targets:
+  - model.language_model.layers.0.linear_attn.in_proj_qkv
+  - model.language_model.layers.1.linear_attn.in_proj_qkv
+  - model.language_model.layers.2.linear_attn.in_proj_qkv
+  - model.language_model.layers.3.self_attn.q_proj
+  - model.language_model.layers.3.self_attn.v_proj
+  - model.language_model.layers.4.linear_attn.in_proj_qkv
+  - model.language_model.layers.5.linear_attn.in_proj_qkv
+  - model.language_model.layers.6.linear_attn.in_proj_qkv
+  - model.language_model.layers.7.self_attn.q_proj
+  - model.language_model.layers.7.self_attn.v_proj
+  - model.language_model.layers.8.linear_attn.in_proj_qkv
+  - model.language_model.layers.9.linear_attn.in_proj_qkv
+  - model.language_model.layers.10.linear_attn.in_proj_qkv
+  - model.language_model.layers.11.self_attn.q_proj
+  - model.language_model.layers.11.self_attn.v_proj
+  - model.language_model.layers.12.linear_attn.in_proj_qkv
+  - model.language_model.layers.13.linear_attn.in_proj_qkv
+  - model.language_model.layers.14.linear_attn.in_proj_qkv
+  - model.language_model.layers.15.self_attn.q_proj
+  - model.language_model.layers.15.self_attn.v_proj
+  - model.language_model.layers.16.linear_attn.in_proj_qkv
+  - model.language_model.layers.17.linear_attn.in_proj_qkv
+  - model.language_model.layers.18.linear_attn.in_proj_qkv
+  - model.language_model.layers.19.self_attn.q_proj
+  - model.language_model.layers.19.self_attn.v_proj
+  - model.language_model.layers.20.linear_attn.in_proj_qkv
+  - model.language_model.layers.21.linear_attn.in_proj_qkv
+  - model.language_model.layers.22.linear_attn.in_proj_qkv
+  - model.language_model.layers.23.self_attn.q_proj
+  - model.language_model.layers.23.self_attn.v_proj
+  precision: float32
+  compute_backend: colab
+  resource_budget_id: qwen35_base_template
+  chat_template_digest: sha256:f108587fabb90c59197cc504828c29e2c94b9f724501adf7d15e29752d3776c0
+  preprocessing: native-chat-text-only-no-thinking-v1
+  dependency_identity:
+    torch: 2.10.0
+    transformers: 5.19.0
+    peft: 0.21.2
+    safetensors: 0.8.0
+    numpy: 2.4.6
+    huggingface-hub: 1.33.0
+    cryptography: 48.0.1
+  attention_implementation: eager
+training_defaults:
+  steps: 20
+  batch_size: 1
+  accumulation: 2
+  learning_rate: 0.0001
+  initial_loss_scale: 1
+  class_balance: false
+  max_seconds: 1800
+qualification_status: NOT_EVALUATED
+external_deployment_allowed: false
+note: Template requires a newly signed job and durable budget admission. FP16 gradient validation failed; separately admitted FP32 compatibility runs completed with verified export/reload. Public learning and independent qualification remain distinct.

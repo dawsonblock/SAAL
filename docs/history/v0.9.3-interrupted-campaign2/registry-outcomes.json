@@ -1,0 +1,125 @@
+[
+  {
+    "digest": "sha256:e8fd96b05a26d28d44bbf548be7b4ea88dadb7301f768209361da058362095e9",
+    "protocol": {
+      "adaptation_steps": 500,
+      "backend": "colab",
+      "baseline_steps": 300,
+      "controller_digest": "sha256:2edbe58fd450d1933adbcfb85f5b47fd35068d2c719afde1691a08a8efac3d53",
+      "dataset_digest": "sha256:501adef00358fe55b9fe2156bead59878cb3be2465a653979ecc7792f5156296",
+      "external_deployment_allowed": false,
+      "max_run_seconds": 600,
+      "model_spec": {
+        "adapter_configuration": {
+          "rank": 4,
+          "scale": 1.0,
+          "targets": [
+            "query",
+            "value"
+          ]
+        },
+        "architecture_version": "byte-cls-transformer-v2",
+        "attention_heads": 4,
+        "dropout": 0.1,
+        "encoder_layers": 2,
+        "feedforward_dimension": 256,
+        "hidden_dimension": 64,
+        "initialization_seed": 17,
+        "max_sequence_bytes": 256,
+        "model_kind": "tiny-transformer-lora-v2",
+        "output_vocabulary": [
+          "CHEAP",
+          "FAST",
+          "ASK",
+          "REFUSE"
+        ],
+        "positional_encoding": "learned-absolute-v1",
+        "tokenizer_version": "utf8-bytes-pad256-cls257-v2"
+      },
+      "modes": [
+        "frozen",
+        "full",
+        "lora-r4",
+        "lora-r8"
+      ],
+      "qualification_status": "NOT_EVALUATED",
+      "schema": "saal-neural-campaign-v1",
+      "seeds": [
+        17,
+        29,
+        43,
+        71,
+        101
+      ],
+      "selection_policy": "public-critical-class-family-pair-cost-v1",
+      "worker_digest": "sha256:14b6d513a685665825eca57110942cfdf8c9ec2a0888303167af919e1bcaddc3"
+    },
+    "state": "INTERRUPTED",
+    "outcome": {
+      "error": {
+        "detail": "Colab -I failed (1): py\", line 80, in run_registered_jobs\n    stream_command(command,attempt/(str(i)+'-'+phase.lower()+'.log'),job['max_seconds']+30,\n  File \"/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.3-Robust-Neural-Learning/src/saal_rsi/model_monitor.py\", line 49, in stream_command\n    if rc:raise RuntimeError(f'Colab {command[1]} failed ({rc}): '+tail.decode(errors='replace')[-1200:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Colab download failed (1): \n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Download failed: 503 Server Error: Service Unavailable for url: https://8080-gpu-t4-s-kkb-usw4a0-3l71couh04bx5-a.us-west4-0.prod.colab.dev/api/contents/content/saal_result_5a82c0f30b00.zip?authuser=0&colab-runtime-proxy-token=[REDACTED]&content=1\n\n",
+        "type": "RuntimeError"
+      },
+      "runs": [
+        {
+          "bundle": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-17/frozen/bundle",
+          "job": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-17/frozen/job.json",
+          "job_digest": "sha256:a74299c50d8b3ab015c06150df35997656968b43f7a3f4cd3de43d7acf339e8d",
+          "mode": "frozen",
+          "seed": 17,
+          "status": "COMPLETED"
+        },
+        {
+          "bundle": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-17/full/bundle",
+          "job": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-17/full/job.json",
+          "job_digest": "sha256:aaa85f7589fe8b83573e2cf172a138b11d25436234bc14be6866e34a2843c237",
+          "mode": "full",
+          "seed": 17,
+          "status": "COMPLETED"
+        },
+        {
+          "bundle": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-17/lora-r4/bundle",
+          "job": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-17/lora-r4/job.json",
+          "job_digest": "sha256:0716a171a0c65ea54547f7ea113f03028bdccadf4f6bbedca2343f029fddb775",
+          "mode": "lora-r4",
+          "seed": 17,
+          "status": "COMPLETED"
+        },
+        {
+          "bundle": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-17/lora-r8/bundle",
+          "job": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-17/lora-r8/job.json",
+          "job_digest": "sha256:8c791ce9e30300789445d22e707494682f378f6532ecf42e75d11a9a108c3ff1",
+          "mode": "lora-r8",
+          "seed": 17,
+          "status": "COMPLETED"
+        },
+        {
+          "bundle": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-29/frozen/bundle",
+          "job": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-29/frozen/job.json",
+          "job_digest": "sha256:b722f09d1916c5e981472a1e79be14c959d34886e69a4be1573c075384afae62",
+          "mode": "frozen",
+          "seed": 29,
+          "status": "COMPLETED"
+        },
+        {
+          "bundle": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-29/full/bundle",
+          "job": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-2/seed-29/full/job.json",
+          "job_digest": "sha256:14b113dff4dfc9f66a06e949cca5272f9f25ec5ce98f81e28f4dd59da5835604",
+          "mode": "full",
+          "seed": 29,
+          "status": "COMPLETED"
+        },
+        {
+          "error": {
+            "detail": "Colab download failed (1): \n[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Download failed: 503 Server Error: Service Unavailable for url: https://8080-gpu-t4-s-kkb-usw4a0-3l71couh04bx5-a.us-west4-0.prod.colab.dev/api/contents/content/saal_result_5a82c0f30b00.zip?authuser=0&colab-runtime-proxy-token=[REDACTED]&content=1\n",
+            "type": "RuntimeError"
+          },
+          "job_digest": "sha256:5a82c0f30b004fa5b7592fea316cbba73c9f6635451d856165b0078762df935c",
+          "mode": "lora-r4",
+          "seed": 29,
+          "status": "INTERRUPTED"
+        }
+      ]
+    }
+  }
+]

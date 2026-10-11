@@ -1,0 +1,6 @@
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.3-campaign-3/seed-17/lora-r4/remote/job.json' to '/content/saal_job.json'

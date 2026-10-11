@@ -1,0 +1,18 @@
+{
+  "trained": {
+    "artifact_digest": "sha256:77f11fb91cf606fe1df803822825d48dec95d903669fc551068239a14c08c532",
+    "backend": "local",
+    "qualification_status": "NOT_EVALUATED"
+  },
+  "qualified": false,
+  "verified": {
+    "external_deployment_allowed": false,
+    "research_qualified": false,
+    "verified": true
+  },
+  "execution_backend": "local CPU",
+  "live_colab_gpu_run": false,
+  "colab_plan_prepared": true,
+  "custody": "Separate keys, one operator; not independently hosted",
+  "data": "Public correlated synthetic fixtures; p-value is not empirical generalization evidence"
+}

@@ -1,0 +1,1 @@
+The v0.7 files here and inherited docs/saal, docs/dream, and upstream references are historical provenance. Current integrated behavior is defined by v0.8 README, AUDIT_RESPONSE, INTEGRATION_SECURITY, and RESEARCH_PROTOCOL. Inherited deployment/qualification examples do not authorize integrated external activation.

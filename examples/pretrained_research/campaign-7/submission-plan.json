@@ -1,0 +1,99 @@
+{
+  "schema": "saal-pretrained-colab-plan-v1",
+  "session": "saal-511a46abe7ac48d7843b",
+  "job_digest": "sha256:82c204bf4d90878ef625c7ef6b4720c5ebaf18e4a8fb26ba5d96e0187371ca9e",
+  "estimated_max_seconds": 3500,
+  "commands": [
+    [
+      "colab",
+      "new",
+      "-s",
+      "saal-511a46abe7ac48d7843b",
+      "--gpu",
+      "T4"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-511a46abe7ac48d7843b",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-7/gpu-lock.txt",
+      "/content/saal_pretrained_lock.txt"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-511a46abe7ac48d7843b",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-7/worker.zip",
+      "/content/saal_pretrained_worker.zip"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-511a46abe7ac48d7843b",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-7/install.py",
+      "--timeout",
+      "960"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-511a46abe7ac48d7843b",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-7/sequence-job.json",
+      "/content/saal_sequence_job.json"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-511a46abe7ac48d7843b",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-7/sequence-protocol.json",
+      "/content/saal_sequence_protocol.json"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-511a46abe7ac48d7843b",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-7/learning-report.json",
+      "/content/saal_learning_report.json"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-511a46abe7ac48d7843b",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-7/run.py",
+      "--timeout",
+      "960"
+    ],
+    [
+      "/private/tmp/saal094-env/bin/python",
+      "-I",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-7/retrieve.py"
+    ],
+    [
+      "colab",
+      "stop",
+      "-s",
+      "saal-511a46abe7ac48d7843b"
+    ]
+  ],
+  "phases": [
+    "PROVISIONING",
+    "UPLOAD_LOCK",
+    "UPLOAD_WORKER",
+    "DEPENDENCIES",
+    "UPLOAD_SEQUENCE-JOB",
+    "UPLOAD_SEQUENCE-PROTOCOL",
+    "UPLOAD_LEARNING-REPORT",
+    "SEQUENTIAL_TRAINING",
+    "DOWNLOAD_VERIFY"
+  ],
+  "external_deployment_allowed": false
+}

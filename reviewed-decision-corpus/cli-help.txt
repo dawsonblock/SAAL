@@ -1,0 +1,9 @@
+usage: __main__.py [-h]
+                   {check,sign-review,assess,prepare-data,sign-semantic-review,metrics}
+                   ...
+
+positional arguments:
+  {check,sign-review,assess,prepare-data,sign-semantic-review,metrics}
+
+options:
+  -h, --help            show this help message and exit

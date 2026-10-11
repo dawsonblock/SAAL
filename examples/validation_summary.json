@@ -1,0 +1,14 @@
+{
+  "qualification": {
+    "qualification_passed": false,
+    "promotion_allowed": false,
+    "paired_gain_lower": -0.058055555466666665
+  },
+  "verified": {
+    "verified": true,
+    "qualification_passed": false,
+    "promotion_allowed": false
+  },
+  "custody": "Separate keys, single local operator; no external timestamp or independence claim",
+  "holdout": "Public demo seeds, not confidential empirical benchmark"
+}

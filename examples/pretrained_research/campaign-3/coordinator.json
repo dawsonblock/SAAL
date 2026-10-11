@@ -1,0 +1,13 @@
+{
+  "workspace": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-3",
+  "session": "saal-9e29863b521d44ad8950",
+  "pin": "3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b",
+  "jobs": [
+    "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-3/job-00.json",
+    "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-3/job-01.json",
+    "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-3/job-02.json",
+    "/Users/dawsonblock/Downloads/SAAL-RSI-research/v0.9.4-campaign-3/job-03.json"
+  ],
+  "artifacts": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v094-artifacts-v3",
+  "ledger": "/Users/dawsonblock/Downloads/SAAL-RSI-research/v094-campaign3.db"
+}

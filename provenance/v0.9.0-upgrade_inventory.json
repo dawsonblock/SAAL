@@ -1,0 +1,159 @@
+{
+  "input_name": "SAAL-RSI-v0.8.1-Full-Corrected-Upgraded.zip",
+  "input_sha256": "79520532d705b53c15a05ecd1a0e294a7f509278564c7d4c3b50b61057f14bbe",
+  "modified_files": [
+    {
+      "path": "CHANGELOG.md",
+      "input_sha256": "102c0b467b946f7686b1e4ae06e9fc0cae5af43911d4040d378695614cf78553",
+      "upgraded_sha256": "00dc65be1a85d2cc330c240c72de06fa203459f27a1efb6179953555c708abde"
+    },
+    {
+      "path": "README.md",
+      "input_sha256": "2ab8b00b4a42eab5cab956bd0f0aca567ff4945512553d481dab7ff61102b28c",
+      "upgraded_sha256": "832e3e6adad8106381b5c1d4eead75aff0d3f24ea21ef30a30df6e03c128a8a9"
+    },
+    {
+      "path": "RELEASE_REPORT.md",
+      "input_sha256": "b05f9921899cd52a46ec285eed821cecbf5ff492b940c470e967b11b0f2f14b8",
+      "upgraded_sha256": "841299212296af4a04674a7ee6e895de023aa2710ec6d6c2ff50041419592bb6"
+    },
+    {
+      "path": "examples/example_anchor_receipt.json",
+      "input_sha256": "0d5d102bdaec76aae840e4b87f870ab31f1688462b56d15c251fcdb8718c68e3",
+      "upgraded_sha256": "c4c7a9d6330c9bfa7fdb6ff676687e475b90031d2206cceeecc27bfa9c04eb26"
+    },
+    {
+      "path": "examples/example_custodian_public_key.txt",
+      "input_sha256": "3b7cede8cd1055f003f9c006d1e7ab4f2f80a8244b148f2d5f54589dcfe41a71",
+      "upgraded_sha256": "6a9707398f6c1f5319d3df431f0b100a71d12cd013ca560a6287a1198aada027"
+    },
+    {
+      "path": "examples/example_evaluator_public_key.txt",
+      "input_sha256": "9bee6f9b15b2f073bdd5ea9b6f12f93ed4ce5bbf094a46cf46675e457beef827",
+      "upgraded_sha256": "d5fc907d4fd5e3b2de8777d6ed3565c457f4b24325ab1c8b06b7bcb6ee74ab66"
+    },
+    {
+      "path": "examples/example_negative_qualification.json",
+      "input_sha256": "e8c9700ab725ba96c0612027725b58a8f89d6e7b54039e0f7a61f9571cad0caf",
+      "upgraded_sha256": "a92b5ee893a5d06d2e2547002028d712323b32881dde0f1c46342180b0cf1f7c"
+    },
+    {
+      "path": "pyproject.toml",
+      "input_sha256": "3c5bd40a6e98fb47bee1bdb3d73f195728895b5390fa17980aae81697fc66eb0",
+      "upgraded_sha256": "915061a5e723683eafaca82e452ce1bbf5ff30ce8c2cf3fd3f6578c2171f7e64"
+    },
+    {
+      "path": "src/saal_rsi/__init__.py",
+      "input_sha256": "b008d4aa644d7a1562a0565b8aab7b1966fae96be461e3f61dc2102e7988cdf4",
+      "upgraded_sha256": "2091c168df42f9362f02265403d5d8a367a4494f119c7987aaf0040e65183f33"
+    }
+  ],
+  "new_files": [
+    {
+      "path": "docs/V0.9.0_ARCHITECTURE.md",
+      "sha256": "23814df3d022395750e3271611924e4fcc931f7cefe9b0d05418158cfb7c0b18"
+    },
+    {
+      "path": "docs/history/v0.8.1/RELEASE_REPORT.md",
+      "sha256": "b05f9921899cd52a46ec285eed821cecbf5ff492b940c470e967b11b0f2f14b8"
+    },
+    {
+      "path": "docs/history/v0.8.1/change_inventory.json",
+      "sha256": "b20e2a6d69790acee0ee6a860af22eb29d2a1e2ddfc5ca01154a1c396f76fc48"
+    },
+    {
+      "path": "docs/history/v0.8.1/example_anchor_receipt.json",
+      "sha256": "0d5d102bdaec76aae840e4b87f870ab31f1688462b56d15c251fcdb8718c68e3"
+    },
+    {
+      "path": "docs/history/v0.8.1/example_custodian_public_key.txt",
+      "sha256": "3b7cede8cd1055f003f9c006d1e7ab4f2f80a8244b148f2d5f54589dcfe41a71"
+    },
+    {
+      "path": "docs/history/v0.8.1/example_evaluator_public_key.txt",
+      "sha256": "9bee6f9b15b2f073bdd5ea9b6f12f93ed4ce5bbf094a46cf46675e457beef827"
+    },
+    {
+      "path": "docs/history/v0.8.1/example_negative_qualification.json",
+      "sha256": "e8c9700ab725ba96c0612027725b58a8f89d6e7b54039e0f7a61f9571cad0caf"
+    },
+    {
+      "path": "docs/history/v0.8.1/public_development_proposal.json",
+      "sha256": "9b4d78cabdd201f11e60a2b701487b9b7f9582d15606e1e8dd460f076be07377"
+    },
+    {
+      "path": "docs/history/v0.8.1/validation_summary.json",
+      "sha256": "b1a50e783f07df8f50be70b9d42f8d5e211455c39aebe801c1a76e7252360838"
+    },
+    {
+      "path": "examples/model_demo/checkpoint/adapter.safetensors",
+      "sha256": "67af8c8bfa215e6e0fe820f57e7c40779b3152ac26b39592a1240506c79f009a"
+    },
+    {
+      "path": "examples/model_demo/checkpoint/baseline.safetensors",
+      "sha256": "4c439c5a3b4c75db9440300d66128c67d4909c0acfecc136652d164f85f99b88"
+    },
+    {
+      "path": "examples/model_demo/checkpoint/result.json",
+      "sha256": "ec869cb15a790f9f8308ea8bf1792122f67bcadcf5000eef5129d583481e9868"
+    },
+    {
+      "path": "examples/model_demo/controller-public-key.txt",
+      "sha256": "a4276ec57859490f8f240eedd1031dd78c223337a48975aee42e0161b130b8b4"
+    },
+    {
+      "path": "examples/model_demo/custodian-public-key.txt",
+      "sha256": "f81226cbc510bff1438d81b40a71678b89031b538fdf13c931a36d48a2e8d3c4"
+    },
+    {
+      "path": "examples/model_demo/evaluator-public-key.txt",
+      "sha256": "2b50f9d82aa0e2201a4a93c35893bd4d034b0b5ced3108acb38ad1a3eea11357"
+    },
+    {
+      "path": "examples/model_demo/job.json",
+      "sha256": "de08d6d8d320b6786bc2019fd8b41e3e0481a3647cd61290752dd876041ea857"
+    },
+    {
+      "path": "examples/model_demo/receipt.json",
+      "sha256": "afa304f81b36e53a0d8dba388dfcfb29fbae67e79f8347231f6c883358eb2fde"
+    },
+    {
+      "path": "examples/model_demo/report.json",
+      "sha256": "2a3ece5b429f2b335f7a9dea00fcade30521098ec2fc20077b64c4753e595277"
+    },
+    {
+      "path": "examples/model_demo/validation_summary.json",
+      "sha256": "469461df9227a600d6cb9dd30678fa37e01009d8c5b13d7f029a8f1b024e3a13"
+    },
+    {
+      "path": "requirements-model.txt",
+      "sha256": "b068e3fd3a9e00e16fbb027e38bafc56e8f6a2c40bfaca996d58bbd67657a5ae"
+    },
+    {
+      "path": "src/saal_rsi/model_backend.py",
+      "sha256": "932175e2abd3f05e4490e71e8bf7296503d2a8b986761d2e79e0f33e0e8ce8be"
+    },
+    {
+      "path": "src/saal_rsi/model_cli.py",
+      "sha256": "1af351264533173b460372b6e0eff8d865ef6130a0b9451ba39ca53dcc590563"
+    },
+    {
+      "path": "src/saal_rsi/model_contract.py",
+      "sha256": "f5e166b8c6903fbc70cc041a7dbd100d7346ed50863d8143761c64076b07510d"
+    },
+    {
+      "path": "src/saal_rsi/model_evaluation.py",
+      "sha256": "293e1fdc8c998c8d9d2f64f490410fb6aefc663ecaf745152a1bb24b839fec31"
+    },
+    {
+      "path": "src/saal_rsi/model_worker.py",
+      "sha256": "4453b5352193e4e1bc9fb62638e6f00ea588a81e46741241057c966bd99f3b70"
+    },
+    {
+      "path": "tests/integration/test_model_learning.py",
+      "sha256": "dcb16daf8fd9ac908f6032b49ed3721bf6427598d345e795817ea9d0bf51aba6"
+    }
+  ],
+  "removed_files": [],
+  "inventory_scope": "Packaged non-provenance files excluding the final manifest; original features and evidence retained."
+}

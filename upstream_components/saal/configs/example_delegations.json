@@ -1,0 +1,11 @@
+[
+  {
+    "principal": "demo_user",
+    "task_id": "demo-1",
+    "goal": "propose an accessible appointment, no bookings",
+    "allowed_tools": ["schedule.read", "schedule.propose"],
+    "expires_at": 2000000000,
+    "max_cost_cents": 0,
+    "may_affect_others": false
+  }
+]
