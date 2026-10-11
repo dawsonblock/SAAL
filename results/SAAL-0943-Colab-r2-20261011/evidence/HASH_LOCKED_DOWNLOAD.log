@@ -1,0 +1,238 @@
+Collecting accelerate==1.15.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 3))
+  Downloading accelerate-1.15.0-py3-none-any.whl (394 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 394.3/394.3 kB 12.2 MB/s eta 0:00:00
+Collecting annotated-doc==0.0.5 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 7))
+  Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Collecting anyio==4.15.1 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 11))
+  Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.1/132.1 kB 15.9 MB/s eta 0:00:00
+Collecting certifi==2026.7.22 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 15))
+  Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.0/137.0 kB 15.1 MB/s eta 0:00:00
+Collecting cffi==2.0.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 21))
+  Downloading cffi-2.0.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 219.5/219.5 kB 22.1 MB/s eta 0:00:00
+Collecting click==8.5.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 109))
+  Downloading click-8.5.0-py3-none-any.whl (125 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 14.7 MB/s eta 0:00:00
+Collecting cryptography==48.0.1 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 113))
+  Downloading cryptography-48.0.1-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 97.1 MB/s eta 0:00:00
+Collecting cuda-bindings==12.9.4 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 164))
+  Downloading cuda_bindings-12.9.4-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.9/11.9 MB 102.3 MB/s eta 0:00:00
+Collecting cuda-pathfinder==1.8.3 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 190))
+  Downloading cuda_pathfinder-1.8.3-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 6.4 MB/s eta 0:00:00
+Collecting filelock==4.0.12 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 193))
+  Downloading filelock-4.0.12-py3-none-any.whl (111 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.7/111.7 kB 13.0 MB/s eta 0:00:00
+Collecting fsspec==2026.9.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 199))
+  Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.7/221.7 kB 24.9 MB/s eta 0:00:00
+Collecting h11==0.16.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 205))
+  Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting hf-xet==1.7.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 209))
+  Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 124.8 MB/s eta 0:00:00
+Collecting httpcore==1.0.9 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 228))
+  Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.8/78.8 kB 9.5 MB/s eta 0:00:00
+Collecting httpx==0.28.1 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 232))
+  Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.5/73.5 kB 8.3 MB/s eta 0:00:00
+Collecting huggingface-hub==1.33.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 236))
+  Downloading huggingface_hub-1.33.0-py3-none-any.whl (846 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 846.4/846.4 kB 53.5 MB/s eta 0:00:00
+Collecting idna==3.20 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 245))
+  Downloading idna-3.20-py3-none-any.whl (69 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 7.5 MB/s eta 0:00:00
+Collecting iniconfig==2.3.1 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 251))
+  Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Collecting jinja2==3.1.6 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 255))
+  Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 15.4 MB/s eta 0:00:00
+Collecting markdown-it-py==4.2.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 259))
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.7/91.7 kB 10.0 MB/s eta 0:00:00
+Collecting markupsafe==3.0.4 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 263))
+  Downloading markupsafe-3.0.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (23 kB)
+Collecting mdurl==0.1.2 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 416))
+  Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Collecting mpmath==1.3.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 420))
+  Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 46.6 MB/s eta 0:00:00
+Collecting networkx==3.7 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 424))
+  Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 85.3 MB/s eta 0:00:00
+Collecting numpy==2.4.6 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 428))
+  Downloading numpy-2.4.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 110.9 MB/s eta 0:00:00
+Collecting nvidia-cublas-cu12==12.8.4.1 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 506))
+  Downloading nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl (594.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 594.3/594.3 MB 1.3 MB/s eta 0:00:00
+Collecting nvidia-cuda-cupti-cu12==12.8.90 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 514))
+  Downloading nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 63.9 MB/s eta 0:00:00
+Collecting nvidia-cuda-nvrtc-cu12==12.8.93 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 519))
+  Downloading nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (88.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.0/88.0 MB 9.5 MB/s eta 0:00:00
+Collecting nvidia-cuda-runtime-cu12==12.8.90 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 524))
+  Downloading nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (954 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 954.8/954.8 kB 49.8 MB/s eta 0:00:00
+Collecting nvidia-cudnn-cu12==9.10.2.21 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 529))
+  Downloading nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl (706.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 706.8/706.8 MB 2.7 MB/s eta 0:00:00
+Collecting nvidia-cufft-cu12==11.3.3.83 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 534))
+  Downloading nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (193.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.1/193.1 MB 6.0 MB/s eta 0:00:00
+Collecting nvidia-cufile-cu12==1.13.1.3 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 539))
+  Downloading nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 75.7 MB/s eta 0:00:00
+Collecting nvidia-curand-cu12==10.3.9.90 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 543))
+  Downloading nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl (63.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.6/63.6 MB 12.8 MB/s eta 0:00:00
+Collecting nvidia-cusolver-cu12==11.7.3.90 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 548))
+  Downloading nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl (267.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 267.5/267.5 MB 4.8 MB/s eta 0:00:00
+Collecting nvidia-cusparse-cu12==12.5.8.93 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 553))
+  Downloading nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (288.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 288.2/288.2 MB 5.5 MB/s eta 0:00:00
+Collecting nvidia-cusparselt-cu12==0.7.1 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 560))
+  Downloading nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl (287.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 287.2/287.2 MB 4.5 MB/s eta 0:00:00
+Collecting nvidia-nccl-cu12==2.27.5 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 565))
+  Downloading nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (322.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 322.3/322.3 MB 4.3 MB/s eta 0:00:00
+Collecting nvidia-nvjitlink-cu12==12.8.93 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 569))
+  Downloading nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.3/39.3 MB 23.1 MB/s eta 0:00:00
+Collecting nvidia-nvshmem-cu12==3.4.5 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 578))
+  Downloading nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (139.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 139.1/139.1 MB 7.2 MB/s eta 0:00:00
+Collecting nvidia-nvtx-cu12==12.8.90 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 582))
+  Downloading nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.0/90.0 kB 9.8 MB/s eta 0:00:00
+Collecting packaging==26.3 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 587))
+  Downloading packaging-26.3-py3-none-any.whl (129 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 15.7 MB/s eta 0:00:00
+Collecting peft==0.21.2 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 596))
+  Downloading peft-0.21.2-py3-none-any.whl (835 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 835.4/835.4 kB 60.8 MB/s eta 0:00:00
+Collecting pluggy==1.6.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 600))
+  Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Collecting psutil==7.2.2 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 604))
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 kB 17.3 MB/s eta 0:00:00
+Collecting pycparser==3.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 629))
+  Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.2/48.2 kB 5.5 MB/s eta 0:00:00
+Collecting pygments==2.21.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 635))
+  Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 76.5 MB/s eta 0:00:00
+Collecting pytest==8.4.2 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 641))
+  Downloading pytest-8.4.2-py3-none-any.whl (365 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 365.8/365.8 kB 35.3 MB/s eta 0:00:00
+Collecting pyyaml==6.0.3 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 645))
+  Downloading pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 801.6/801.6 kB 56.7 MB/s eta 0:00:00
+Collecting regex==2026.9.29 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 724))
+  Downloading regex-2026.9.29-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 60.8 MB/s eta 0:00:00
+Collecting rich==15.0.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 856))
+  Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 30.3 MB/s eta 0:00:00
+Collecting safetensors==0.8.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 860))
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 40.9 MB/s eta 0:00:00
+Collecting setuptools==84.0.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 883))
+  Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 63.6 MB/s eta 0:00:00
+Collecting shellingham==1.5.4 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 887))
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Collecting sympy==1.14.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 891))
+  Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 116.9 MB/s eta 0:00:00
+Collecting tokenizers==0.23.2 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 895))
+  Downloading tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 105.4 MB/s eta 0:00:00
+Collecting torch==2.10.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 914))
+  Downloading torch-2.10.0-3-cp313-cp313-manylinux_2_28_x86_64.whl (915.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 915.6/915.6 MB 1.4 MB/s eta 0:00:00
+Collecting tqdm==4.70.1 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 958))
+  Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 6.4 MB/s eta 0:00:00
+Collecting transformers==5.19.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 965))
+  Downloading transformers-5.19.0-py3-none-any.whl (12.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.6/12.6 MB 86.2 MB/s eta 0:00:00
+Collecting triton==3.6.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 971))
+  Downloading triton-3.6.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (188.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.3/188.3 MB 6.1 MB/s eta 0:00:00
+Collecting typer==0.27.3 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 987))
+  Downloading typer-0.27.3-py3-none-any.whl (123 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.3/123.3 kB 14.8 MB/s eta 0:00:00
+Collecting typing-extensions==4.16.0 (from -r /content/saal-0943/base/configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 991))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 5.2 MB/s eta 0:00:00
+Saved ./saal-0943/wheels/accelerate-1.15.0-py3-none-any.whl
+Saved ./saal-0943/wheels/annotated_doc-0.0.5-py3-none-any.whl
+Saved ./saal-0943/wheels/anyio-4.15.1-py3-none-any.whl
+Saved ./saal-0943/wheels/certifi-2026.7.22-py3-none-any.whl
+Saved ./saal-0943/wheels/cffi-2.0.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved ./saal-0943/wheels/click-8.5.0-py3-none-any.whl
+Saved ./saal-0943/wheels/cryptography-48.0.1-cp311-abi3-manylinux_2_34_x86_64.whl
+Saved ./saal-0943/wheels/cuda_bindings-12.9.4-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
+Saved ./saal-0943/wheels/cuda_pathfinder-1.8.3-py3-none-any.whl
+Saved ./saal-0943/wheels/filelock-4.0.12-py3-none-any.whl
+Saved ./saal-0943/wheels/fsspec-2026.9.0-py3-none-any.whl
+Saved ./saal-0943/wheels/h11-0.16.0-py3-none-any.whl
+Saved ./saal-0943/wheels/hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved ./saal-0943/wheels/httpcore-1.0.9-py3-none-any.whl
+Saved ./saal-0943/wheels/httpx-0.28.1-py3-none-any.whl
+Saved ./saal-0943/wheels/huggingface_hub-1.33.0-py3-none-any.whl
+Saved ./saal-0943/wheels/idna-3.20-py3-none-any.whl
+Saved ./saal-0943/wheels/iniconfig-2.3.1-py3-none-any.whl
+Saved ./saal-0943/wheels/jinja2-3.1.6-py3-none-any.whl
+Saved ./saal-0943/wheels/markdown_it_py-4.2.0-py3-none-any.whl
+Saved ./saal-0943/wheels/markupsafe-3.0.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved ./saal-0943/wheels/mdurl-0.1.2-py3-none-any.whl
+Saved ./saal-0943/wheels/mpmath-1.3.0-py3-none-any.whl
+Saved ./saal-0943/wheels/networkx-3.7-py3-none-any.whl
+Saved ./saal-0943/wheels/numpy-2.4.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved ./saal-0943/wheels/nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Saved ./saal-0943/wheels/packaging-26.3-py3-none-any.whl
+Saved ./saal-0943/wheels/peft-0.21.2-py3-none-any.whl
+Saved ./saal-0943/wheels/pluggy-1.6.0-py3-none-any.whl
+Saved ./saal-0943/wheels/psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl
+Saved ./saal-0943/wheels/pycparser-3.0-py3-none-any.whl
+Saved ./saal-0943/wheels/pygments-2.21.0-py3-none-any.whl
+Saved ./saal-0943/wheels/pytest-8.4.2-py3-none-any.whl
+Saved ./saal-0943/wheels/pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved ./saal-0943/wheels/regex-2026.9.29-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Saved ./saal-0943/wheels/rich-15.0.0-py3-none-any.whl
+Saved ./saal-0943/wheels/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Saved ./saal-0943/wheels/setuptools-84.0.0-py3-none-any.whl
+Saved ./saal-0943/wheels/shellingham-1.5.4-py2.py3-none-any.whl
+Saved ./saal-0943/wheels/sympy-1.14.0-py3-none-any.whl
+Saved ./saal-0943/wheels/tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Saved ./saal-0943/wheels/torch-2.10.0-3-cp313-cp313-manylinux_2_28_x86_64.whl
+Saved ./saal-0943/wheels/tqdm-4.70.1-py3-none-any.whl
+Saved ./saal-0943/wheels/transformers-5.19.0-py3-none-any.whl
+Saved ./saal-0943/wheels/triton-3.6.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+Saved ./saal-0943/wheels/typer-0.27.3-py3-none-any.whl
+Saved ./saal-0943/wheels/typing_extensions-4.16.0-py3-none-any.whl
+Successfully downloaded accelerate annotated-doc anyio certifi cffi click cryptography cuda-bindings cuda-pathfinder filelock fsspec h11 hf-xet httpcore httpx huggingface-hub idna iniconfig jinja2 markdown-it-py markupsafe mdurl mpmath networkx numpy nvidia-cublas-cu12 nvidia-cuda-cupti-cu12 nvidia-cuda-nvrtc-cu12 nvidia-cuda-runtime-cu12 nvidia-cudnn-cu12 nvidia-cufft-cu12 nvidia-cufile-cu12 nvidia-curand-cu12 nvidia-cusolver-cu12 nvidia-cusparse-cu12 nvidia-cusparselt-cu12 nvidia-nccl-cu12 nvidia-nvjitlink-cu12 nvidia-nvshmem-cu12 nvidia-nvtx-cu12 packaging peft pluggy psutil pycparser pygments pytest pyyaml regex rich safetensors setuptools shellingham sympy tokenizers torch tqdm transformers triton typer typing-extensions

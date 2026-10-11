@@ -1,0 +1,31 @@
+{
+  "archive": "/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.4.3-Main-Complete.zip",
+  "sha256": "c769d66739159fd61d412c02b53e2c2590262a9b94d1a17ffaebb74e7292821d",
+  "clean_extraction": "PASS",
+  "manifest_and_signature": {
+    "version": "0.9.4.3",
+    "physical_files_verified": 2228,
+    "parent_files": 2169,
+    "accounted_changes": [
+      "MANIFEST.sha256",
+      "README.md",
+      "RELEASE_REPORT.md",
+      "REPOSITORY_LAYOUT.md",
+      "pyproject.toml",
+      "src/saal_rsi/__init__.py",
+      "tests/integration/test_attempt_mtls_process.py"
+    ],
+    "qualification_status": "NOT_EVALUATED",
+    "external_deployment_allowed": false,
+    "signer_identity": "REQUIRES_INDEPENDENT_PIN_AUTHENTICATION",
+    "results_scope": "NO_ADDITIONAL_FILES"
+  },
+  "tests": {
+    "tests": 545,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lfs_pointer_payloads": 0,
+  "qualification": "NOT_EVALUATED"
+}

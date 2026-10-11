@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "runtime": {
+    "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  },
+  "source_hashes": {
+    "tools/verify_reproducible_release.py": "193890fb2ed280f5c3b151de9beeab7ddf147c222d750a673f58bb90c32a0913",
+    "tools/build_reproducible_release.py": "b549495cc118090be26405821f8d7e39b2d8b51391b9d2502b3ad66290783677",
+    "tests/reproducibility/test_physical_release.py": "2374743c377429dba7355a427c4093807b2a53f515baf953ac5a15a40edbac24"
+  },
+  "lock_sha256": "6e89a890ce2447f8dd95b534936720d2f0284a6a520d2037863fd827335be393"
+}

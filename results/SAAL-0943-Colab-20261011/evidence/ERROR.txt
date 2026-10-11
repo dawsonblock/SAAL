@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/ipykernel_1265/351232683.py", line 35, in <cell line: None>
+    run([python,'-m','pip','freeze'],'ENVIRONMENT_FREEZE',60,env)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_1265/351232683.py", line 10, in run
+    assert p.returncode==0,name+' exit '+str(p.returncode)
+           ^^^^^^^^^^^^^^^
+AssertionError: ENVIRONMENT_FREEZE exit 1

@@ -1,0 +1,24 @@
+Collecting cffi==2.0.0 (from -r /content/package-tests/locked.txt (line 1))
+  Downloading cffi-2.0.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 219.5/219.5 kB 5.7 MB/s eta 0:00:00
+Collecting cryptography==48.0.1 (from -r /content/package-tests/locked.txt (line 90))
+  Downloading cryptography-48.0.1-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 57.8 MB/s eta 0:00:00
+Collecting iniconfig==2.3.1 (from -r /content/package-tests/locked.txt (line 142))
+  Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Collecting packaging==26.3 (from -r /content/package-tests/locked.txt (line 147))
+  Downloading packaging-26.3-py3-none-any.whl (129 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 10.0 MB/s eta 0:00:00
+Collecting pluggy==1.6.0 (from -r /content/package-tests/locked.txt (line 157))
+  Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Collecting pycparser==3.0 (from -r /content/package-tests/locked.txt (line 162))
+  Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.2/48.2 kB 2.4 MB/s eta 0:00:00
+Collecting pygments==2.21.0 (from -r /content/package-tests/locked.txt (line 169))
+  Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 48.4 MB/s eta 0:00:00
+Collecting pytest==8.4.2 (from -r /content/package-tests/locked.txt (line 176))
+  Downloading pytest-8.4.2-py3-none-any.whl (365 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 365.8/365.8 kB 18.5 MB/s eta 0:00:00
+Installing collected packages: pygments, pycparser, pluggy, packaging, iniconfig, pytest, cffi, cryptography
+Successfully installed cffi-2.0.0 cryptography-48.0.1 iniconfig-2.3.1 packaging-26.3 pluggy-1.6.0 pycparser-3.0 pygments-2.21.0 pytest-8.4.2

@@ -1,0 +1,69 @@
+{
+  "sha256": "c7aaf763fff4f198f3626cc6319273e468496503acc51248765a4672db413112",
+  "parts": [
+    {
+      "name": "input.part000",
+      "sha256": "682137e2c4650db5242528bb7f431beaa406bdb9e24c93800f48674fbec17375"
+    },
+    {
+      "name": "input.part001",
+      "sha256": "9b8e5895038506b3bbce8c0d19554ef6ad1431f8dd704894be47a6510baec375"
+    },
+    {
+      "name": "input.part002",
+      "sha256": "747e911179c99475941c70b5390300ff574205efd739b2bb2710b5a4e601cae1"
+    },
+    {
+      "name": "input.part003",
+      "sha256": "429a393eab2b0f36363ba0b52e1dae3e94dc9a6430028dbdfcbf481cee407b53"
+    },
+    {
+      "name": "input.part004",
+      "sha256": "751d8e2ac192f063629d121ce391d45cc9a119a2ba0083d218e50209e54834d1"
+    },
+    {
+      "name": "input.part005",
+      "sha256": "d9b86877934baa1e70d9484eddc54081414df692afac74aeab21cb6f9defe62f"
+    },
+    {
+      "name": "input.part006",
+      "sha256": "5e75772f1a875f8d62908247352348d7acafb92e6943e8eea9eb331ae2ccf924"
+    },
+    {
+      "name": "input.part007",
+      "sha256": "2bf0630784e6e1c28eb8eb0672c78a7f2db7251036a72ff31adac1b1a99e731d"
+    },
+    {
+      "name": "input.part008",
+      "sha256": "2f8838ab01de82f05593fabfe0f0dd25d6e12e9c16a4c5ad7818c3e601764a11"
+    },
+    {
+      "name": "input.part009",
+      "sha256": "ac4df8beb0abc0151a4d02ccf7844733f36298668394f504ffd7360600190ca6"
+    },
+    {
+      "name": "input.part010",
+      "sha256": "65a1f6dcfc548625aad0d243739bb05af26efb3838363f4265420c2a710830e0"
+    },
+    {
+      "name": "input.part011",
+      "sha256": "4c32ea440b847b240247e0a8e0bcd223e5b659e7b491b2ee819bfa891bc75e66"
+    },
+    {
+      "name": "input.part012",
+      "sha256": "d07eda91b56ee4d12e48535be321385ba1c6be635b5c24f16bd8dfc3465e80cb"
+    },
+    {
+      "name": "input.part013",
+      "sha256": "a3b6f8b961500fd558543854c7948acb5554bcc674e6c0fb384e31b68e45ce15"
+    },
+    {
+      "name": "input.part014",
+      "sha256": "6fc5447a38811d845b317c2a2b394a6a103c010025426486ba9ea1bd3a702d93"
+    },
+    {
+      "name": "input.part015",
+      "sha256": "a3ba220c86625095ba1160ea7840fef5837d10ebbf2dc45b131aaf963867ea1b"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Uploaded '/Users/dawsonblock/Downloads/SAAL-0943-Packaging-Linux/input.zip' to '/content/package-input.zip'
+ 
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+{
+  "status": "PASS",
+  "runtime": {
+    "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  },
+  "source_hashes": {
+    "tools/verify_reproducible_release.py": "193890fb2ed280f5c3b151de9beeab7ddf147c222d750a673f58bb90c32a0913",
+    "tools/build_reproducible_release.py": "b549495cc118090be26405821f8d7e39b2d8b51391b9d2502b3ad66290783677",
+    "tests/reproducibility/test_physical_release.py": "2374743c377429dba7355a427c4093807b2a53f515baf953ac5a15a40edbac24"
+  },
+  "lock_sha256": "6e89a890ce2447f8dd95b534936720d2f0284a6a520d2037863fd827335be393"
+}
+ 
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Downloaded '/content/packaging-evidence.zip' to '/Users/dawsonblock/Downloads/SAAL-0943-Packaging-Linux/evidence.zip'
+ 
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Stopping session 'saal-0943-package-20261011'...
+[colab] Session terminated.
+ 
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[v1646-qual] gpu-t4-s-kkb-usw4a1-2qkyatl5doybc | Hardware: T4 | Variant: GPU
+ 

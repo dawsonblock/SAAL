@@ -1,0 +1,17 @@
+{
+  "schema": "saal-0943-linux-validation-v1",
+  "status": "FAIL",
+  "qualification_status": "NOT_EVALUATED",
+  "training_experiment": false,
+  "stage": "FAILED",
+  "elapsed_seconds": 314.55675411224365,
+  "input_zip_sha256": "dc3b60f57898c7ed6ab175f3d0a8bc405d2b1ff58b2f211484140b6bab387ae9",
+  "source_files_verified": 2167,
+  "supplemental_builder_sha256": "13a631f1435ebef91e52356268452a0acce3ac8d7d3c8f4f20a72a2450d1e05f",
+  "runtime": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  },
+  "lock_sha256": "fe75c6508354d719c74d50cba540d1d5306d5c74d3b77d7ebc23f1f1f34e04b4",
+  "error": "ENVIRONMENT_FREEZE exit 1"
+}
