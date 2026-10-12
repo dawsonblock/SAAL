@@ -33,7 +33,7 @@ def package(destination,key_file):
  for p in ROOT.rglob('*'):
   if not p.is_file():continue
   rel=p.relative_to(ROOT)
-  if 'packaging' in rel.parts or p.name.startswith('package-build'):continue
+  if any(n.startswith('packaging') for n in rel.parts) or p.name.startswith('package-build'):continue
   if 'stage' in rel.parts or p.name in ('worker.zip','test-inputs.zip','results.zip'):omitted.append(p.relative_to(REPO).as_posix());continue
   if rel.parts[:2]==('experiment','colab'):
    tail=rel.parts[2:];keep=(len(tail)==1 and (p.suffix in ('.json','.jsonl','.log','.py','.txt','.pub') or p.name=='worker.zip')) or (len(tail)==2 and p.name=='manifest.json')
