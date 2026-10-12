@@ -1,0 +1,11 @@
+{
+  "files": {
+    "src/saal_diverse/__init__.py": "a13d81b353d0277ffe59b8ef56755249695eb1756a32baab8aeac80e8041855e",
+    "src/saal_diverse/campaign.py": "1d38a24ed2ccd1a0e6acbbbbbfa62509b2fc6edce5f9975633f93e9d71a4961e",
+    "src/saal_diverse/dataset.py": "6b08f3c585a308a5d1af4f02a2b3b8b31b05a2de945f73a2882247003e4167b6",
+    "src/saal_diverse/pair_recipe.py": "bb4b6acadcf5e493e5f5b488ff9816d55167ddff21ee01cfb58f004964293e33",
+    "src/saal_diverse/policy.py": "410aebf4fbdbf13f5e58abc8789b175cee66c7779cf4c9d5df804d0ca2dea41a"
+  },
+  "parent_commit": "812a67fe2af03163ffc280abb6a34bb4fbf6357e",
+  "scope": "Unmodified public v1 generator promoted into the package; no human review or independence inferred."
+}

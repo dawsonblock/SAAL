@@ -1,0 +1,27 @@
+{
+  "label_counts": {
+    "development": {
+      "ASK": 192,
+      "CHEAP": 192,
+      "FAST": 192,
+      "REFUSE": 192
+    },
+    "regression": {
+      "ASK": 202,
+      "CHEAP": 220,
+      "FAST": 226,
+      "REFUSE": 208
+    },
+    "train": {
+      "ASK": 960,
+      "CHEAP": 960,
+      "FAST": 960,
+      "REFUSE": 960
+    }
+  },
+  "max_tokens": 166,
+  "over_limit": 0,
+  "records": 5464,
+  "schema": "saal-native-token-admission-v1",
+  "truncation": false
+}

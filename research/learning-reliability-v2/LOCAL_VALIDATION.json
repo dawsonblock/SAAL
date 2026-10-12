@@ -1,0 +1,31 @@
+{
+  "core": [
+    {
+      "errors": "0",
+      "failures": "0",
+      "hostname": "Mac.gateway.sasktel.net",
+      "name": "pytest",
+      "skipped": "0",
+      "tests": "566",
+      "time": "81.096",
+      "timestamp": "2026-10-12T00:12:48.108963-06:00"
+    }
+  ],
+  "existing_review_gate": [
+    {
+      "errors": "0",
+      "failures": "0",
+      "hostname": "Mac.gateway.sasktel.net",
+      "name": "pytest",
+      "skipped": "0",
+      "tests": "38",
+      "time": "7.702",
+      "timestamp": "2026-10-12T00:14:10.232147-06:00"
+    }
+  ],
+  "historical_native_worker_identity_unchanged": true,
+  "human_reviews": 0,
+  "live_browser_smoke": "UNAVAILABLE_NO_BROWSER_CONNECTOR",
+  "offline_review_ui_logic": "PASSED_NODE_VM_UNIT_TEST",
+  "qualification_status": "NOT_EVALUATED"
+}

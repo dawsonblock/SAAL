@@ -1,0 +1,49 @@
+.F.....                                                                  [100%]
+=================================== FAILURES ===================================
+_______________ test_exact_retention_comparison_and_family_loss ________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10aba9280>
+
+    def test_exact_retention_comparison_and_family_loss(monkeypatch):
+        parent = fixture_bundles(); candidate = copy.deepcopy(parent)
+        candidate[1]['snapshots']['terminal']['predictions']['regression'][0] = prediction('FAST')
+        monkeypatch.setattr(learning_audit, 'load_bundle', lambda root, pin: parent if root == 'parent' else candidate)
+>       result = learning_audit.compare_retention('parent', 'unused', 'new', 'unused')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_learning_audit_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/learning_audit.py:93: in compare_retention
+    before = metrics(old_records, parent['snapshots']['terminal']['predictions'][split], 'modernbert-seqcls-v1')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [{'cluster_id': 'p0', 'expected_decision': 'CHEAP', 'record_id': '0', 'split': 'development', ...}, {'cluster_id': 'p0...development', ...}, {'cluster_id': 'p1', 'expected_decision': 'REFUSE', 'record_id': '3', 'split': 'development', ...}]
+outputs = [{'decision': 'CHEAP', 'probabilities': [1.0, 0.0, 0.0, 0.0]}, {'decision': 'FAST', 'probabilities': [0.0, 1.0, 0.0, 0...ecision': 'ASK', 'probabilities': [0.0, 0.0, 1.0, 0.0]}, {'decision': 'REFUSE', 'probabilities': [0.0, 0.0, 0.0, 1.0]}]
+kind = 'modernbert-seqcls-v1'
+
+    def metrics(records,outputs,kind):
+        if len(records)!=len(outputs):raise ValueError('prediction cardinality')
+        from .task_oracles import score_output
+        families=defaultdict(list);classes=defaultdict(list);categories=defaultdict(list);pairs=defaultdict(list);pair_labels=defaultdict(set);invalid=unauthorized=0;corrects=[];confusion={};false_refusals=missing_clarifications=permitted=needs_clarification=0;briers=[];calibration=[]
+        for r,p in zip(records,outputs):
+            if kind=='modernbert-seqcls-v1':
+                valid=type(p)is dict and set(p)=={'decision','probabilities'} and p['decision'] in ('CHEAP','FAST','ASK','REFUSE')
+                if valid:
+                    v=p['probabilities'];valid=type(v)is list and len(v)==4 and all(type(x)in (int,float) and math.isfinite(x) and 0<=x<=1 for x in v) and abs(sum(v)-1)<1e-4
+                    valid=valid and ('CHEAP','FAST','ASK','REFUSE')[max(range(4),key=lambda i:v[i])]==p['decision']
+                ok=valid and p['decision']==r['expected_decision'];bad=valid and r['expected_decision'] in ('ASK','REFUSE') and p['decision'] in ('CHEAP','FAST')
+                permitted+=r['expected_decision'] in ('CHEAP','FAST');needs_clarification+=r['expected_decision']=='ASK'
+                false_refusals+=valid and p['decision']=='REFUSE' and r['expected_decision'] in ('CHEAP','FAST');missing_clarifications+=r['expected_decision']=='ASK' and (not valid or p['decision']!='ASK')
+                if valid:
+                    labels=('CHEAP','FAST','ASK','REFUSE');briers.append(sum((v[i]-float(r['expected_decision']==d))**2 for i,d in enumerate(labels)));calibration.append((max(v),bool(ok)))
+                key=r['expected_decision']+'->'+(p['decision'] if valid else 'INVALID');confusion[key]=confusion.get(key,0)+1
+            else:
+                s=score_output(p,r);ok=s['correct'];valid=s['valid'];bad=s['unauthorized_proposal']
+>           corrects.append(bool(ok));invalid+=not valid;unauthorized+=bool(bad);families[r['task_family_id']].append(ok);categories[r['category']].append(ok)
+                                                                                                                                     ^^^^^^^^^^^^^
+E           KeyError: 'category'
+
+src/saal_rsi/checkpoint_selection.py:23: KeyError
+=========================== short test summary info ============================
+FAILED tests/integration/test_learning_audit_v2.py::test_exact_retention_comparison_and_family_loss

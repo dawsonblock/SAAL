@@ -1,0 +1,6 @@
+{
+  "destination": "src/saal_rsi/choice_policy_v1.py",
+  "scope": "Unchanged proposed synthetic policy; copying it does not establish human review or independent qualification.",
+  "sha256": "410aebf4fbdbf13f5e58abc8789b175cee66c7779cf4c9d5df804d0ca2dea41a",
+  "source": "reviewed-decision-corpus/src/saal_corpus/policy.py"
+}
