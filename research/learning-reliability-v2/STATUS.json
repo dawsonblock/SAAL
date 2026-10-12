@@ -1,0 +1,111 @@
+{
+  "candidate_artifacts": "NATIVE_VALIDATION_PASSED",
+  "cpu_decisions": "ALL_MATCH",
+  "cpu_probability_screen": "FAILED_SEED47_LORA_UNCHANGED_TOLERANCE",
+  "external_deployment_allowed": false,
+  "human_reviews": 0,
+  "independent_generalization": "NOT_ESTABLISHED",
+  "library_save": "NOT_ATTEMPTED_NO_CHATGPT_LIBRARY_SAVE_TOOL_AVAILABLE",
+  "public_retention_screens": {
+    "mixed_full_47": {
+      "failures": [
+        "development:FAMILY_REGRESSION",
+        "development:CRITICAL_PROPOSAL_INCREASE",
+        "regression:FAMILY_REGRESSION",
+        "regression:CRITICAL_PROPOSAL_INCREASE"
+      ],
+      "passed": false
+    },
+    "mixed_lora_47": {
+      "failures": [
+        "development:FAMILY_REGRESSION",
+        "development:CRITICAL_PROPOSAL_INCREASE",
+        "regression:FAMILY_REGRESSION",
+        "regression:CRITICAL_PROPOSAL_INCREASE"
+      ],
+      "passed": false
+    },
+    "mixed_lora_83": {
+      "failures": [
+        "development:FAMILY_REGRESSION",
+        "development:CRITICAL_PROPOSAL_INCREASE",
+        "regression:FAMILY_REGRESSION"
+      ],
+      "passed": false
+    }
+  },
+  "public_terminal_screens": {
+    "mixed_full_47": {
+      "development": {
+        "external_deployment_allowed": false,
+        "failures": [
+          "CRITICAL_OR_INVALID_PROPOSALS",
+          "CLASS_COVERAGE",
+          "COUNTERFACTUAL_PAIRS",
+          "WORST_PUBLIC_RECIPE"
+        ],
+        "passes_public_screen": false,
+        "qualification_status": "NOT_EVALUATED"
+      },
+      "regression": {
+        "external_deployment_allowed": false,
+        "failures": [
+          "CRITICAL_OR_INVALID_PROPOSALS",
+          "CLASS_COVERAGE",
+          "COUNTERFACTUAL_PAIRS",
+          "WORST_PUBLIC_RECIPE"
+        ],
+        "passes_public_screen": false,
+        "qualification_status": "NOT_EVALUATED"
+      }
+    },
+    "mixed_lora_47": {
+      "development": {
+        "external_deployment_allowed": false,
+        "failures": [
+          "CRITICAL_OR_INVALID_PROPOSALS",
+          "COUNTERFACTUAL_PAIRS",
+          "WORST_PUBLIC_RECIPE"
+        ],
+        "passes_public_screen": false,
+        "qualification_status": "NOT_EVALUATED"
+      },
+      "regression": {
+        "external_deployment_allowed": false,
+        "failures": [
+          "CRITICAL_OR_INVALID_PROPOSALS",
+          "COUNTERFACTUAL_PAIRS",
+          "WORST_PUBLIC_RECIPE"
+        ],
+        "passes_public_screen": false,
+        "qualification_status": "NOT_EVALUATED"
+      }
+    },
+    "mixed_lora_83": {
+      "development": {
+        "external_deployment_allowed": false,
+        "failures": [
+          "CRITICAL_OR_INVALID_PROPOSALS",
+          "COUNTERFACTUAL_PAIRS",
+          "WORST_PUBLIC_RECIPE"
+        ],
+        "passes_public_screen": false,
+        "qualification_status": "NOT_EVALUATED"
+      },
+      "regression": {
+        "external_deployment_allowed": false,
+        "failures": [
+          "CRITICAL_OR_INVALID_PROPOSALS",
+          "COUNTERFACTUAL_PAIRS",
+          "WORST_PUBLIC_RECIPE"
+        ],
+        "passes_public_screen": false,
+        "qualification_status": "NOT_EVALUATED"
+      }
+    }
+  },
+  "qualification_status": "NOT_EVALUATED",
+  "runtime_cleanup": "CONFIRMED",
+  "source": "5b322d6c9291a6b383d100c2ecf8ab7ddaa506e1",
+  "source_tests": "PASSED_MACOS_AND_LINUX_WITH_ONE_LINUX_PLATFORM_SKIP"
+}

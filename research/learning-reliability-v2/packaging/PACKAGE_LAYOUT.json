@@ -1,0 +1,36 @@
+{
+  "excluded_prerequisites": {
+    "full_historical_fixtures": "Entire core test suite requires the complete repository LFS/example/history fixtures. Clean capsule tests run the 59 new integration checks, four reporting checks and 38 existing review checks. Complete core checks already ran locally and on fresh Linux CI.",
+    "retention_parent_full_tensors": "v1 complete experiment archive or hydrated results/diverse-learning-v1 commit f05876e43408f4300fc30b923ca0e2852feb44b3. RESULTS.json contains exact paired effects; re-running native parent validation needs those preserved full-tuning payloads.",
+    "upstream_pretrained_weights": "Official pinned ModernBERT snapshot fetched through authenticated registry manifests; not bundled."
+  },
+  "external_deployment_allowed": false,
+  "included": "All source packages, configs/docs/tests, unchanged review component, frozen corpus/jobs/protocol, all three candidate initial/best/terminal tensors, raw results/errors, monitoring/cleanup/CI/CPU reproduction evidence and the historical LoRA step-zero fixture.",
+  "omitted_redundant_transfer_files": [
+    "research/learning-reliability-v2/experiment/colab/run-00-ebb3f6a34e87.zip",
+    "research/learning-reliability-v2/experiment/colab/run-01-5ab48f271672.zip",
+    "research/learning-reliability-v2/experiment/colab/run-02-f552cbdfff59.zip",
+    "research/learning-reliability-v2/experiment/colab/stage/configs/pretrained/registry.json",
+    "research/learning-reliability-v2/experiment/colab/stage/configs/pretrained/tensor_inventories.json",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/__init__.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/checkpoint_selection.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/learning_backend.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/learning_dataset.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/model_contract.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/modernbert_backend.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/peft_training.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/pretrained_artifacts.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/pretrained_contract.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/pretrained_registry.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/pretrained_worker.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/qwen35_backend.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/spec.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/task_oracles.py",
+    "research/learning-reliability-v2/experiment/colab/stage/src/saal_rsi/validation.py",
+    "research/learning-reliability-v2/experiment/colab/stage/worker.py"
+  ],
+  "private_keys_included": false,
+  "qualification_status": "NOT_EVALUATED",
+  "schema": "saal-public-reliability-capsule-v2",
+  "source_commit": "5b322d6c9291a6b383d100c2ecf8ab7ddaa506e1"
+}

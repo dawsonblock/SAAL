@@ -1,0 +1,41 @@
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 21518.18it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-00-ebb3f6a34e87", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 6.079673767089844e-06}
+{"run": "run-00-ebb3f6a34e87", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 3.844499588012695e-06}
+{"run": "run-00-ebb3f6a34e87", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 1.9669532775878906e-06}
+{"run": "run-00-ebb3f6a34e87", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 2.384185791015625e-06}
+{"run": "run-00-ebb3f6a34e87", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 3.159046173095703e-06}
+{"run": "run-00-ebb3f6a34e87", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 1.1622905731201172e-06}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 9654.32it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-01-5ab48f271672", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 6.079673767089844e-06}
+{"run": "run-01-5ab48f271672", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 3.844499588012695e-06}
+{"run": "run-01-5ab48f271672", "checkpoint": "best", "split": "development", "agreement": false, "max_probability_difference": 0.00010313093662261963}
+{"run": "run-01-5ab48f271672", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 1.6748905181884766e-05}
+{"run": "run-01-5ab48f271672", "checkpoint": "terminal", "split": "development", "agreement": false, "max_probability_difference": 0.00010313093662261963}
+{"run": "run-01-5ab48f271672", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 1.6748905181884766e-05}
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/tools/replay_campaign.py", line 16, in <module>
+    replay(index,sys.argv[1])
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/tools/replay_results.py", line 41, in replay
+    if not report['all_predictions_agree']:raise ValueError('CPU replay mismatch preserved')
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: CPU replay mismatch preserved

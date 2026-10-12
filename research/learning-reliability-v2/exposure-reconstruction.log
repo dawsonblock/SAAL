@@ -1,0 +1,50 @@
+{
+  "mixed_full_47": {
+    "sample_exposures": 8000,
+    "unique_training_records": 3357,
+    "training_tokens": 1008107,
+    "class_exposures": {
+      "FAST": 1973,
+      "ASK": 2021,
+      "REFUSE": 2033,
+      "CHEAP": 1973
+    },
+    "source_exposures": {
+      "compact": 3167,
+      "historical_v3": 1654,
+      "prior_diverse": 3179
+    }
+  },
+  "mixed_lora_47": {
+    "sample_exposures": 8000,
+    "unique_training_records": 3357,
+    "training_tokens": 1008107,
+    "class_exposures": {
+      "FAST": 1973,
+      "ASK": 2021,
+      "REFUSE": 2033,
+      "CHEAP": 1973
+    },
+    "source_exposures": {
+      "compact": 3167,
+      "historical_v3": 1654,
+      "prior_diverse": 3179
+    }
+  },
+  "mixed_lora_83": {
+    "sample_exposures": 8000,
+    "unique_training_records": 3349,
+    "training_tokens": 1008853,
+    "class_exposures": {
+      "CHEAP": 1979,
+      "ASK": 2008,
+      "REFUSE": 2039,
+      "FAST": 1974
+    },
+    "source_exposures": {
+      "compact": 3205,
+      "historical_v3": 1620,
+      "prior_diverse": 3175
+    }
+  }
+}

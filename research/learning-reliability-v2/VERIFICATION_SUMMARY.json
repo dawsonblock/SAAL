@@ -1,0 +1,48 @@
+{
+  "all_decisions_match": true,
+  "all_probability_screens_pass": false,
+  "cleanup_confirmed": true,
+  "cpu_screens": [
+    {
+      "all_decisions_match": true,
+      "max_probability_difference": 6.079673767089844e-06,
+      "passes_registered_probability_tolerance": true,
+      "run": "run-00-ebb3f6a34e87"
+    },
+    {
+      "all_decisions_match": true,
+      "max_probability_difference": 0.00010313093662261963,
+      "passes_registered_probability_tolerance": false,
+      "run": "run-01-5ab48f271672"
+    },
+    {
+      "all_decisions_match": true,
+      "max_probability_difference": 1.8268823623657227e-05,
+      "passes_registered_probability_tolerance": true,
+      "run": "run-02-f552cbdfff59"
+    }
+  ],
+  "external_deployment_allowed": false,
+  "human_reviews": 0,
+  "independent_generalization": "NOT_ESTABLISHED",
+  "linux_core_passed": 565,
+  "linux_core_platform_skipped": 1,
+  "linux_existing_corpus_passed": 38,
+  "local_core_passed": 566,
+  "local_existing_corpus_passed": 38,
+  "max_probability_difference": 0.00010313093662261963,
+  "postprocessing_passed": 4,
+  "preregistered_files_preserved": 166,
+  "protected_alpha_consumed": false,
+  "qualification_status": "NOT_EVALUATED",
+  "recorded_at": "2026-10-12T08:08:09.732012+00:00",
+  "replayed_predictions": 14616,
+  "restored_checkpoints": 9,
+  "runs": 3,
+  "schema": "saal-public-verification-summary-v2",
+  "separate_poststop_absence_confirmed": true,
+  "session": "saal-9536da587f7f4492ad83",
+  "training_tokens": 3025067,
+  "updates": 3000,
+  "worker_identity_unchanged": true
+}

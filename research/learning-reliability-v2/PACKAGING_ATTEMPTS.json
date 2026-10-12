@@ -1,0 +1,12 @@
+{
+  "attempts": [
+    {
+      "archive_sha256": "9dfe931865174eef6a6a57531014019be7be10282267baa5800fc97b99b4d0bd",
+      "physical_files": 899,
+      "prototype_physical_verification": "PASSED",
+      "prototype_clean_tests": 101,
+      "superseded_reason": "Include the unique Colab events.jsonl journal; keep builder output outside archive inputs. Source/candidate tensors/preregistered bytes unchanged."
+    }
+  ],
+  "final_archive": "SAAL-RSI-Learning-Reliability-v2-Complete.zip"
+}

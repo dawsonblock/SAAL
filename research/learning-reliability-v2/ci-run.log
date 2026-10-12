@@ -1,0 +1,457 @@
+linux-python313	Set up job	﻿2026-10-12T07:17:03.5601558Z Current runner version: '2.337.0'
+linux-python313	Set up job	2026-10-12T07:17:03.5626933Z ##[group]Runner Image Provisioner
+linux-python313	Set up job	2026-10-12T07:17:03.5627848Z Hosted Compute Agent
+linux-python313	Set up job	2026-10-12T07:17:03.5628478Z Version: 20261002.596
+linux-python313	Set up job	2026-10-12T07:17:03.5629166Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+linux-python313	Set up job	2026-10-12T07:17:03.5629900Z Build Date: 2026-10-02T22:28:27Z
+linux-python313	Set up job	2026-10-12T07:17:03.5630667Z Worker ID: {606969a8-a6a2-4f86-8a2d-c5e58ff68637}
+linux-python313	Set up job	2026-10-12T07:17:03.5631376Z Region: westcentralus
+linux-python313	Set up job	2026-10-12T07:17:03.5631963Z Cloud: Azure
+linux-python313	Set up job	2026-10-12T07:17:03.5632544Z ##[endgroup]
+linux-python313	Set up job	2026-10-12T07:17:03.5634103Z ##[group]Operating System
+linux-python313	Set up job	2026-10-12T07:17:03.5634797Z Ubuntu
+linux-python313	Set up job	2026-10-12T07:17:03.5635327Z 24.04.5
+linux-python313	Set up job	2026-10-12T07:17:03.5636181Z LTS
+linux-python313	Set up job	2026-10-12T07:17:03.5636784Z ##[endgroup]
+linux-python313	Set up job	2026-10-12T07:17:03.5637340Z ##[group]Runner Image
+linux-python313	Set up job	2026-10-12T07:17:03.5638302Z Image: ubuntu-24.04
+linux-python313	Set up job	2026-10-12T07:17:03.5638919Z Version: 20261004.327.1
+linux-python313	Set up job	2026-10-12T07:17:03.5640049Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+linux-python313	Set up job	2026-10-12T07:17:03.5641823Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+linux-python313	Set up job	2026-10-12T07:17:03.5642882Z ##[endgroup]
+linux-python313	Set up job	2026-10-12T07:17:03.5643983Z ##[group]GITHUB_TOKEN Permissions
+linux-python313	Set up job	2026-10-12T07:17:03.5646430Z Contents: read
+linux-python313	Set up job	2026-10-12T07:17:03.5647075Z Metadata: read
+linux-python313	Set up job	2026-10-12T07:17:03.5647631Z ##[endgroup]
+linux-python313	Set up job	2026-10-12T07:17:03.5649726Z Secret source: Actions
+linux-python313	Set up job	2026-10-12T07:17:03.5650708Z Cache mode: write
+linux-python313	Set up job	2026-10-12T07:17:03.5651444Z Prepare workflow directory
+linux-python313	Set up job	2026-10-12T07:17:03.5990271Z Prepare all required actions
+linux-python313	Set up job	2026-10-12T07:17:03.6037832Z Getting action download info
+linux-python313	Set up job	2026-10-12T07:17:03.9162480Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+linux-python313	Set up job	2026-10-12T07:17:03.9957515Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+linux-python313	Set up job	2026-10-12T07:17:04.0759752Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+linux-python313	Set up job	2026-10-12T07:17:04.1585235Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+linux-python313	Set up job	2026-10-12T07:17:04.3743233Z Complete job name: linux-python313
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-12T07:17:04.4528642Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4529717Z with:
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4530124Z   lfs: true
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4530550Z   persist-credentials: false
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4531078Z   repository: dawsonblock/SAAL
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4534638Z   token: ***
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4535055Z   ssh-strict: true
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4535492Z   ssh-user: git
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4536107Z   clean: true
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4536549Z   sparse-checkout-cone-mode: true
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4537064Z   fetch-depth: 1
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4537481Z   fetch-tags: false
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4537933Z   show-progress: true
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4538372Z   submodules: false
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4538807Z   set-safe-directory: true
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4539300Z   allow-unsafe-pr-checkout: false
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.4540058Z ##[endgroup]
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.5603764Z Syncing repository: dawsonblock/SAAL
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.5607095Z ##[group]Getting Git version info
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.5608325Z Working directory is '/home/runner/work/SAAL/SAAL'
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.5609821Z [command]/usr/bin/git version
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.5660926Z git version 2.55.0
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.5698973Z [command]/usr/bin/git lfs version
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6139942Z git-lfs/3.8.0 (GitHub; linux amd64; go 1.27.0)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6156205Z ##[endgroup]
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6174881Z Temporarily overriding HOME='/home/runner/work/_temp/2e15a930-22a8-4796-a735-818beda59cf4' before making global git config changes
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6177517Z Adding repository directory to the temporary git global config as a safe directory
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6181701Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/SAAL/SAAL
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6228509Z Deleting the contents of '/home/runner/work/SAAL/SAAL'
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6233008Z ##[group]Initializing the repository
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6238970Z [command]/usr/bin/git init /home/runner/work/SAAL/SAAL
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6342027Z hint: Using 'master' as the name for the initial branch. This default branch name
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6344144Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6346062Z hint: to use in all of your new repositories, which will suppress this warning,
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6347320Z hint: call:
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6347749Z hint:
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6348265Z hint: 	git config --global init.defaultBranch <name>
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6348880Z hint:
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6349472Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6350431Z hint: 'development'. The just-created branch can be renamed via this command:
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6351174Z hint:
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6351797Z hint: 	git branch -m <name>
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6352285Z hint:
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6352905Z hint: Disable this message with "git config set advice.defaultBranchName false"
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6353869Z Initialized empty Git repository in /home/runner/work/SAAL/SAAL/.git/
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6359816Z [command]/usr/bin/git remote add origin https://github.com/dawsonblock/SAAL
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6408049Z ##[endgroup]
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6409113Z ##[group]Disabling automatic garbage collection
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6413548Z [command]/usr/bin/git config --local gc.auto 0
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6444032Z ##[endgroup]
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6445298Z ##[group]Setting up auth
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6453627Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6488703Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6757369Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.6790716Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.7011245Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.7044075Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.7264424Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.7301394Z ##[endgroup]
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.7305909Z [command]/usr/bin/git lfs install --local
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.7688013Z Updated Git hooks.
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.7688837Z Git LFS initialized.
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.7701088Z ##[group]Fetching the repository
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:04.7711647Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +5b322d6c9291a6b383d100c2ecf8ab7ddaa506e1:refs/remotes/origin/fix/learning-reliability-v2
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:08.3330401Z From https://github.com/dawsonblock/SAAL
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:08.3332756Z  * [new ref]         5b322d6c9291a6b383d100c2ecf8ab7ddaa506e1 -> origin/fix/learning-reliability-v2
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:08.3337195Z ##[endgroup]
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:08.3338726Z ##[group]Determining the checkout info
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:08.3340384Z ##[endgroup]
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:08.3341852Z ##[group]Fetching LFS objects
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:08.3346873Z [command]/usr/bin/git lfs fetch origin refs/remotes/origin/fix/learning-reliability-v2
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:17:08.3583243Z Fetching reference refs/remotes/origin/fix/learning-reliability-v2
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:09.2739078Z ##[endgroup]
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:09.2742020Z [command]/usr/bin/git sparse-checkout disable
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:09.2792868Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:09.2821885Z ##[group]Checking out the ref
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:09.2826916Z [command]/usr/bin/git checkout --progress --force -B fix/learning-reliability-v2 refs/remotes/origin/fix/learning-reliability-v2
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:10.3067870Z Updating files:  70% (1868/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:11.0196216Z Updating files:  71% (1871/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:11.0333168Z Updating files:  72% (1897/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:11.0354501Z Updating files:  73% (1923/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:11.0355672Z Updating files:  74% (1950/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:11.0357064Z Updating files:  75% (1976/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:11.0719102Z Updating files:  76% (2002/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:11.1205184Z Updating files:  77% (2029/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:11.9203319Z Updating files:  78% (2055/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:12.7311493Z Updating files:  78% (2058/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.0885644Z Updating files:  78% (2060/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.0943628Z Updating files:  78% (2065/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.1164531Z Updating files:  79% (2081/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.1173008Z Updating files:  80% (2108/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.1182394Z Updating files:  81% (2134/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.1674385Z Updating files:  82% (2160/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.1719891Z Updating files:  83% (2187/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.1740376Z Updating files:  84% (2213/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.1765508Z Updating files:  85% (2239/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.1789842Z Updating files:  86% (2266/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.1848705Z Updating files:  87% (2292/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2296452Z Updating files:  88% (2318/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2384116Z Updating files:  89% (2345/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2425450Z Updating files:  90% (2371/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2439992Z Updating files:  91% (2397/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2456004Z Updating files:  92% (2424/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2471961Z Updating files:  93% (2450/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2491499Z Updating files:  94% (2476/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2516734Z Updating files:  95% (2503/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2523038Z Updating files:  96% (2529/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2536563Z Updating files:  97% (2555/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2567274Z Updating files:  98% (2582/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2610730Z Updating files:  99% (2608/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2611320Z Updating files: 100% (2634/2634)
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:14.2615536Z Updating files: 100% (2634/2634), done.
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.1935365Z Switched to a new branch 'fix/learning-reliability-v2'
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.3453851Z branch 'fix/learning-reliability-v2' set up to track 'origin/fix/learning-reliability-v2'.
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.3994863Z ##[endgroup]
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.4436679Z [command]/usr/bin/git log -1 --format=%H
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.4451704Z 5b322d6c9291a6b383d100c2ecf8ab7ddaa506e1
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.4474727Z ##[group]Removing auth
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.4479248Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.4510572Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.4748895Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.5497500Z http.https://github.com/.extraheader
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.5507617Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.6479860Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.6703102Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.6731010Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+linux-python313	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:18:15.6989818Z ##[endgroup]
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	﻿2026-10-12T07:18:16.1017426Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.1017867Z with:
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.1018083Z   python-version: 3.13
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.1018320Z   check-latest: false
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.1020758Z   token: ***
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.1020972Z   update-environment: true
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.1021224Z   allow-prereleases: false
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.1021454Z   freethreaded: false
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.1021662Z ##[endgroup]
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.2386990Z ##[group]Installed versions
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.5923880Z (node:2598) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.5924872Z (Use `node --trace-deprecation ...` to show where the warning was created)
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.5925861Z Successfully set up CPython (3.13.16)
+linux-python313	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:18:16.5939777Z ##[endgroup]
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	﻿2026-10-12T07:18:16.7001209Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7001649Z with:
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7001850Z   node-version: 22.22.3
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7002077Z   always-auth: false
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7002291Z   check-latest: false
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7004725Z   token: ***
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7004927Z env:
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7005195Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7005906Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7006359Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7006745Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7007147Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7007549Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.7007877Z ##[endgroup]
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:16.9987001Z Attempting to download 22.22.3...
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:17.0096085Z (node:2607) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:17.0098329Z (Use `node --trace-deprecation ...` to show where the warning was created)
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:17.9569503Z Acquiring 22.22.3 - x64 from https://github.com/actions/node-versions/releases/download/22.22.3-25838401827/node-22.22.3-linux-x64.tar.gz
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:18.6899049Z Extracting ...
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:18.7025189Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/ec0027db-4245-49ee-804c-09c3870b8df2 -f /home/runner/work/_temp/95eafae0-0f39-4390-b8a3-ad2ed3f1fab6
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:19.8860703Z Adding to the cache ...
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:21.8776375Z ##[group]Environment details
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:22.0968434Z node: v22.22.3
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:22.0968828Z npm: 10.9.8
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:22.0969029Z yarn: 1.22.22
+linux-python313	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:18:22.0969494Z ##[endgroup]
+linux-python313	Verify platform and install hash-locked dependencies	﻿2026-10-12T07:18:22.1125153Z ##[group]Run python -c "import platform,sys; assert sys.version_info[:2] == (3,13) and platform.machine() == 'x86_64'"
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1126726Z ^[[36;1mpython -c "import platform,sys; assert sys.version_info[:2] == (3,13) and platform.machine() == 'x86_64'"^[[0m
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1127532Z ^[[36;1mpython -m pip install --require-hashes -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt^[[0m
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1373730Z shell: /usr/bin/bash -e {0}
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1374037Z env:
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1374350Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1374889Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1375422Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1376087Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1376562Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1377032Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:22.1377476Z ##[endgroup]
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:23.8269790Z Collecting accelerate==1.15.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 3))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:23.9375302Z   Downloading accelerate-1.15.0-py3-none-any.whl (394 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.0423907Z Collecting annotated-doc==0.0.5 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 7))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.0623133Z   Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.0970922Z Collecting anyio==4.15.1 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 11))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.1157108Z   Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.1509911Z Collecting certifi==2026.7.22 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 15))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.1694718Z   Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.3243063Z Collecting cffi==2.0.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 21))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.3433337Z   Downloading cffi-2.0.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.3770049Z Collecting click==8.5.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 109))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.3956785Z   Downloading click-8.5.0-py3-none-any.whl (125 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.6070523Z Collecting cryptography==48.0.1 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 113))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.6292528Z   Downloading cryptography-48.0.1-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.7240712Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 50.1 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.7749146Z Collecting cuda-bindings==12.9.4 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 164))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.7945044Z   Downloading cuda_bindings-12.9.4-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.9 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.8607069Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.9/11.9 MB 182.9 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.8961352Z Collecting cuda-pathfinder==1.8.3 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 190))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.9151941Z   Downloading cuda_pathfinder-1.8.3-py3-none-any.whl (62 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.9509512Z Collecting filelock==4.0.12 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 193))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:24.9696311Z   Downloading filelock-4.0.12-py3-none-any.whl (111 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.0018745Z Collecting fsspec==2026.9.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 199))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.0205453Z   Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.0649693Z Collecting h11==0.16.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 205))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.0836386Z   Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.1379513Z Collecting hf-xet==1.7.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 209))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.1570971Z   Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.1710416Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 344.5 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.2024134Z Collecting httpcore==1.0.9 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 228))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.2213765Z   Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.2543486Z Collecting httpx==0.28.1 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 232))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.2734147Z   Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.3283497Z Collecting huggingface-hub==1.33.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 236))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.3472232Z   Downloading huggingface_hub-1.33.0-py3-none-any.whl (846 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.3526564Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 846.4/846.4 kB 184.8 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.3909384Z Collecting idna==3.20 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 245))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.4094857Z   Downloading idna-3.20-py3-none-any.whl (69 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.4364057Z Collecting iniconfig==2.3.1 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 251))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.4555127Z   Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.4841358Z Collecting jinja2==3.1.6 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 255))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.5029021Z   Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.5322846Z Collecting markdown-it-py==4.2.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 259))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.5511150Z   Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.6230139Z Collecting markupsafe==3.0.4 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 263))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.6434556Z   Downloading markupsafe-3.0.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (23 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.6684436Z Collecting mdurl==0.1.2 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 416))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.6871370Z   Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.7161369Z Collecting mpmath==1.3.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 420))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.7354389Z   Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.7401599Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 110.0 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.7745341Z Collecting networkx==3.7 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 424))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.7937289Z   Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:25.8025346Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 303.7 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:26.0229573Z Collecting numpy==2.4.6 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 428))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:26.0437128Z   Downloading numpy-2.4.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:26.1143855Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 242.5 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:26.1582652Z Collecting nvidia-cublas-cu12==12.8.4.1 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 506))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:26.1773240Z   Downloading nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl (594.3 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:30.4332278Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 594.3/594.3 MB 74.4 MB/s  0:00:04
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:30.8709303Z Collecting nvidia-cuda-cupti-cu12==12.8.90 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 514))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:30.8924115Z   Downloading nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.2 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:30.9357568Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 249.5 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:30.9703629Z Collecting nvidia-cuda-nvrtc-cu12==12.8.93 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 519))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:30.9924508Z   Downloading nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (88.0 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:31.3610359Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.0/88.0 MB 239.9 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:31.4492252Z Collecting nvidia-cuda-runtime-cu12==12.8.90 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 524))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:31.4680097Z   Downloading nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (954 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:31.4740699Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 954.8/954.8 kB 191.4 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:31.5072687Z Collecting nvidia-cudnn-cu12==9.10.2.21 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 529))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:31.5280513Z   Downloading nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl (706.8 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:37.5418656Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 706.8/706.8 MB 57.8 MB/s  0:00:06
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:38.0562042Z Collecting nvidia-cufft-cu12==11.3.3.83 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 534))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:38.0787418Z   Downloading nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (193.1 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:38.9547281Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.1/193.1 MB 220.7 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:39.1142953Z Collecting nvidia-cufile-cu12==1.13.1.3 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 539))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:39.1365345Z   Downloading nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:39.1430534Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 244.4 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:39.1691388Z Collecting nvidia-curand-cu12==10.3.9.90 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 543))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:39.1880839Z   Downloading nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl (63.6 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:39.4397070Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.6/63.6 MB 254.5 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:39.5100702Z Collecting nvidia-cusolver-cu12==11.7.3.90 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 548))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:39.5288293Z   Downloading nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl (267.5 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:41.5540606Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 267.5/267.5 MB 130.0 MB/s  0:00:02
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:41.7676063Z Collecting nvidia-cusparse-cu12==12.5.8.93 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 553))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:41.7893392Z   Downloading nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (288.2 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:44.1187764Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 288.2/288.2 MB 117.3 MB/s  0:00:02
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:44.3437798Z Collecting nvidia-cusparselt-cu12==0.7.1 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 560))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:44.3660038Z   Downloading nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl (287.2 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:45.9085135Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 287.2/287.2 MB 179.6 MB/s  0:00:01
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:46.1334211Z Collecting nvidia-nccl-cu12==2.27.5 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 565))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:46.1529501Z   Downloading nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (322.3 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:48.5612685Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 322.3/322.3 MB 114.7 MB/s  0:00:02
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:48.8120741Z Collecting nvidia-nvjitlink-cu12==12.8.93 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 569))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:48.8310429Z   Downloading nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.3 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:48.9398502Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.3/39.3 MB 366.8 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:48.9926279Z Collecting nvidia-nvshmem-cu12==3.4.5 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 578))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.0140019Z   Downloading nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (139.1 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.6598871Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 139.1/139.1 MB 215.8 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.7829933Z Collecting nvidia-nvtx-cu12==12.8.90 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 582))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.8021858Z   Downloading nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.8342277Z Collecting packaging==26.3 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 587))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.8529421Z   Downloading packaging-26.3-py3-none-any.whl (129 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.8837368Z Collecting peft==0.21.2 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 596))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.9047791Z   Downloading peft-0.21.2-py3-none-any.whl (835 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.9081410Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 835.4/835.4 kB 174.5 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.9378853Z Collecting pluggy==1.6.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 600))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:49.9564711Z   Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.0340535Z Collecting psutil==7.2.2 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 604))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.0537324Z   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.0847505Z Collecting pycparser==3.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 629))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.1037509Z   Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.1361126Z Collecting pygments==2.21.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 635))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.1553031Z   Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.1619538Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 242.5 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.2024781Z Collecting pytest==8.4.2 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 641))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.2214071Z   Downloading pytest-8.4.2-py3-none-any.whl (365 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.2729048Z Collecting pyyaml==6.0.3 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 645))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.2920237Z   Downloading pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.2973650Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 801.6/801.6 kB 177.0 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.7052571Z Collecting regex==2026.9.29 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 724))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.7245326Z   Downloading regex-2026.9.29-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.7299778Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 173.0 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.7714756Z Collecting rich==15.0.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 856))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.7911752Z   Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.9178694Z Collecting safetensors==0.8.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 860))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:50.9372108Z   Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.0273857Z Collecting setuptools==84.0.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 883))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.0467355Z   Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.0524795Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 171.4 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.0850886Z Collecting shellingham==1.5.4 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 887))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.1039025Z   Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.1342573Z Collecting sympy==1.14.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 891))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.1534088Z   Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.1753993Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 323.4 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.3332720Z Collecting tokenizers==0.23.2 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 895))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.3548952Z   Downloading tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.3679787Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 302.7 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.4350270Z Collecting torch==2.10.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 914))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:51.4560296Z   Downloading torch-2.10.0-3-cp313-cp313-manylinux_2_28_x86_64.whl (915.6 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:18:59.5419793Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 915.6/915.6 MB 42.1 MB/s  0:00:08
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:00.2710457Z Collecting tqdm==4.70.1 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 958))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:00.2902197Z   Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:00.3386233Z Collecting transformers==5.19.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 965))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:00.3587035Z   Downloading transformers-5.19.0-py3-none-any.whl (12.6 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:00.3960959Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.6/12.6 MB 352.8 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:00.4904001Z Collecting triton==3.6.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 971))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:00.5105358Z   Downloading triton-3.6.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (188.3 MB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:01.3542812Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.3/188.3 MB 223.6 MB/s  0:00:00
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:01.5187951Z Collecting typer==0.27.3 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 987))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:01.5378452Z   Downloading typer-0.27.3-py3-none-any.whl (123 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:01.5691854Z Collecting typing-extensions==4.16.0 (from -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt (line 991))
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:01.5879441Z   Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:19:01.8726248Z Installing collected packages: nvidia-cusparselt-cu12, mpmath, typing-extensions, triton, tqdm, sympy, shellingham, setuptools, safetensors, regex, pyyaml, pygments, pycparser, psutil, pluggy, packaging, nvidia-nvtx-cu12, nvidia-nvshmem-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, networkx, mdurl, markupsafe, iniconfig, idna, hf-xet, h11, fsspec, filelock, cuda-pathfinder, click, certifi, annotated-doc, pytest, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, markdown-it-py, jinja2, httpcore, cuda-bindings, cffi, anyio, rich, nvidia-cusolver-cu12, httpx, cryptography, typer, torch, huggingface-hub, tokenizers, accelerate, transformers, peft
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:20:03.9196477Z 
+linux-python313	Verify platform and install hash-locked dependencies	2026-10-12T07:20:03.9260049Z Successfully installed accelerate-1.15.0 annotated-doc-0.0.5 anyio-4.15.1 certifi-2026.7.22 cffi-2.0.0 click-8.5.0 cryptography-48.0.1 cuda-bindings-12.9.4 cuda-pathfinder-1.8.3 filelock-4.0.12 fsspec-2026.9.0 h11-0.16.0 hf-xet-1.7.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-1.33.0 idna-3.20 iniconfig-2.3.1 jinja2-3.1.6 markdown-it-py-4.2.0 markupsafe-3.0.4 mdurl-0.1.2 mpmath-1.3.0 networkx-3.7 numpy-2.4.6 nvidia-cublas-cu12-12.8.4.1 nvidia-cuda-cupti-cu12-12.8.90 nvidia-cuda-nvrtc-cu12-12.8.93 nvidia-cuda-runtime-cu12-12.8.90 nvidia-cudnn-cu12-9.10.2.21 nvidia-cufft-cu12-11.3.3.83 nvidia-cufile-cu12-1.13.1.3 nvidia-curand-cu12-10.3.9.90 nvidia-cusolver-cu12-11.7.3.90 nvidia-cusparse-cu12-12.5.8.93 nvidia-cusparselt-cu12-0.7.1 nvidia-nccl-cu12-2.27.5 nvidia-nvjitlink-cu12-12.8.93 nvidia-nvshmem-cu12-3.4.5 nvidia-nvtx-cu12-12.8.90 packaging-26.3 peft-0.21.2 pluggy-1.6.0 psutil-7.2.2 pycparser-3.0 pygments-2.21.0 pytest-8.4.2 pyyaml-6.0.3 regex-2026.9.29 rich-15.0.0 safetensors-0.8.0 setuptools-84.0.0 shellingham-1.5.4 sympy-1.14.0 tokenizers-0.23.2 torch-2.10.0 tqdm-4.70.1 transformers-5.19.0 triton-3.6.0 typer-0.27.3 typing-extensions-4.16.0
+linux-python313	Record runtime and run complete core suite	﻿2026-10-12T07:20:04.2212597Z ##[group]Run mkdir -p ci-evidence
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2212996Z ^[[36;1mmkdir -p ci-evidence^[[0m
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2213989Z ^[[36;1mpython -c "import json,platform; from saal_rsi.learning_backend import verify_dependencies; print(json.dumps({'python':platform.python_version(),'platform':platform.platform(),'packages':verify_dependencies()}))" > ci-evidence/runtime.json^[[0m
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2215108Z ^[[36;1mpython -m pytest tests -q --junitxml=ci-evidence/core-tests.xml^[[0m
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2920850Z shell: /usr/bin/bash -e {0}
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2921178Z env:
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2921524Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2922099Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2922657Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2923155Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2923662Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2924317Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2924757Z   PYTHONPATH: src
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:04.2925013Z ##[endgroup]
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:21.0322199Z ........................................................................ [ 12%]
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:20:31.6999275Z .....s.................................................................. [ 25%]
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:21:19.1324360Z ........................................................................ [ 38%]
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:21:23.4526659Z ........................................................................ [ 50%]
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:21:46.9497192Z ........................................................................ [ 63%]
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:22:16.1059873Z ........................................................................ [ 76%]
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:22:16.5874487Z ........................................................................ [ 89%]
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:22:18.8481053Z ..............................................................           [100%]
+linux-python313	Record runtime and run complete core suite	2026-10-12T07:22:18.8482352Z -- generated xml file: /home/runner/work/SAAL/SAAL/ci-evidence/core-tests.xml --
+linux-python313	Test unchanged reviewed-corpus gate	﻿2026-10-12T07:22:19.4782355Z ##[group]Run python -m pytest reviewed-decision-corpus/tests -q --junitxml=ci-evidence/corpus-tests.xml
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4783172Z ^[[36;1mpython -m pytest reviewed-decision-corpus/tests -q --junitxml=ci-evidence/corpus-tests.xml^[[0m
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4845011Z shell: /usr/bin/bash -e {0}
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4845272Z env:
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4845542Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4846232Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4846702Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4847108Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4847499Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4847903Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4848273Z   PYTHONPATH: src:reviewed-decision-corpus/src
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:19.4848586Z ##[endgroup]
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:31.7319267Z ......................................                                   [100%]
+linux-python313	Test unchanged reviewed-corpus gate	2026-10-12T07:22:31.7320255Z - generated xml file: /home/runner/work/SAAL/SAAL/ci-evidence/corpus-tests.xml -
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	﻿2026-10-12T07:22:31.7706535Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7707001Z with:
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7707354Z   name: learning-reliability-linux-5b322d6c9291a6b383d100c2ecf8ab7ddaa506e1
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7707785Z   path: ci-evidence/
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7708009Z   if-no-files-found: warn
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7708238Z   compression-level: 6
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7708459Z   overwrite: false
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7708672Z   include-hidden-files: false
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7708901Z env:
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7709146Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7709574Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7710008Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7710393Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7710775Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7711156Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:31.7711524Z ##[endgroup]
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.0578269Z (node:3616) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.0579298Z (Use `node --trace-deprecation ...` to show where the warning was created)
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.0636577Z With the provided path, there will be 3 files uploaded
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.0641371Z Artifact name is valid!
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.0642693Z Root directory input is valid!
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.3842268Z Beginning upload of artifact content to blob storage
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.4186951Z (node:3616) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.6233852Z Uploaded bytes 12590
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.6810981Z Finished uploading artifact content to blob storage!
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.6812312Z SHA256 digest of uploaded artifact zip is 8ec8ae1da56721c85cefdbab1daf7d1f8c332cd0d1d9a067a1a2bf3461d2fcff
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.6813289Z Finalizing artifact upload
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.9436713Z Artifact learning-reliability-linux-5b322d6c9291a6b383d100c2ecf8ab7ddaa506e1.zip successfully finalized. Artifact ID 11732705329
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.9439640Z Artifact learning-reliability-linux-5b322d6c9291a6b383d100c2ecf8ab7ddaa506e1 has been successfully uploaded! Final size is 12590 bytes. Artifact ID is 11732705329
+linux-python313	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-10-12T07:22:32.9444284Z Artifact download URL: https://github.com/dawsonblock/SAAL/actions/runs/38216871041/artifacts/11732705329
+linux-python313	Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	﻿2026-10-12T07:22:32.9637444Z Post job cleanup.
+linux-python313	Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:22:33.0877236Z (node:3628) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+linux-python313	Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-12T07:22:33.0878770Z (Use `node --trace-deprecation ...` to show where the warning was created)
+linux-python313	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	﻿2026-10-12T07:22:33.1022676Z Post job cleanup.
+linux-python313	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:22:33.2250871Z (node:3636) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+linux-python313	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-12T07:22:33.2251907Z (Use `node --trace-deprecation ...` to show where the warning was created)
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-12T07:22:33.2396694Z Post job cleanup.
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.3365388Z [command]/usr/bin/git version
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.3404665Z git version 2.55.0
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.3440670Z Temporarily overriding HOME='/home/runner/work/_temp/e9c8bba8-facc-4632-a789-8f5c355584b4' before making global git config changes
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.3441700Z Adding repository directory to the temporary git global config as a safe directory
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.3447652Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/SAAL/SAAL
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.3482142Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.3515626Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.3745070Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.3775180Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.3995673Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+linux-python313	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-12T07:22:33.4024337Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+linux-python313	Complete job	﻿2026-10-12T07:22:33.4381074Z Cleaning up orphan processes
+linux-python313	Complete job	2026-10-12T07:22:33.4718369Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

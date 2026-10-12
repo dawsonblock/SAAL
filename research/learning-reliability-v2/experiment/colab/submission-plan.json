@@ -1,0 +1,61 @@
+{
+  "schema": "saal-pretrained-colab-plan-v1",
+  "session": "saal-9536da587f7f4492ad83",
+  "job_digest": "sha256:0c59de2515add17814144231e27b07512250bfad1e9f2dc706b61393c3e64431",
+  "estimated_max_seconds": 14000,
+  "commands": [
+    [
+      "colab",
+      "new",
+      "-s",
+      "saal-9536da587f7f4492ad83",
+      "--gpu",
+      "T4"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-9536da587f7f4492ad83",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/experiment/colab/gpu-lock.txt",
+      "/content/saal_pretrained_lock.txt"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-9536da587f7f4492ad83",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/experiment/colab/worker.zip",
+      "/content/saal_pretrained_worker.zip"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-9536da587f7f4492ad83",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/experiment/colab/install.py",
+      "--timeout",
+      "960"
+    ],
+    [
+      "/private/tmp/saal094-env/bin/python",
+      "-I",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/experiment/colab/coordinator.py"
+    ],
+    [
+      "colab",
+      "stop",
+      "-s",
+      "saal-9536da587f7f4492ad83"
+    ]
+  ],
+  "phases": [
+    "PROVISIONING",
+    "UPLOAD_LOCK",
+    "UPLOAD_WORKER",
+    "DEPENDENCIES",
+    "CAMPAIGN"
+  ],
+  "external_deployment_allowed": false
+}

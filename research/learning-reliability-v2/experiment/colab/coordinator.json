@@ -1,0 +1,12 @@
+{
+  "workspace": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/experiment/colab",
+  "session": "saal-9536da587f7f4492ad83",
+  "pin": "e114b8d930ab8a6e29a038df800288495fd5463d3984ca2ba4e4c669785508af",
+  "jobs": [
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/experiment/colab/job-00.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/experiment/colab/job-01.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/experiment/colab/job-02.json"
+  ],
+  "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/experiment/artifacts",
+  "ledger": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/learning-reliability-v2/experiment/development-ledger.sqlite3"
+}

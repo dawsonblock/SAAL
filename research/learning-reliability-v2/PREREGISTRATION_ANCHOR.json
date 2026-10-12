@@ -1,0 +1,13 @@
+{
+  "schema": "saal-public-preregistration-anchor-v1",
+  "repository": "https://github.com/dawsonblock/SAAL",
+  "branch": "fix/learning-reliability-v2",
+  "commit": "5b322d6c9291a6b383d100c2ecf8ab7ddaa506e1",
+  "remote_verified": true,
+  "frozen_file_map_sha256": "62a1dc7cbd525c86184293216ce9065de47e972a36e433ec251d908f0acad89b",
+  "signed_protocol_sha256": "9a6306b261d9a4ea09b08d4587936127ef9f17894b45e15c1818f31154ae9e7b",
+  "recorded_at": "2026-10-12T07:21:16.739813+00:00",
+  "qualification_status": "NOT_EVALUATED",
+  "independent_custody": false,
+  "scope": "Remote Git commit preserves public protocol before this campaign. Same-controller repository is not independent qualification custody."
+}

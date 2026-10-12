@@ -1,0 +1,26 @@
+{
+  "runs": [
+    {
+      "passes_registered_probability_tolerance": true,
+      "all_decisions_match": true,
+      "max_probability_difference": 6.079673767089844e-06,
+      "run": "run-00-ebb3f6a34e87"
+    },
+    {
+      "passes_registered_probability_tolerance": false,
+      "all_decisions_match": true,
+      "max_probability_difference": 0.00010313093662261963,
+      "run": "run-01-5ab48f271672"
+    },
+    {
+      "passes_registered_probability_tolerance": true,
+      "all_decisions_match": true,
+      "max_probability_difference": 1.8268823623657227e-05,
+      "run": "run-02-f552cbdfff59"
+    }
+  ],
+  "all_recorded": true,
+  "all_probability_screens_pass": false,
+  "all_decisions_match": true,
+  "qualification_status": "NOT_EVALUATED"
+}

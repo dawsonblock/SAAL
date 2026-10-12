@@ -1,0 +1,29 @@
+{
+  "physical_payload_files": 898,
+  "preregistered_files_preserved": 166,
+  "runs": 3,
+  "candidate_checkpoints": 9,
+  "native_candidates_validated": true,
+  "recorded_cpu_replay_verified": true,
+  "cpu_reproduction_screens": [
+    {
+      "passes_registered_probability_tolerance": true,
+      "all_decisions_match": true,
+      "max_probability_difference": 6.079673767089844e-06
+    },
+    {
+      "passes_registered_probability_tolerance": false,
+      "all_decisions_match": true,
+      "max_probability_difference": 0.00010313093662261963
+    },
+    {
+      "passes_registered_probability_tolerance": true,
+      "all_decisions_match": true,
+      "max_probability_difference": 1.8268823623657227e-05
+    }
+  ],
+  "all_cpu_probability_screens_pass": false,
+  "cleanup_evidence_verified": true,
+  "qualification_status": "NOT_EVALUATED",
+  "limits": "Signature pin establishes controller attribution only. Native artifact validation is rerun here; stored CPU evidence is verified, not a new CPU inference run. Faithfully recorded failures stay failures. Prior full reference checkpoints and upstream pretrained weights are separate authenticated prerequisites."
+}

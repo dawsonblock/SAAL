@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 14155.18it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{'schema': 'saal-public-cpu-runtime-probe-v1', 'run': 'run-01-5ab48f271672', 'checkpoint': 'terminal', 'split': 'development', 'threads': 1, 'interop_threads': 1, 'VECLIB_MAXIMUM_THREADS': '1', 'float32_matmul_precision': 'highest', 'probability_tolerance': 0.0001, 'agreement': False, 'max_probability_difference': 0.00010313093662261963, 'decision_differences': 0, 'elapsed_seconds': 46.80841395899188, 'qualification_status': 'NOT_EVALUATED', 'scope': 'Posthoc CPU numerical investigation. Original failing replay remains preserved. This probe is not replacement training, threshold relaxation or independent qualification.'}

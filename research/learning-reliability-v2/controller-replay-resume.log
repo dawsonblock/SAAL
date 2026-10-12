@@ -1,0 +1,20 @@
+{"controller_cpu_replay_record": "run-00-ebb3f6a34e87", "passes_registered_probability_tolerance": true, "all_decisions_match": true, "max_probability_difference": 6.079673767089844e-06}
+{"controller_cpu_replay_record": "run-01-5ab48f271672", "passes_registered_probability_tolerance": false, "all_decisions_match": true, "max_probability_difference": 0.00010313093662261963}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 13543.18it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.bias   | MISSING    | 
+classifier.weight | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-02-f552cbdfff59", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 4.947185516357422e-06}
+{"run": "run-02-f552cbdfff59", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 5.245208740234375e-06}
+{"run": "run-02-f552cbdfff59", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 4.947185516357422e-06}
+{"run": "run-02-f552cbdfff59", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 5.245208740234375e-06}
+{"run": "run-02-f552cbdfff59", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 1.8268823623657227e-05}
+{"run": "run-02-f552cbdfff59", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 1.7464160919189453e-05}
+{"controller_cpu_replay_record": "run-02-f552cbdfff59", "passes_registered_probability_tolerance": true, "all_decisions_match": true, "max_probability_difference": 1.8268823623657227e-05}

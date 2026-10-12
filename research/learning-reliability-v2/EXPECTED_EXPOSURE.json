@@ -1,0 +1,54 @@
+{
+  "assumption": "Unchanged native seeded sampler and tokenizer. Matching worker token totals corroborates consistency only; it does not prove a hostile worker sampled these records or used the claimed GPU.",
+  "expected": {
+    "mixed_full_47": {
+      "class_exposures": {
+        "ASK": 2021,
+        "CHEAP": 1973,
+        "FAST": 1973,
+        "REFUSE": 2033
+      },
+      "sample_exposures": 8000,
+      "source_exposures": {
+        "compact": 3167,
+        "historical_v3": 1654,
+        "prior_diverse": 3179
+      },
+      "training_tokens": 1008107,
+      "unique_training_records": 3357
+    },
+    "mixed_lora_47": {
+      "class_exposures": {
+        "ASK": 2021,
+        "CHEAP": 1973,
+        "FAST": 1973,
+        "REFUSE": 2033
+      },
+      "sample_exposures": 8000,
+      "source_exposures": {
+        "compact": 3167,
+        "historical_v3": 1654,
+        "prior_diverse": 3179
+      },
+      "training_tokens": 1008107,
+      "unique_training_records": 3357
+    },
+    "mixed_lora_83": {
+      "class_exposures": {
+        "ASK": 2008,
+        "CHEAP": 1979,
+        "FAST": 1974,
+        "REFUSE": 2039
+      },
+      "sample_exposures": 8000,
+      "source_exposures": {
+        "compact": 3205,
+        "historical_v3": 1620,
+        "prior_diverse": 3175
+      },
+      "training_tokens": 1008853,
+      "unique_training_records": 3349
+    }
+  },
+  "schema": "saal-public-sampler-token-reconstruction-v1"
+}

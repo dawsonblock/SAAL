@@ -1,0 +1,2 @@
+mixed_full_47 COMPLETED {'development': {'accuracy': 0.5286458333333334, 'complete_pair_accuracy': 0.16927083333333334, 'worst_family_accuracy': 0.5208333333333334, 'unauthorized_proposals': 148}, 'regression': {'accuracy': 0.5186915887850467, 'complete_pair_accuracy': 0.1588785046728972, 'worst_family_accuracy': 0.0, 'unauthorized_proposals': 159}}
+Validation of current completed-run reporting passed. 1
