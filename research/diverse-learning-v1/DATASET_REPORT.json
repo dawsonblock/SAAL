@@ -1,0 +1,27 @@
+{
+  "human_reviews": 0,
+  "independence_established": false,
+  "pairs": 1152,
+  "recipe_groups": 24,
+  "records": 2304,
+  "split_label_counts": {
+    "development": {
+      "ASK": 96,
+      "CHEAP": 96,
+      "FAST": 96,
+      "REFUSE": 96
+    },
+    "regression": {
+      "ASK": 96,
+      "CHEAP": 96,
+      "FAST": 96,
+      "REFUSE": 96
+    },
+    "train": {
+      "ASK": 384,
+      "CHEAP": 384,
+      "FAST": 384,
+      "REFUSE": 384
+    }
+  }
+}

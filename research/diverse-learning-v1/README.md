@@ -1,0 +1,13 @@
+# SAAL-RSI Diverse Learning v1 — public exploratory experiment
+
+The new assistant-authored corpus contains1536balanced training,384public-development and384public-regression records, with1152one-condition counterfactual pairs. It combines preference reversals, glossary assignments, active/archived order, quotations, revocation, scope, expiry, missing/known/impossible budget and deadline constraints, and proxy rewards.24disjoint composition/renderer groups are correlated diagnostic units, not independently sampled families. Human reviews remain zero; source and text semantics require independent review.
+
+The existing reviewed-decision corpus and its mandatory review/export gate remain unchanged. This supplement uses the already supported native public-synthetic admission, explicitly marked ORACLE_CHECKED_NOT_INDEPENDENTLY_REVIEWED. It cannot qualify or promote a model. No ANLI/IFEval labels are converted.
+
+The five signed T4 jobs compare old-v3 vs diverse training under the same ModernBERT revision, rank4LoRA, seed47,FP32,600updates,batch8 and shared evaluation records. Diverse LoRA also runs seed83; frozen-encoder/head training and full tuning each use seed47. Public regression contains384new cases plus88previously exposed diagnostics. Public development alone selects best; initial,best and terminal checkpoints are separate. The fixed public screen remains90%complete pairs,80%worst recipe accuracy,all4classes correct and zero invalid/critical proposals. Screen success is not independent qualification.
+
+The protocol is frozen before execution. Equal updates/sample exposures are not equal tokens/compute; old768/new1536training size and composition change together. Two LoRA seeds are descriptive replication, not a reliability claim. Shared author/oracle/rendering concepts invalidate independent-population inference. Bag-of-words/majority controls are training-only; no protected holdout or alpha is used. All failures remain evidence. Rank adaptation,Qwen expansion and recursive improvement are deferred.
+
+Requires the preserved v0.9.4.3 source at b145c09 and its pinned environment. Official ModernBERT-base revision11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88 is downloaded with exact snapshot hash/tensor checks; native tokenizer rejects truncation. Colab dependencies are hash-locked. The inherited named-session monitor and watchdog supervise training, recovery and cleanup. No evaluator/custodian private keys or final holdout labels reach workers. A subprocess/cloud session is not hostile-code attestation; local budget accounting is not a billing cap.
+
+Candidates remain NOT_EVALUATED and external deployment is prohibited. See final REPORT.md/RESULTS.json for measured outcomes after the campaign completes.

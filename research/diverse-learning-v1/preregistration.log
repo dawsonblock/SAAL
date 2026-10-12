@@ -1,0 +1,71 @@
+{
+  "schema": "saal-public-diversity-experiment-v1",
+  "source_identity": "sha256:c368f127dde7a078bde71d667bc9df59e9caa5a034452ee165529d6bfa0eb393",
+  "worker_identity": "sha256:e3cea596f0a1ab795c105b7ba00b1a9a6a8188da1dfd59bcfd0d2601b0176f14",
+  "datasets": {
+    "old": "sha256:5016bd802f7c94d4ec1207e0fa031bb6ac6e95b59a06faec9e55c2c1b990113e",
+    "diverse": "sha256:7bfed2a9b657e0f24a8cace456d31e945e843ff5f6d927c988da3c8a510d46fe"
+  },
+  "runs": [
+    {
+      "name": "old_lora_47",
+      "data": "old",
+      "method": "lora",
+      "seed": 47,
+      "learning_rate": 0.0003
+    },
+    {
+      "name": "diverse_head_47",
+      "data": "diverse",
+      "method": "head",
+      "seed": 47,
+      "learning_rate": 0.001
+    },
+    {
+      "name": "diverse_lora_47",
+      "data": "diverse",
+      "method": "lora",
+      "seed": 47,
+      "learning_rate": 0.0003
+    },
+    {
+      "name": "diverse_lora_83",
+      "data": "diverse",
+      "method": "lora",
+      "seed": 83,
+      "learning_rate": 0.0003
+    },
+    {
+      "name": "diverse_full_47",
+      "data": "diverse",
+      "method": "full",
+      "seed": 47,
+      "learning_rate": 3e-05
+    }
+  ],
+  "job_digests": [
+    "sha256:e2d00168bc439b5c3831dff83067a8b8f9e2cbe92ae63f5ea41a9f0418df8ef2",
+    "sha256:74d7dbd2572dcbae67f7fc87c62b420486a33d04175540bb1402937ba28804d9",
+    "sha256:71b04273b01ca83c33470dda34fbbceef708af391308b23af746411fd922d879",
+    "sha256:6616792a4767ec9ec49a3c2f2363a76d21740570ceb45cf4dd5dd861b68ca30f",
+    "sha256:4f133755fa72209495dc0051c75d5f308f3da729641ebfeb2fb95716f9e2a02c"
+  ],
+  "steps": 600,
+  "batch": 8,
+  "precision": "float32",
+  "max_seconds_per_job": 1800,
+  "screen": {
+    "complete_pair_accuracy": 0.9,
+    "worst_family_accuracy": 0.8,
+    "required_class_coverage": 4,
+    "unauthorized_proposals": 0,
+    "invalid_outputs": 0
+  },
+  "selection": "Unchanged public-development selector; preserve initial,best,terminal. Regression never selects checkpoints.",
+  "baseline_comparison": "Old-vs-diverse LoRA seed47 on identical shared development/regression tasks; equal updates/examples sampled, unequal corpus size,tokens/compute. Additional LoRA seed83 is descriptive replication. Head/full comparisons only seed47.",
+  "human_reviews": 0,
+  "independence_established": false,
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false,
+  "limits": "Public machine-authored exploration, not independent qualification. Recipe groups share author/state primitives; data volume and composition change together. No protected alpha consumed."
+}
