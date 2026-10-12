@@ -42,8 +42,14 @@ def prepare(key_file):
 def run(stage):
     root,pin,protocol,current,changed=context()
     a=verify(json.loads((root/'signed_source_amendment.json').read_text()),pin)
-    if a['parent_protocol_digest']!=sha(protocol) or a['original_source_map_digest']!=sha(protocol['source_files']) or a['current_source_map']!=current or a['changed_files']!=changed or a['worker_identity']!=worker_identity() or a['driver_sha256']!=hashlib.sha256(Path(__file__).read_bytes()).hexdigest() or a['learning_parameters_changed'] is not False:
+    if a['parent_protocol_digest']!=sha(protocol) or a['original_source_map_digest']!=sha(protocol['source_files']) or a['current_source_map']!=current or a['changed_files']!=changed or a['worker_identity']!=worker_identity() or a['learning_parameters_changed'] is not False:
         raise ValueError('signed source amendment substitution')
+    # The initial registered driver is archived; a separate, signed full-stage
+    # transport record authorizes this dispatcher revision before that job runs.
+    if a['driver_sha256']!=hashlib.sha256(Path(__file__).read_bytes()).hexdigest():
+        transport=verify(json.loads((root/'signed_full_transport.json').read_text()),pin)
+        if transport['parent_source_amendment_digest']!=sha(a) or transport['previous_driver_sha256']!=a['driver_sha256'] or transport['driver_sha256']!=hashlib.sha256(Path(__file__).read_bytes()).hexdigest() or transport['streaming_source_sha256']!=hashlib.sha256((ROOT/'src/saal_rsi/epoch_backend_v3.py').read_bytes()).hexdigest() or transport['full_job_digest']!=protocol['runs'][10]['job_digest'] or transport['learning_parameters_changed'] is not False:
+            raise ValueError('full-stage transport identity substitution')
     if stage not in ('paired','full'):raise ValueError('closed stage')
     selected=protocol['runs'][:10] if stage=='paired' else protocol['runs'][10:]
     jobs=[json.loads((root/(r['name']+'-job.json')).read_text()) for r in selected]
@@ -55,7 +61,10 @@ def run(stage):
                 'required_bytes':protocol['resource_policy']['full_stage_minimum_local_free_bytes'],'training_started':False,
                 'qualification_status':'NOT_EVALUATED'}))
         raise RuntimeError('full tuning recovery capacity unavailable')
-    return execute_campaign(root/('colab-'+stage),jobs,pin,root/'artifacts',root/(stage+'-budget.sqlite3'),max_seconds=39200 if stage=='paired' else 5000)
+    if stage=='full':
+        from saal_rsi.epoch_backend_v3 import execute_campaign as streamed_campaign
+        return streamed_campaign(root/'colab-full',jobs,pin,root/'artifacts',root/'full-budget.sqlite3',max_seconds=5000)
+    return execute_campaign(root/'colab-paired',jobs,pin,root/'artifacts',root/'paired-budget.sqlite3',max_seconds=39200)
 
 
 if __name__=='__main__':

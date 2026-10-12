@@ -49,14 +49,20 @@ outside the repository. Preparation is one-use and precedes execution:
 
 ```sh
 python campaign.py prepare /private/path/to/controller.key
-python campaign.py run paired
-python campaign.py run full
+python campaign_amended.py run paired
+python campaign_amended.py run full
 ```
 
 Run core tests with PYTHONPATH=src from the repository root; corpus tests also
 need reviewed-decision-corpus/src. The report records actual test outcomes and
 training results after execution. A preregistration or passing software test is
 not a passing behavior result.
+
+The original signed protocol is preserved. Its separate signed source amendment
+records the qualification verifier's host-portability correction before any v4
+training starts. The learning worker, datasets, seeds, optimizer settings,
+budgets and job digests are unchanged. Use the amended driver after confirming
+the matching fresh QA evidence; the original driver deliberately rejects drift.
 
 ## Unmet external requirements
 
