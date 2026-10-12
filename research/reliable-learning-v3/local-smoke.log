@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-pretrained-2z2bd077/worker.py", line 4, in <module>
+    from saal_rsi.epoch_worker import main
+  File "/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-pretrained-2z2bd077/src/saal_rsi/epoch_worker.py", line 8, in <module>
+    from .epoch_artifacts import seal,validate_bundle,restoration_manifest
+  File "/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-pretrained-2z2bd077/src/saal_rsi/epoch_artifacts.py", line 9, in <module>
+    from .epoch_metrics import diagnostics as metrics
+  File "/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-pretrained-2z2bd077/src/saal_rsi/epoch_metrics.py", line 5, in <module>
+    from .sequence_replay_v2 import prediction_equal
+ModuleNotFoundError: No module named 'saal_rsi.sequence_replay_v2'
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/epoch_backend.py", line 168, in run_local
+    subprocess.run(args,check=True,timeout=job['max_seconds']+30);subprocess.run(args+['--replay'],check=True,timeout=job['max_seconds']+30)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/.pyenv/versions/3.12.0/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/private/tmp/saal094-env/bin/python', '-I', '/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-pretrained-2z2bd077/worker.py', '--job', '/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-pretrained-2z2bd077/job.json', '--public-key', 'ccc792a3f49c372eaa3c66a9089e02e4350e19e63f4e677768561298caf32fc2', '--out', '/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/local-smoke', '--cache', '/Users/dawsonblock/Downloads/SAAL-RSI-model-cache']' returned non-zero exit status 1.

@@ -1,0 +1,38 @@
+{
+  "parent_dataset_digest": "sha256:ea47fbbad10ac09171a8b6ffd2636a0c30f30ee041e99c033989dccb57e89853",
+  "pilot_digest": "sha256:c163c7d922086b8f89bf374fc98732e1f71d7c675da30b4c34ae92cf8d4cabf1",
+  "record_count": 600,
+  "human_reviews": 0,
+  "selection": "Fixed seed, complete opposite-label pairs, original splits/families/sources preserved. Public targeted review, not independent evaluation.",
+  "class_counts": {
+    "train": {
+      "CHEAP": 100,
+      "ASK": 100,
+      "FAST": 100,
+      "REFUSE": 100
+    },
+    "development": {
+      "CHEAP": 25,
+      "ASK": 25,
+      "FAST": 25,
+      "REFUSE": 25
+    },
+    "regression": {
+      "CHEAP": 25,
+      "ASK": 25,
+      "FAST": 25,
+      "REFUSE": 25
+    }
+  },
+  "mechanism_counts": {
+    "budget.limit": 194,
+    "priority": 88,
+    "deadline.limit": 226,
+    "authorization.requested_scope": 22,
+    "authorization.granted": 20,
+    "authorization.now": 16,
+    "authorization.source": 34
+  },
+  "pilot_used_for_main_training": false,
+  "qualification_status": "NOT_EVALUATED"
+}

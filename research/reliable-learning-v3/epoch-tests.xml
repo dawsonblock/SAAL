@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="18" time="11.317" timestamp="2026-10-12T03:31:09.295005-06:00" hostname="Mac.gateway.sasktel.net"><testcase classname="tests.integration.test_epoch_training_v6" name="test_complete_epochs_and_four_class_batches" time="0.041" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_uniform_control_is_historical_seeded_sampler" time="0.001" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_v5_cannot_process_v6" time="0.505" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[sampler]" time="0.493" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[worker]" time="0.490" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[foundation]" time="0.324" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[unknown]" time="0.464" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[rank]" time="0.322" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[protected]" time="0.495" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[promotion]" time="0.485" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[rate]" time="0.488" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[warmup]" time="0.475" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[diagnostic]" time="0.476" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[imbalance]" time="0.501" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_closed_admission_negative_cases[batch]" time="0.507" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_sampler_rejects_evaluation_input" time="0.000" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_diagnostic_population_fixed_across_models_and_seeds" time="0.529" /><testcase classname="tests.integration.test_epoch_training_v6" name="test_optimizer_warmup_preserves_encoder_and_records_fit" time="4.683"><failure message="assert False&#10; +  where False = any(&lt;generator object test_optimizer_warmup_preserves_encoder_and_records_fit.&lt;locals&gt;.&lt;genexpr&gt; at 0x111cd1a80&gt;)">tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-239/test_optimizer_warmup_preserve0')
+data = {'independent_population': False, 'origin': 'public-synthetic', 'records': [{'category': 'preference', 'cluster_id': '...erfactual', 'expected_decision': 'FAST', ...}, ...], 'review_status': 'ORACLE_CHECKED_NOT_INDEPENDENTLY_REVIEWED', ...}
+
+    def test_optimizer_warmup_preserves_encoder_and_records_fit(tmp_path,data):
+        import torch
+        from saal_rsi.learning_backend import LearningBackend
+        from saal_rsi.epoch_training import train
+        from saal_rsi.sequence_replay_v2 import prediction_equal
+        # Explicit tiny engineering fixture, never a pretrained research result.
+        class FixtureBackend(LearningBackend):
+            def load_pretrained(self):return self
+            def batch_loss(self,records,class_weights=None):
+                labels=torch.tensor([('CHEAP','FAST','ASK','REFUSE').index(r['expected_decision']) for r in records]);x=torch.nn.functional.one_hot(labels,4).float();logits=self.model(x)
+                return torch.nn.functional.cross_entropy(logits,labels,weight=class_weights),len(records)
+            def evaluate(self,records,max_new_tokens=80):
+                self.model.eval();out=[]
+                with torch.no_grad():
+                    for r in records:
+                        label=('CHEAP','FAST','ASK','REFUSE').index(r['expected_decision']);p=self.model(torch.nn.functional.one_hot(torch.tensor(label),4).float()).softmax(-1).tolist();out.append({'decision':('CHEAP','FAST','ASK','REFUSE')[max(range(4),key=p.__getitem__)],'probabilities':p})
+                return out
+        j=new_job(model_spec('answerdotai/ModernBERT-base',backend='local',precision='float32',method='full'),data,steps=4,batch_size=8,learning_rate=.001,head_learning_rate=.001,encoder_learning_rate=.0001,head_warmup_steps=2)
+        b=FixtureBackend(j['model_spec'],tmp_path,47)
+        b.model=torch.nn.Sequential(collections.OrderedDict([('encoder',torch.nn.Linear(4,4)),('classifier',torch.nn.Linear(4,4))]));b.trainable=dict(b.model.named_parameters());b.initial_frozen_hash=b.frozen_hash();b.initial_trainable_hash=b.trainable_hash()
+        before={n:p.detach().clone() for n,p in b.trainable.items()}
+        result=train(b,j,tmp_path/'run')
+        assert result['warmup_evidence']['encoder_unchanged']
+        assert result['real_parameter_updates'] and result['resource_accounting']['sample_exposures']==32
+        assert 'negative_log_likelihood_by_class' in result['snapshots']['terminal']['metrics']['train']
+        assert len(result['full_training_evaluation']['terminal']['predictions'])==3840
+        assert set(p.name for p in (tmp_path/'run').glob('*.safetensors'))=={'initial.safetensors','best.safetensors','terminal.safetensors'}
+&gt;       assert any(not torch.equal(before[n],p) for n,p in b.trainable.items() if n.startswith('classifier.'))
+E       assert False
+E        +  where False = any(&lt;generator object test_optimizer_warmup_preserves_encoder_and_records_fit.&lt;locals&gt;.&lt;genexpr&gt; at 0x111cd1a80&gt;)
+
+tests/integration/test_epoch_training_v6.py:91: AssertionError</failure></testcase></testsuite></testsuites>

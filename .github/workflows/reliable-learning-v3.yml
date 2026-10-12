@@ -1,0 +1,50 @@
+name: Reliable learning v3 regression
+
+on:
+  push:
+    branches: [research/reliable-learning-v3]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reliable-learning-v3-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  linux-python313:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          lfs: true
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.22.3'
+      - name: Verify platform and install hash-locked dependencies
+        run: |
+          python -c "import platform,sys; assert sys.version_info[:2] == (3,13) and platform.machine() == 'x86_64'"
+          python -m pip install --require-hashes -r configs/dependency-locks/pretrained-linux-x86_64-py313.txt
+      - name: Record runtime and run complete core suite
+        env:
+          PYTHONPATH: src
+        run: |
+          mkdir -p ci-evidence
+          python -c "import json,platform; from saal_rsi.learning_backend import verify_dependencies; print(json.dumps({'python':platform.python_version(),'platform':platform.platform(),'packages':verify_dependencies()}))" > ci-evidence/runtime.json
+          python -m pytest tests -q --junitxml=ci-evidence/core-tests.xml
+      - name: Test unchanged reviewed-corpus gate
+        env:
+          PYTHONPATH: src:reviewed-decision-corpus/src
+        run: python -m pytest reviewed-decision-corpus/tests -q --junitxml=ci-evidence/corpus-tests.xml
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: reliable-learning-v3-linux-${{ github.sha }}
+          path: ci-evidence/
+          if-no-files-found: warn

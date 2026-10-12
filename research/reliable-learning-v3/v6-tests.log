@@ -1,0 +1,27 @@
+
+==================================== ERRORS ====================================
+_________ ERROR collecting tests/integration/test_epoch_training_v6.py _________
+ImportError while importing test module '/Users/dawsonblock/Downloads/SAAL-diverse-publish/tests/integration/test_epoch_training_v6.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../.pyenv/versions/3.12.0/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/integration/test_epoch_training_v6.py:4: in <module>
+    from saal_rsi.epoch_contract import new_job,validate_job,worker_identity
+E   ModuleNotFoundError: No module named 'saal_rsi'
+________ ERROR collecting tests/integration/test_epoch_artifacts_v6.py _________
+ImportError while importing test module '/Users/dawsonblock/Downloads/SAAL-diverse-publish/tests/integration/test_epoch_artifacts_v6.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../.pyenv/versions/3.12.0/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/integration/test_epoch_artifacts_v6.py:5: in <module>
+    from saal_rsi.spec import canonical
+E   ModuleNotFoundError: No module named 'saal_rsi'
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/v6-tests.xml -
+=========================== short test summary info ============================
+ERROR tests/integration/test_epoch_training_v6.py
+ERROR tests/integration/test_epoch_artifacts_v6.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
