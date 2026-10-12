@@ -1,0 +1,1 @@
+{"budget_reserved":false,"reason":"Replay interface and sampling admission hardening completed during validation; regenerate a fresh source freeze before any v4 job executes. Draft and failures retained.","status":"ABANDONED_BEFORE_EXECUTION","training_started":false}
