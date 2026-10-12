@@ -1,0 +1,18 @@
+{
+  "enrollment": {"tenant": "operator_assigned_tenant", "family": "fixed_preregistered_question", "question_digest": "REPLACE_WITH_PREREGISTERED_SHA256_DIGEST", "total_alpha": 0.05, "max_attempts": 10},
+  "witness_public_key": "REPLACE_WITH_PINNED_WITNESS_ED25519_PUBLIC_KEY",
+  "witness_client": {
+    "url": "https://independently-managed-witness.example:8443",
+    "ca": "/run/credentials/authority-ca.pem",
+    "certificate": "/run/credentials/custodian-client.pem",
+    "tls_key": "/run/credentials/custodian-client.key",
+    "server_certificate_sha256": "REPLACE_WITH_EXACT_WITNESS_CERTIFICATE_SHA256"
+  },
+  "server": {
+    "host": "0.0.0.0", "port": 8444,
+    "ca": "/run/credentials/authority-ca.pem",
+    "certificate": "/run/credentials/custodian-server.pem",
+    "tls_key": "/run/credentials/custodian-server.key",
+    "clients": {"controller": "REPLACE_WITH_CONTROLLER_CERTIFICATE_SHA256", "evaluator": "REPLACE_WITH_DIFFERENT_EVALUATOR_CERTIFICATE_SHA256"}
+  }
+}

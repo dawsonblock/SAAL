@@ -1,0 +1,61 @@
+{
+  "schema": "saal-pretrained-colab-plan-v1",
+  "session": "saal-88043bcb500c47b8a5d1",
+  "job_digest": "sha256:f3b526b46db2e6ffe61e249f8daaafedf335bbf4afedad0fdb44bee540d5aafd",
+  "estimated_max_seconds": 17500,
+  "commands": [
+    [
+      "colab",
+      "new",
+      "-s",
+      "saal-88043bcb500c47b8a5d1",
+      "--gpu",
+      "T4"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-88043bcb500c47b8a5d1",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-Diverse-Learning-v1/experiment/colab/gpu-lock.txt",
+      "/content/saal_pretrained_lock.txt"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-88043bcb500c47b8a5d1",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-Diverse-Learning-v1/experiment/colab/worker.zip",
+      "/content/saal_pretrained_worker.zip"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-88043bcb500c47b8a5d1",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-RSI-Diverse-Learning-v1/experiment/colab/install.py",
+      "--timeout",
+      "960"
+    ],
+    [
+      "/private/tmp/saal094-env/bin/python",
+      "-I",
+      "experiment/colab/coordinator.py"
+    ],
+    [
+      "colab",
+      "stop",
+      "-s",
+      "saal-88043bcb500c47b8a5d1"
+    ]
+  ],
+  "phases": [
+    "PROVISIONING",
+    "UPLOAD_LOCK",
+    "UPLOAD_WORKER",
+    "DEPENDENCIES",
+    "CAMPAIGN"
+  ],
+  "external_deployment_allowed": false
+}

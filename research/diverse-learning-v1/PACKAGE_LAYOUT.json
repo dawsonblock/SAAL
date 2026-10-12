@@ -1,0 +1,32 @@
+{
+  "historical_release": "Separate complete v0.9.4.3 assets; unchanged source subset authenticated by SOURCE_ORIGIN.json.",
+  "included": "All source/configs, data, signed jobs, initial/best/terminal tensors for every run, metrics/predictions, logs, CPU replay and cleanup. Upstream pretrained snapshot is separately fetched using pinned authenticated file/tensor manifests.",
+  "omitted_redundant_transfer_files": [
+    "experiment/colab/events.jsonl",
+    "experiment/colab/run-00-e2d00168bc43.zip",
+    "experiment/colab/run-01-74d7dbd2572d.zip",
+    "experiment/colab/run-02-71b04273b01c.zip",
+    "experiment/colab/run-03-6616792a4767.zip",
+    "experiment/colab/run-04-4f133755fa72.zip",
+    "experiment/colab/stage/configs/pretrained/registry.json",
+    "experiment/colab/stage/configs/pretrained/tensor_inventories.json",
+    "experiment/colab/stage/src/saal_rsi/__init__.py",
+    "experiment/colab/stage/src/saal_rsi/checkpoint_selection.py",
+    "experiment/colab/stage/src/saal_rsi/learning_backend.py",
+    "experiment/colab/stage/src/saal_rsi/learning_dataset.py",
+    "experiment/colab/stage/src/saal_rsi/model_contract.py",
+    "experiment/colab/stage/src/saal_rsi/modernbert_backend.py",
+    "experiment/colab/stage/src/saal_rsi/peft_training.py",
+    "experiment/colab/stage/src/saal_rsi/pretrained_artifacts.py",
+    "experiment/colab/stage/src/saal_rsi/pretrained_contract.py",
+    "experiment/colab/stage/src/saal_rsi/pretrained_registry.py",
+    "experiment/colab/stage/src/saal_rsi/pretrained_worker.py",
+    "experiment/colab/stage/src/saal_rsi/qwen35_backend.py",
+    "experiment/colab/stage/src/saal_rsi/spec.py",
+    "experiment/colab/stage/src/saal_rsi/task_oracles.py",
+    "experiment/colab/stage/src/saal_rsi/validation.py",
+    "experiment/colab/stage/worker.py"
+  ],
+  "private_keys_included": false,
+  "schema": "saal-public-capsule-layout-v1"
+}

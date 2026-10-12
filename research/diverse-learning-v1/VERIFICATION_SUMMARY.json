@@ -1,0 +1,21 @@
+{
+  "colab_cleanup_confirmed": true,
+  "cpu_checkpoint_restorations": 15,
+  "cpu_public_predictions_reproduced": 12840,
+  "external_deployment_allowed": false,
+  "full_inherited_suite_rerun_this_experiment": false,
+  "gpu_runs_completed": 5,
+  "human_reviews": 0,
+  "independent_evaluator": false,
+  "max_cpu_gpu_probability_difference": 4.4792890548706055e-05,
+  "native_source_config_files_preserved": 139,
+  "new_capsule_tests_passed": 15,
+  "post_stop_session_absent": true,
+  "post_stop_status_log_sha256": "0cabd3e0afcd2798eae21e865c7e7298b70698a69993c55bf25a2da7138e7d22",
+  "preregistered_files_preserved": 26,
+  "probability_tolerance": 0.0001,
+  "qualification_status": "NOT_EVALUATED",
+  "schema": "saal-public-verification-summary-v1",
+  "training_tokens": 3116974,
+  "updates": 3000
+}

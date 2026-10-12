@@ -1,0 +1,21 @@
+{
+  "archive_sha256": "87bbdaca7f5be22ffdfd4ed4e9747c409236cbb2aa563787860f06fe7542d8a0",
+  "elapsed_seconds": 26.29083712492138,
+  "new_tests_passed": 15,
+  "qualification_status": "NOT_EVALUATED",
+  "schema": "saal-clean-extraction-v1",
+  "verification": {
+    "all_native_artifacts_validated": true,
+    "all_three_checkpoints_cpu_replayed": true,
+    "cleanup_evidence": {
+      "confirmation_sha256": "0cabd3e0afcd2798eae21e865c7e7298b70698a69993c55bf25a2da7138e7d22",
+      "confirmed": true,
+      "session": "saal-88043bcb500c47b8a5d1"
+    },
+    "physical_files": 351,
+    "qualification_status": "NOT_EVALUATED",
+    "runs": 5,
+    "trust": "Bundled pin proves self-consistency only unless independently authenticated."
+  },
+  "zip_files": 353
+}

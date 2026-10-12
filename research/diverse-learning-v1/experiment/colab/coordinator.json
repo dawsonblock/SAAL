@@ -1,0 +1,14 @@
+{
+  "workspace": "/Users/dawsonblock/Downloads/SAAL-RSI-Diverse-Learning-v1/experiment/colab",
+  "session": "saal-88043bcb500c47b8a5d1",
+  "pin": "e3c65fff17f286c6538793961f3dc9aa3676836f2205feadb7dc385d0538111e",
+  "jobs": [
+    "experiment/colab/job-00.json",
+    "experiment/colab/job-01.json",
+    "experiment/colab/job-02.json",
+    "experiment/colab/job-03.json",
+    "experiment/colab/job-04.json"
+  ],
+  "artifacts": "/Users/dawsonblock/Downloads/SAAL-RSI-Diverse-Learning-v1/experiment/artifacts",
+  "ledger": "/Users/dawsonblock/Downloads/SAAL-RSI-Diverse-Learning-v1/experiment/development-ledger.sqlite3"
+}

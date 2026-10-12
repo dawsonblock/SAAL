@@ -1,0 +1,6 @@
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Downloaded '/content/run-04-4f133755fa72-transfer/part-048.bin' to '/Users/dawsonblock/Downloads/SAAL-RSI-Diverse-Learning-v1/experiment/colab/run-04-4f133755fa72-transfer/part-048.bin'

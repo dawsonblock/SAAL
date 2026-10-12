@@ -1,0 +1,17 @@
+{
+  "pairs_by_recipe": {
+    "diverse_active_archived_entries": 2,
+    "diverse_contradictory_bulletin": 3,
+    "diverse_negated_alternative": 2,
+    "diverse_priority_register": 2,
+    "diverse_terms_assignment": 3,
+    "diverse_unfamiliar_glossary": 2
+  },
+  "pairs_by_split": {
+    "development": 2,
+    "regression": 5,
+    "train": 7
+  },
+  "rule": "Case-insensitive [a-z]+|[0-9]+ token multiset, exact equality; opposite-label pairs. Public diagnostic, not qualification.",
+  "schema": "public-bag-negative-control-v1"
+}

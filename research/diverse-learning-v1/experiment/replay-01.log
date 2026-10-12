@@ -1,0 +1,17 @@
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 16363.79it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-01-74d7dbd2572d", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 6.079673767089844e-06}
+{"run": "run-01-74d7dbd2572d", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 3.814697265625e-06}
+{"run": "run-01-74d7dbd2572d", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 1.1086463928222656e-05}
+{"run": "run-01-74d7dbd2572d", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 1.7702579498291016e-05}
+{"run": "run-01-74d7dbd2572d", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 2.765655517578125e-05}
+{"run": "run-01-74d7dbd2572d", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 4.4792890548706055e-05}
