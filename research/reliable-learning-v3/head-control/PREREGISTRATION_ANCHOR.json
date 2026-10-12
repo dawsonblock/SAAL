@@ -1,0 +1,7 @@
+{
+  "commit": "86a49dde7ca5f3ed57a26753e881db32daaa88bb",
+  "branch": "research/reliable-learning-v3",
+  "remote_confirmed": true,
+  "signed_protocol_sha256": "85b6667861644e47e1d69836db76ca32e37b15201a4e01563fa0daae3036f31b",
+  "scope": "Supplementary exploratory head-only control; primary source freeze remains 67359ed4248331d66bfff52f2f90242c71bdca50."
+}

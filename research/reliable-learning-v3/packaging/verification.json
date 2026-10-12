@@ -1,0 +1,51 @@
+{
+  "physical_payload_files": 1231,
+  "frozen_files_preserved": 253,
+  "completed_t4_runs": 4,
+  "interrupted_t4_runs": 1,
+  "current_checkpoints_validated": 12,
+  "cpu_recorded_replays_verified": true,
+  "all_cpu_decisions_match": true,
+  "all_cpu_probability_screens_pass": false,
+  "cpu_screens": [
+    {
+      "passes_registered_probability_tolerance": false,
+      "all_decisions_match": true,
+      "max_probability_difference": 0.00010313093662261963
+    },
+    {
+      "passes_registered_probability_tolerance": true,
+      "all_decisions_match": true,
+      "max_probability_difference": 5.772709846496582e-05
+    },
+    {
+      "passes_registered_probability_tolerance": true,
+      "all_decisions_match": true,
+      "max_probability_difference": 1.8268823623657227e-05
+    },
+    {
+      "passes_registered_probability_tolerance": true,
+      "all_decisions_match": true,
+      "max_probability_difference": 1.7940998077392578e-05
+    }
+  ],
+  "unstarted_continuation_jobs": 7,
+  "colab_tests": {
+    "core": {
+      "tests": 605,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "corpus": {
+      "tests": 38,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "owned_session_cleanups_verified": 8,
+  "campaign_complete": false,
+  "qualification_status": "NOT_EVALUATED",
+  "trust": "Controller attribution and stored CPU comparisons; no new inference or independent custody is claimed."
+}

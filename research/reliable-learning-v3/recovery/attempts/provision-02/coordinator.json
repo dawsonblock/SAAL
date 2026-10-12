@@ -1,0 +1,16 @@
+{
+  "workspace": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/attempts/provision-02",
+  "session": "saal-6a27a95bc6fe41419588",
+  "pin": "ccc792a3f49c372eaa3c66a9089e02e4350e19e63f4e677768561298caf32fc2",
+  "jobs": [
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/experiment/uniform-v1_109-job.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/experiment/complete-balanced-epochs-v1_109-job.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/experiment/uniform-v1_157-job.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/experiment/complete-balanced-epochs-v1_157-job.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/experiment/uniform-v1_211-job.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/experiment/complete-balanced-epochs-v1_211-job.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/experiment/full_warm_47-job.json"
+  ],
+  "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/experiment/artifacts",
+  "ledger": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/experiment/additional-budget.sqlite3"
+}

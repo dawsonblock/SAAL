@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/retry_provision.py", line 34, in run
+    try:return execute_colab_plan(plan,out)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor.py", line 101, in execute_colab_plan
+    stream_command(command,workspace/(str(number)+'-'+phase.lower()+'.log'),deadline-time.time(),lambda r:event('remote_monitor',**r))
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor.py", line 55, in stream_command
+    if rc:raise RuntimeError(f'Colab {command[1]} failed ({rc}): '+redact_monitor_text(tail.decode(errors='replace'))[-1200:])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Colab new failed (1):                                 │
+│ /Users/dawsonblock/.local/share/uv/tools/google-colab-cli/lib/python3.13/sit │
+│ e-packages/colab_cli/client.py:229 in _issue_request                         │
+│                                                                              │
+│   226 │   │   self.logger.debug(f"Response Headers: {response.headers}")     │
+│   227 │   │   self.logger.debug(f"Response Body: {response.text}")           │
+│   228 │   │   if not response.ok:                                            │
+│ ❱ 229 │   │   │   raise ColabRequestError(                                   │
+│   230 │   │   │   │   f"Failed to issue request {method} {endpoint}:         │
+│       {response.reason}",                                                    │
+│   231 │   │   │   │   request=response.request,                              │
+│   232 │   │   │   │   response=response,                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ColabRequestError: Failed to issue request POST 
+https://colab.research.google.com/tun/m/assign?nbh=f6aca913_4898_48db_8758_8fea5
+c8eabd3........&variant=GPU&accelerator=T4: Service Unavailable
+

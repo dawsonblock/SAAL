@@ -1,0 +1,20 @@
+{
+  "schema": "saal-colab-monitor-v2",
+  "session": "saal-8c859bb51ca34a969733",
+  "phase": "FAILED",
+  "job_digest": "sha256:d09f131450618963f5b72effadeeed292a94724fedac24098c03d4e0f18bd80b",
+  "deadline_epoch": 1791831725.990039,
+  "heartbeat_epoch": 1791803788.541827,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 0,
+  "total_steps": 0,
+  "external_deployment_allowed": false,
+  "elapsed_seconds": 62.551628082990646,
+  "watchdog_pid": 47373,
+  "active_command": null,
+  "error": {
+    "type": "RuntimeError",
+    "detail": "Colab new failed (1):                                 \u2502\n\u2502 /Users/dawsonblock/.local/share/uv/tools/google-colab-cli/lib/python3.13/sit \u2502\n\u2502 e-packages/colab_cli/client.py:196 in _issue_request                         \u2502\n\u2502                                                                              \u2502\n\u2502   193 \u2502   \u2502   self.logger.debug(f\"Response Headers: {response.headers}\")     \u2502\n\u2502   194 \u2502   \u2502   self.logger.debug(f\"Response Body: {response.text}\")           \u2502\n\u2502   195 \u2502   \u2502   if not response.ok:                                            \u2502\n\u2502 \u2771 196 \u2502   \u2502   \u2502   raise ColabRequestError(                                   \u2502\n\u2502   197 \u2502   \u2502   \u2502   \u2502   f\"Failed to issue request {method} {endpoint}:         \u2502\n\u2502       {response.reason}\",                                                    \u2502\n\u2502   198 \u2502   \u2502   \u2502   \u2502   request=response.request,                              \u2502\n\u2502   199 \u2502   \u2502   \u2502   \u2502   response=response,                                     \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\nColabRequestError: Failed to issue request POST \nhttps://colab.research.google.com/tun/m/assign?nbh=a49194d9_86a1_4381_bb89_24535\nd98bb3b........&variant=GPU&accelerator=T4: Service Unavailable\n"
+  }
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/tools/colab_tests.py", line 81, in <module>
+    if __name__=='__main__':run()
+                            ^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/tools/colab_tests.py", line 79, in run
+    if result['returncodes']!={'core':0,'corpus':0} or not state['cleanup_verified']:raise ValueError('Colab QA failed; retained evidence')
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Colab QA failed; retained evidence

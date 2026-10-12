@@ -1,0 +1,20 @@
+{
+  "workspace": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab",
+  "session": "saal-cf2bf24230b94d07a5c1",
+  "pin": "ccc792a3f49c372eaa3c66a9089e02e4350e19e63f4e677768561298caf32fc2",
+  "jobs": [
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-00.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-01.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-02.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-03.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-04.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-05.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-06.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-07.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-08.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-09.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/job-10.json"
+  ],
+  "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/artifacts",
+  "ledger": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/development-ledger.sqlite3"
+}

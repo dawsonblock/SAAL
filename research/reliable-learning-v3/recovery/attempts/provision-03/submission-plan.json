@@ -1,0 +1,61 @@
+{
+  "schema": "saal-pretrained-colab-plan-v1",
+  "session": "saal-6af0943d00c74adaade1",
+  "job_digest": "sha256:c3d3d9ababf7ed9cfd5564da675dd8c2b07f85d6f29b8a5f6c0e50b482bf0216",
+  "estimated_max_seconds": 28000,
+  "commands": [
+    [
+      "colab",
+      "new",
+      "-s",
+      "saal-6af0943d00c74adaade1",
+      "--gpu",
+      "T4"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-6af0943d00c74adaade1",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/attempts/provision-03/gpu-lock.txt",
+      "/content/saal_pretrained_lock.txt"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-6af0943d00c74adaade1",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/attempts/provision-03/worker.zip",
+      "/content/saal_pretrained_worker.zip"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-6af0943d00c74adaade1",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/attempts/provision-03/install.py",
+      "--timeout",
+      "960"
+    ],
+    [
+      "/private/tmp/saal094-env/bin/python",
+      "-I",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/recovery/attempts/provision-03/coordinator.py"
+    ],
+    [
+      "colab",
+      "stop",
+      "-s",
+      "saal-6af0943d00c74adaade1"
+    ]
+  ],
+  "phases": [
+    "PROVISIONING",
+    "UPLOAD_LOCK",
+    "UPLOAD_WORKER",
+    "DEPENDENCIES",
+    "CAMPAIGN"
+  ],
+  "external_deployment_allowed": false
+}

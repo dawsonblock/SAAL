@@ -1,0 +1,8 @@
+{
+  "commit": "77e66900563dc93a35b1ecda650af1070807271f",
+  "branch": "research/reliable-learning-v3",
+  "remote_confirmed": true,
+  "signed_amendment_sha256": "9a3877f0b77b2d2a8c5668f6e2a4d561222b9a9c68da177fcde52298c1cdb04a",
+  "original_study_commit": "67359ed4248331d66bfff52f2f90242c71bdca50",
+  "scope": "Explicit fresh-budget recovery; original failed attempt and six unused reservations preserved."
+}

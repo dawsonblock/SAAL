@@ -1,0 +1,48 @@
+........................................................................ [ 12%]
+.....s.................................................................. [ 24%]
+........................................................................ [ 36%]
+........................................................................ [ 48%]
+........F............................................................... [ 60%]
+........................................................................ [ 72%]
+........................................................................ [ 84%]
+........................................................................ [ 96%]
+....................                                                     [100%]
+=================================== FAILURES ===================================
+_____________ test_historical_sequence_verifies_but_cannot_execute _____________
+
+    def test_historical_sequence_verifies_but_cannot_execute():
+        import json
+        from pathlib import Path
+        root=Path(__file__).resolve().parents[2]/'examples/pretrained_research/v094-sequence-no-replay'
+        job=json.loads((root/'signed_job.json').read_text())['payload'];protocol=json.loads((root/'signed_protocol.json').read_text())['payload']
+>       validate_sequence(protocol,job,execution=False)
+
+tests/integration/test_pretrained_continual.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_continual.py:34: in validate_sequence
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('sequence source archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-sequence-worker-v1.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-sequence-worker-v1.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+------------ generated xml file: /content/saal-qa-evidence/core.xml ------------
+=========================== short test summary info ============================
+FAILED tests/integration/test_pretrained_continual.py::test_historical_sequence_verifies_but_cannot_execute

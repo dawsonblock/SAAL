@@ -1,0 +1,61 @@
+{
+  "runs": [
+    {
+      "name": "uniform-v1_47",
+      "matches": true,
+      "expected": {
+        "training_tokens": 1008107,
+        "sample_exposures": 8000,
+        "unique_records": 3357,
+        "source_counts": {
+          "prior_diverse_v1": 3179,
+          "legacy": 1654,
+          "compact_v2": 3167
+        }
+      }
+    },
+    {
+      "name": "complete-balanced-epochs-v1_47",
+      "matches": true,
+      "expected": {
+        "training_tokens": 1011179,
+        "sample_exposures": 8000,
+        "unique_records": 3840,
+        "source_counts": {
+          "prior_diverse_v1": 3200,
+          "compact_v2": 3199,
+          "legacy": 1601
+        }
+      }
+    },
+    {
+      "name": "uniform-v1_83",
+      "matches": true,
+      "expected": {
+        "training_tokens": 1008853,
+        "sample_exposures": 8000,
+        "unique_records": 3349,
+        "source_counts": {
+          "legacy": 1620,
+          "compact_v2": 3205,
+          "prior_diverse_v1": 3175
+        }
+      }
+    },
+    {
+      "name": "complete-balanced-epochs-v1_83",
+      "matches": true,
+      "expected": {
+        "training_tokens": 1011639,
+        "sample_exposures": 8000,
+        "unique_records": 3840,
+        "source_counts": {
+          "compact_v2": 3202,
+          "prior_diverse_v1": 3203,
+          "legacy": 1595
+        }
+      }
+    }
+  ],
+  "scope": "Signed stream and pinned tokenizer reconstruction; not hostile-worker attestation."
+}

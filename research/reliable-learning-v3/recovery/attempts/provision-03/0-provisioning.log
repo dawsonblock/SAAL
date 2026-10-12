@@ -1,0 +1,65 @@
+[colab] Creating session 'saal-6af0943d00c74adaade1'...
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/dawsonblock/.local/share/uv/tools/google-colab-cli/lib/python3.13/sit │
+│ e-packages/colab_cli/commands/session.py:141 in new                          │
+│                                                                              │
+│   138 │                                                                      │
+│   139 │   typer.echo(f"[colab] Creating session '{name}'...")                │
+│   140 │   try:                                                               │
+│ ❱ 141 │   │   res = state.client.assign(                                     │
+│   142 │   │   │   uuid.uuid4(), variant=variant, accelerator=accelerator,    │
+│       shape=shape                                                            │
+│   143 │   │   )                                                              │
+│   144 │   except TooManyAssignmentsError:                                    │
+│                                                                              │
+│ /Users/dawsonblock/.local/share/uv/tools/google-colab-cli/lib/python3.13/sit │
+│ e-packages/colab_cli/client.py:285 in assign                                 │
+│                                                                              │
+│   282 │   │   except ColabRequestError as e:                                 │
+│   283 │   │   │   if get_status_code(e) == 412:                              │
+│   284 │   │   │   │   raise TooManyAssignmentsError(str(e))                  │
+│ ❱ 285 │   │   │   raise e                                                    │
+│   286 │   │                                                                  │
+│   287 │   │   return res                                                     │
+│   288                                                                        │
+│                                                                              │
+│ /Users/dawsonblock/.local/share/uv/tools/google-colab-cli/lib/python3.13/sit │
+│ e-packages/colab_cli/client.py:279 in assign                                 │
+│                                                                              │
+│   276 │   │   │   return assignment                                          │
+│   277 │   │                                                                  │
+│   278 │   │   try:                                                           │
+│ ❱ 279 │   │   │   res = self._post_assignment(                               │
+│   280 │   │   │   │   notebook_hash, assignment.token, variant, accelerator, │
+│       shape                                                                  │
+│   281 │   │   │   )                                                          │
+│   282 │   │   except ColabRequestError as e:                                 │
+│                                                                              │
+│ /Users/dawsonblock/.local/share/uv/tools/google-colab-cli/lib/python3.13/sit │
+│ e-packages/colab_cli/client.py:329 in _post_assignment                       │
+│                                                                              │
+│   326 │   ) -> PostAssignmentResponse:                                       │
+│   327 │   │   url = self._build_assign_url(notebook_hash, variant,           │
+│       accelerator, shape)                                                    │
+│   328 │   │   headers = {COLAB_XSRF_TOKEN_HEADER["key"]: xsrf_token}         │
+│ ❱ 329 │   │   return self._issue_request(                                    │
+│   330 │   │   │   url, method="POST", headers=headers,                       │
+│       schema=PostAssignmentResponse                                          │
+│   331 │   │   )                                                              │
+│   332                                                                        │
+│                                                                              │
+│ /Users/dawsonblock/.local/share/uv/tools/google-colab-cli/lib/python3.13/sit │
+│ e-packages/colab_cli/client.py:229 in _issue_request                         │
+│                                                                              │
+│   226 │   │   self.logger.debug(f"Response Headers: {response.headers}")     │
+│   227 │   │   self.logger.debug(f"Response Body: {response.text}")           │
+│   228 │   │   if not response.ok:                                            │
+│ ❱ 229 │   │   │   raise ColabRequestError(                                   │
+│   230 │   │   │   │   f"Failed to issue request {method} {endpoint}:         │
+│       {response.reason}",                                                    │
+│   231 │   │   │   │   request=response.request,                              │
+│   232 │   │   │   │   response=response,                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ColabRequestError: Failed to issue request POST 
+https://colab.research.google.com/tun/m/assign?nbh=f6aca913_4898_48db_8758_8fea5
+c8eabd3........&variant=GPU&accelerator=T4: Service Unavailable

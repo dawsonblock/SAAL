@@ -1,0 +1,571 @@
+........................................................................ [ 12%]
+.....s.................................................................. [ 24%]
+........................................................................ [ 36%]
+..........................................................FFFFFFFFFFF... [ 48%]
+........F........................................................F...... [ 60%]
+........................................................................ [ 72%]
+........................................................................ [ 84%]
+........................................................................ [ 96%]
+....................                                                     [100%]
+=================================== FAILURES ===================================
+__________________ test_real_gpu_bundle_and_negative_findings __________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_real_gpu_bundle_and_negat0/bundle'), {'accumulation': 1, 'batch_size': 8...ckpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+
+    def test_real_gpu_bundle_and_negative_findings(bundle):
+>       out,j,pin=bundle;r=validate_bundle(out,j,pin)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+________________________ test_tampered_tensor_inventory ________________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_tampered_tensor_inventory0/bundle'), {'accumulation': 1, 'batch_size': 8...ckpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+
+    def test_tampered_tensor_inventory(bundle):
+        from safetensors.torch import load_file,save_file
+        import torch
+        out,j,pin=bundle;s=load_file(str(out/'best.safetensors'));s['classifier.weight']=torch.zeros((5,768));save_file(s,str(out/'best.safetensors'));seal(out)
+>       with pytest.raises(ValueError):validate_bundle(out,j,pin)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+____________________________ test_nonfinite_adapter ____________________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_nonfinite_adapter0/bundle'), {'accumulation': 1, 'batch_size': 8, 'checkpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+
+    def test_nonfinite_adapter(bundle):
+        from safetensors.torch import load_file,save_file
+        out,j,pin=bundle;s=load_file(str(out/'terminal.safetensors'));s['classifier.weight'][0,0]=float('nan');save_file(s,str(out/'terminal.safetensors'));seal(out)
+>       with pytest.raises(ValueError):validate_bundle(out,j,pin)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_________________ test_forged_evidence_and_authority[metrics] __________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_forged_evidence_and_autho0/bundle'), {'accumulation': 1, 'batch_size': 8...ckpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+mutation = 'metrics'
+
+    @pytest.mark.parametrize('mutation',['metrics','identity','runtime','promotion','selection','work'])
+    def test_forged_evidence_and_authority(bundle,mutation):
+        out,j,pin=bundle;r=parse_unique_json((out/'result.json').read_bytes())
+        if mutation=='metrics':r['snapshots']['best']['metrics']['development']['accuracy']=1.0
+        elif mutation=='identity':r['restoration_manifest']['head_digest']='sha256:'+'0'*64
+        elif mutation=='runtime':r['runtime']['versions']['transformers']='999.0'
+        elif mutation=='promotion':r['external_deployment_allowed']=True
+        elif mutation=='selection':r['snapshots']['best']['step']=0
+        else:r['resource_accounting']['steps']=10000
+        (out/'result.json').write_bytes(canonical(r));seal(out)
+>       with pytest.raises(ValueError):validate_bundle(out,j,pin)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_________________ test_forged_evidence_and_authority[identity] _________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_forged_evidence_and_autho1/bundle'), {'accumulation': 1, 'batch_size': 8...ckpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+mutation = 'identity'
+
+    @pytest.mark.parametrize('mutation',['metrics','identity','runtime','promotion','selection','work'])
+    def test_forged_evidence_and_authority(bundle,mutation):
+        out,j,pin=bundle;r=parse_unique_json((out/'result.json').read_bytes())
+        if mutation=='metrics':r['snapshots']['best']['metrics']['development']['accuracy']=1.0
+        elif mutation=='identity':r['restoration_manifest']['head_digest']='sha256:'+'0'*64
+        elif mutation=='runtime':r['runtime']['versions']['transformers']='999.0'
+        elif mutation=='promotion':r['external_deployment_allowed']=True
+        elif mutation=='selection':r['snapshots']['best']['step']=0
+        else:r['resource_accounting']['steps']=10000
+        (out/'result.json').write_bytes(canonical(r));seal(out)
+>       with pytest.raises(ValueError):validate_bundle(out,j,pin)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_________________ test_forged_evidence_and_authority[runtime] __________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_forged_evidence_and_autho2/bundle'), {'accumulation': 1, 'batch_size': 8...ckpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+mutation = 'runtime'
+
+    @pytest.mark.parametrize('mutation',['metrics','identity','runtime','promotion','selection','work'])
+    def test_forged_evidence_and_authority(bundle,mutation):
+        out,j,pin=bundle;r=parse_unique_json((out/'result.json').read_bytes())
+        if mutation=='metrics':r['snapshots']['best']['metrics']['development']['accuracy']=1.0
+        elif mutation=='identity':r['restoration_manifest']['head_digest']='sha256:'+'0'*64
+        elif mutation=='runtime':r['runtime']['versions']['transformers']='999.0'
+        elif mutation=='promotion':r['external_deployment_allowed']=True
+        elif mutation=='selection':r['snapshots']['best']['step']=0
+        else:r['resource_accounting']['steps']=10000
+        (out/'result.json').write_bytes(canonical(r));seal(out)
+>       with pytest.raises(ValueError):validate_bundle(out,j,pin)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+________________ test_forged_evidence_and_authority[promotion] _________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_forged_evidence_and_autho3/bundle'), {'accumulation': 1, 'batch_size': 8...ckpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+mutation = 'promotion'
+
+    @pytest.mark.parametrize('mutation',['metrics','identity','runtime','promotion','selection','work'])
+    def test_forged_evidence_and_authority(bundle,mutation):
+        out,j,pin=bundle;r=parse_unique_json((out/'result.json').read_bytes())
+        if mutation=='metrics':r['snapshots']['best']['metrics']['development']['accuracy']=1.0
+        elif mutation=='identity':r['restoration_manifest']['head_digest']='sha256:'+'0'*64
+        elif mutation=='runtime':r['runtime']['versions']['transformers']='999.0'
+        elif mutation=='promotion':r['external_deployment_allowed']=True
+        elif mutation=='selection':r['snapshots']['best']['step']=0
+        else:r['resource_accounting']['steps']=10000
+        (out/'result.json').write_bytes(canonical(r));seal(out)
+>       with pytest.raises(ValueError):validate_bundle(out,j,pin)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+________________ test_forged_evidence_and_authority[selection] _________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_forged_evidence_and_autho4/bundle'), {'accumulation': 1, 'batch_size': 8...ckpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+mutation = 'selection'
+
+    @pytest.mark.parametrize('mutation',['metrics','identity','runtime','promotion','selection','work'])
+    def test_forged_evidence_and_authority(bundle,mutation):
+        out,j,pin=bundle;r=parse_unique_json((out/'result.json').read_bytes())
+        if mutation=='metrics':r['snapshots']['best']['metrics']['development']['accuracy']=1.0
+        elif mutation=='identity':r['restoration_manifest']['head_digest']='sha256:'+'0'*64
+        elif mutation=='runtime':r['runtime']['versions']['transformers']='999.0'
+        elif mutation=='promotion':r['external_deployment_allowed']=True
+        elif mutation=='selection':r['snapshots']['best']['step']=0
+        else:r['resource_accounting']['steps']=10000
+        (out/'result.json').write_bytes(canonical(r));seal(out)
+>       with pytest.raises(ValueError):validate_bundle(out,j,pin)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+___________________ test_forged_evidence_and_authority[work] ___________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_forged_evidence_and_autho5/bundle'), {'accumulation': 1, 'batch_size': 8...ckpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+mutation = 'work'
+
+    @pytest.mark.parametrize('mutation',['metrics','identity','runtime','promotion','selection','work'])
+    def test_forged_evidence_and_authority(bundle,mutation):
+        out,j,pin=bundle;r=parse_unique_json((out/'result.json').read_bytes())
+        if mutation=='metrics':r['snapshots']['best']['metrics']['development']['accuracy']=1.0
+        elif mutation=='identity':r['restoration_manifest']['head_digest']='sha256:'+'0'*64
+        elif mutation=='runtime':r['runtime']['versions']['transformers']='999.0'
+        elif mutation=='promotion':r['external_deployment_allowed']=True
+        elif mutation=='selection':r['snapshots']['best']['step']=0
+        else:r['resource_accounting']['steps']=10000
+        (out/'result.json').write_bytes(canonical(r));seal(out)
+>       with pytest.raises(ValueError):validate_bundle(out,j,pin)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_________________________ test_cross_job_substitution __________________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_cross_job_substitution0/bundle'), {'accumulation': 1, 'batch_size': 8, 'checkpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+
+    def test_cross_job_substitution(bundle):
+        out,j,pin=bundle;other=copy.deepcopy(j);other['seed']=29
+>       with pytest.raises(ValueError):validate_bundle(out,other,pin)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+___________________________ test_checkpoint_symlink ____________________________
+
+bundle = (PosixPath('/tmp/pytest-of-root/pytest-0/test_checkpoint_symlink0/bundle'), {'accumulation': 1, 'batch_size': 8, 'checkpoint_interval': 25, 'class_balance': True, ...}, '3379c9e97b9d3c47d5fa89ce0a3e46d53f796d54af0800d3853ed4bd41486a8b')
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_checkpoint_symlink0')
+
+    def test_checkpoint_symlink(bundle,tmp_path):
+        out,j,pin=bundle;(out/'best.safetensors').rename(tmp_path/'replacement');(out/'best.safetensors').symlink_to(tmp_path/'replacement')
+>       with pytest.raises(ValueError):validate_bundle(out,j,pin)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_artifacts.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_artifacts.py:45: in validate_bundle
+    root=Path(root);validate_job(job,execution=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_____________ test_historical_sequence_verifies_but_cannot_execute _____________
+
+    def test_historical_sequence_verifies_but_cannot_execute():
+        import json
+        from pathlib import Path
+        root=Path(__file__).resolve().parents[2]/'examples/pretrained_research/v094-sequence-no-replay'
+        job=json.loads((root/'signed_job.json').read_text())['payload'];protocol=json.loads((root/'signed_protocol.json').read_text())['payload']
+>       validate_sequence(protocol,job,execution=False)
+
+tests/integration/test_pretrained_continual.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_continual.py:25: in validate_sequence
+    validate_job(job,execution=execution)
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-learning-worker-v3.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-learning-worker-v3.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_____________ test_historical_worker_can_verify_but_cannot_execute _____________
+
+    def test_historical_worker_can_verify_but_cannot_execute():
+        e=Path(__file__).resolve().parents[2]/'examples/pretrained-head-compat-v2/signed_training_job.json'
+        if not e.exists():pytest.skip('historical example absent')
+>       job=json.loads(e.read_text())['payload'];validate_job(job,execution=False)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_v5.py:144: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_contract.py:90: in validate_job
+    if archive.is_symlink() or hashlib.sha256(archive.read_bytes()).hexdigest()!=approved['archive_sha256']:raise ValueError('historical worker archive substitution')
+                                              ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/content/saal-qa/docs/history/v0.9.4-draft-worker-v2.zip'
+
+/usr/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+------------ generated xml file: /content/saal-qa-evidence/core.xml ------------
+=========================== short test summary info ============================
+FAILED tests/integration/test_pretrained_artifacts.py::test_real_gpu_bundle_and_negative_findings
+FAILED tests/integration/test_pretrained_artifacts.py::test_tampered_tensor_inventory
+FAILED tests/integration/test_pretrained_artifacts.py::test_nonfinite_adapter
+FAILED tests/integration/test_pretrained_artifacts.py::test_forged_evidence_and_authority[metrics]
+FAILED tests/integration/test_pretrained_artifacts.py::test_forged_evidence_and_authority[identity]
+FAILED tests/integration/test_pretrained_artifacts.py::test_forged_evidence_and_authority[runtime]
+FAILED tests/integration/test_pretrained_artifacts.py::test_forged_evidence_and_authority[promotion]
+FAILED tests/integration/test_pretrained_artifacts.py::test_forged_evidence_and_authority[selection]
+FAILED tests/integration/test_pretrained_artifacts.py::test_forged_evidence_and_authority[work]
+FAILED tests/integration/test_pretrained_artifacts.py::test_cross_job_substitution
+FAILED tests/integration/test_pretrained_artifacts.py::test_checkpoint_symlink
+FAILED tests/integration/test_pretrained_continual.py::test_historical_sequence_verifies_but_cannot_execute
+FAILED tests/integration/test_pretrained_v5.py::test_historical_worker_can_verify_but_cannot_execute

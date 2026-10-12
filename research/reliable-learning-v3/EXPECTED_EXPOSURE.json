@@ -1,0 +1,118 @@
+{
+  "schema": "saal-controller-sample-exposure-v3",
+  "dataset_digest": "sha256:ea47fbbad10ac09171a8b6ffd2636a0c30f30ee041e99c033989dccb57e89853",
+  "tokenizer_digest": "sha256:c26c123fbd64a34790d495829e4f1a02deac6cb28d8a2442b06c6856763b612b",
+  "expected": {
+    "uniform-v1_47": {
+      "training_tokens": 1008107,
+      "sample_exposures": 8000,
+      "unique_records": 3357,
+      "source_counts": {
+        "prior_diverse_v1": 3179,
+        "legacy": 1654,
+        "compact_v2": 3167
+      }
+    },
+    "complete-balanced-epochs-v1_47": {
+      "training_tokens": 1011179,
+      "sample_exposures": 8000,
+      "unique_records": 3840,
+      "source_counts": {
+        "prior_diverse_v1": 3200,
+        "compact_v2": 3199,
+        "legacy": 1601
+      }
+    },
+    "uniform-v1_83": {
+      "training_tokens": 1008853,
+      "sample_exposures": 8000,
+      "unique_records": 3349,
+      "source_counts": {
+        "legacy": 1620,
+        "compact_v2": 3205,
+        "prior_diverse_v1": 3175
+      }
+    },
+    "complete-balanced-epochs-v1_83": {
+      "training_tokens": 1011639,
+      "sample_exposures": 8000,
+      "unique_records": 3840,
+      "source_counts": {
+        "compact_v2": 3202,
+        "prior_diverse_v1": 3203,
+        "legacy": 1595
+      }
+    },
+    "uniform-v1_109": {
+      "training_tokens": 1013875,
+      "sample_exposures": 8000,
+      "unique_records": 3368,
+      "source_counts": {
+        "prior_diverse_v1": 3274,
+        "legacy": 1566,
+        "compact_v2": 3160
+      }
+    },
+    "complete-balanced-epochs-v1_109": {
+      "training_tokens": 1011233,
+      "sample_exposures": 8000,
+      "unique_records": 3840,
+      "source_counts": {
+        "prior_diverse_v1": 3200,
+        "compact_v2": 3195,
+        "legacy": 1605
+      }
+    },
+    "uniform-v1_157": {
+      "training_tokens": 1010824,
+      "sample_exposures": 8000,
+      "unique_records": 3399,
+      "source_counts": {
+        "compact_v2": 3197,
+        "legacy": 1604,
+        "prior_diverse_v1": 3199
+      }
+    },
+    "complete-balanced-epochs-v1_157": {
+      "training_tokens": 1011053,
+      "sample_exposures": 8000,
+      "unique_records": 3840,
+      "source_counts": {
+        "prior_diverse_v1": 3190,
+        "legacy": 1600,
+        "compact_v2": 3210
+      }
+    },
+    "uniform-v1_211": {
+      "training_tokens": 1009857,
+      "sample_exposures": 8000,
+      "unique_records": 3354,
+      "source_counts": {
+        "compact_v2": 3188,
+        "prior_diverse_v1": 3185,
+        "legacy": 1627
+      }
+    },
+    "complete-balanced-epochs-v1_211": {
+      "training_tokens": 1010931,
+      "sample_exposures": 8000,
+      "unique_records": 3840,
+      "source_counts": {
+        "legacy": 1604,
+        "compact_v2": 3203,
+        "prior_diverse_v1": 3193
+      }
+    },
+    "full_warm_47": {
+      "training_tokens": 1011179,
+      "sample_exposures": 8000,
+      "unique_records": 3840,
+      "source_counts": {
+        "prior_diverse_v1": 3200,
+        "compact_v2": 3199,
+        "legacy": 1601
+      }
+    }
+  },
+  "scope": "Reconstruction of signed sample IDs and pinned native tokenizer. Not hostile-worker/GPU attestation."
+}

@@ -1,0 +1,9 @@
+{
+  "previous": "0.6.0",
+  "requested": "0.7.4",
+  "official_tag": "https://github.com/googlecolab/google-colab-cli/releases/tag/v0.7.4",
+  "stage": "After original training runtime and unsuccessful new provisioning were confirmed absent. No training process runs during this tool update.",
+  "worker_identity_unchanged": true,
+  "learning_parameters_changed": false,
+  "qualification_status": "NOT_EVALUATED"
+}

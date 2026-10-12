@@ -1,0 +1,34 @@
+{
+  "runs": [
+    {
+      "run": "run-01-c6ae464acc2c",
+      "all_probabilities_match": true,
+      "decisions_match": true,
+      "max_delta": 5.772709846496582e-05
+    },
+    {
+      "run": "run-03-7fe5b373a79c",
+      "all_probabilities_match": true,
+      "decisions_match": true,
+      "max_delta": 1.7940998077392578e-05
+    },
+    {
+      "run": "run-02-b1fd7f9b7d3b",
+      "all_probabilities_match": true,
+      "decisions_match": true,
+      "max_delta": 1.8268823623657227e-05
+    },
+    {
+      "run": "run-00-390a3134ca07",
+      "all_probabilities_match": false,
+      "decisions_match": true,
+      "max_delta": 0.00010313093662261963
+    }
+  ],
+  "completed_roles_replayed": 4,
+  "checkpoints": 12,
+  "all_decisions_match": true,
+  "all_probability_screens_pass": false,
+  "probability_tolerance": 0.0001,
+  "qualification_status": "NOT_EVALUATED"
+}

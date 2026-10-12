@@ -1,0 +1,32 @@
+{
+  "schema": "saal-colab-monitor-v2",
+  "session": "saal-cf2bf24230b94d07a5c1",
+  "phase": "FAILED",
+  "job_digest": "sha256:8108bd9487b9f88a0250ed325d1f26900dcba365bcde20b79180c8ef6892884f",
+  "deadline_epoch": 1791841644.246289,
+  "heartbeat_epoch": 1791802408.856456,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 1000,
+  "total_steps": 1000,
+  "external_deployment_allowed": false,
+  "elapsed_seconds": 3764.6009002500214,
+  "watchdog_pid": 41675,
+  "active_command": null,
+  "last_remote_event": {
+    "monitor": "campaign_progress",
+    "completed_runs": 4,
+    "total_runs": 11,
+    "seed": null,
+    "mode": "TERMINAL"
+  },
+  "completed_runs": 4,
+  "total_runs": 11,
+  "current_seed": null,
+  "current_mode": "TERMINAL",
+  "latest_objective_loss": 0.25355809926986694,
+  "error": {
+    "type": "RuntimeError",
+    "detail": "Colab -I failed (1): a1e5d51d97e59a0dd931874df60bd24b6b54be945cbc01e1ff7e0a32496\", \"qualification_status\": \"NOT_EVALUATED\"}\n{\"monitor\": \"fresh_process_replay\", \"verified\": true, \"records\": 768, \"job_digest\": \"sha256:731d5a1e5d51d97e59a0dd931874df60bd24b6b54be945cbc01e1ff7e0a32496\"}\n{\"monitor\": \"campaign_progress\", \"completed_runs\": 4, \"total_runs\": 11, \"seed\": null, \"mode\": \"TERMINAL\"}\nTraceback (most recent call last):\n  File \"/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/coordinator.py\", line 4, in <module>\n    coordinator('/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/experiment/colab/coordinator.json')\n  File \"/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/epoch_backend.py\", line 140, in coordinator\n    if len(outcomes)!=len(config['jobs']) or any(o['state']!='COMPLETED' for o in outcomes):raise RuntimeError('campaign interrupted; inspect durable negative outcome')\n                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: campaign interrupted; inspect durable negative outcome\n"
+  }
+}

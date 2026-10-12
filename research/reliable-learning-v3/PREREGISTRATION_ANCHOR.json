@@ -1,0 +1,11 @@
+{
+  "schema": "saal-source-preregistration-anchor-v3",
+  "commit": "67359ed4248331d66bfff52f2f90242c71bdca50",
+  "remote": "https://github.com/dawsonblock/SAAL.git",
+  "branch": "research/reliable-learning-v3",
+  "remote_confirmed": true,
+  "frozen_files": 253,
+  "frozen_manifest_sha256": "bd443e5fe239706b4f480ba3d8e58442c13cb86649d8fc021e09e454909bacbb",
+  "created_utc": "2026-10-12T09:50:39.429390+00:00",
+  "trust": "Public controller source anchor; not independent custody or qualification."
+}

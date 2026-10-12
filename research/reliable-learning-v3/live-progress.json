@@ -1,0 +1,48 @@
+{
+  "stage": "FAILED",
+  "step": null,
+  "loss": null,
+  "tokens": null,
+  "session": "saal-6a27a95bc6fe41419588",
+  "lifecycle_phase": "FAILED",
+  "heartbeat_epoch": 1791804330.482053,
+  "cleanup_verified": true,
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false,
+  "scope": "Derived public monitoring, no authority; lifecycle completion alone does not mean tests passed.",
+  "lifecycle_error": {
+    "type": "RuntimeError",
+    "detail": "Colab new failed (1):                                 \u2502\n\u2502 /Users/dawsonblock/.local/share/uv/tools/google-colab-cli/lib/python3.13/sit \u2502\n\u2502 e-packages/colab_cli/client.py:229 in _issue_request                         \u2502\n\u2502                                                                              \u2502\n\u2502   226 \u2502   \u2502   self.logger.debug(f\"Response Headers: {response.headers}\")     \u2502\n\u2502   227 \u2502   \u2502   self.logger.debug(f\"Response Body: {response.text}\")           \u2502\n\u2502   228 \u2502   \u2502   if not response.ok:                                            \u2502\n\u2502 \u2771 229 \u2502   \u2502   \u2502   raise ColabRequestError(                                   \u2502\n\u2502   230 \u2502   \u2502   \u2502   \u2502   f\"Failed to issue request {method} {endpoint}:         \u2502\n\u2502       {response.reason}\",                                                    \u2502\n\u2502   231 \u2502   \u2502   \u2502   \u2502   request=response.request,                              \u2502\n\u2502   232 \u2502   \u2502   \u2502   \u2502   response=response,                                     \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\nColabRequestError: Failed to issue request POST \nhttps://colab.research.google.com/tun/m/assign?nbh=7dd16269_f8d1_4f78_92ef_4ffda\n81bc4c7........&variant=GPU&accelerator=T4: Service Unavailable\n"
+  },
+  "qa_sessions": {
+    "colab-tests": {
+      "phase": "COMPLETED",
+      "cleanup_verified": true,
+      "returncodes": {
+        "core": 1,
+        "corpus": 0
+      },
+      "test_outcome": "FAIL"
+    },
+    "colab-tests-02": {
+      "phase": "COMPLETED",
+      "cleanup_verified": true,
+      "returncodes": {
+        "core": 1,
+        "corpus": 0
+      },
+      "test_outcome": "FAIL"
+    },
+    "colab-tests-03": {
+      "phase": "COMPLETED",
+      "cleanup_verified": true,
+      "returncodes": {
+        "core": 0,
+        "corpus": 0
+      },
+      "test_outcome": "PASS"
+    }
+  },
+  "original_completed_runs": 4,
+  "completed_primary_roles": 4
+}
