@@ -137,7 +137,7 @@ def verify_custody(review, pin, audit):
     return body
 
 
-def make_protocol(candidate, baseline, public, holdout, custody_review, pins, *, question_digest, selection_digest, replay_review):
+def make_protocol(candidate, baseline, public, holdout, custody_review, pins, *, question_digest, selection_digest, replay_review, evaluator_identity=None):
     """Freeze one selected candidate; the custodian retains this private protocol."""
     if type(pins) is not dict or set(pins) != PINS:
         raise ValueError('controller, custodian, evaluator and witness pins required')
@@ -175,11 +175,17 @@ def make_protocol(candidate, baseline, public, holdout, custody_review, pins, *,
     verify_custody(custody_review, pins['custodian'], audit)
     if holdout['origin'] != 'custodian-sequestered':
         raise PermissionError('public tasks cannot be final holdout')
+    target = qualification_identity() if evaluator_identity is None else evaluator_identity
+    reference = qualification_identity()
+    if type(target) is not dict or set(target) != set(reference) or any(target[k] != reference[k] for k in ('source_sha256','inference_source_sha256','model_dependencies','inference_device','protocol')):
+        raise PermissionError('registered evaluator source/dependency configuration required')
+    if type(target['python']) is not str or not re.fullmatch(r'3\.[0-9]{1,2}\.[0-9]{1,3}',target['python']) or target['system'] not in ('Linux','Darwin') or target['machine'] not in ('arm64','aarch64','x86_64'):
+        raise ValueError('bounded preregistered evaluator platform identity')
     return {'schema': 'saal-pretrained-family-protocol-v1', 'candidate': candidate,
             'baseline': baseline, 'public_dataset': public, 'holdout_dataset': holdout,
             'custody_review': custody_review, 'audit': audit, 'pins': pins,
             'question_digest': question_digest, 'selection_digest': selection_digest,
-            'rules': RULES.copy(), 'evaluator_identity': qualification_identity(), 'replay_review': replay_review,
+            'rules': RULES.copy(), 'evaluator_identity': target, 'replay_review': replay_review,
             'qualification_status': 'NOT_EVALUATED', 'external_deployment_allowed': False}
 
 
@@ -187,7 +193,7 @@ def validate_protocol(protocol):
     if type(protocol) is not dict or protocol != make_protocol(
             protocol['candidate'], protocol['baseline'], protocol['public_dataset'],
             protocol['holdout_dataset'], protocol['custody_review'], protocol['pins'],
-            question_digest=protocol['question_digest'], selection_digest=protocol['selection_digest'], replay_review=protocol['replay_review']):
+            question_digest=protocol['question_digest'], selection_digest=protocol['selection_digest'], replay_review=protocol['replay_review'], evaluator_identity=protocol['evaluator_identity']):
         raise PermissionError('frozen protocol/runtime/rules substitution')
     return protocol
 
@@ -243,6 +249,8 @@ def measures(protocol, predictions, alpha):
 def evaluate(protocol, candidate_bundle, baseline_bundle, reservation, witness_client, enrollment, cache, inference=None):
     """Spent alpha is never refunded, including inference/replay failures."""
     validate_protocol(protocol)
+    if protocol['evaluator_identity'] != qualification_identity():
+        raise PermissionError('actual evaluator platform differs from preregistration')
     pin = protocol['pins']['controller']
     if freeze(candidate_bundle, pin, protocol['candidate']['snapshot']) != protocol['candidate'] or freeze(baseline_bundle, pin, protocol['baseline']['snapshot']) != protocol['baseline']:
         raise PermissionError('candidate/baseline artifact replacement')
@@ -272,7 +280,7 @@ def verify_report(envelope, protocol):
     validate_protocol(protocol)
     report = verify(envelope, protocol['pins']['evaluator'])
     fields = {'schema', 'protocol_digest', 'consumption', 'measurement', 'evaluator_identity', 'qualification_status', 'external_deployment_allowed', 'model_activation_allowed', 'limits'}
-    if set(report) != fields or report.get('schema') != 'saal-pretrained-qualification-report-v1' or report.get('protocol_digest') != sha(protocol) or report.get('evaluator_identity') != qualification_identity() or report.get('external_deployment_allowed') is not False or report.get('model_activation_allowed') is not False:
+    if set(report) != fields or report.get('schema') != 'saal-pretrained-qualification-report-v1' or report.get('protocol_digest') != sha(protocol) or report.get('evaluator_identity') != protocol['evaluator_identity'] or report.get('external_deployment_allowed') is not False or report.get('model_activation_allowed') is not False:
         raise PermissionError('report scope/identity substitution')
     consumed = report['consumption']
     if type(consumed) is not dict or set(consumed) != {'event', 'head'}:

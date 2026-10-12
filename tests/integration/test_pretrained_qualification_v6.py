@@ -150,6 +150,12 @@ def test_witness_consumption_before_inference_and_report_recomputed(setup_protoc
     report=q.evaluate(protocol,'candidate','baseline',reservation,lambda op,args:witness.transact('evaluator',op,args),enrollment,'unused',inference=infer)
     assert report['qualification_status']=='RESEARCH_QUALIFIED' # simulated oracle fixtures only
     q.verify_report(sign(report,keys['evaluator']),protocol)
+    # The controller may verify this same evidence from a different platform;
+    # it must not reinterpret or relax the actual registered evaluator target.
+    other_host=copy.deepcopy(q.qualification_identity());other_host.update(system='Linux',machine='x86_64',python='3.13.9')
+    with monkeypatch.context() as m:
+        m.setattr(q,'qualification_identity',lambda:other_host)
+        q.verify_report(sign(report,keys['evaluator']),protocol)
     forged=copy.deepcopy(report);forged['measurement']['metrics']['gates']['prior_capability_retention']=False
     with pytest.raises(PermissionError):q.verify_report(sign(forged,keys['evaluator']),protocol)
     with pytest.raises(PermissionError):q.evaluate(protocol,'candidate','baseline',reservation,lambda op,args:witness.transact('evaluator',op,args),enrollment,'unused',inference=infer)
@@ -198,3 +204,13 @@ def test_checkpoint_replacement_rejected_before_consumption(setup_protocol,tmp_p
     monkeypatch.setattr(q,'freeze',lambda *args:protocol['baseline'])
     with pytest.raises(PermissionError,match='replacement'):q.evaluate(protocol,'candidate','baseline',reservation,lambda op,args:witness.transact('evaluator',op,args),enrollment,'unused')
     assert witness.head()['payload']['seq']==1
+
+
+def test_registered_remote_target_must_match_actual_inference_host(setup_protocol):
+    public,private,keys,pins,candidate,baseline,review,args=setup_protocol
+    target=copy.deepcopy(q.qualification_identity());target.update(system='Linux',machine='x86_64',python='3.13.9')
+    protocol=q.make_protocol(candidate,baseline,public,private,review,pins,**args,evaluator_identity=target)
+    q.validate_protocol(protocol)
+    if q.qualification_identity()!=target:
+        with pytest.raises(PermissionError,match='actual evaluator platform'):
+            q.evaluate(protocol,'unused','unused',None,None,None,'unused')

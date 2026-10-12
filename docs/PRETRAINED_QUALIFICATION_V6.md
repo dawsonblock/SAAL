@@ -63,11 +63,14 @@ custodian/evaluator storage only. Public reservation bindings contain digests.
 CLI outputs are created with mode 0600, never overwritten, and record private
 incidents on failure. Consult the witness when output or inference is uncertain.
 
-The custodian and evaluator protocol commands currently require the same pinned
-Python version, OS architecture, source and model dependencies. Distinct machines
-can run that same environment. Training remains on its separately admitted T4
-environment; qualification inference is explicitly CPU. This release does not
-claim portable numerical identity across arbitrary evaluator environments.
+Run `runtime-identity` on the evaluator host and supply that reviewed declaration
+to `custodian-plan --evaluator-runtime`. The protocol pins its Python version,
+OS architecture, source and model dependencies. Actual evaluation refuses a
+different target. The controller can verify signatures/statistics from its own
+supported platform without executing inference or changing the registered
+target. Training remains on its separately admitted T4 environment; qualification
+inference is explicitly CPU. This release does not claim portable numerical
+identity across arbitrary evaluator environments.
 
 ## Trust and remaining work
 

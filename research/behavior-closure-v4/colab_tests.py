@@ -10,4 +10,4 @@ module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 module.ROOT=Path(__file__).parent
 module.REPO=ROOT
 
-if __name__=='__main__':module.run('colab-tests')
+if __name__=='__main__':module.run(sys.argv[1] if len(sys.argv)>1 else 'colab-tests')

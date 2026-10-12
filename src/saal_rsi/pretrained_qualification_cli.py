@@ -5,12 +5,13 @@ from pathlib import Path
 from .spec import parse_unique_json, canonical
 from .model_contract import verify, sign
 from .attempt_service import private_key, TLSClient
-from .pretrained_qualification import freeze, make_protocol, validate_protocol, bindings, reserve, evaluate, verify_report
+from .pretrained_qualification import freeze, make_protocol, validate_protocol, bindings, reserve, evaluate, verify_report, qualification_identity
 
 
 def main():
     parser = argparse.ArgumentParser(prog='saal-pretrained-qualification')
     sub = parser.add_subparsers(dest='command', required=True)
+    runtime = sub.add_parser('runtime-identity')
     frozen = sub.add_parser('freeze'); frozen.add_argument('--bundle', required=True)
     frozen.add_argument('--controller-pin', required=True); frozen.add_argument('--snapshot', choices=('initial','best','terminal'), default='terminal')
     replay = sub.add_parser('replay-public')
@@ -24,6 +25,7 @@ def main():
     plan.add_argument('--holdout', required=True); plan.add_argument('--custody-review', required=True)
     plan.add_argument('--replay-review', required=True); plan.add_argument('--pins', required=True)
     plan.add_argument('--question-digest', required=True); plan.add_argument('--selection-digest', required=True)
+    plan.add_argument('--evaluator-runtime')
     reserve = sub.add_parser('custodian-reserve'); reserve.add_argument('--mirror', required=True)
     reserve.add_argument('--enrollment', required=True); reserve.add_argument('--witness-client', required=True)
     run = sub.add_parser('evaluate'); run.add_argument('--candidate-bundle', required=True)
@@ -33,7 +35,7 @@ def main():
     check = sub.add_parser('verify'); check.add_argument('--report', required=True)
     for command in (reserve, run, check):
         command.add_argument('--protocol', required=True); command.add_argument('--custodian-pin', required=True)
-    for command in (frozen, replay, plan, reserve, run, check):
+    for command in (runtime, frozen, replay, plan, reserve, run, check):
         command.add_argument('--out', required=True)
     args = parser.parse_args()
     def read(path):
@@ -69,7 +71,9 @@ def execute(args, read):
         validate_protocol(protocol)
         if protocol['pins']['custodian'] != args.custodian_pin:
             raise PermissionError('custodian protocol signer substitution')
-    if args.command == 'freeze':
+    if args.command == 'runtime-identity':
+        value = qualification_identity()
+    elif args.command == 'freeze':
         value = freeze(args.bundle, args.controller_pin, args.snapshot)
     elif args.command in ('replay-public','custodian-plan'):
         candidate = freeze(args.candidate_bundle, args.controller_pin, args.candidate_snapshot)
@@ -84,7 +88,8 @@ def execute(args, read):
             if key.public_key().public_bytes_raw().hex() != pins['custodian']:
                 raise PermissionError('custodian signing identity')
             value = sign(make_protocol(candidate, baseline, job['dataset'], read(args.holdout), read(args.custody_review), pins,
-                question_digest=args.question_digest, selection_digest=args.selection_digest, replay_review=read(args.replay_review)), key)
+                question_digest=args.question_digest, selection_digest=args.selection_digest, replay_review=read(args.replay_review),
+                evaluator_identity=read(args.evaluator_runtime) if args.evaluator_runtime else None), key)
     elif args.command == 'custodian-reserve':
         from .attempt_authority import CustodianMirror
         client = TLSClient(read(args.witness_client))
