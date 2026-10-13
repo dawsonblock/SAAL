@@ -5,6 +5,7 @@ Only public fixtures are uploaded; test-generated keys are ephemeral fixtures.
 """
 from pathlib import Path
 import hashlib,json,sys,uuid,zipfile,subprocess,os,tempfile
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'src'))
 from saal_rsi.model_monitor import execute_colab_plan
 from saal_rsi.spec import canonical,sha
 ROOT=Path(__file__).resolve().parent;REPO=ROOT.parents[1]
