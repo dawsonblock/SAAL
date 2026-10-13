@@ -55,6 +55,7 @@ def report():
     for run in old:runs.append(measure(bundle_path(prior,run),pin,'v3-primary'))
     for group,folder in [('v3-head-control',PROJECT/'legacy-head/colab'),
                           ('v4-paired',PROJECT/'experiment/colab-paired'),
+                          ('v4-paired-continuation',PROJECT/'experiment/continuation-01/colab'),
                           ('v4-full',PROJECT/'experiment/colab-full')]:
         path=folder/'outcomes.json'
         if not path.exists():continue
@@ -69,6 +70,14 @@ def report():
             if not population:continue
             values=[r['snapshots']['terminal']['splits']['development']['all']['metrics']['accuracy'] for r in population]
             summaries[group+'/'+method+'/'+sampler]={'runs':len(values),'seeds':[r['seed'] for r in population],
+                'mean_development_accuracy':statistics.mean(values),'standard_deviation':statistics.stdev(values) if len(values)>1 else None,
+                'inferential_population_claim':False}
+    for method in ('head','lora'):
+        paired=[r for r in runs if r['group'] in ('v4-paired','v4-paired-continuation') and r['method']==method]
+        if paired:
+            if len({r['seed'] for r in paired})!=len(paired):raise ValueError('duplicate selected seed after continuation')
+            values=[r['snapshots']['terminal']['splits']['development']['all']['metrics']['accuracy'] for r in paired]
+            summaries['v4-complete-paired/'+method]={'runs':len(values),'seeds':[r['seed'] for r in paired],
                 'mean_development_accuracy':statistics.mean(values),'standard_deviation':statistics.stdev(values) if len(values)>1 else None,
                 'inferential_population_claim':False}
     return {'schema':'saal-behavior-closure-results-v1','runs':runs,'descriptive_summaries':summaries,
