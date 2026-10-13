@@ -1,0 +1,355 @@
+{
+  "schema": "saal-native-tensor-publication-v1",
+  "model_roles": 23,
+  "native_checkpoints": 69,
+  "files": [
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-00-390a3134ca07/best.safetensors",
+      "sha256": "f60f1b685bc8769712a0732c88229592b376eaea468feba7aaf9c6b851901428",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-00-390a3134ca07/initial.safetensors",
+      "sha256": "77ad4708a8b3f924d27b770625607abb3168d0f4f579e3c5929a51929c9c1027",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-00-390a3134ca07/terminal.safetensors",
+      "sha256": "f60f1b685bc8769712a0732c88229592b376eaea468feba7aaf9c6b851901428",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-01-c6ae464acc2c/best.safetensors",
+      "sha256": "4baad3f57dee8ca253670de13dda12bb94ff0f7f525686deb4417f6fad4d8c0d",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-01-c6ae464acc2c/initial.safetensors",
+      "sha256": "77ad4708a8b3f924d27b770625607abb3168d0f4f579e3c5929a51929c9c1027",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-01-c6ae464acc2c/terminal.safetensors",
+      "sha256": "a205f3e3ddc1217d35c07bb3126a9789e8a861bf68a097f062c47a5790998720",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-02-b1fd7f9b7d3b/best.safetensors",
+      "sha256": "3fdbe5576ea6b1f9a4b3c5aa54681ede7c696bd94d995d9ebbcb48bc01e8cc10",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-02-b1fd7f9b7d3b/initial.safetensors",
+      "sha256": "3fdbe5576ea6b1f9a4b3c5aa54681ede7c696bd94d995d9ebbcb48bc01e8cc10",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-02-b1fd7f9b7d3b/terminal.safetensors",
+      "sha256": "8a0157dc13aa10ec0963d8d55ec50a98593db64faa5dbe074f9a6630f0499570",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-03-7fe5b373a79c/best.safetensors",
+      "sha256": "3fdbe5576ea6b1f9a4b3c5aa54681ede7c696bd94d995d9ebbcb48bc01e8cc10",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-03-7fe5b373a79c/initial.safetensors",
+      "sha256": "3fdbe5576ea6b1f9a4b3c5aa54681ede7c696bd94d995d9ebbcb48bc01e8cc10",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/artifacts/run-03-7fe5b373a79c/terminal.safetensors",
+      "sha256": "57cbda46b8e8451e1824e4b32c78987ab344f8edfa03a858be5d172c19318950",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-00-d8edcfdf8072/best.safetensors",
+      "sha256": "d9155953a0610a8090b1f562a36d7dee7ff063e5c3e88994f5ca9d6fce2ebc41",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-00-d8edcfdf8072/initial.safetensors",
+      "sha256": "f1b18f241f4122eb2041cc90d42355559052afbdb9e6efee4b2d1846b37cffbf",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-00-d8edcfdf8072/terminal.safetensors",
+      "sha256": "e5aa10d05944e2926778261a3d5003649f4c800a6debbd66e4b577a23554c881",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-01-1f03d98ee55b/best.safetensors",
+      "sha256": "a7aa11c73d5df308d45c213556b3d3abb5e31c2131ae502743ec04676ca34259",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-01-1f03d98ee55b/initial.safetensors",
+      "sha256": "f1b18f241f4122eb2041cc90d42355559052afbdb9e6efee4b2d1846b37cffbf",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-01-1f03d98ee55b/terminal.safetensors",
+      "sha256": "7ab3f396149aaa969cbe036fdca2368663c5b97988947a34ae42af4b305c0795",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-02-ce3c05ad2e70/best.safetensors",
+      "sha256": "cb10c449fd362119129ff03f4b5da0ed804d3125f36d1c119e8ff825b60de685",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-02-ce3c05ad2e70/initial.safetensors",
+      "sha256": "504e4694d25d806f37bb31c29ab9100bd70e04b9603430fa0dbf8287f9352beb",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-02-ce3c05ad2e70/terminal.safetensors",
+      "sha256": "160aabc667080f5a0d9cc031f47aa84d9f2d0724cfce6b904ae57ef30c0e25fe",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-03-d3ab512a4990/best.safetensors",
+      "sha256": "fedfb4e97d0195bdd1a2d1183e22c0e28a5857beeb64db756654575a5edba216",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-03-d3ab512a4990/initial.safetensors",
+      "sha256": "504e4694d25d806f37bb31c29ab9100bd70e04b9603430fa0dbf8287f9352beb",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-03-d3ab512a4990/terminal.safetensors",
+      "sha256": "e4730dccf4234923772e65f4c92c412e89642d4c9c85d57b760f96e35a0b45bc",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-04-84e3801a3158/best.safetensors",
+      "sha256": "e344a8688c422d9b63488c243bc51602669a8d42b6ee3da14742870c6930403f",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-04-84e3801a3158/initial.safetensors",
+      "sha256": "4c08f77c655cce4f733de5ed50a599e514e8cb51f3f3d0b6f4cfffe4c03b583e",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-04-84e3801a3158/terminal.safetensors",
+      "sha256": "aff6ac31b515c16fa6655e47aed8b3477ad662e588cc0160fb104d80ecf2cfa6",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-05-9ad2fc0093f8/best.safetensors",
+      "sha256": "52197bf299751a35e1fa77952bf9975bae6888c99f0216d43b01be66dec0fa03",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-05-9ad2fc0093f8/initial.safetensors",
+      "sha256": "4c08f77c655cce4f733de5ed50a599e514e8cb51f3f3d0b6f4cfffe4c03b583e",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-05-9ad2fc0093f8/terminal.safetensors",
+      "sha256": "52197bf299751a35e1fa77952bf9975bae6888c99f0216d43b01be66dec0fa03",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/best.safetensors",
+      "sha256": "3f79afb2282fa1406d18ffb09c1bd853ced603935e9d62b8ff20db2c6710b082",
+      "bytes": 598445904
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/initial.safetensors",
+      "sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "bytes": 598445904
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/terminal.safetensors",
+      "sha256": "43dd467cb6b902d83f03f5cf1ab9324d1d2effcbe9c82f3cf42be542e76364fc",
+      "bytes": 598445904
+    },
+    {
+      "path": "research/behavior-closure-v4/legacy-head/artifacts/run-00-fdbdfcb6e2ce/best.safetensors",
+      "sha256": "8e894e8a57e610682d828c9d482d83ed7e45e1338d85bab7c46aba3ffebee5dd",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/legacy-head/artifacts/run-00-fdbdfcb6e2ce/initial.safetensors",
+      "sha256": "86ee6640937ff62150c21a481100d967d4f523554ffacb1f4a5a7026226fff06",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/legacy-head/artifacts/run-00-fdbdfcb6e2ce/terminal.safetensors",
+      "sha256": "cb8a46072461d185f5ddf5d681cdbcc7ed185088387bc40936bb5983f1861ba5",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-40ffb0dade90/best.safetensors",
+      "sha256": "3fdbe5576ea6b1f9a4b3c5aa54681ede7c696bd94d995d9ebbcb48bc01e8cc10",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-40ffb0dade90/initial.safetensors",
+      "sha256": "3fdbe5576ea6b1f9a4b3c5aa54681ede7c696bd94d995d9ebbcb48bc01e8cc10",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-40ffb0dade90/terminal.safetensors",
+      "sha256": "a861e30888fb4681e1a2fcbb9c809a9da050567de13558ab308df6d36bff7160",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-610c87b9e1e4/best.safetensors",
+      "sha256": "23e95410ff008d50a37f10eee031afa52d7b2665b7ee72af3b7194791247700f",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-610c87b9e1e4/initial.safetensors",
+      "sha256": "86ee6640937ff62150c21a481100d967d4f523554ffacb1f4a5a7026226fff06",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-610c87b9e1e4/terminal.safetensors",
+      "sha256": "82b0f0e22e03eff20bffa7af219671e2b335f97a22e5a0f7cfc63a34a6571c56",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/best.safetensors",
+      "sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780",
+      "bytes": 598445904
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/initial.safetensors",
+      "sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "bytes": 598445904
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/terminal.safetensors",
+      "sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780",
+      "bytes": 598445904
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-896a2acf95a7/best.safetensors",
+      "sha256": "b2e304a30a484f5761840a403135430ee2ddd7487669ef9b1fc76d7d008c550e",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-896a2acf95a7/initial.safetensors",
+      "sha256": "800b3302dbcf13ce2f910d82b12d99c24ddc16e01a4dde5bd44cd660b7e40313",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-896a2acf95a7/terminal.safetensors",
+      "sha256": "f08cfc19985b0bc63194717b16d3e6712746b8dbe9ef75e5b799f04ee8bdb65a",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-c69099cf9688/best.safetensors",
+      "sha256": "939bfebcb9eea0e7e4df5066ccb9613093c70087d404ff21bb6d23a030cf6775",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-c69099cf9688/initial.safetensors",
+      "sha256": "504e4694d25d806f37bb31c29ab9100bd70e04b9603430fa0dbf8287f9352beb",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-c69099cf9688/terminal.safetensors",
+      "sha256": "939bfebcb9eea0e7e4df5066ccb9613093c70087d404ff21bb6d23a030cf6775",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-01-28ef0d1ebbfd/best.safetensors",
+      "sha256": "5f58056976b050188aba49276eacfe96e7702ad9b56d50437a38912be8299f36",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-01-28ef0d1ebbfd/initial.safetensors",
+      "sha256": "77ad4708a8b3f924d27b770625607abb3168d0f4f579e3c5929a51929c9c1027",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-01-28ef0d1ebbfd/terminal.safetensors",
+      "sha256": "5f58056976b050188aba49276eacfe96e7702ad9b56d50437a38912be8299f36",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-01-387472842fa8/best.safetensors",
+      "sha256": "8442e7b690f84d8b433bf29aeaf09748280f235759669844f7fa08539e65e3bc",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-01-387472842fa8/initial.safetensors",
+      "sha256": "f1b18f241f4122eb2041cc90d42355559052afbdb9e6efee4b2d1846b37cffbf",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-01-387472842fa8/terminal.safetensors",
+      "sha256": "19088b677bebca048f90d817bac50fa3d116e3ba2319807851fe6c30e578e4e4",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-01-b74e6b14c67a/best.safetensors",
+      "sha256": "d23e8f9cea8c985dd1ba3b0ad4d6496d567736e886826ebda9836020bf0eb744",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-01-b74e6b14c67a/initial.safetensors",
+      "sha256": "5f18414267900a54dacecbaa58e9710bcce2755466d21854770539a39c5462c1",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-01-b74e6b14c67a/terminal.safetensors",
+      "sha256": "29135cf663e09f08d14f648c7d63f038f55c3addd7d8b08df26400bd580a01ff",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-02-1ead0e5752ba/best.safetensors",
+      "sha256": "7401ce9c8bbf2b38de1e687bbed47aae35a8f79677ba00280755e1041690a372",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-02-1ead0e5752ba/initial.safetensors",
+      "sha256": "4c08f77c655cce4f733de5ed50a599e514e8cb51f3f3d0b6f4cfffe4c03b583e",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-02-1ead0e5752ba/terminal.safetensors",
+      "sha256": "165e1fb310af0d3023050b3a071fd994ef922ce406978391780b58c18a84cdec",
+      "bytes": 3462312
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-02-c553fcf68a09/best.safetensors",
+      "sha256": "7725ff432fc7cd9ac26f63619ade009ed9232f2beda8ea9c16bedad8c5fbf90b",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-02-c553fcf68a09/initial.safetensors",
+      "sha256": "7725ff432fc7cd9ac26f63619ade009ed9232f2beda8ea9c16bedad8c5fbf90b",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-02-c553fcf68a09/terminal.safetensors",
+      "sha256": "15d3d0a658f095848e614df256f2d78f7df1681ae023317c9284ba1380c1f17f",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-02-f1b6a737d10f/best.safetensors",
+      "sha256": "c92ade6e96b9ede3962ae86d1a37f13793088d94067e5551ca68d05fb0774ce4",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-02-f1b6a737d10f/initial.safetensors",
+      "sha256": "cfa90fdc7a601310cb8bedc1cf8c353586a63be6ce75cc39b260315119aefbb8",
+      "bytes": 2375000
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-02-f1b6a737d10f/terminal.safetensors",
+      "sha256": "6c1fa380d38bdda227b51c53fef25da896ce00c6bd674ccd790e0cf0c5701f9b",
+      "bytes": 2375000
+    }
+  ],
+  "explicitly_force_added_research_artifacts": true,
+  "mutable_ledgers_linked": false,
+  "scope": "Actual immutable native tensors. Generic weight-cache ignore rules must not omit experiment outputs."
+}
