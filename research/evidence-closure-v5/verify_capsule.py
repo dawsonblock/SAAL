@@ -3,6 +3,7 @@ from pathlib import Path
 import sys,json,hashlib,re
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'src'))
 from saal_rsi.model_contract import verify
+from saal_rsi.spec import parse_unique_json
 
 
 def digest(path):
@@ -12,7 +13,7 @@ def digest(path):
 def verify_files(root,pin):
     root=Path(root).resolve();entries={}
     raw=(root/'MANIFEST.sha256').read_bytes()
-    envelope=json.loads((root/'DELIVERY_SIGNATURE.json').read_text())
+    envelope=parse_unique_json((root/'DELIVERY_SIGNATURE.json').read_bytes())
     signature=verify(envelope,pin)
     if signature.get('schema')!='saal-physical-delivery-v5' or signature.get('manifest_sha256')!=hashlib.sha256(raw).hexdigest() or signature.get('qualification_status')!='NOT_EVALUATED' or signature.get('external_deployment_allowed') is not False:
         raise ValueError('delivery signature or scope mismatch')
@@ -21,6 +22,17 @@ def verify_files(root,pin):
         if not re.fullmatch('[0-9a-f]{64}',h) or name in entries or Path(name).is_absolute() or '..' in Path(name).parts:
             raise ValueError('manifest inventory or path')
         entries[name]=h
+    for name in ('PACKAGE_LAYOUT.json','SOURCE_IDENTITY.json'):
+        if digest(root/name)!=entries.get(name):raise ValueError('untrusted source/layout identity')
+    layout=parse_unique_json((root/'PACKAGE_LAYOUT.json').read_bytes())
+    source=parse_unique_json((root/'SOURCE_IDENTITY.json').read_bytes())
+    if (layout.get('schema')!='saal-complete-physical-capsule-v5'
+            or source.get('schema')!='saal-published-source-identity-v1'
+            or source.get('source_commit')!=signature.get('source_commit')
+            or layout.get('source_commit')!=signature.get('source_commit')
+            or layout.get('evidence_commit')!=signature.get('evidence_commit')
+            or not source.get('files') or any(entries.get(n)!=h for n,h in source['files'].items())):
+        raise ValueError('release source/evidence identity mismatch')
     alias_file=root/'TENSOR_PAYLOADS.json'
     if digest(alias_file)!=entries.get('TENSOR_PAYLOADS.json'):raise ValueError('untrusted restoration map')
     aliases=json.loads(alias_file.read_text())['files']

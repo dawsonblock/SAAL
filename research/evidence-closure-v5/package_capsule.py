@@ -62,6 +62,18 @@ def package(destination,key_file,baseline):
     results=json.loads((PROJECT/'RESULTS.json').read_text())
     commit=subprocess.check_output(['git','rev-parse','refs/heads/repair/evidence-closure-v5'],cwd=ROOT,text=True).strip()
     evidence_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+    # Bind actual implementation bytes to the published source commit, rather
+    # than only recording a commit string beside an unrelated manifest.
+    import io,tarfile
+    source_archive=subprocess.check_output(['git','archive','--format=tar',commit,'src','configs','tests','docs'],cwd=ROOT)
+    source_identity={}
+    with tarfile.open(fileobj=io.BytesIO(source_archive)) as tree:
+        for member in tree:
+            if not member.isfile() or Path(member.name).suffix not in ('.py','.json','.toml','.txt','.yaml','.yml','.md'):continue
+            h=hashlib.sha256(tree.extractfile(member).read()).hexdigest()
+            if manifest.get(member.name)!=h:raise ValueError('working source differs from published commit '+member.name)
+            source_identity[member.name]=h
+    generated_source=canonical({'schema':'saal-published-source-identity-v1','source_commit':commit,'files':source_identity})
     layout={'schema':'saal-complete-physical-capsule-v5','source_commit':commit,
         'evidence_commit':evidence_commit,
         'historical_model_roles':results['historical_model_roles'],'new_t4_training_runs':results['new_t4_training_runs'],'fresh_frozen_cpu_diagnostics':results['fresh_frozen_cpu_diagnostics'],'tensor_aliases':len(aliases),
@@ -70,7 +82,7 @@ def package(destination,key_file,baseline):
         'qualification_status':'NOT_EVALUATED','external_deployment_allowed':False,
         'human_reviews':0,'omitted_redundant_transport':omitted,
         'limits':'The new T4 pilot did not start because provisioning failed. All historical current recovered tensor bytes are included; duplicate full checkpoint bytes are stored once and restored as hard links. The exact pinned upstream model cache is a separate prerequisite. Historical reports retain their original snapshot scope. No protected data or independent deployment is supplied.'}
-    generated={'PACKAGE_LAYOUT.json':canonical(layout),'TENSOR_PAYLOADS.json':canonical({'schema':'saal-physical-tensor-payloads-v1','files':aliases}),
+    generated={'PACKAGE_LAYOUT.json':canonical(layout),'SOURCE_IDENTITY.json':generated_source,'TENSOR_PAYLOADS.json':canonical({'schema':'saal-physical-tensor-payloads-v1','files':aliases}),
                'materialize_tensors.py':(PROJECT/'materialize_tensors.py').read_bytes()}
     for name,data in generated.items():manifest[name]=hashlib.sha256(data).hexdigest()
     generated['MANIFEST.sha256']=''.join(h+'  '+n+'\n' for n,h in sorted(manifest.items())).encode()
