@@ -92,6 +92,15 @@ reports optional export cleanup failures explicitly and defers them to mandatory
 session teardown. Final runtime termination still must be confirmed; no failure
 there is converted into successful cleanup.
 
+The second continuation rejected a head checkpoint under the original validator:
+its Brier score differed by one binary64 ULP between Linux and macOS. The raw
+artifact and original rejection remain unchanged. `epoch_artifacts_v2.py`
+permits at most eight ULPs only for Brier/ECE/NLL diagnostics, with exact types,
+counts, rates, class/family/pair accuracies and probability data. This does not
+change the registered 1e-4 inference-replay tolerance or any behavioral gate.
+`continuation-03` signs this controller-only change before running the three
+remaining unstarted jobs; the learning worker and all job digests stay intact.
+
 `public_baselines.py` evaluates the unchanged historical first-keyword rule and
 a majority control chosen exclusively from training labels on the exact public
 population. Public research selection, final training and qualification remain
@@ -119,6 +128,11 @@ tests and the earlier diversity/reliability suites as separate subprocesses.
 This prevents identically named historical reporting modules from shadowing one
 another. Its input inventory includes the tracked native fixture used by the
 transport test. Full-suite counts come from each actual XML report.
+
+QA05's incomplete fixture payload and QA06's provider HTTP 500 are retained
+failed attempts. The v7 QA uploader transfers fixed-content chunks with bounded
+idempotent retries, authenticates every chunk and the reconstructed whole input
+archive before running tests, and keeps mandatory named-session teardown.
 
 ## Unmet external requirements
 

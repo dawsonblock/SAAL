@@ -11,6 +11,7 @@ def snapshot():
     for name,folder in [('original-paired',PROJECT/'experiment/colab-paired'),
                         ('continuation',PROJECT/'experiment/continuation-01/colab'),
                         ('continuation02',PROJECT/'experiment/continuation-02/colab'),
+                        ('continuation03',PROJECT/'experiment/continuation-03/colab'),
                         ('full',PROJECT/'experiment/colab-full')]:
         state_file=folder/'monitor-state.json'
         if not state_file.exists():continue
@@ -26,8 +27,7 @@ def snapshot():
         outcomes=folder/'outcomes.json'
         item['recovered_completed_runs']=sum(r['state']=='COMPLETED' for r in json.loads(outcomes.read_text())['runs']) if outcomes.exists() else 0
         completed+=item['recovered_completed_runs'];stages[name]=item
-    receipt=PROJECT/'experiment/continuation-02/signed_native_recovery.json'
-    recovered=1 if receipt.exists() else 0
+    recovered=sum((PROJECT/('experiment/'+name+'/signed_native_recovery.json')).exists() for name in ('continuation-02','continuation-03'))
     return {'stages':stages,'completed_new_model_runs':completed,'registered_new_model_runs':11,
             'native_recovery_receipts':recovered,'models_available_for_public_replay':completed+recovered,
             'controller_cpu_replay_records':len(list((PROJECT/'cpu-replay').glob('*.json'))),

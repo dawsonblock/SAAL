@@ -4,7 +4,7 @@ import json,sys,time
 ROOT=Path(__file__).resolve().parents[2];PROJECT=Path(__file__).parent
 sys.path.insert(0,str(ROOT/'src'));sys.path.insert(0,str(ROOT/'research/reliable-learning-v3/tools'))
 from saal_rsi.model_contract import verify
-from saal_rsi.epoch_artifacts import validate_bundle
+from saal_rsi.epoch_artifacts_v2 import validate_bundle
 from saal_rsi.learning_backend import create_backend,verify_dependencies
 from saal_rsi.pretrained_registry import validate_snapshot
 from saal_rsi.epoch_metrics import prediction_equal
@@ -52,6 +52,7 @@ def watch(cache):
             ('paired',PROJECT/'experiment/colab-paired',PROJECT/'experiment/artifacts',PROJECT/'experiment/controller.pub'),
             ('continuation',PROJECT/'experiment/continuation-01/colab',PROJECT/'experiment/artifacts',PROJECT/'experiment/controller.pub'),
             ('continuation02',PROJECT/'experiment/continuation-02/colab',PROJECT/'experiment/artifacts',PROJECT/'experiment/controller.pub'),
+            ('continuation03',PROJECT/'experiment/continuation-03/colab',PROJECT/'experiment/artifacts',PROJECT/'experiment/controller.pub'),
             ('full',PROJECT/'experiment/colab-full',PROJECT/'experiment/artifacts',PROJECT/'experiment/controller.pub')]:
             path=folder/'outcomes.json'
             if not path.exists():continue
@@ -60,8 +61,8 @@ def watch(cache):
                 count+=1;destination=output/(group+'-'+run['run']+'.json')
                 if destination.exists():continue
                 replay(artifacts/run['run'],pin_file.read_text().strip(),cache,destination)
-        receipt=PROJECT/'experiment/continuation-02/signed_native_recovery.json'
-        if receipt.exists():
+        for receipt in (PROJECT/'experiment/continuation-02/signed_native_recovery.json',PROJECT/'experiment/continuation-03/signed_native_recovery.json'):
+            if not receipt.exists():continue
             pin=(PROJECT/'experiment/controller.pub').read_text().strip()
             recovery=verify(json.loads(receipt.read_text()),pin)
             relative=Path(recovery['bundle_relative'])

@@ -1,12 +1,12 @@
 """Recompute exposed scores from authenticated native tensors and predictions."""
 from pathlib import Path
-import sys,json,statistics
+import sys,json,statistics,hashlib
 ROOT=Path(__file__).resolve().parents[2];PROJECT=Path(__file__).parent
 sys.path.insert(0,str(ROOT/'src'))
 sys.path.insert(0,str(ROOT/'research/reliable-learning-v3/tools'))
 from saal_rsi.spec import canonical,sha
 from saal_rsi.model_contract import verify
-from saal_rsi.epoch_artifacts import validate_bundle
+from saal_rsi.epoch_artifacts_v2 import validate_bundle
 from saal_rsi.checkpoint_selection import metrics
 from saal_rsi.behavior_screen import screen
 from study_layout import load_runs,bundle_path
@@ -43,6 +43,7 @@ def measure(bundle,pin,group):
                 splits[split][population]={'records':len(indices),'metrics':m,'screen':screen(m),**macro_f1(m)}
         snapshots[name]={'step':snapshot['step'],'checkpoint':bundle.name+'/'+name+'.safetensors','splits':splits}
     return {'group':group,'run':bundle.name,'job_digest':sha(job),
+            'result_digest':sha(result),
             'method':job['model_spec']['adapter_type'],'seed':job['seed'],'sampler':job['training_policy']['sampler'],
             'snapshots':snapshots,'resource_accounting':result['resource_accounting'],
             'trainable_parameters':sum(v['numel'] for v in result['parameter_inventory'].values()),
@@ -57,18 +58,21 @@ def report():
                           ('v4-paired',PROJECT/'experiment/colab-paired'),
                           ('v4-paired-continuation',PROJECT/'experiment/continuation-01/colab'),
                           ('v4-paired-continuation-02',PROJECT/'experiment/continuation-02/colab'),
+                          ('v4-paired-continuation-03',PROJECT/'experiment/continuation-03/colab'),
                           ('v4-full',PROJECT/'experiment/colab-full')]:
         path=folder/'outcomes.json'
         if not path.exists():continue
         base=PROJECT/'legacy-head/artifacts' if group=='v3-head-control' else PROJECT/'experiment/artifacts'
         for run in json.loads(path.read_text())['runs']:
             if run['state']=='COMPLETED':runs.append(measure(base/run['run'],pin,group))
-    receipt=PROJECT/'experiment/continuation-02/signed_native_recovery.json'
-    if receipt.exists():
+    for receipt in (PROJECT/'experiment/continuation-02/signed_native_recovery.json',PROJECT/'experiment/continuation-03/signed_native_recovery.json'):
+        if not receipt.exists():continue
         recovered=verify(json.loads(receipt.read_text()),pin)
-        bundle=PROJECT/recovered['bundle_relative']
+        relative=Path(recovered['bundle_relative'])
+        if relative.is_absolute() or '..' in relative.parts:raise ValueError('recovery path')
+        bundle=PROJECT/relative
         measured=measure(bundle,pin,'v4-paired-recovered')
-        if measured['job_digest']!=recovered['job_digest'] or recovered['original_attempt_remains']!='INTERRUPTED':raise ValueError('recovery identity')
+        if measured['job_digest']!=recovered['job_digest'] or measured['result_digest']!=recovered['result_digest'] or hashlib.sha256((bundle/'artifact_inventory.json').read_bytes()).hexdigest()!=recovered['inventory_sha256'] or recovered['original_attempt_remains']!='INTERRUPTED':raise ValueError('recovery identity')
         measured['transport_classification']=recovered['classification'];runs.append(measured)
     summaries={}
     for group in sorted({r['group'] for r in runs}):
@@ -81,7 +85,7 @@ def report():
                 'mean_development_accuracy':statistics.mean(values),'standard_deviation':statistics.stdev(values) if len(values)>1 else None,
                 'inferential_population_claim':False}
     for method in ('head','lora'):
-        paired=[r for r in runs if r['group'] in ('v4-paired','v4-paired-continuation','v4-paired-continuation-02','v4-paired-recovered') and r['method']==method]
+        paired=[r for r in runs if r['group'] in ('v4-paired','v4-paired-continuation','v4-paired-continuation-02','v4-paired-continuation-03','v4-paired-recovered') and r['method']==method]
         if paired:
             if len({r['seed'] for r in paired})!=len(paired):raise ValueError('duplicate selected seed after continuation')
             values=[r['snapshots']['terminal']['splits']['development']['all']['metrics']['accuracy'] for r in paired]
