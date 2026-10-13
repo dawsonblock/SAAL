@@ -2,3 +2,5 @@
 *.safetensors filter=lfs diff=lfs merge=lfs -text
 *.part[0-9]* filter=lfs diff=lfs merge=lfs -text
 *.pdf filter=lfs diff=lfs merge=lfs -text
+research/**/*.sqlite3 filter=lfs diff=lfs merge=lfs -text
+research/**/registry-export.json filter=lfs diff=lfs merge=lfs -text
