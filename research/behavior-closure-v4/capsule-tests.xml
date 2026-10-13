@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="8" failures="0" skipped="0" tests="8" time="0.148" timestamp="2026-10-12T16:56:28.841828-06:00" hostname="Mac.gateway.sasktel.net"><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_signed_physical_capsule_restores_complete_checkpoint_paths" time="0.029"><error message="failed on setup with &quot;ValueError: private or symlink payload src/frozen.py&quot;">tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_signed_physical_capsule_r0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x1096412b0&gt;
+
+    @pytest.fixture
+    def capsule(tmp_path,monkeypatch):
+        root=tmp_path/'source';root.mkdir()
+        project=root/'research/behavior-closure-v4';project.mkdir(parents=True)
+        old=root/'research/reliable-learning-v3';old.mkdir()
+        (root/'src').mkdir();(root/'src/frozen.py').write_text('historical = True\n')
+        frozen={'src/frozen.py':hashlib.sha256((root/'src/frozen.py').read_bytes()).hexdigest()}
+        (old/'PREREGISTERED_FILES.json').write_text(json.dumps(frozen))
+        (project/'colab-tests-02').mkdir();(project/'colab-tests-02/input-inventory.json').write_text('{}')
+        (project/'RESULTS.json').write_text('{"runs":[]}')
+        (project/'materialize_tensors.py').write_bytes((Path(__file__).resolve().parents[1]/'materialize_tensors.py').read_bytes())
+        tensors=project/'artifacts';tensors.mkdir()
+        # Large sparse fixture exercises real deduplication without allocating model memory.
+        for name in ('initial','best'):
+            with (tensors/(name+'.safetensors')).open('wb') as f:f.truncate(50_000_001)
+        baseline=tmp_path/'baseline.zip'
+        with zipfile.ZipFile(baseline,'w') as z:z.write(root/'src/frozen.py','src/frozen.py')
+        key=Ed25519PrivateKey.generate();key_path=tmp_path/'controller.key'
+        key_path.write_bytes(key.private_bytes_raw());key_path.chmod(0o600)
+        package=load('package_capsule');monkeypatch.setattr(package,'ROOT',root);monkeypatch.setattr(package,'PROJECT',project)
+        monkeypatch.setattr(package.subprocess,'check_output',lambda *a,**kw:'0'*40+'\n')
+&gt;       archive=tmp_path/'delivery.zip';package.package(archive,str(key_path),baseline)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_capsule_integrity.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+research/behavior-closure-v4/package_capsule.py:29: in package
+    add(p)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_signed_physical_capsule_r0/source/src/frozen.py')
+
+    def add(p):
+        name=p.relative_to(ROOT).as_posix()
+        if '__pycache__' in p.parts or '.pytest_cache' in p.parts or p.suffix=='.pyc':return
+&gt;       if p.is_symlink() or p.suffix in ('.key','.ed25519') or 'private' in p.parts:raise ValueError('private or symlink payload '+name)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: private or symlink payload src/frozen.py
+
+research/behavior-closure-v4/package_capsule.py:20: ValueError</error></testcase><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_delivery_tampering_never_verifies[manifest]" time="0.002"><error message="failed on setup with &quot;ValueError: private or symlink payload src/frozen.py&quot;">tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_delivery_tampering_never_0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x10978dcd0&gt;
+
+    @pytest.fixture
+    def capsule(tmp_path,monkeypatch):
+        root=tmp_path/'source';root.mkdir()
+        project=root/'research/behavior-closure-v4';project.mkdir(parents=True)
+        old=root/'research/reliable-learning-v3';old.mkdir()
+        (root/'src').mkdir();(root/'src/frozen.py').write_text('historical = True\n')
+        frozen={'src/frozen.py':hashlib.sha256((root/'src/frozen.py').read_bytes()).hexdigest()}
+        (old/'PREREGISTERED_FILES.json').write_text(json.dumps(frozen))
+        (project/'colab-tests-02').mkdir();(project/'colab-tests-02/input-inventory.json').write_text('{}')
+        (project/'RESULTS.json').write_text('{"runs":[]}')
+        (project/'materialize_tensors.py').write_bytes((Path(__file__).resolve().parents[1]/'materialize_tensors.py').read_bytes())
+        tensors=project/'artifacts';tensors.mkdir()
+        # Large sparse fixture exercises real deduplication without allocating model memory.
+        for name in ('initial','best'):
+            with (tensors/(name+'.safetensors')).open('wb') as f:f.truncate(50_000_001)
+        baseline=tmp_path/'baseline.zip'
+        with zipfile.ZipFile(baseline,'w') as z:z.write(root/'src/frozen.py','src/frozen.py')
+        key=Ed25519PrivateKey.generate();key_path=tmp_path/'controller.key'
+        key_path.write_bytes(key.private_bytes_raw());key_path.chmod(0o600)
+        package=load('package_capsule');monkeypatch.setattr(package,'ROOT',root);monkeypatch.setattr(package,'PROJECT',project)
+        monkeypatch.setattr(package.subprocess,'check_output',lambda *a,**kw:'0'*40+'\n')
+&gt;       archive=tmp_path/'delivery.zip';package.package(archive,str(key_path),baseline)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_capsule_integrity.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+research/behavior-closure-v4/package_capsule.py:29: in package
+    add(p)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_delivery_tampering_never_0/source/src/frozen.py')
+
+    def add(p):
+        name=p.relative_to(ROOT).as_posix()
+        if '__pycache__' in p.parts or '.pytest_cache' in p.parts or p.suffix=='.pyc':return
+&gt;       if p.is_symlink() or p.suffix in ('.key','.ed25519') or 'private' in p.parts:raise ValueError('private or symlink payload '+name)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: private or symlink payload src/frozen.py
+
+research/behavior-closure-v4/package_capsule.py:20: ValueError</error></testcase><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_delivery_tampering_never_verifies[signature_pin]" time="0.002"><error message="failed on setup with &quot;ValueError: private or symlink payload src/frozen.py&quot;">tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_delivery_tampering_never_1')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x10978efc0&gt;
+
+    @pytest.fixture
+    def capsule(tmp_path,monkeypatch):
+        root=tmp_path/'source';root.mkdir()
+        project=root/'research/behavior-closure-v4';project.mkdir(parents=True)
+        old=root/'research/reliable-learning-v3';old.mkdir()
+        (root/'src').mkdir();(root/'src/frozen.py').write_text('historical = True\n')
+        frozen={'src/frozen.py':hashlib.sha256((root/'src/frozen.py').read_bytes()).hexdigest()}
+        (old/'PREREGISTERED_FILES.json').write_text(json.dumps(frozen))
+        (project/'colab-tests-02').mkdir();(project/'colab-tests-02/input-inventory.json').write_text('{}')
+        (project/'RESULTS.json').write_text('{"runs":[]}')
+        (project/'materialize_tensors.py').write_bytes((Path(__file__).resolve().parents[1]/'materialize_tensors.py').read_bytes())
+        tensors=project/'artifacts';tensors.mkdir()
+        # Large sparse fixture exercises real deduplication without allocating model memory.
+        for name in ('initial','best'):
+            with (tensors/(name+'.safetensors')).open('wb') as f:f.truncate(50_000_001)
+        baseline=tmp_path/'baseline.zip'
+        with zipfile.ZipFile(baseline,'w') as z:z.write(root/'src/frozen.py','src/frozen.py')
+        key=Ed25519PrivateKey.generate();key_path=tmp_path/'controller.key'
+        key_path.write_bytes(key.private_bytes_raw());key_path.chmod(0o600)
+        package=load('package_capsule');monkeypatch.setattr(package,'ROOT',root);monkeypatch.setattr(package,'PROJECT',project)
+        monkeypatch.setattr(package.subprocess,'check_output',lambda *a,**kw:'0'*40+'\n')
+&gt;       archive=tmp_path/'delivery.zip';package.package(archive,str(key_path),baseline)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_capsule_integrity.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+research/behavior-closure-v4/package_capsule.py:29: in package
+    add(p)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_delivery_tampering_never_1/source/src/frozen.py')
+
+    def add(p):
+        name=p.relative_to(ROOT).as_posix()
+        if '__pycache__' in p.parts or '.pytest_cache' in p.parts or p.suffix=='.pyc':return
+&gt;       if p.is_symlink() or p.suffix in ('.key','.ed25519') or 'private' in p.parts:raise ValueError('private or symlink payload '+name)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: private or symlink payload src/frozen.py
+
+research/behavior-closure-v4/package_capsule.py:20: ValueError</error></testcase><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_delivery_tampering_never_verifies[payload]" time="0.003"><error message="failed on setup with &quot;ValueError: private or symlink payload src/frozen.py&quot;">tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_delivery_tampering_never_2')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x1096812b0&gt;
+
+    @pytest.fixture
+    def capsule(tmp_path,monkeypatch):
+        root=tmp_path/'source';root.mkdir()
+        project=root/'research/behavior-closure-v4';project.mkdir(parents=True)
+        old=root/'research/reliable-learning-v3';old.mkdir()
+        (root/'src').mkdir();(root/'src/frozen.py').write_text('historical = True\n')
+        frozen={'src/frozen.py':hashlib.sha256((root/'src/frozen.py').read_bytes()).hexdigest()}
+        (old/'PREREGISTERED_FILES.json').write_text(json.dumps(frozen))
+        (project/'colab-tests-02').mkdir();(project/'colab-tests-02/input-inventory.json').write_text('{}')
+        (project/'RESULTS.json').write_text('{"runs":[]}')
+        (project/'materialize_tensors.py').write_bytes((Path(__file__).resolve().parents[1]/'materialize_tensors.py').read_bytes())
+        tensors=project/'artifacts';tensors.mkdir()
+        # Large sparse fixture exercises real deduplication without allocating model memory.
+        for name in ('initial','best'):
+            with (tensors/(name+'.safetensors')).open('wb') as f:f.truncate(50_000_001)
+        baseline=tmp_path/'baseline.zip'
+        with zipfile.ZipFile(baseline,'w') as z:z.write(root/'src/frozen.py','src/frozen.py')
+        key=Ed25519PrivateKey.generate();key_path=tmp_path/'controller.key'
+        key_path.write_bytes(key.private_bytes_raw());key_path.chmod(0o600)
+        package=load('package_capsule');monkeypatch.setattr(package,'ROOT',root);monkeypatch.setattr(package,'PROJECT',project)
+        monkeypatch.setattr(package.subprocess,'check_output',lambda *a,**kw:'0'*40+'\n')
+&gt;       archive=tmp_path/'delivery.zip';package.package(archive,str(key_path),baseline)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_capsule_integrity.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+research/behavior-closure-v4/package_capsule.py:29: in package
+    add(p)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_delivery_tampering_never_2/source/src/frozen.py')
+
+    def add(p):
+        name=p.relative_to(ROOT).as_posix()
+        if '__pycache__' in p.parts or '.pytest_cache' in p.parts or p.suffix=='.pyc':return
+&gt;       if p.is_symlink() or p.suffix in ('.key','.ed25519') or 'private' in p.parts:raise ValueError('private or symlink payload '+name)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: private or symlink payload src/frozen.py
+
+research/behavior-closure-v4/package_capsule.py:20: ValueError</error></testcase><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_delivery_tampering_never_verifies[extra]" time="0.003"><error message="failed on setup with &quot;ValueError: private or symlink payload src/frozen.py&quot;">tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_delivery_tampering_never_3')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x1098431d0&gt;
+
+    @pytest.fixture
+    def capsule(tmp_path,monkeypatch):
+        root=tmp_path/'source';root.mkdir()
+        project=root/'research/behavior-closure-v4';project.mkdir(parents=True)
+        old=root/'research/reliable-learning-v3';old.mkdir()
+        (root/'src').mkdir();(root/'src/frozen.py').write_text('historical = True\n')
+        frozen={'src/frozen.py':hashlib.sha256((root/'src/frozen.py').read_bytes()).hexdigest()}
+        (old/'PREREGISTERED_FILES.json').write_text(json.dumps(frozen))
+        (project/'colab-tests-02').mkdir();(project/'colab-tests-02/input-inventory.json').write_text('{}')
+        (project/'RESULTS.json').write_text('{"runs":[]}')
+        (project/'materialize_tensors.py').write_bytes((Path(__file__).resolve().parents[1]/'materialize_tensors.py').read_bytes())
+        tensors=project/'artifacts';tensors.mkdir()
+        # Large sparse fixture exercises real deduplication without allocating model memory.
+        for name in ('initial','best'):
+            with (tensors/(name+'.safetensors')).open('wb') as f:f.truncate(50_000_001)
+        baseline=tmp_path/'baseline.zip'
+        with zipfile.ZipFile(baseline,'w') as z:z.write(root/'src/frozen.py','src/frozen.py')
+        key=Ed25519PrivateKey.generate();key_path=tmp_path/'controller.key'
+        key_path.write_bytes(key.private_bytes_raw());key_path.chmod(0o600)
+        package=load('package_capsule');monkeypatch.setattr(package,'ROOT',root);monkeypatch.setattr(package,'PROJECT',project)
+        monkeypatch.setattr(package.subprocess,'check_output',lambda *a,**kw:'0'*40+'\n')
+&gt;       archive=tmp_path/'delivery.zip';package.package(archive,str(key_path),baseline)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_capsule_integrity.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+research/behavior-closure-v4/package_capsule.py:29: in package
+    add(p)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_delivery_tampering_never_3/source/src/frozen.py')
+
+    def add(p):
+        name=p.relative_to(ROOT).as_posix()
+        if '__pycache__' in p.parts or '.pytest_cache' in p.parts or p.suffix=='.pyc':return
+&gt;       if p.is_symlink() or p.suffix in ('.key','.ed25519') or 'private' in p.parts:raise ValueError('private or symlink payload '+name)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: private or symlink payload src/frozen.py
+
+research/behavior-closure-v4/package_capsule.py:20: ValueError</error></testcase><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_delivery_tampering_never_verifies[restoration_source]" time="0.002"><error message="failed on setup with &quot;ValueError: private or symlink payload src/frozen.py&quot;">tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_delivery_tampering_never_4')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x109841070&gt;
+
+    @pytest.fixture
+    def capsule(tmp_path,monkeypatch):
+        root=tmp_path/'source';root.mkdir()
+        project=root/'research/behavior-closure-v4';project.mkdir(parents=True)
+        old=root/'research/reliable-learning-v3';old.mkdir()
+        (root/'src').mkdir();(root/'src/frozen.py').write_text('historical = True\n')
+        frozen={'src/frozen.py':hashlib.sha256((root/'src/frozen.py').read_bytes()).hexdigest()}
+        (old/'PREREGISTERED_FILES.json').write_text(json.dumps(frozen))
+        (project/'colab-tests-02').mkdir();(project/'colab-tests-02/input-inventory.json').write_text('{}')
+        (project/'RESULTS.json').write_text('{"runs":[]}')
+        (project/'materialize_tensors.py').write_bytes((Path(__file__).resolve().parents[1]/'materialize_tensors.py').read_bytes())
+        tensors=project/'artifacts';tensors.mkdir()
+        # Large sparse fixture exercises real deduplication without allocating model memory.
+        for name in ('initial','best'):
+            with (tensors/(name+'.safetensors')).open('wb') as f:f.truncate(50_000_001)
+        baseline=tmp_path/'baseline.zip'
+        with zipfile.ZipFile(baseline,'w') as z:z.write(root/'src/frozen.py','src/frozen.py')
+        key=Ed25519PrivateKey.generate();key_path=tmp_path/'controller.key'
+        key_path.write_bytes(key.private_bytes_raw());key_path.chmod(0o600)
+        package=load('package_capsule');monkeypatch.setattr(package,'ROOT',root);monkeypatch.setattr(package,'PROJECT',project)
+        monkeypatch.setattr(package.subprocess,'check_output',lambda *a,**kw:'0'*40+'\n')
+&gt;       archive=tmp_path/'delivery.zip';package.package(archive,str(key_path),baseline)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_capsule_integrity.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+research/behavior-closure-v4/package_capsule.py:29: in package
+    add(p)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_delivery_tampering_never_4/source/src/frozen.py')
+
+    def add(p):
+        name=p.relative_to(ROOT).as_posix()
+        if '__pycache__' in p.parts or '.pytest_cache' in p.parts or p.suffix=='.pyc':return
+&gt;       if p.is_symlink() or p.suffix in ('.key','.ed25519') or 'private' in p.parts:raise ValueError('private or symlink payload '+name)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: private or symlink payload src/frozen.py
+
+research/behavior-closure-v4/package_capsule.py:20: ValueError</error></testcase><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_packaging_rejects_incomplete_or_rewritten_history[lfs_pointer]" time="0.002"><error message="failed on setup with &quot;ValueError: private or symlink payload src/frozen.py&quot;">tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_packaging_rejects_incompl0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x109842210&gt;
+
+    @pytest.fixture
+    def capsule(tmp_path,monkeypatch):
+        root=tmp_path/'source';root.mkdir()
+        project=root/'research/behavior-closure-v4';project.mkdir(parents=True)
+        old=root/'research/reliable-learning-v3';old.mkdir()
+        (root/'src').mkdir();(root/'src/frozen.py').write_text('historical = True\n')
+        frozen={'src/frozen.py':hashlib.sha256((root/'src/frozen.py').read_bytes()).hexdigest()}
+        (old/'PREREGISTERED_FILES.json').write_text(json.dumps(frozen))
+        (project/'colab-tests-02').mkdir();(project/'colab-tests-02/input-inventory.json').write_text('{}')
+        (project/'RESULTS.json').write_text('{"runs":[]}')
+        (project/'materialize_tensors.py').write_bytes((Path(__file__).resolve().parents[1]/'materialize_tensors.py').read_bytes())
+        tensors=project/'artifacts';tensors.mkdir()
+        # Large sparse fixture exercises real deduplication without allocating model memory.
+        for name in ('initial','best'):
+            with (tensors/(name+'.safetensors')).open('wb') as f:f.truncate(50_000_001)
+        baseline=tmp_path/'baseline.zip'
+        with zipfile.ZipFile(baseline,'w') as z:z.write(root/'src/frozen.py','src/frozen.py')
+        key=Ed25519PrivateKey.generate();key_path=tmp_path/'controller.key'
+        key_path.write_bytes(key.private_bytes_raw());key_path.chmod(0o600)
+        package=load('package_capsule');monkeypatch.setattr(package,'ROOT',root);monkeypatch.setattr(package,'PROJECT',project)
+        monkeypatch.setattr(package.subprocess,'check_output',lambda *a,**kw:'0'*40+'\n')
+&gt;       archive=tmp_path/'delivery.zip';package.package(archive,str(key_path),baseline)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_capsule_integrity.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+research/behavior-closure-v4/package_capsule.py:29: in package
+    add(p)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_packaging_rejects_incompl0/source/src/frozen.py')
+
+    def add(p):
+        name=p.relative_to(ROOT).as_posix()
+        if '__pycache__' in p.parts or '.pytest_cache' in p.parts or p.suffix=='.pyc':return
+&gt;       if p.is_symlink() or p.suffix in ('.key','.ed25519') or 'private' in p.parts:raise ValueError('private or symlink payload '+name)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: private or symlink payload src/frozen.py
+
+research/behavior-closure-v4/package_capsule.py:20: ValueError</error></testcase><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_packaging_rejects_incomplete_or_rewritten_history[historical_source]" time="0.003"><error message="failed on setup with &quot;ValueError: private or symlink payload src/frozen.py&quot;">tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_packaging_rejects_incompl1')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x109681790&gt;
+
+    @pytest.fixture
+    def capsule(tmp_path,monkeypatch):
+        root=tmp_path/'source';root.mkdir()
+        project=root/'research/behavior-closure-v4';project.mkdir(parents=True)
+        old=root/'research/reliable-learning-v3';old.mkdir()
+        (root/'src').mkdir();(root/'src/frozen.py').write_text('historical = True\n')
+        frozen={'src/frozen.py':hashlib.sha256((root/'src/frozen.py').read_bytes()).hexdigest()}
+        (old/'PREREGISTERED_FILES.json').write_text(json.dumps(frozen))
+        (project/'colab-tests-02').mkdir();(project/'colab-tests-02/input-inventory.json').write_text('{}')
+        (project/'RESULTS.json').write_text('{"runs":[]}')
+        (project/'materialize_tensors.py').write_bytes((Path(__file__).resolve().parents[1]/'materialize_tensors.py').read_bytes())
+        tensors=project/'artifacts';tensors.mkdir()
+        # Large sparse fixture exercises real deduplication without allocating model memory.
+        for name in ('initial','best'):
+            with (tensors/(name+'.safetensors')).open('wb') as f:f.truncate(50_000_001)
+        baseline=tmp_path/'baseline.zip'
+        with zipfile.ZipFile(baseline,'w') as z:z.write(root/'src/frozen.py','src/frozen.py')
+        key=Ed25519PrivateKey.generate();key_path=tmp_path/'controller.key'
+        key_path.write_bytes(key.private_bytes_raw());key_path.chmod(0o600)
+        package=load('package_capsule');monkeypatch.setattr(package,'ROOT',root);monkeypatch.setattr(package,'PROJECT',project)
+        monkeypatch.setattr(package.subprocess,'check_output',lambda *a,**kw:'0'*40+'\n')
+&gt;       archive=tmp_path/'delivery.zip';package.package(archive,str(key_path),baseline)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_capsule_integrity.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+research/behavior-closure-v4/package_capsule.py:29: in package
+    add(p)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-309/test_packaging_rejects_incompl1/source/src/frozen.py')
+
+    def add(p):
+        name=p.relative_to(ROOT).as_posix()
+        if '__pycache__' in p.parts or '.pytest_cache' in p.parts or p.suffix=='.pyc':return
+&gt;       if p.is_symlink() or p.suffix in ('.key','.ed25519') or 'private' in p.parts:raise ValueError('private or symlink payload '+name)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: private or symlink payload src/frozen.py
+
+research/behavior-closure-v4/package_capsule.py:20: ValueError</error></testcase></testsuite></testsuites>

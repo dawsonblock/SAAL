@@ -1,0 +1,234 @@
+{
+  "schema": "saal-final-public-replay-summary-v1",
+  "model_roles": 23,
+  "passed": 21,
+  "failed": 2,
+  "records": [
+    {
+      "path": "research/reliable-learning-v3/experiment/controller-replay/run-00-390a3134ca07.json",
+      "sha256": "a07df2efdcac93e617035fb7daed49e00465315c8e257b013ce49de5bd44e4b1",
+      "job_digest": "sha256:390a3134ca076bde86eb49f16c9ba7dc13f2a791e4948cf3c62e94e8af153421",
+      "run": "run-00-390a3134ca07",
+      "passed": false,
+      "failed_comparisons": [
+        {
+          "checkpoint": "best",
+          "split": "development",
+          "max_probability_difference": 0.00010313093662261963
+        },
+        {
+          "checkpoint": "terminal",
+          "split": "development",
+          "max_probability_difference": 0.00010313093662261963
+        }
+      ],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/controller-replay/run-01-c6ae464acc2c.json",
+      "sha256": "65fd04a13b7100cb0a24aadb8b8008d30c805811956cbb4048cd6c1f2fb55a63",
+      "job_digest": "sha256:c6ae464acc2cb71b3f28642dd33e321570dbcd903ff971c1052de6e4a06c1e0e",
+      "run": "run-01-c6ae464acc2c",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/controller-replay/run-02-b1fd7f9b7d3b.json",
+      "sha256": "1548f27768c17fdee43acd79d79651ab6efd375bc9b196eacff84f6d7bbbb84f",
+      "job_digest": "sha256:b1fd7f9b7d3ba491ea0fe00524cda96a9676a6157153d34d4838036c3e931004",
+      "run": "run-02-b1fd7f9b7d3b",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/controller-replay/run-03-7fe5b373a79c.json",
+      "sha256": "3e8c9d4f58e497cc3dbce205cdb96a253759fb49adb7dc7c6e68bc275baf4238",
+      "job_digest": "sha256:7fe5b373a79ccb0237be66d7bbc9f124a74a535bf2e4719f14f27877e8f0a4eb",
+      "run": "run-03-7fe5b373a79c",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/v3-cpu-replay/run-00-d8edcfdf8072.json",
+      "sha256": "a24a5dd793a556e574d9d5865b44dd2b3b85080f34469cd39cc00cef51ae84c5",
+      "job_digest": "sha256:d8edcfdf807244edf1943f6ee8cd8412edfec824e4a661905c3a84ebe45deed1",
+      "run": "run-00-d8edcfdf8072",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/v3-cpu-replay/run-01-1f03d98ee55b.json",
+      "sha256": "6775eddbd7940f34a839e867ff431e10c9c3cee6a7ab4c679f2ddef5927bbe74",
+      "job_digest": "sha256:1f03d98ee55b2492e8652e345e200f0be3f9276f406e3b48c5d173e021cbad09",
+      "run": "run-01-1f03d98ee55b",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/v3-cpu-replay/run-02-ce3c05ad2e70.json",
+      "sha256": "bd6728e921e9ad76b68b2576a048d3117b9eb0f0dc8d7f73915170ed87a7453a",
+      "job_digest": "sha256:ce3c05ad2e70acefb253a90fd15a0c229388b90d08f908012e57df503fa3538d",
+      "run": "run-02-ce3c05ad2e70",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/v3-cpu-replay/run-03-d3ab512a4990.json",
+      "sha256": "9357bf073bc4a607a706ec0105eb168205860e51cb8e3218d87965c400dffe18",
+      "job_digest": "sha256:d3ab512a4990605f1d2485f37a9e972ba7e604ca5a2b2441fc4b5ac8f08f1303",
+      "run": "run-03-d3ab512a4990",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/v3-cpu-replay/run-04-84e3801a3158.json",
+      "sha256": "ad52f7dc601af83add99788e0a0281f34e383fe2a1a0f4e9ca3c47ff28579953",
+      "job_digest": "sha256:84e3801a31584180bc50c07cb021bf422f575788623b88d722532371694991aa",
+      "run": "run-04-84e3801a3158",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/v3-cpu-replay/run-05-9ad2fc0093f8.json",
+      "sha256": "8bfe6f2325bd16e6df1fc61d6b02bcd602e47edfba8c05a59cce78d72ba7ab1d",
+      "job_digest": "sha256:9ad2fc0093f8bf36af5eeffba7bce745c2517256b167bdc7254bd8aafe3b19ba",
+      "run": "run-05-9ad2fc0093f8",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/v3-cpu-replay/run-06-d007a32c8446.json",
+      "sha256": "5262ebf96c1d1809f4bb2a89e6771153fd8466ba1551a6bd7b90ee5fb810fe6b",
+      "job_digest": "sha256:d007a32c8446294463f57ef527d22d8883867b98a621f5c83ac43ac49db26c62",
+      "run": "run-06-d007a32c8446",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/continuation02-run-00-896a2acf95a7.json",
+      "sha256": "61d721ff74bedf0b000f659886452ca69cd7d38e3a7344ec20ae1dbc8cd4cd44",
+      "job_digest": "sha256:896a2acf95a7c4e6965a92b0972934ec07afbcd42b7e7990011150b097bcae2c",
+      "run": "run-00-896a2acf95a7",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/continuation02-run-01-387472842fa8.json",
+      "sha256": "b6eee87fbb2948f604ba02f13cd3bd611932b0b175bfccab2c822d5e42be213c",
+      "job_digest": "sha256:387472842fa883d8b9f052642f6c76596788eb0e60e9bb547d3c775ef1e7a980",
+      "run": "run-01-387472842fa8",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/continuation03-run-00-c69099cf9688.json",
+      "sha256": "f78ac76d29702002522fc8fae9f17b1d0ad309d445fb785593b79a97268b02dc",
+      "job_digest": "sha256:c69099cf968822985ead0454f646c56fcb5db434d187497965be12bcfc896a04",
+      "run": "run-00-c69099cf9688",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/continuation03-run-01-b74e6b14c67a.json",
+      "sha256": "b6c2743dd7561bf838d90246c27d11cda118d9753b92d54153d348267695905d",
+      "job_digest": "sha256:b74e6b14c67a20bf956be2b6d232b86e8d2b07f9d07ae651b7f0355b6dc5e9b1",
+      "run": "run-01-b74e6b14c67a",
+      "passed": false,
+      "failed_comparisons": [
+        {
+          "checkpoint": "terminal",
+          "split": "development",
+          "max_probability_difference": 0.00010141730308532715
+        }
+      ],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/continuation03-run-02-1ead0e5752ba.json",
+      "sha256": "96631e9d9c48a7a917dafda7a6ed815d74350db6cbe4bf6e4c7ffc5bade4be2e",
+      "job_digest": "sha256:1ead0e5752ba5f4f504765b9ecc71a267e97eef50cedf13cd427030b94931792",
+      "run": "run-02-1ead0e5752ba",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/full-run-00-7f4563c3d645.json",
+      "sha256": "f897636f548d76cd55c7f1dec8cdfa5c0d79b90e5c60b7d3447d37d9c179ba7a",
+      "job_digest": "sha256:7f4563c3d64531837e89637bbf598cbbaea35f7e8dc1dec89f4b32ae40087732",
+      "run": "run-00-7f4563c3d645",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/head-run-00-fdbdfcb6e2ce.json",
+      "sha256": "57c718572c37f6180886e3428f1ab7a5258b316b46760352bff940c2b534d38b",
+      "job_digest": "sha256:fdbdfcb6e2cecda1d582a4d6771ace0943c1ace893c302b027644dc5591a0ba8",
+      "run": "run-00-fdbdfcb6e2ce",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/paired-run-00-610c87b9e1e4.json",
+      "sha256": "9662917a609be7d1096e3ffa3b74fbd535f598e2458be6080a819dce3c4bc38e",
+      "job_digest": "sha256:610c87b9e1e434c491bcd7e46e035455f3d2c72495c6ca3264c80e825926abee",
+      "run": "run-00-610c87b9e1e4",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/paired-run-01-28ef0d1ebbfd.json",
+      "sha256": "8eeb854ae9c93eb836e452ee2d56f0db6fe356e4c852e7eae18e11870fb438c0",
+      "job_digest": "sha256:28ef0d1ebbfd5dd3c12a938cee649a41e548ce5d2075789a8fe7cee726a65b33",
+      "run": "run-01-28ef0d1ebbfd",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/paired-run-02-c553fcf68a09.json",
+      "sha256": "547c843a20c38d425a985894a02158bea33899cecba3022f5ac577b8056d55eb",
+      "job_digest": "sha256:c553fcf68a09a3abb716821ecd4feb34bf587e59e98c3ec30636aed71bba2ef4",
+      "run": "run-02-c553fcf68a09",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/recovered-run-00-40ffb0dade90.json",
+      "sha256": "c6eb70e9be45e0f7197c19d069d2c1719715a36900f5179285355cf2f9bf2d2a",
+      "job_digest": "sha256:40ffb0dade90ac7bdaa4b51d5cdbe22b81296ef4f0c223e71e303df1cd78416f",
+      "run": "run-00-40ffb0dade90",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    },
+    {
+      "path": "research/behavior-closure-v4/cpu-replay/recovered-run-02-f1b6a737d10f.json",
+      "sha256": "6e7dc3a3d096525fa4bf2e272175934909334752c93b959595acf07eca6df530",
+      "job_digest": "sha256:f1b6a737d10f70302a713be2a0e53f4b34b5cc9e460bc0863a616fd1479bf543",
+      "run": "run-02-f1b6a737d10f",
+      "passed": true,
+      "failed_comparisons": [],
+      "independent_evaluator": false
+    }
+  ],
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false
+}

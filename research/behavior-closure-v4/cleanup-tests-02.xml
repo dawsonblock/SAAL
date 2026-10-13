@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="3.262" timestamp="2026-10-12T19:51:09.217030-06:00" hostname="Mac.gateway.sasktel.net"><testcase classname="research.behavior-closure-v4.tests.test_cleanup_deferral" name="test_optional_export_cleanup_timeout_is_reported_without_training_retry" time="0.003" /><testcase classname="research.behavior-closure-v4.tests.test_cleanup_deferral" name="test_successful_cleanup_has_no_deferred_claim" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_cleanup_deferral" name="test_invalid_or_reused_local_log_is_not_masked_as_optional_network_failure" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_cleanup_deferral" name="test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts[False]" time="1.640"><failure message="RuntimeError: campaign interrupted; inspect durable negative outcome">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x10b4d3890&gt;
+tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-324/test_real_native_validation_pr0')
+corrupt = False
+
+    @pytest.mark.parametrize('corrupt',[False,True])
+    def test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts(monkeypatch,tmp_path,corrupt):
+        repo=Path(__file__).resolve().parents[3]
+        project=repo/'research/behavior-closure-v4'
+        source=project/'experiment/artifacts/run-01-28ef0d1ebbfd'
+        pin=(project/'experiment/controller.pub').read_text().strip()
+        envelope=json.loads((source/'signed_training_job.json').read_text());job=verify(envelope,pin)
+        workspace=tmp_path/'controller';workspace.mkdir();artifacts=tmp_path/'recovered'
+        lock=repo/'configs/dependency-locks/pretrained-linux-x86_64-py313.txt'
+        shutil.copyfile(lock,workspace/'gpu-lock.txt');job_path=workspace/'job.json';job_path.write_text(json.dumps(envelope))
+        ledger_path=workspace/'budget.sqlite3';ledger=EpochExperimentRegistry(ledger_path,pin,max_jobs=1,max_seconds=3800)
+        ledger.reserve(envelope);ledger.close()
+        archive=tmp_path/'native.zip'
+        with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=1) as z:
+            for p in sorted(source.iterdir()):z.write(p,p.name)
+        raw=archive.read_bytes();chunk=tmp_path/'chunk';chunk.write_bytes(raw)
+        h=hashlib.sha256(raw).hexdigest()
+        manifest={'schema':'saal-artifact-transfer-v1','job_digest':sha(job),'size':len(raw),'sha256':h,
+                  'chunks':[{'name':'part-000.bin','size':len(raw),'sha256':h}]}
+        monkeypatch.setattr(backend,'run_remote_stage',lambda *args:manifest)
+        def download(command,*args):
+            Path(command[-1]).write_bytes(raw if not corrupt else raw[:-1]+bytes([raw[-1]^1]))
+        monkeypatch.setattr(backend,'download_read',download)
+        def cleanup_timeout(command,*args):
+            if command[1]=='exec':raise TimeoutError('optional export cleanup deadline')
+            return ''
+        monkeypatch.setattr(backend,'stream_command',cleanup_timeout)
+        config=workspace/'config.json';config.write_text(json.dumps({'workspace':str(workspace),'session':'test-no-remote','pin':pin,
+                 'jobs':[str(job_path)],'artifacts':str(artifacts),'ledger':str(ledger_path)}))
+        if corrupt:
+            with pytest.raises(RuntimeError):backend.coordinator(config)
+&gt;       else:backend.coordinator(config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_cleanup_deferral.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+config_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-324/test_real_native_validation_pr0/controller/config.json')
+
+    def coordinator(config_path):
+        from .epoch_registry import EpochExperimentRegistry
+        config=parse_unique_json(Path(config_path).read_bytes());root=Path(config['workspace']);session=config['session'];pin=config['pin'];outcomes=[]
+        ledger=EpochExperimentRegistry(config['ledger'],pin)
+        for i,job_path in enumerate(config['jobs']):
+            envelope=parse_unique_json(Path(job_path).read_bytes());job=verify(envelope,pin);validate_job(job);digest=sha(job);name=f'run-{i:02d}-{digest[7:19]}';out=Path(config['artifacts'])/name
+            # Jobs are anchored/reserved before session provisioning. Start exactly once.
+            ledger.start(digest);completed=False
+            try:
+                if job['dependency_lock_sha256']!=hashlib.sha256((root/'gpu-lock.txt').read_bytes()).hexdigest():raise ValueError('admitted lock substitution')
+                print(json.dumps({'monitor':'campaign_progress','completed_runs':i,'total_runs':len(config['jobs']),'seed':job['seed'],'mode':job['model_spec']['model_repository']+' / '+job['model_spec']['adapter_type']+' / '+job['training_policy']['sampler']}),flush=True)
+                stream_command(['colab','upload','-s',session,job_path,'/content/saal_pretrained_job.json'],root/(name+'-upload.log'),60)
+                remote='/content/'+name
+                script=root/(name+'-run.py')
+                generated_script=("import subprocess,os,zipfile,json,hashlib\nfrom pathlib import Path\nenv=dict(os.environ,SAAL_HASH_LOCK_ENFORCED='1')\n"+
+                    'command='+repr(['/content/saal-pretrained-env/bin/python','-I','/content/saal-pretrained/worker.py','--job','/content/saal_pretrained_job.json','--public-key',pin,'--out',remote,'--cache','/content/saal-model-cache'])+'\n'+
+                    "proc=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,env=env)\nfor line in iter(proc.stdout.readline,b''):print(line.decode(errors='replace'),end='',flush=True)\nrc=proc.wait()\nif rc:\n print(json.dumps({'monitor':'worker_failure','stage':'training','returncode':rc}),flush=True)\n raise RuntimeError('training child failed')\n"+
+                    "replay=subprocess.Popen(command+['--replay'],stdout=subprocess.PIPE,stderr=subprocess.STDOUT,env=env)\nfor line in iter(replay.stdout.readline,b''):print(line.decode(errors='replace'),end='',flush=True)\nrc=replay.wait()\nif rc:\n print(json.dumps({'monitor':'worker_failure','stage':'replay','returncode':rc}),flush=True)\n raise RuntimeError('fresh-process replay failed')\n"+
+                    f"with zipfile.ZipFile({remote+'.zip'!r},'x',compression=zipfile.ZIP_DEFLATED,compresslevel=1) as z:\n for n in {sorted(FILES)!r}:z.write(Path({remote!r})/n,n)\n"+
+                    f"transfer=Path({remote+'-transfer'!r});transfer.mkdir()\nchunks=[];total=0;whole=hashlib.sha256()\nwith Path({remote+'.zip'!r}).open('rb') as source:\n i=0\n while b:=source.read({CHUNK_BYTES}):\n  name=f'part-{{i:03d}}.bin';(transfer/name).write_bytes(b);chunks.append({{'name':name,'size':len(b),'sha256':hashlib.sha256(b).hexdigest()}});whole.update(b);total+=len(b);i+=1\n(transfer/'manifest.json').write_text(json.dumps({{'schema':'saal-artifact-transfer-v1','job_digest':{digest!r},'size':total,'sha256':whole.hexdigest(),'chunks':chunks}}))\n")
+                generated_script+='\nprint(json.dumps({"monitor":"artifact_transfer_ready","manifest":json.loads((transfer/"manifest.json").read_text())}),flush=True)\n'
+                guarded="import json,traceback,shutil\ntry:\n"+'\n'.join(' '+line for line in generated_script.splitlines())+"\nexcept BaseException as exc:\n print(json.dumps({'monitor':'worker_failure','stage':'export_or_child','error_type':type(exc).__name__,'detail':str(exc)}),flush=True)\n traceback.print_exc()\n raise\n"
+                script.write_text(guarded)
+                manifest=run_remote_stage(['colab','exec','-s',session,'-f',str(script),'--timeout',str(job['max_seconds']+300)],root/(name+'-training.log'),job['max_seconds']+330)
+                transfer=root/(name+'-transfer');transfer.mkdir();deadline=time.monotonic()+TRANSFER_SECONDS
+                write_json(transfer/'manifest.json',manifest)
+                if manifest['job_digest']!=digest:raise ValueError('cross-job transfer manifest')
+                archive=root/(name+'.zip');sink=StreamingArchive(archive,manifest)
+                try:
+                    for k,chunk in enumerate(manifest['chunks']):
+                        download_read(['colab','download','-s',session,remote+'-transfer/'+chunk['name'],str(transfer/chunk['name'])],root/(name+f'-chunk-{k:03d}.log'),deadline,chunk)
+                        sink.append(transfer/chunk['name'],k)
+                        (transfer/chunk['name']).unlink() # only validated task-owned redundant bytes
+                        print(json.dumps({'monitor':'artifact_transfer_progress','chunk':k+1,'total_chunks':len(manifest['chunks']),'verified_bytes':sink.written}),flush=True)
+                    sink.finish()
+                finally:
+                    sink.close()
+                unpack_result(archive,out);result=validate_bundle(out,job,pin)
+                archive.unlink() # validated bundle and manifest/receipts are retained
+                cleanup_script=root/(name+'-remote-cleanup.py')
+                cleanup_script.write_text('import shutil\nfrom pathlib import Path\n'+f'shutil.rmtree({remote!r})\nshutil.rmtree({remote+"-transfer"!r})\nPath({remote+".zip"!r}).unlink()\n')
+                artifact_cleanup=cleanup_export(['colab','exec','-s',session,'-f',str(cleanup_script),'--timeout','30'],root/(name+'-remote-cleanup.log'),40)
+                completed=True
+                outcome={'run':name,'job_digest':digest,'model_repository':job['model_spec']['model_repository'],'mode':job['model_spec']['model_repository']+' / '+job['model_spec']['adapter_type'],'seed':job['seed'],'state':'COMPLETED','artifacts':str(out),'result_digest':sha(result),'fresh_process_replay':True,'artifact_cleanup':artifact_cleanup,'result':result}
+            except BaseException as exc:
+                outcome={'run':name,'job_digest':digest,'model_repository':job['model_spec']['model_repository'],'mode':job['model_spec']['model_repository']+' / '+job['model_spec']['adapter_type'],'seed':job['seed'],'state':'INTERRUPTED','error':{'type':type(exc).__name__,'detail':str(exc)}}
+                # Record a failed trial; never automatically rerun or change its config.
+            finally:
+                ledger.finish(digest,outcome,completed);outcomes.append(outcome);write_json(root/'outcomes.json',{'runs':outcomes});write_json(root/'registry-export.json',ledger.records())
+            if not completed:break
+        ledger.close()
+        print(json.dumps({'monitor':'campaign_progress','completed_runs':sum(o['state']=='COMPLETED' for o in outcomes),'total_runs':len(config['jobs']),'seed':None,'mode':'TERMINAL'}),flush=True)
+&gt;       if len(outcomes)!=len(config['jobs']) or any(o['state']!='COMPLETED' for o in outcomes):raise RuntimeError('campaign interrupted; inspect durable negative outcome')
+                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: campaign interrupted; inspect durable negative outcome
+
+src/saal_rsi/epoch_backend_v4.py:219: RuntimeError</failure></testcase><testcase classname="research.behavior-closure-v4.tests.test_cleanup_deferral" name="test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts[True]" time="1.556" /></testsuite></testsuites>

@@ -1,0 +1,28 @@
+{
+  "schema": "saal-colab-monitor-v2",
+  "session": "saal-778f711ac73b419d9038",
+  "phase": "COMPLETED",
+  "job_digest": "sha256:c4af9e2046753c725f8ba438d3fb0ec2392d8077a829cdfb0af5454e520eef4b",
+  "deadline_epoch": 1791844671.994462,
+  "heartbeat_epoch": 1791840355.089838,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 1000,
+  "total_steps": 1000,
+  "external_deployment_allowed": false,
+  "elapsed_seconds": 683.090662459028,
+  "watchdog_pid": 19867,
+  "active_command": null,
+  "last_remote_event": {
+    "monitor": "campaign_progress",
+    "completed_runs": 1,
+    "total_runs": 1,
+    "seed": null,
+    "mode": "TERMINAL"
+  },
+  "completed_runs": 1,
+  "total_runs": 1,
+  "current_seed": null,
+  "current_mode": "TERMINAL",
+  "latest_objective_loss": 1.031855583190918
+}

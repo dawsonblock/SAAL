@@ -1,0 +1,10 @@
+{
+  "workspace": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/legacy-head/colab",
+  "session": "saal-778f711ac73b419d9038",
+  "pin": "ccc792a3f49c372eaa3c66a9089e02e4350e19e63f4e677768561298caf32fc2",
+  "jobs": [
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/legacy-head/colab/job-00.json"
+  ],
+  "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/legacy-head/artifacts",
+  "ledger": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/legacy-head/budget.sqlite3"
+}

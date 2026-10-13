@@ -1,0 +1,6 @@
+{"at_utc": "2026-10-13T02:48:52.349520+00:00", "kind": "command_started", "phase": "PROVISIONING"}
+{"at_utc": "2026-10-13T02:48:57.031293+00:00", "kind": "command_finished", "phase": "PROVISIONING"}
+{"at_utc": "2026-10-13T02:48:57.031879+00:00", "kind": "command_started", "phase": "UPLOAD_INPUTS"}
+{"at_utc": "2026-10-13T02:48:58.320858+00:00", "kind": "run_failed", "error": {"type": "RuntimeError", "detail": "Colab upload failed (1): [colab] Upload failed: 500 Server Error: Internal Server Error for url: https://8080-m-s-kkb-use1b1-3pvj1acvqx9is-b.us-east1-1.prod.colab.dev/api/contents/content/saal-qa-inputs.zip?authuser=0&colab-runtime-proxy-token=[REDACTED]\n"}}
+{"at_utc": "2026-10-13T02:48:58.321849+00:00", "kind": "cleanup_started"}
+{"at_utc": "2026-10-13T02:48:59.993833+00:00", "kind": "cleanup_confirmed"}

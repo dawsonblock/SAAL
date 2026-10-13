@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/colab_tests_v5.py", line 110, in <module>
+    if __name__=='__main__':run(sys.argv[1] if len(sys.argv)>1 else 'colab-tests-05')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/colab_tests_v5.py", line 60, in run
+    subprocess.run([sys.executable,'-m','pytest',tests,'-q','--junitxml='+str(out/('local-'+name+'.xml'))],cwd=extracted,env=dict(os.environ,PYTHONPATH=paths),stdout=log,stderr=subprocess.STDOUT,timeout=900,check=True)
+  File "/Users/dawsonblock/.pyenv/versions/3.12.0/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/private/tmp/saal094-env/bin/python', '-m', 'pytest', 'research/behavior-closure-v4/tests', '-q', '--junitxml=/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/colab-tests-05/local-project.xml']' returned non-zero exit status 1.

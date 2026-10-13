@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/colab_tests_v4.py", line 8, in <module>
+    from saal_rsi.model_monitor import execute_colab_plan
+ModuleNotFoundError: No module named 'saal_rsi'

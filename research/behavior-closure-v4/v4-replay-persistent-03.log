@@ -1,0 +1,264 @@
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 15336.49it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.bias   | MISSING    | 
+classifier.weight | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-02-f1b6a737d10f", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 6.139278411865234e-06}
+{"run": "run-02-f1b6a737d10f", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 6.556510925292969e-06}
+{"run": "run-02-f1b6a737d10f", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 1.3828277587890625e-05}
+{"run": "run-02-f1b6a737d10f", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 2.0682811737060547e-05}
+{"run": "run-02-f1b6a737d10f", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 3.230571746826172e-05}
+{"run": "run-02-f1b6a737d10f", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 4.273653030395508e-05}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+{"waiting_for_native_runs": true, "completed_replay_records": 8}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 16007.45it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.bias   | MISSING    | 
+classifier.weight | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-00-c69099cf9688", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 6.139278411865234e-06}
+{"run": "run-00-c69099cf9688", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 6.556510925292969e-06}
+{"run": "run-00-c69099cf9688", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 1.6629695892333984e-05}
+{"run": "run-00-c69099cf9688", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 4.297494888305664e-05}
+{"run": "run-00-c69099cf9688", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 1.6629695892333984e-05}
+{"run": "run-00-c69099cf9688", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 4.297494888305664e-05}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+{"waiting_for_native_runs": true, "completed_replay_records": 9}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 15428.16it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.bias   | MISSING    | 
+classifier.weight | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-01-b74e6b14c67a", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 5.066394805908203e-06}
+{"run": "run-01-b74e6b14c67a", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 7.0035457611083984e-06}
+{"run": "run-01-b74e6b14c67a", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 9.28640365600586e-05}
+{"run": "run-01-b74e6b14c67a", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 3.731250762939453e-05}
+{"run": "run-01-b74e6b14c67a", "checkpoint": "terminal", "split": "development", "agreement": false, "max_probability_difference": 0.00010141730308532715}
+{"run": "run-01-b74e6b14c67a", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 2.4527311325073242e-05}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+{"waiting_for_native_runs": true, "completed_replay_records": 10}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 13371.43it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.bias   | MISSING    | 
+classifier.weight | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-02-1ead0e5752ba", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 5.066394805908203e-06}
+{"run": "run-02-1ead0e5752ba", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 7.0035457611083984e-06}
+{"run": "run-02-1ead0e5752ba", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 1.5437602996826172e-05}
+{"run": "run-02-1ead0e5752ba", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 1.4960765838623047e-05}
+{"run": "run-02-1ead0e5752ba", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 1.913309097290039e-05}
+{"run": "run-02-1ead0e5752ba", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 2.1338462829589844e-05}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+{"waiting_for_native_runs": true, "completed_replay_records": 11}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 15377.83it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.bias   | MISSING    | 
+classifier.weight | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-00-7f4563c3d645", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 6.079673767089844e-06}
+{"run": "run-00-7f4563c3d645", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 3.844499588012695e-06}
+{"run": "run-00-7f4563c3d645", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 1.4901161193847656e-05}
+{"run": "run-00-7f4563c3d645", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 1.806020736694336e-05}
+{"run": "run-00-7f4563c3d645", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 1.4901161193847656e-05}
+{"run": "run-00-7f4563c3d645", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 1.806020736694336e-05}
+{"completed_replay_records": 12, "completed_native_runs_seen": 12}

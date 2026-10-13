@@ -1,0 +1,13 @@
+{
+  "schema": "saal-artifact-transfer-v1",
+  "job_digest": "sha256:fdbdfcb6e2cecda1d582a4d6771ace0943c1ace893c302b027644dc5591a0ba8",
+  "size": 8250177,
+  "sha256": "90d16711879718b192603837841d576ae7026a037993840ad1c35292bd131c93",
+  "chunks": [
+    {
+      "name": "part-000.bin",
+      "size": 8250177,
+      "sha256": "90d16711879718b192603837841d576ae7026a037993840ad1c35292bd131c93"
+    }
+  ]
+}

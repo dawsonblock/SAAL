@@ -1,0 +1,9 @@
+{
+  "missing_required_fixtures": [],
+  "post_qa_changed_files": [
+    "research/behavior-closure-v4/package_capsule.py",
+    "research/behavior-closure-v4/tests/test_capsule_integrity.py",
+    ".gitattributes"
+  ],
+  "reason": "Publication-only fixture coverage and its local signing/tamper test fixture. Learning, evaluator, transport and other test code unchanged from successful QA07. Storage-only LFS attributes added for large evidence ledgers/exports; source bytes and learning jobs unchanged."
+}

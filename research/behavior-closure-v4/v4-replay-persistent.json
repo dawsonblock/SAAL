@@ -1,0 +1,11 @@
+{
+  "pid": 22713,
+  "command": [
+    "research/behavior-closure-v4/replay_v4.py",
+    "/Users/dawsonblock/Downloads/SAAL-RSI-model-cache"
+  ],
+  "started_epoch": 1791854180.9498382,
+  "persistent_controller": true,
+  "automatic_retries": false,
+  "qualification_status": "NOT_EVALUATED"
+}

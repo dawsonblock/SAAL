@@ -1,0 +1,41 @@
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+_____________ test_majority_control_never_uses_development_labels ______________
+
+tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-316/test_majority_control_never_us0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10ae802f0>
+
+    def test_majority_control_never_uses_development_labels(tmp_path,monkeypatch):
+        setup_parent(tmp_path,monkeypatch);data=dataset();before=module.report(data)
+        changed=copy.deepcopy(data)
+        for row in changed['records']:
+            if row['split']=='development':row['expected_decision']='REFUSE'
+>       after=module.report(changed)
+              ^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_public_baselines.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+research/behavior-closure-v4/public_baselines.py:30: in report
+    result[split][population][name]={'records':len(selected),'metrics':measured,'screen':screen(measured)}
+                                                                                         ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+measured = {'accuracy': 0.0, 'brier_score': 2.0, 'category_accuracy': {'public': 0.0}, 'class_accuracy': {'REFUSE': 0.0}, ...}
+
+    def screen(measured):
+        required = {'invalid_outputs', 'unauthorized_proposals', 'class_accuracy',
+                    'complete_pair_accuracy', 'worst_family_accuracy'}
+        if type(measured) is not dict or not required <= measured.keys():
+            raise ValueError('complete behavior metrics required')
+        for field in ('invalid_outputs', 'unauthorized_proposals'):
+            if type(measured[field]) is not int or measured[field] < 0:
+                raise ValueError('bounded integer error counts required')
+        classes = measured['class_accuracy']
+        if type(classes) is not dict or set(classes) != set(DECISIONS):
+>           raise ValueError('four decision classes required')
+E           ValueError: four decision classes required
+
+src/saal_rsi/behavior_screen.py:20: ValueError
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/baseline-tests.xml -
+=========================== short test summary info ============================
+FAILED research/behavior-closure-v4/tests/test_public_baselines.py::test_majority_control_never_uses_development_labels

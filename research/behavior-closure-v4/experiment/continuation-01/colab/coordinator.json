@@ -1,0 +1,16 @@
+{
+  "workspace": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-01/colab",
+  "session": "saal-5bafe26641e941d5803b",
+  "pin": "ccc792a3f49c372eaa3c66a9089e02e4350e19e63f4e677768561298caf32fc2",
+  "jobs": [
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-01/colab/job-00.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-01/colab/job-01.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-01/colab/job-02.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-01/colab/job-03.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-01/colab/job-04.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-01/colab/job-05.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-01/colab/job-06.json"
+  ],
+  "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/artifacts",
+  "ledger": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-01/additional-budget.sqlite3"
+}

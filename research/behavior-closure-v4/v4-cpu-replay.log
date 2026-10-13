@@ -1,0 +1,85 @@
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 14279.91it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-00-fdbdfcb6e2ce", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 6.079673767089844e-06}
+{"run": "run-00-fdbdfcb6e2ce", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 3.844499588012695e-06}
+{"run": "run-00-fdbdfcb6e2ce", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 7.867813110351562e-06}
+{"run": "run-00-fdbdfcb6e2ce", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 8.970499038696289e-06}
+{"run": "run-00-fdbdfcb6e2ce", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 5.395710468292236e-05}
+{"run": "run-00-fdbdfcb6e2ce", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 2.6404857635498047e-05}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 10164.39it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-00-610c87b9e1e4", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 6.079673767089844e-06}
+{"run": "run-00-610c87b9e1e4", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 3.844499588012695e-06}
+{"run": "run-00-610c87b9e1e4", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 6.341934204101562e-05}
+{"run": "run-00-610c87b9e1e4", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 4.655122756958008e-05}
+{"run": "run-00-610c87b9e1e4", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 8.678436279296875e-05}
+{"run": "run-00-610c87b9e1e4", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 3.445148468017578e-05}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 9595.53it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-01-28ef0d1ebbfd", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 6.079673767089844e-06}
+{"run": "run-01-28ef0d1ebbfd", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 3.844499588012695e-06}
+{"run": "run-01-28ef0d1ebbfd", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 2.5510787963867188e-05}
+{"run": "run-01-28ef0d1ebbfd", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 1.958012580871582e-05}
+{"run": "run-01-28ef0d1ebbfd", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 2.5510787963867188e-05}
+{"run": "run-01-28ef0d1ebbfd", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 1.958012580871582e-05}
+{"waiting_for_native_runs": true, "completed_replay_records": 3}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 9961.15it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"run": "run-02-c553fcf68a09", "checkpoint": "initial", "split": "development", "agreement": true, "max_probability_difference": 4.947185516357422e-06}
+{"run": "run-02-c553fcf68a09", "checkpoint": "initial", "split": "regression", "agreement": true, "max_probability_difference": 5.245208740234375e-06}
+{"run": "run-02-c553fcf68a09", "checkpoint": "best", "split": "development", "agreement": true, "max_probability_difference": 4.947185516357422e-06}
+{"run": "run-02-c553fcf68a09", "checkpoint": "best", "split": "regression", "agreement": true, "max_probability_difference": 5.245208740234375e-06}
+{"run": "run-02-c553fcf68a09", "checkpoint": "terminal", "split": "development", "agreement": true, "max_probability_difference": 6.097555160522461e-05}
+{"run": "run-02-c553fcf68a09", "checkpoint": "terminal", "split": "regression", "agreement": true, "max_probability_difference": 4.850327968597412e-05}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}
+{"waiting_for_native_runs": true, "completed_replay_records": 4}

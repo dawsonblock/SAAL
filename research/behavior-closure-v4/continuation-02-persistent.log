@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/continue_after_recovery.py", line 78, in <module>
+    elif sys.argv[1]=='run':run()
+                            ^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/continue_after_recovery.py", line 66, in run
+    execute_campaign(destination/'colab',jobs,pin,root/'artifacts',destination/'additional-budget.sqlite3',max_seconds=admission['deadline_seconds'])
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/epoch_backend_v4.py", line 235, in execute_campaign
+    return execute_colab_plan(plan,root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor.py", line 101, in execute_colab_plan
+    stream_command(command,workspace/(str(number)+'-'+phase.lower()+'.log'),deadline-time.time(),lambda r:event('remote_monitor',**r))
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor.py", line 55, in stream_command
+    if rc:raise RuntimeError(f'Colab {command[1]} failed ({rc}): '+redact_monitor_text(tail.decode(errors='replace'))[-1200:])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Colab -I failed (1): nks": [{"name": "part-000.bin", "size": 8613661, "sha256": "0f75d27309a69d57a57a0b3c00da60fe7950f40e135c78a6d19c1873923700cc"}]}}
+{"monitor": "artifact_transfer_progress", "chunk": 1, "total_chunks": 1, "verified_bytes": 8613661}
+{"monitor": "campaign_progress", "completed_runs": 2, "total_runs": 6, "seed": null, "mode": "TERMINAL"}
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-02/colab/coordinator.py", line 4, in <module>
+    coordinator('/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-02/colab/coordinator.json')
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/epoch_backend_v4.py", line 219, in coordinator
+    if len(outcomes)!=len(config['jobs']) or any(o['state']!='COMPLETED' for o in outcomes):raise RuntimeError('campaign interrupted; inspect durable negative outcome')
+                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: campaign interrupted; inspect durable negative outcome
+

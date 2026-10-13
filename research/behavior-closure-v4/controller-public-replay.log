@@ -1,0 +1,13 @@
+Actual frozen public admission: False
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/pretrained_inference.py", line 67, in replay_public
+    restored = infer_bundle(root, frozen['snapshot'], rows, cache, pin)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/pretrained_inference.py", line 40, in infer_bundle
+    prediction = parse_unique_json(out.read_bytes())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/spec.py", line 65, in parse_unique_json
+    if not isinstance(result,dict): raise ValueError('expected JSON object')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: expected JSON object

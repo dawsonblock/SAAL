@@ -1,0 +1,20 @@
+{
+  "schema": "saal-colab-monitor-v2",
+  "session": "saal-48bd138744654c47983a",
+  "phase": "FAILED",
+  "job_digest": "sha256:fb9f32ac7181ae0e0d2e16a6fc8480255978228a1430c78594fde280351830b2",
+  "deadline_epoch": 1791863332.347508,
+  "heartbeat_epoch": 1791859739.994509,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 0,
+  "total_steps": 0,
+  "external_deployment_allowed": false,
+  "elapsed_seconds": 7.646966834086925,
+  "watchdog_pid": 57098,
+  "active_command": null,
+  "error": {
+    "type": "RuntimeError",
+    "detail": "Colab upload failed (1): [colab] Upload failed: 500 Server Error: Internal Server Error for url: https://8080-m-s-kkb-use1b1-3pvj1acvqx9is-b.us-east1-1.prod.colab.dev/api/contents/content/saal-qa-inputs.zip?authuser=0&colab-runtime-proxy-token=[REDACTED]\n"
+  }
+}

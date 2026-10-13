@@ -1,0 +1,80 @@
+..................FF..............                                       [100%]
+=================================== FAILURES ===================================
+_ test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts[False] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x109305820>
+tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-335/test_real_native_validation_pr0')
+corrupt = False
+
+    @pytest.mark.parametrize('corrupt',[False,True])
+    def test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts(monkeypatch,tmp_path,corrupt):
+        repo=Path(__file__).resolve().parents[3]
+        project=repo/'research/reliable-learning-v3'
+        source=project/'experiment/artifacts/run-01-c6ae464acc2c'
+>       pin=(project/'experiment/controller.pub').read_text().strip()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_cleanup_deferral.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/dawsonblock/.pyenv/versions/3.12.0/lib/python3.12/pathlib.py:1028: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-qa-preflight-hdt5nldh/research/reliable-learning-v3/experiment/controller.pub')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-qa-preflight-hdt5nldh/research/reliable-learning-v3/experiment/controller.pub'
+
+/Users/dawsonblock/.pyenv/versions/3.12.0/lib/python3.12/pathlib.py:1014: FileNotFoundError
+_ test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts[True] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1093071a0>
+tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-335/test_real_native_validation_pr1')
+corrupt = True
+
+    @pytest.mark.parametrize('corrupt',[False,True])
+    def test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts(monkeypatch,tmp_path,corrupt):
+        repo=Path(__file__).resolve().parents[3]
+        project=repo/'research/reliable-learning-v3'
+        source=project/'experiment/artifacts/run-01-c6ae464acc2c'
+>       pin=(project/'experiment/controller.pub').read_text().strip()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_cleanup_deferral.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/dawsonblock/.pyenv/versions/3.12.0/lib/python3.12/pathlib.py:1028: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-qa-preflight-hdt5nldh/research/reliable-learning-v3/experiment/controller.pub')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-qa-preflight-hdt5nldh/research/reliable-learning-v3/experiment/controller.pub'
+
+/Users/dawsonblock/.pyenv/versions/3.12.0/lib/python3.12/pathlib.py:1014: FileNotFoundError
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/colab-tests-05/local-project.xml -
+=========================== short test summary info ============================
+FAILED research/behavior-closure-v4/tests/test_cleanup_deferral.py::test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts[False]
+FAILED research/behavior-closure-v4/tests/test_cleanup_deferral.py::test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts[True]

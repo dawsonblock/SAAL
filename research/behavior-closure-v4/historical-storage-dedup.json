@@ -1,0 +1,62 @@
+{
+  "files": [
+    {
+      "path": "provenance/SAAL-RSI-v0.9.3-Full-Corrected-Upgraded.zip",
+      "sha256": "f7caef0b975dc4980e597e5e1a871b1f9373e01a1f2fed5c9763bee553c90ce3",
+      "bytes": 75272894,
+      "previous_links": 1,
+      "immutable_historical_bytes_preserved": true
+    },
+    {
+      "path": "provenance/SAAL-RSI-v0.9.4-Full-Pretrained-Learning-Upgrade.zip",
+      "sha256": "db37852d0f30ab500a3bda8cd5adaf2a0b4830e9da11e7a2bd4da5f3a79e2fdc",
+      "bytes": 445235220,
+      "previous_links": 1,
+      "immutable_historical_bytes_preserved": true
+    },
+    {
+      "path": "research/diverse-learning-v1/experiment/artifacts/run-04-4f133755fa72/best.safetensors",
+      "sha256": "a5f776d8d45363a0950685217424dab5fca4be63e980cdf6d950dbeaedf9fc9b",
+      "bytes": 598445904,
+      "previous_links": 2,
+      "immutable_historical_bytes_preserved": true
+    },
+    {
+      "path": "research/diverse-learning-v1/experiment/artifacts/run-04-4f133755fa72/initial.safetensors",
+      "sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "bytes": 598445904,
+      "previous_links": 2,
+      "immutable_historical_bytes_preserved": true
+    },
+    {
+      "path": "research/diverse-learning-v1/experiment/artifacts/run-04-4f133755fa72/terminal.safetensors",
+      "sha256": "a5f776d8d45363a0950685217424dab5fca4be63e980cdf6d950dbeaedf9fc9b",
+      "bytes": 598445904,
+      "previous_links": 2,
+      "immutable_historical_bytes_preserved": true
+    },
+    {
+      "path": "research/learning-reliability-v2/experiment/artifacts/run-00-ebb3f6a34e87/best.safetensors",
+      "sha256": "0bd5577723091a6f9d3f6569a2e6746b2a4576045198507d9fff76bade807956",
+      "bytes": 598445904,
+      "previous_links": 1,
+      "immutable_historical_bytes_preserved": true
+    },
+    {
+      "path": "research/learning-reliability-v2/experiment/artifacts/run-00-ebb3f6a34e87/initial.safetensors",
+      "sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "bytes": 598445904,
+      "previous_links": 1,
+      "immutable_historical_bytes_preserved": true
+    },
+    {
+      "path": "research/learning-reliability-v2/experiment/artifacts/run-00-ebb3f6a34e87/terminal.safetensors",
+      "sha256": "f87e9b3a0410123c64804e988931ad9a1ef47c65e750bcbe2cf6be5ad75c11fa",
+      "bytes": 598445904,
+      "previous_links": 1,
+      "immutable_historical_bytes_preserved": true
+    }
+  ],
+  "scope": "Immutable historical LFS payloads only; no current producer or SQLite ledger changed. Linked bytes must remain immutable.",
+  "bytes_reclaimed_from_single_links": 2315845826
+}

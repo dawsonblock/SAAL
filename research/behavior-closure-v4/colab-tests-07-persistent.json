@@ -1,0 +1,7 @@
+{
+  "pid": 62539,
+  "started_epoch": 1791862264.964192,
+  "chunk_upload": "SHA256 and exact size per chunk; whole archive SHA256 before tests",
+  "automatic_training_retries": 0,
+  "qualification_status": "NOT_EVALUATED"
+}

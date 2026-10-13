@@ -1,0 +1,32 @@
+{
+  "schema": "saal-colab-monitor-v2",
+  "session": "saal-fe0449cbba314323837f",
+  "phase": "FAILED",
+  "job_digest": "sha256:b599f0506c81ae1b92783680e8033627042e224806c1c8cf4ced4e1d5e735d2d",
+  "deadline_epoch": 1791880724.682554,
+  "heartbeat_epoch": 1791860001.712383,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 1000,
+  "total_steps": 1000,
+  "external_deployment_allowed": false,
+  "elapsed_seconds": 3277.0138069579843,
+  "watchdog_pid": 40609,
+  "active_command": null,
+  "last_remote_event": {
+    "monitor": "campaign_progress",
+    "completed_runs": 2,
+    "total_runs": 6,
+    "seed": null,
+    "mode": "TERMINAL"
+  },
+  "completed_runs": 2,
+  "total_runs": 6,
+  "current_seed": null,
+  "current_mode": "TERMINAL",
+  "latest_objective_loss": 0.960603803396225,
+  "error": {
+    "type": "RuntimeError",
+    "detail": "Colab -I failed (1): nks\": [{\"name\": \"part-000.bin\", \"size\": 8613661, \"sha256\": \"0f75d27309a69d57a57a0b3c00da60fe7950f40e135c78a6d19c1873923700cc\"}]}}\n{\"monitor\": \"artifact_transfer_progress\", \"chunk\": 1, \"total_chunks\": 1, \"verified_bytes\": 8613661}\n{\"monitor\": \"campaign_progress\", \"completed_runs\": 2, \"total_runs\": 6, \"seed\": null, \"mode\": \"TERMINAL\"}\nTraceback (most recent call last):\n  File \"/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-02/colab/coordinator.py\", line 4, in <module>\n    coordinator('/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/experiment/continuation-02/colab/coordinator.json')\n  File \"/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/epoch_backend_v4.py\", line 219, in coordinator\n    if len(outcomes)!=len(config['jobs']) or any(o['state']!='COMPLETED' for o in outcomes):raise RuntimeError('campaign interrupted; inspect durable negative outcome')\n                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: campaign interrupted; inspect durable negative outcome\n"
+  }
+}

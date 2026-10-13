@@ -1,0 +1,9 @@
+{
+  "schema": "saal-runtime-closure-v1",
+  "controller_and_replay_producers_terminated": true,
+  "server_inventory_sha256": "dec807c11992d9001acb723d969c49727402fe62c5e6cbd3899944bfdd03c140",
+  "server_inventory_message": "[colab] No active sessions found on server.",
+  "full_status_sha256": "8aa8b6170d264ffbc511a030f8fea49cbe559d4b40b1ab5f0f8bc86bfca9cf80",
+  "full_monitor_state_sha256": "51f29d83e1879608e747f01ca42d6e20fd23a91ad4cac54d32401eeedc337144",
+  "qualification_status": "NOT_EVALUATED"
+}

@@ -1,0 +1,11 @@
+{
+  "pid": 22712,
+  "command": [
+    "research/behavior-closure-v4/continue_registered.py",
+    "run"
+  ],
+  "started_epoch": 1791854180.947967,
+  "persistent_controller": true,
+  "automatic_retries": false,
+  "qualification_status": "NOT_EVALUATED"
+}

@@ -1,0 +1,52 @@
+{
+  "status": "degraded",
+  "reason": "All launched local reviewers reached terminal account-usage-limit errors; native Grok route rejected unsupported --json-schema before review. Remaining persona dispatches unavailable under the same account limit. No independent code-review conclusion is available.",
+  "verdict": "Not ready for independent-review claim",
+  "scope": {
+    "base": "a9991467e9dccc78e8a0644e95234ecfacb6da0f",
+    "branch": "research/behavior-closure-v4",
+    "head_sha": "27c60794ef678bb8212d0847b9f318a8171dbe49",
+    "pr_url": null,
+    "files_changed": 64
+  },
+  "intent": "Bounded public learning study and fail-closed pretrained evidence qualification, preserving historical jobs and authorities.",
+  "intent_confidence": "explicit",
+  "reviewers": [],
+  "findings": [],
+  "actionable_findings": [],
+  "triage_groups": [],
+  "pre_existing_findings": [],
+  "requirements_completeness": null,
+  "learnings": [],
+  "agent_native_gaps": [],
+  "deployment_notes": [],
+  "residual_risks": [
+    "Operationally independent human review, custody and evaluation are not supplied. Same-UID inference processes are not hostile-code sandboxes."
+  ],
+  "testing_gaps": [],
+  "coverage": {
+    "failed_reviewers": [
+      "correctness",
+      "security",
+      "testing"
+    ],
+    "unavailable_reviewers": [
+      "maintainability",
+      "performance",
+      "api-contract",
+      "reliability"
+    ],
+    "cross_model_route": "grok-cli",
+    "model_requested": "grok-4.6",
+    "effort_requested": "high",
+    "model_actual": "unverified",
+    "effort_actual": "unverified",
+    "independence_verified": false,
+    "cross_model_outcome": "CLI compatibility rejection; no usable output; terminal job consumed and deleted",
+    "validator_batch": "No valid findings to validate",
+    "settlement_suppression": "No discovered plan",
+    "code_review_is_not_human_dataset_review": true
+  },
+  "artifact_path": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/docs/reviews/behavior-closure-v4-20261012",
+  "run_id": "behavior-closure-v4-20261012"
+}

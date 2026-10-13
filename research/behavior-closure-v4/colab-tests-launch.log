@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/tools/colab_tests.py", line 103, in <module>
+    if __name__=='__main__':run(sys.argv[1] if len(sys.argv)>1 else 'colab-tests-03')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/reliable-learning-v3/tools/colab_tests.py", line 14, in run
+    if out_name not in ('colab-tests','colab-tests-02','colab-tests-03','colab-tests-04'):raise ValueError('closed QA attempt identity')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: closed QA attempt identity

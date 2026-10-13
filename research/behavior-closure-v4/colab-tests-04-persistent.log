@@ -1,0 +1,1 @@
+{"returncodes": {"core": 0, "corpus": 0, "reporting": 0, "project": 0}, "source_commit": "8d01586ef2d673fabc709dd11ca350290c62617f", "input_archive_sha256": "9672e70375c3a486c0f1dca2a424a8b95b12fe3bdce53c4fe3bf54a05e263800", "python": "3.13.16", "runtime": "Colab CPU; T4 neural training is tested separately", "hash_lock_enforced": true, "qualification_status": "NOT_EVALUATED"}

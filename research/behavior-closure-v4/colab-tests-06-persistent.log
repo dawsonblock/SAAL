@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/colab_tests_v6.py", line 110, in <module>
+    if __name__=='__main__':run(sys.argv[1] if len(sys.argv)>1 else 'colab-tests-06')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/colab_tests_v6.py", line 103, in run
+    (out/'plan.json').write_bytes(canonical(plan));state=execute_colab_plan(plan,out)
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor.py", line 101, in execute_colab_plan
+    stream_command(command,workspace/(str(number)+'-'+phase.lower()+'.log'),deadline-time.time(),lambda r:event('remote_monitor',**r))
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor.py", line 55, in stream_command
+    if rc:raise RuntimeError(f'Colab {command[1]} failed ({rc}): '+redact_monitor_text(tail.decode(errors='replace'))[-1200:])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Colab upload failed (1): [colab] Upload failed: 500 Server Error: Internal Server Error for url: https://8080-m-s-kkb-use1b1-3pvj1acvqx9is-b.us-east1-1.prod.colab.dev/api/contents/content/saal-qa-inputs.zip?authuser=0&colab-runtime-proxy-token=[REDACTED]
+

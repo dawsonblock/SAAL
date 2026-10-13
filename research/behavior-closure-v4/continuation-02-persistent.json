@@ -1,0 +1,9 @@
+{
+  "pid": 40155,
+  "started_epoch": 1791856711.395864,
+  "command": [
+    "research/behavior-closure-v4/continue_after_recovery.py",
+    "run"
+  ],
+  "automatic_training_retries": 0
+}

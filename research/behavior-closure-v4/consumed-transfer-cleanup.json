@@ -1,0 +1,84 @@
+{
+  "schema": "saal-consumed-transfer-cleanup-v1",
+  "files": [
+    {
+      "path": "research/behavior-closure-v4/colab-tests/test-inputs.zip",
+      "bytes": 76728045,
+      "sha256": "47cbc0612f3c15adccd4213d83f3fa65b441f579a93dfe20d1ddb389ce97951b",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/behavior-closure-v4/colab-tests-02/test-inputs.zip",
+      "bytes": 76728754,
+      "sha256": "b733827dd25a7e4dd58f4463acd18d4a8d364e2ba6f51dc345974915e0513d6e",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/behavior-closure-v4/colab-tests-03/test-inputs.zip",
+      "bytes": 76806788,
+      "sha256": "6344c3a18f393b0270f9e61426b54e6cb0ead4b318d9ed87dd592c36c425d416",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/behavior-closure-v4/colab-tests-04/test-inputs.zip",
+      "bytes": 76812104,
+      "sha256": "9672e70375c3a486c0f1dca2a424a8b95b12fe3bdce53c4fe3bf54a05e263800",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/behavior-closure-v4/colab-tests-06/test-inputs.zip",
+      "bytes": 88646727,
+      "sha256": "8959c47f41a8978e0e447adc854ad3059da22ce68a1e767f1e1c6ce723c74416",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/behavior-closure-v4/colab-tests-07/test-inputs.zip",
+      "bytes": 88671942,
+      "sha256": "7118a4b6b246b3ac82e88df461579970c40ad0fca019a5ffa8e906f9d7ddce5a",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/behavior-closure-v4/colab-tests-07/qa-input-part-000.bin",
+      "bytes": 32000000,
+      "sha256": "13b95adee71aeb334ef0d7bac50d70ee845e4cebb02ebf4e7a7231dfbbe7506d",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/behavior-closure-v4/colab-tests-07/qa-input-part-001.bin",
+      "bytes": 32000000,
+      "sha256": "3dc04f6f4341c278510997795f0ba72a5a5176baca0d503056996932868cc08d",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/behavior-closure-v4/colab-tests-07/qa-input-part-002.bin",
+      "bytes": 24671942,
+      "sha256": "8a60889da159bf40195831c24ae4453933e05c1ec62566cf2aed78e0531eac63",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/reliable-learning-v3/colab-tests/test-inputs.zip",
+      "bytes": 76155781,
+      "sha256": "371bbbb267857bf1f93ab241c5e932cef9801b2857def9ca92db619990b814cd",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/reliable-learning-v3/colab-tests-02/test-inputs.zip",
+      "bytes": 76222084,
+      "sha256": "6218d2754e9f82e29d326ab425fe1b09785cbaadba10cd235298628fd5b38864",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/reliable-learning-v3/colab-tests-03/test-inputs.zip",
+      "bytes": 76262094,
+      "sha256": "467e8a3f01b5923b101573076e73a676098a1f73c7ea03f6baafa5c204dbfe7d",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    },
+    {
+      "path": "research/reliable-learning-v3/colab-tests-04/test-inputs.zip",
+      "bytes": 76703192,
+      "sha256": "3d28867ca66c0d13faeda5d51fb1c281b2b6d1fe81170d4bf707d15beba30a3f",
+      "reason": "Completed task transfer duplicate; terminal cleanup verified; inventory and evidence retained."
+    }
+  ],
+  "bytes_freed": 878409453
+}

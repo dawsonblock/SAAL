@@ -1,0 +1,11 @@
+{
+  "pid": 24208,
+  "started_epoch": 1791854342.807839,
+  "requested_suites": [
+    "core",
+    "corpus",
+    "reporting",
+    "project"
+  ],
+  "qualification_status": "NOT_EVALUATED"
+}

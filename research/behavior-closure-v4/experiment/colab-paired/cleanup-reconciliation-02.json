@@ -1,0 +1,11 @@
+{
+  "terminal": "INTERRUPTED",
+  "session": "saal-b3cdbd0966604ddd8bb9",
+  "cleanup_verified": true,
+  "confirmation_sha256": "87cb51d09980cbf781ca6aa7850d9a91d76f6b4343a1f72db0e1accdb3ce5ddf",
+  "at_utc": "2026-10-13T01:16:02.505130+00:00",
+  "prior_monitor_state_sha256": "695097e4b232cbc1d82f85daae47124176d688e4963577e54dbf4445ad41e53d",
+  "original_state_preserved": true,
+  "reason": "Controller BrokenPipe interruption; original monitor heartbeat stalled. Provider now confirms exact session absent.",
+  "external_deployment_allowed": false
+}

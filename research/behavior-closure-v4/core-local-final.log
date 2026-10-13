@@ -1,0 +1,69 @@
+........................................................................ [ 11%]
+........................................................................ [ 22%]
+........................................................................ [ 34%]
+........................................................................ [ 45%]
+..........................................F............................. [ 57%]
+........................................................................ [ 68%]
+........................................................................ [ 79%]
+........................................................................ [ 91%]
+.......................................................                  [100%]
+=================================== FAILURES ===================================
+_____________ test_public_duplicate_and_source_overlap_are_denied ______________
+
+setup_protocol = ({'independent_population': False, 'origin': 'public-synthetic', 'records': [{'category': 'proxy', 'cluster_id': 'trai...owed': False, 'inventory_digest': 'sha256:a6064fc09d33f13ac629e7c040c1b724953602c5a6594244e5846f38229734cf', ...}, ...)
+
+    def test_public_duplicate_and_source_overlap_are_denied(setup_protocol):
+        public,private=setup_protocol[:2];changed=copy.deepcopy(private)
+        changed['records'][0]['prompt']=public['records'][0]['prompt']
+        changed['records'][0]['source_digest']=public['records'][0]['source_digest']
+>       audit=q.cross_population_audit(public,changed)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_pretrained_qualification_v6.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/pretrained_qualification.py:84: in cross_population_audit
+    validate_dataset(public, 'modernbert-seqcls-v1'); validate_manifest(holdout)
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/dataset_registry.py:81: in validate_manifest
+    if m!=manifest(m['records'],origin=m['origin'],sampling_description=m['sampling']['description']):raise ValueError('dataset manifest identity')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/dataset_registry.py:72: in manifest
+    validate_records(records)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+records = [{'category': 'ordinary', 'cluster_id': 'hc_0', 'expected_decision': 'CHEAP', 'label_rationale': 'Artificial fixture; ...expected_decision': 'REFUSE', 'label_rationale': 'Artificial fixture; no population or human review claim.', ...}, ...]
+
+    def validate_records(records):
+        if type(records)is not list or not 1<=len(records)<=2000:raise ValueError('v2 dataset size')
+        ids={};owners={};family_split={};normalized={}
+        for r in records:
+            if type(r)is not dict or set(r)!=FIELDS:raise ValueError('DatasetRecordV2 schema')
+            if any(not identifier(r[k]) for k in ('record_id','task_family_id','cluster_id','template_id','oracle_version')):raise ValueError('v2 record identity')
+            if r['record_id'] in ids:raise ValueError('duplicate record identity')
+            if type(r['prompt'])is not str or not 1<=len(r['prompt'].encode())<=1024:raise ValueError('v2 prompt bound')
+            if type(r['label_rationale'])is not str or not 1<=len(r['label_rationale'].encode())<=2048 or not digest(r['source_digest']):raise ValueError('v2 provenance/rationale')
+            if r['expected_decision'] not in LABELS[:4] or r['category'] not in CATEGORIES or r['split'] not in SPLITS:raise ValueError('v2 category/label/split')
+            if r['parent_record_id'] is not None and not identifier(r['parent_record_id']):raise ValueError('v2 parent identity')
+            family=r['task_family_id'];split=r['split'];ids[r['record_id']]=r
+            if family in family_split and family_split[family]!=split:raise ValueError('task-family split leakage')
+            family_split[family]=split
+            for k in ('cluster_id','template_id','source_digest'):
+                key=(k,r[k])
+                if key in owners and owners[key]!=family:raise ValueError('generator/provenance family leakage: '+k)
+                owners[key]=family
+            key=normalize(r['prompt'])
+            if key in normalized:raise ValueError('exact/normalized duplicate prompt')
+            normalized[key]=r['record_id']
+        for r in records:
+            seen={r['record_id']};node=r
+            while node['parent_record_id'] is not None:
+                parent=ids.get(node['parent_record_id'])
+                if parent is None:raise ValueError('missing lineage parent')
+>               if any(parent[k]!=r[k] for k in ('task_family_id','cluster_id','split','source_digest')):raise ValueError('counterfactual/augmentation lineage leakage')
+                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: counterfactual/augmentation lineage leakage
+
+src/saal_rsi/dataset_registry.py:65: ValueError
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-diverse-publish/research/behavior-closure-v4/core-local-final.xml -
+=========================== short test summary info ============================
+FAILED tests/integration/test_pretrained_qualification_v6.py::test_public_duplicate_and_source_overlap_are_denied

@@ -1,0 +1,6 @@
+{
+  "pid": 60758,
+  "started_epoch": 1791861663.985329,
+  "probability_tolerance": 0.0001,
+  "calibration_comparison": "versioned, at most eight binary64 ULPs; exact gating values"
+}

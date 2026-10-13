@@ -1,0 +1,35 @@
+{
+  "schema": "saal-colab-monitor-v2",
+  "session": "saal-b3cdbd0966604ddd8bb9",
+  "phase": "CAMPAIGN",
+  "job_digest": "sha256:90ec8c268097356256f66b025880224f79371216b1b51b86ca0a98148fe1ac1a",
+  "deadline_epoch": 1791880397.140353,
+  "heartbeat_epoch": 1791845845.353909,
+  "terminal": false,
+  "cleanup_verified": false,
+  "progress_step": 600,
+  "total_steps": 1000,
+  "external_deployment_allowed": false,
+  "elapsed_seconds": 4648.183801666019,
+  "watchdog_pid": 29166,
+  "active_command": "-I",
+  "last_remote_event": {
+    "monitor": "training_progress",
+    "completed_steps": 600,
+    "total_steps": 1000,
+    "objective_loss": 0.6144722998142242,
+    "gradient_norm": 5.404417991638184,
+    "optimizer_groups": {
+      "head": 0.0003,
+      "encoder": 0.0003
+    },
+    "tokens": 1290329,
+    "elapsed_seconds": 801.5695579929998,
+    "gpu_allocated_bytes": 701259776
+  },
+  "completed_runs": 3,
+  "total_runs": 10,
+  "current_seed": 83,
+  "current_mode": "answerdotai/ModernBERT-base / lora / complete-balanced-epochs-v1",
+  "latest_objective_loss": 0.6144722998142242
+}

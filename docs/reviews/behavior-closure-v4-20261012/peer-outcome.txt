@@ -1,0 +1,6 @@
+[cross-model] reachable cross-model candidates for adversarial: grok (host codex excluded; up to 1 successful peer(s))
+[cross-model] large diff routed through orchestrator review map: files=64 estimated_tokens=121238711
+[cross-model] peer run: provider=grok route=grok-cli model=grok-4.6 (effort high) lens=adversarial read-only in-tree (idle 480s / attempt hard 600s); reviewed code/diff may egress to this provider
+[cross-model] peer exited non-zero or timed out
+[cross-model] provider grok produced no usable schema-shaped output; skipping fold-in
+[cross-model]   peer skip evidence (stderr): error: unexpected argument '--json-schema' found  Usage: grok --prompt-file <PATH> --verbatim --model <MODEL> --effort <LEVEL> --cwd <CWD> --permission-mode <MODE> --allow <RULE> --deny <RULE> --disable-web-search --no-subagents --max-turns <N>  For more information, try '--help'.
