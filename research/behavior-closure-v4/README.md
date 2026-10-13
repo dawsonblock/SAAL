@@ -75,6 +75,12 @@ and runs in its own process session; monitoring and the named-session watchdog
 continue independently of the interactive tool connection. This is research
 process management, not hostile-code containment.
 
+Use `python research/behavior-closure-v4/monitor.py` from the repository root
+for current progress. It derives per-run counters from the preserved events
+using the already tested v3 parser, marks the reconciled interruption, and
+does not carry a previous model's final step into a new model's preparation.
+It is an observer, not an evaluation or deployment authority.
+
 `public_baselines.py` evaluates the unchanged historical first-keyword rule and
 a majority control chosen exclusively from training labels on the exact public
 population. Public research selection, final training and qualification remain
