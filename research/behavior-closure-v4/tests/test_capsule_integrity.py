@@ -20,6 +20,8 @@ def capsule(tmp_path,monkeypatch):
     root=tmp_path/'source';root.mkdir()
     project=root/'research/behavior-closure-v4';project.mkdir(parents=True)
     old=root/'research/reliable-learning-v3';old.mkdir()
+    diverse=root/'research/diverse-learning-v1/experiment';diverse.mkdir(parents=True)
+    (diverse/'signed_protocol.json').write_text('{}')
     (root/'src').mkdir();(root/'src/frozen.py').write_text('historical = True\n')
     frozen={'src/frozen.py':hashlib.sha256((root/'src/frozen.py').read_bytes()).hexdigest()}
     (old/'PREREGISTERED_FILES.json').write_text(json.dumps(frozen))

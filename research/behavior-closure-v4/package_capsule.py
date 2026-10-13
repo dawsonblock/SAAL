@@ -34,11 +34,15 @@ def package(destination,key_file,baseline):
     for name,h in json.loads((PROJECT/'colab-tests-02/input-inventory.json').read_text()).items():
         if digest(ROOT/name)!=h:raise ValueError('current QA source changed '+name)
         add(ROOT/name)
-    for folder in ('src','configs','docs','tests','reviewed-decision-corpus'):
+    for folder in ('src','configs','docs','tests','reviewed-decision-corpus',
+                   'research/diverse-learning-v1/src','research/diverse-learning-v1/tests',
+                   'research/diverse-learning-v1/tools','research/learning-reliability-v2/tools'):
         for p in (ROOT/folder).rglob('*'):
             if folder=='docs' and 'reviews' in p.parts and p.name not in ('review.json','metadata.json','peer-outcome.txt'):
                 continue
             if p.is_file():add(p)
+    for p in (ROOT/'research/diverse-learning-v1/experiment').glob('*-job.json'):add(p)
+    add(ROOT/'research/diverse-learning-v1/experiment/signed_protocol.json')
     for project in (ROOT/'research/reliable-learning-v3',PROJECT):
         for p in project.rglob('*'):
             if not p.is_file():continue
