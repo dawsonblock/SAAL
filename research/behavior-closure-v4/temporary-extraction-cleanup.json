@@ -1,0 +1,7 @@
+{
+  "schema": "saal-verified-temporary-extraction-cleanup-v1",
+  "removed_directory": "/private/tmp/saal-v4-clean-extraction-final",
+  "verification_sha256": "010236382ad81443e8f7c5833e4d418f6b5bb7b6972ca1c76cbeae61889eb024",
+  "archive_sha256": "79fde8e6e6179aaef5c613f5df9c4112be1eb839a8b8e74bf0463a429b422b0d",
+  "scope": "Only the completed temporary extraction. Delivery ZIP, original sources/models, LFS payloads, and all test/verification evidence retained."
+}
