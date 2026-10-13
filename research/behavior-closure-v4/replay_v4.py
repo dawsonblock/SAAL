@@ -51,6 +51,7 @@ def watch(cache):
             ('head',PROJECT/'legacy-head/colab',PROJECT/'legacy-head/artifacts',ROOT/'research/reliable-learning-v3/head-control/experiment/controller.pub'),
             ('paired',PROJECT/'experiment/colab-paired',PROJECT/'experiment/artifacts',PROJECT/'experiment/controller.pub'),
             ('continuation',PROJECT/'experiment/continuation-01/colab',PROJECT/'experiment/artifacts',PROJECT/'experiment/controller.pub'),
+            ('continuation02',PROJECT/'experiment/continuation-02/colab',PROJECT/'experiment/artifacts',PROJECT/'experiment/controller.pub'),
             ('full',PROJECT/'experiment/colab-full',PROJECT/'experiment/artifacts',PROJECT/'experiment/controller.pub')]:
             path=folder/'outcomes.json'
             if not path.exists():continue
@@ -59,6 +60,17 @@ def watch(cache):
                 count+=1;destination=output/(group+'-'+run['run']+'.json')
                 if destination.exists():continue
                 replay(artifacts/run['run'],pin_file.read_text().strip(),cache,destination)
+        receipt=PROJECT/'experiment/continuation-02/signed_native_recovery.json'
+        if receipt.exists():
+            pin=(PROJECT/'experiment/controller.pub').read_text().strip()
+            recovery=verify(json.loads(receipt.read_text()),pin)
+            relative=Path(recovery['bundle_relative'])
+            if relative.is_absolute() or '..' in relative.parts:raise ValueError('recovery path')
+            bundle=PROJECT/relative;job=verify(json.loads((bundle/'signed_training_job.json').read_text()),pin)
+            native=validate_bundle(bundle,job,pin)
+            if sha(job)!=recovery['job_digest'] or sha(native)!=recovery['result_digest'] or recovery['original_attempt_remains']!='INTERRUPTED':raise ValueError('recovered identity')
+            destination=output/('recovered-'+recovery['run']+'.json');count+=1
+            if not destination.exists():replay(bundle,pin,cache,destination)
         full_state=PROJECT/'experiment/colab-full/monitor-state.json'
         rejected=PROJECT/'experiment/full-storage-admission-rejected.json'
         if full_state.exists() and json.loads(full_state.read_text())['terminal'] or rejected.exists():

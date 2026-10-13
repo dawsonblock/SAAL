@@ -81,6 +81,17 @@ using the already tested v3 parser, marks the reconciled interruption, and
 does not carry a previous model's final step into a new model's preparation.
 It is an observer, not an evaluation or deployment authority.
 
+The first continuation trained and recovered seed 83's LoRA snapshots, then
+timed out while deleting optional remote export files. Its failed lifecycle
+and interrupted ledger entry remain preserved. After native validation and
+confirmed session termination, `continuation-02/signed_native_recovery.json`
+records those model bytes as recovered without retraining. A separately signed
+transport admission starts only the six remaining unstarted paired roles.
+`epoch_backend_v4.py` retains the streaming hash and native-bundle checks, but
+reports optional export cleanup failures explicitly and defers them to mandatory
+session teardown. Final runtime termination still must be confirmed; no failure
+there is converted into successful cleanup.
+
 `public_baselines.py` evaluates the unchanged historical first-keyword rule and
 a majority control chosen exclusively from training labels on the exact public
 population. Public research selection, final training and qualification remain
@@ -102,6 +113,12 @@ key is useful for consistency checking, not independent trust establishment.
 hardlinking identical, hash-verified tensors into a new directory to conserve
 disk. Linked bytes are shared; keep them immutable during verification/replay.
 The pinned upstream pretrained cache remains an explicitly separate prerequisite.
+
+The v5 QA runner adds the coordinator's real archived-model/corrupted-transfer
+tests and the earlier diversity/reliability suites as separate subprocesses.
+This prevents identically named historical reporting modules from shadowing one
+another. Its input inventory includes the tracked native fixture used by the
+transport test. Full-suite counts come from each actual XML report.
 
 ## Unmet external requirements
 

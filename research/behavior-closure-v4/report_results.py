@@ -56,12 +56,20 @@ def report():
     for group,folder in [('v3-head-control',PROJECT/'legacy-head/colab'),
                           ('v4-paired',PROJECT/'experiment/colab-paired'),
                           ('v4-paired-continuation',PROJECT/'experiment/continuation-01/colab'),
+                          ('v4-paired-continuation-02',PROJECT/'experiment/continuation-02/colab'),
                           ('v4-full',PROJECT/'experiment/colab-full')]:
         path=folder/'outcomes.json'
         if not path.exists():continue
         base=PROJECT/'legacy-head/artifacts' if group=='v3-head-control' else PROJECT/'experiment/artifacts'
         for run in json.loads(path.read_text())['runs']:
             if run['state']=='COMPLETED':runs.append(measure(base/run['run'],pin,group))
+    receipt=PROJECT/'experiment/continuation-02/signed_native_recovery.json'
+    if receipt.exists():
+        recovered=verify(json.loads(receipt.read_text()),pin)
+        bundle=PROJECT/recovered['bundle_relative']
+        measured=measure(bundle,pin,'v4-paired-recovered')
+        if measured['job_digest']!=recovered['job_digest'] or recovered['original_attempt_remains']!='INTERRUPTED':raise ValueError('recovery identity')
+        measured['transport_classification']=recovered['classification'];runs.append(measured)
     summaries={}
     for group in sorted({r['group'] for r in runs}):
         variants=sorted({(r['method'],r['sampler']) for r in runs if r['group']==group})
@@ -73,7 +81,7 @@ def report():
                 'mean_development_accuracy':statistics.mean(values),'standard_deviation':statistics.stdev(values) if len(values)>1 else None,
                 'inferential_population_claim':False}
     for method in ('head','lora'):
-        paired=[r for r in runs if r['group'] in ('v4-paired','v4-paired-continuation') and r['method']==method]
+        paired=[r for r in runs if r['group'] in ('v4-paired','v4-paired-continuation','v4-paired-continuation-02','v4-paired-recovered') and r['method']==method]
         if paired:
             if len({r['seed'] for r in paired})!=len(paired):raise ValueError('duplicate selected seed after continuation')
             values=[r['snapshots']['terminal']['splits']['development']['all']['metrics']['accuracy'] for r in paired]
