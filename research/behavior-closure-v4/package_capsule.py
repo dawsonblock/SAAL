@@ -53,8 +53,10 @@ def package(destination,key_file,baseline):
             payload='tensor_payloads/'+h+'.safetensors'
             aliases[name]={'sha256':h,'size':p.stat().st_size,'payload':payload};payloads[payload]=p;manifest[payload]=h
     results=json.loads((PROJECT/'RESULTS.json').read_text())
-    commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+    commit=subprocess.check_output(['git','rev-parse','refs/heads/research/behavior-closure-v4'],cwd=ROOT,text=True).strip()
+    evidence_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     layout={'schema':'saal-complete-physical-capsule-v4','source_commit':commit,
+        'evidence_commit':evidence_commit,
         'completed_models':len(results['runs']),'tensor_aliases':len(aliases),
         'complete_checkpoint_bytes_included':True,
         'restore_command':'python materialize_tensors.py .',
@@ -68,7 +70,7 @@ def package(destination,key_file,baseline):
     key=private_key(key_file)
     generated['DELIVERY_SIGNATURE.json']=canonical(sign({'schema':'saal-physical-delivery-v4',
         'manifest_sha256':hashlib.sha256(generated['MANIFEST.sha256']).hexdigest(),
-        'source_commit':commit,'qualification_status':'NOT_EVALUATED','external_deployment_allowed':False,
+        'source_commit':commit,'evidence_commit':evidence_commit,'qualification_status':'NOT_EVALUATED','external_deployment_allowed':False,
         'trust':'Controller attribution and integrity; not independent qualification.'},key))
     with zipfile.ZipFile(destination,'x',compression=zipfile.ZIP_DEFLATED,compresslevel=1,allowZip64=True) as z:
         for name,p in sorted(files.items()):

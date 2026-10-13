@@ -23,8 +23,9 @@ def setup_parent(tmp_path,monkeypatch):
 def test_majority_control_never_uses_development_labels(tmp_path,monkeypatch):
     setup_parent(tmp_path,monkeypatch);data=dataset();before=module.report(data)
     changed=copy.deepcopy(data)
+    rotated={'CHEAP':'FAST','FAST':'ASK','ASK':'REFUSE','REFUSE':'CHEAP'}
     for row in changed['records']:
-        if row['split']=='development':row['expected_decision']='REFUSE'
+        if row['split']=='development':row['expected_decision']=rotated[row['expected_decision']]
     after=module.report(changed)
     assert before['majority_label']==after['majority_label']=='CHEAP'
     assert not before['measurements']['development']['all']['training_majority']['screen']['passes_public_screen']

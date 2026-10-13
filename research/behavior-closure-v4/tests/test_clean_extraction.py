@@ -28,3 +28,20 @@ def test_substituted_archive_rejected_before_extraction(tmp_path):
     with zipfile.ZipFile(archive,'w') as z:z.writestr('source','no')
     with pytest.raises(ValueError):module.extract(archive,tmp_path/'clean','0'*64)
     assert not (tmp_path/'clean').exists()
+
+
+def test_hardlink_reuse_still_authenticates_the_archives_actual_tensor_bytes(tmp_path):
+    cache=tmp_path/'cache';cache.mkdir();source=cache/'full.safetensors'
+    with source.open('wb') as f:f.truncate(50_000_001)
+    h=module.digest(source);name='tensor_payloads/'+h+'.safetensors';archive=tmp_path/'tensor.zip'
+    with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=1) as z:z.write(source,name)
+    result=module.extract(archive,tmp_path/'clean',module.digest(archive),[cache])
+    assert result['verified_tensor_hardlinks']==[name]
+    assert (tmp_path/'clean'/name).stat().st_ino==source.stat().st_ino
+    # A self-consistent archive hash does not excuse a substituted content-addressed member.
+    bad=tmp_path/'substitution.zip'
+    with zipfile.ZipFile(bad,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=1) as z:
+        with z.open(name,'w') as f:
+            for _ in range(50):f.write(b'x'*1_000_000)
+            f.write(b'x')
+    with pytest.raises(ValueError):module.extract(bad,tmp_path/'bad-clean',module.digest(bad),[cache])

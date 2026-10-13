@@ -4,8 +4,9 @@ Public corrective learning and versioned qualification engineering. This study
 does not begin with a qualified model, human-reviewed labels or independent
 custody. External deployment remains prohibited.
 
-The previous v3 campaign is being continued using its unchanged, signed
-reservations. Original failures and consumed budgets are preserved. V4 is a
+The previous v3 campaign has been completed through an explicitly signed
+additional training budget, retaining its learning settings. Original failures
+and consumed reservations are preserved. V4 is a
 separate, failure-informed public experiment with fresh identities and budgets.
 
 ## Changes
@@ -63,6 +64,38 @@ records the qualification verifier's host-portability correction before any v4
 training starts. The learning worker, datasets, seeds, optimizer settings,
 budgets and job digests are unchanged. Use the amended driver after confirming
 the matching fresh QA evidence; the original driver deliberately rejects drift.
+
+The initial paired v4 controller suffered a broken output pipe after recovering
+three runs. Its fourth run remains interrupted and six original reservations
+remain unstarted. A signed `continuation-01` admits one additional bounded
+training budget for those seven roles. The original ledger and outcomes are
+unchanged. `continue_registered.py` rejects completed-run retry and altered
+job/source identities. The continuation controller writes to a persistent file
+and runs in its own process session; monitoring and the named-session watchdog
+continue independently of the interactive tool connection. This is research
+process management, not hostile-code containment.
+
+`public_baselines.py` evaluates the unchanged historical first-keyword rule and
+a majority control chosen exclusively from training labels on the exact public
+population. Public research selection, final training and qualification remain
+separate. Initial, best and terminal snapshots all remain visible.
+
+`colab_tests_v4.py` runs core, corpus, historical reporting and project suites in
+a fresh hash-locked Colab CPU runtime. Actual XML counts and exact input hashes
+appear with each attempt; a successful earlier source snapshot is never silently
+claimed to cover later tests.
+
+The physical delivery ZIP includes all recovered generated checkpoints. Repeated
+full-model tensors are stored once by content hash and restored by
+`materialize_tensors.py`. Authenticate the ZIP SHA-256 against the separately
+delivered value before executing extracted code. A trusted copy of
+`verify_capsule.py` then verifies the controller signature and every logical
+file; the controller public key must come from a trusted source. An included
+key is useful for consistency checking, not independent trust establishment.
+`extract_capsule.py --reuse-root ...` can read every ZIP member completely while
+hardlinking identical, hash-verified tensors into a new directory to conserve
+disk. Linked bytes are shared; keep them immutable during verification/replay.
+The pinned upstream pretrained cache remains an explicitly separate prerequisite.
 
 ## Unmet external requirements
 
