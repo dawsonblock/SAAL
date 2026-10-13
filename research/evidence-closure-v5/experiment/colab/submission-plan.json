@@ -1,0 +1,61 @@
+{
+  "schema": "saal-pretrained-colab-plan-v1",
+  "session": "saal-fd4b4c4b4ea340e28e13",
+  "job_digest": "sha256:fd2273656dbcb20e4311029f66646d996fe2647957b5845d2ae763e1b905667f",
+  "estimated_max_seconds": 20200,
+  "commands": [
+    [
+      "colab",
+      "new",
+      "-s",
+      "saal-fd4b4c4b4ea340e28e13",
+      "--gpu",
+      "T4"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-fd4b4c4b4ea340e28e13",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/evidence-closure-v5/experiment/colab/gpu-lock.txt",
+      "/content/saal_pretrained_lock.txt"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-fd4b4c4b4ea340e28e13",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/evidence-closure-v5/experiment/colab/worker.zip",
+      "/content/saal_pretrained_worker.zip"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-fd4b4c4b4ea340e28e13",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/evidence-closure-v5/experiment/colab/install.py",
+      "--timeout",
+      "960"
+    ],
+    [
+      "/private/tmp/saal094-env/bin/python",
+      "-I",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/evidence-closure-v5/experiment/colab/coordinator.py"
+    ],
+    [
+      "colab",
+      "stop",
+      "-s",
+      "saal-fd4b4c4b4ea340e28e13"
+    ]
+  ],
+  "phases": [
+    "PROVISIONING",
+    "UPLOAD_LOCK",
+    "UPLOAD_WORKER",
+    "DEPENDENCIES",
+    "CAMPAIGN"
+  ],
+  "external_deployment_allowed": false
+}

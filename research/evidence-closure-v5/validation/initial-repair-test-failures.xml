@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="31" time="7.453" timestamp="2026-10-13T00:56:00.756841-06:00" hostname="Mac.gateway.sasktel.net"><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_real_native_tensors_pass_stronger_validation" time="1.865"><failure message="ValueError: adaptation gain substitution">def test_real_native_tensors_pass_stronger_validation():
+        job, result, _ = fixture()
+&gt;       assert validate_bundle(BUNDLE, job, PIN) == result
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/evidence-closure-v5/tests/test_evidence_validation.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/epoch_artifacts_v3.py:78: in validate_bundle
+    return validate_evidence(result, job, hashes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+result = {'adaptation_gain_best': {'assumption': 'Bootstrap treats family recipes as exchangeable; correlated/operator-authored...rameters outside the admitted trainable inventory are claimed unchanged; full tuning changes the backbone.', ...}, ...}
+job = {'accumulation': 2, 'batch_size': 8, 'checkpoint_interval': 100, 'class_balance': True, ...}
+checkpoint_hashes = {'best': '7401ce9c8bbf2b38de1e687bbed47aae35a8f79677ba00280755e1041690a372', 'initial': '4c08f77c655cce4f733de5ed50a599e514e8cb51f3f3d0b6f4cfffe4c03b583e', 'terminal': '165e1fb310af0d3023050b3a071fd994ef922ce406978391780b58c18a84cdec'}
+
+    def validate_evidence(result, job, checkpoint_hashes):
+        steps = [0]+list(range(job['checkpoint_interval'], job['steps']+1, job['checkpoint_interval']))
+        if steps[-1] != job['steps']:
+            steps.append(job['steps'])
+        history = result['selection_history']
+        if any(type(row.get('step')) is not int for row in history) or [row['step'] for row in history] != steps:
+            raise ValueError('registered checkpoint schedule missing or substituted')
+        by_step = {row['step']: row['metrics'] for row in history}
+        for name, snapshot in result['snapshots'].items():
+            if type(snapshot['step']) is not int or snapshot['step'] not in by_step:
+                raise ValueError('snapshot step not registered')
+            if snapshot['metrics'] != by_step[snapshot['step']]:
+                raise ValueError('snapshot/history metric substitution')
+        selected = result['snapshots']['best']['step']
+        if selected == 0 and checkpoint_hashes['best'] != checkpoint_hashes['initial']:
+            raise ValueError('step-zero checkpoint substitution')
+        if selected == job['steps'] and checkpoint_hashes['best'] != checkpoint_hashes['terminal']:
+            raise ValueError('terminal selected checkpoint substitution')
+        for alias in ('initial', 'terminal'):
+            if selected == result['snapshots'][alias]['step'] and result['snapshots']['best']['predictions'] != result['snapshots'][alias]['predictions']:
+                raise ValueError('same-step prediction substitution')
+        runtime = result['runtime']
+        spec = job['model_spec']
+        if runtime.get('attention') != spec['attention_implementation']:
+            raise ValueError('attention configuration substitution')
+        if type(runtime.get('vision_used')) is not bool or runtime['vision_used']:
+            raise ValueError('vision runtime not admitted')
+        for field in ('free_gpu_bytes_preflight', 'total_gpu_bytes'):
+            if type(runtime.get(field)) is not int or runtime[field] &lt; 0:
+                raise ValueError('GPU memory measurement type')
+        if runtime['free_gpu_bytes_preflight'] &gt; runtime['total_gpu_bytes']:
+            raise ValueError('GPU memory measurement bounds')
+        if spec['compute_backend'] == 'colab':
+            if not runtime['python'].startswith('3.13.') or 'Linux' not in runtime['platform']:
+                raise ValueError('hash-locked GPU platform mismatch')
+        elif runtime.get('device') != 'cpu' or runtime.get('gpu') is not None:
+            raise ValueError('local CPU configuration substitution')
+        accounting = result['resource_accounting']
+        for field in ('steps', 'microbatches', 'sample_exposures', 'unique_training_records', 'tokens',
+                      'trainable_parameters', 'total_parameters', 'peak_gpu_allocated_bytes', 'peak_gpu_reserved_bytes'):
+            if type(accounting.get(field)) is not int or accounting[field] &lt; 0:
+                raise ValueError('resource accounting type')
+        if accounting['microbatches'] != job['steps']*job['accumulation']:
+            raise ValueError('microbatch budget substitution')
+        if accounting['trainable_parameters'] != sum(v['numel'] for v in result['parameter_inventory'].values()):
+            raise ValueError('trainable parameter count substitution')
+        if accounting['total_parameters'] &lt; accounting['trainable_parameters']:
+            raise ValueError('total parameter count substitution')
+        for value in (accounting.get('elapsed_seconds'), result.get('total_worker_seconds')):
+            if type(value) not in (int, float) or not math.isfinite(value) or not 0 &lt;= value &lt;= job['max_seconds']:
+                raise ValueError('nonfinite or exceeded worker time budget')
+        if accounting['elapsed_seconds'] &gt; result['total_worker_seconds']:
+            raise ValueError('worker time accounting substitution')
+        for name in ('best', 'terminal'):
+            expected = paired_family_gain(result['snapshots']['initial']['metrics']['development'],
+                                          result['snapshots'][name]['metrics']['development'])
+            if result.get('adaptation_gain_'+name) != expected:
+&gt;               raise ValueError('adaptation gain substitution')
+E               ValueError: adaptation gain substitution
+
+src/saal_rsi/epoch_artifacts_v3.py:71: ValueError</failure></testcase><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[missing_step]" time="0.158" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[extra_step]" time="0.126" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[boolean_step]" time="0.154" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[terminal_metrics]" time="0.125" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[attention]" time="0.125" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[platform]" time="0.150" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[microbatches]" time="0.126" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[parameter_count]" time="0.126" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[negative_time]" time="0.152" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[infinite_time]" time="0.131" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[bool_memory]" time="0.163" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[memory_bounds]" time="0.133" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[gain]" time="0.135" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_evidence_substitution_is_rejected[selected_tensor]" time="0.152"><failure message="assert 900 == 1000">fault = 'selected_tensor'
+
+    @pytest.mark.parametrize('fault', ['missing_step', 'extra_step', 'boolean_step', 'terminal_metrics',
+        'attention', 'platform', 'microbatches', 'parameter_count', 'negative_time', 'infinite_time',
+        'bool_memory', 'memory_bounds', 'gain', 'selected_tensor'])
+    def test_evidence_substitution_is_rejected(fault):
+        job, original, hashes = fixture()
+        value = copy.deepcopy(original)
+        if fault == 'missing_step': del value['selection_history'][1]
+        elif fault == 'extra_step': value['selection_history'].insert(1, dict(value['selection_history'][0], step=1))
+        elif fault == 'boolean_step': value['selection_history'][0]['step'] = False
+        elif fault == 'terminal_metrics': value['selection_history'][-1]['metrics']['development']['accuracy'] = 0.
+        elif fault == 'attention': value['runtime']['attention'] = 'sdpa'
+        elif fault == 'platform': value['runtime']['python'] = '3.12.0'
+        elif fault == 'microbatches': value['resource_accounting']['microbatches'] += 1
+        elif fault == 'parameter_count': value['resource_accounting']['trainable_parameters'] += 1
+        elif fault == 'negative_time': value['total_worker_seconds'] = -1.
+        elif fault == 'infinite_time': value['total_worker_seconds'] = float('inf')
+        elif fault == 'bool_memory': value['runtime']['total_gpu_bytes'] = True
+        elif fault == 'memory_bounds': value['runtime']['free_gpu_bytes_preflight'] = value['runtime']['total_gpu_bytes']+1
+        elif fault == 'gain': value['adaptation_gain_terminal']['mean_gain'] = 1.
+        else:
+            # This fixture selects terminal. A substituted tensor cannot claim that step.
+&gt;           assert value['snapshots']['best']['step'] == job['steps']
+E           assert 900 == 1000
+
+research/evidence-closure-v5/tests/test_evidence_validation.py:48: AssertionError</failure></testcase><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_disk_admission_accounts_for_archive_and_uncompressed_tensors" time="0.102" /><testcase classname="research.evidence-closure-v5.tests.test_evidence_validation" name="test_coordinator_keeps_original_failure_if_json_export_fails" time="1.076" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_invalid_plan_has_no_watchdog_or_cloud_side_effect[phases]" time="0.001" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_invalid_plan_has_no_watchdog_or_cloud_side_effect[session]" time="0.001" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_invalid_plan_has_no_watchdog_or_cloud_side_effect[cleanup]" time="0.001" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_invalid_plan_has_no_watchdog_or_cloud_side_effect[cross_session]" time="0.000" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_invalid_plan_has_no_watchdog_or_cloud_side_effect[deadline]" time="0.000" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_invalid_plan_has_no_watchdog_or_cloud_side_effect[command]" time="0.000" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_evidence_io_failure_never_prevents_stop_and_status[state]" time="0.003" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_evidence_io_failure_never_prevents_stop_and_status[events]" time="0.002" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_evidence_io_failure_never_prevents_stop_and_status[child_and_state]" time="0.002" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_evidence_io_failure_never_prevents_stop_and_status[cleanup_logs]" time="0.003" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_stop_timeout_still_queries_status_and_does_not_invent_absence" time="0.656" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_real_watchdog_child_uses_launch_identity_when_state_is_unavailable[missing]" time="0.923" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_real_watchdog_child_uses_launch_identity_when_state_is_unavailable[corrupt]" time="0.374" /><testcase classname="research.evidence-closure-v5.tests.test_monitor_closure" name="test_real_watchdog_child_uses_launch_identity_when_state_is_unavailable[substituted]" time="0.382" /></testsuite></testsuites>

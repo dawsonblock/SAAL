@@ -1,0 +1,150 @@
+{"at_utc": "2026-10-13T07:40:09.239892+00:00", "kind": "command_started", "phase": "PROVISIONING"}
+{"at_utc": "2026-10-13T07:40:14.845199+00:00", "kind": "command_finished", "phase": "PROVISIONING"}
+{"at_utc": "2026-10-13T07:40:14.846172+00:00", "kind": "command_started", "phase": "UPLOAD_INPUT_CHUNKS"}
+{"at_utc": "2026-10-13T07:40:21.747269+00:00", "kind": "remote_monitor", "monitor": "qa_chunk_uploaded", "name": "qa-input-part-000.bin", "bytes": 32000000}
+{"at_utc": "2026-10-13T07:40:28.149128+00:00", "kind": "remote_monitor", "monitor": "qa_chunk_uploaded", "name": "qa-input-part-001.bin", "bytes": 32000000}
+{"at_utc": "2026-10-13T07:40:34.911444+00:00", "kind": "remote_monitor", "monitor": "qa_chunk_uploaded", "name": "qa-input-part-002.bin", "bytes": 32000000}
+{"at_utc": "2026-10-13T07:40:36.379371+00:00", "kind": "remote_monitor", "monitor": "qa_chunk_uploaded", "name": "qa-input-part-003.bin", "bytes": 4169469}
+{"at_utc": "2026-10-13T07:40:36.391785+00:00", "kind": "command_finished", "phase": "UPLOAD_INPUT_CHUNKS"}
+{"at_utc": "2026-10-13T07:40:36.392376+00:00", "kind": "command_started", "phase": "ASSEMBLE_INPUTS"}
+{"at_utc": "2026-10-13T07:40:39.291539+00:00", "kind": "remote_monitor", "monitor": "qa_input_reconstruction", "whole_sha256": "e43b6f3c5cf56fbaec176438f4b8ae7d170c04e1f97d9e12a837c31b47c0cee3", "chunks": 4}
+{"at_utc": "2026-10-13T07:40:39.451425+00:00", "kind": "command_finished", "phase": "ASSEMBLE_INPUTS"}
+{"at_utc": "2026-10-13T07:40:39.452421+00:00", "kind": "command_started", "phase": "UPLOAD_LOCK"}
+{"at_utc": "2026-10-13T07:40:40.093631+00:00", "kind": "command_finished", "phase": "UPLOAD_LOCK"}
+{"at_utc": "2026-10-13T07:40:40.094750+00:00", "kind": "command_started", "phase": "TESTING"}
+{"at_utc": "2026-10-13T07:40:46.012003+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:40:51.007826+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:40:56.021972+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:01.056576+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:06.034633+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:11.039385+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:16.041271+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:21.049672+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:26.053888+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:31.053734+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:36.056793+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:41.061076+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:46.060324+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:51.063081+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:41:56.067403+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:01.067206+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:06.073544+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:11.072172+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:16.080834+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:21.080348+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:26.078865+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:31.086986+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:36.089217+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:41.082164+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:46.090175+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:51.095852+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:42:56.090272+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:01.091049+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:06.093414+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:11.099625+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:16.107149+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:21.101808+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:26.106583+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:31.108763+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:36.106100+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:41.106947+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:46.110882+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:51.111844+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:43:56.125994+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:01.124178+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:06.120534+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:11.134406+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:16.125412+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:21.127488+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:26.130690+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:31.129353+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:36.135809+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:41.134334+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:46.144378+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:51.141101+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:44:56.143771+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:01.155780+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:06.146858+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:11.152303+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:16.149170+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:21.149143+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:26.156833+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:31.154352+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:36.155697+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:41.161826+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:46.160491+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:51.181798+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:45:56.173266+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:01.170421+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:06.169387+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:11.177217+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:16.183550+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:21.174274+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:26.182860+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:31.190073+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:36.234330+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:41.186715+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:46.196431+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:51.195166+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:46:56.196563+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:01.205545+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:06.408634+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:11.232470+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:16.283249+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:21.225316+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:26.215830+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:31.220676+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:36.240564+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:41.221470+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:46.234082+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:51.237130+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:47:56.256497+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:01.246920+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:06.247672+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:11.253135+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:16.237339+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:21.243010+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:26.252757+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:31.304843+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:36.261455+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:41.259519+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:46.286248+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:51.263959+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:48:56.265763+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:01.296821+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:06.291522+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:11.274202+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:16.280187+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:21.290700+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:26.283443+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:27.915366+00:00", "kind": "remote_monitor", "monitor": "qa_suite_complete", "suite": "core", "returncode": 0}
+{"at_utc": "2026-10-13T07:49:31.297797+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:36.290213+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:41.299869+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:46.314351+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:51.300011+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:49:53.187079+00:00", "kind": "remote_monitor", "monitor": "qa_suite_complete", "suite": "corpus", "returncode": 0}
+{"at_utc": "2026-10-13T07:49:54.462974+00:00", "kind": "remote_monitor", "monitor": "qa_suite_complete", "suite": "reporting", "returncode": 0}
+{"at_utc": "2026-10-13T07:49:56.302161+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:01.353004+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:06.306191+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:11.309666+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:16.308417+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:17.752101+00:00", "kind": "remote_monitor", "monitor": "qa_suite_complete", "suite": "project", "returncode": 0}
+{"at_utc": "2026-10-13T07:50:22.279186+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:26.311495+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:28.020505+00:00", "kind": "remote_monitor", "monitor": "qa_suite_complete", "suite": "diverse", "returncode": 0}
+{"at_utc": "2026-10-13T07:50:29.939805+00:00", "kind": "remote_monitor", "monitor": "qa_suite_complete", "suite": "reliability", "returncode": 0}
+{"at_utc": "2026-10-13T07:50:31.311303+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:36.317428+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:41.321926+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:46.316333+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:51.318526+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:50:56.326911+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:51:01.331574+00:00", "kind": "remote_monitor", "monitor": "qa_heartbeat"}
+{"at_utc": "2026-10-13T07:51:04.059630+00:00", "kind": "remote_monitor", "monitor": "qa_suite_complete", "suite": "repairs", "returncode": 0}
+{"at_utc": "2026-10-13T07:51:06.376819+00:00", "kind": "command_finished", "phase": "TESTING"}
+{"at_utc": "2026-10-13T07:51:06.382363+00:00", "kind": "command_started", "phase": "RECOVERY"}
+{"at_utc": "2026-10-13T07:51:09.465993+00:00", "kind": "command_finished", "phase": "RECOVERY"}
+{"at_utc": "2026-10-13T07:51:09.473450+00:00", "kind": "cleanup_started"}
+{"at_utc": "2026-10-13T07:51:13.042107+00:00", "kind": "cleanup_confirmed"}

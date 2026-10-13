@@ -1,0 +1,16 @@
+{
+  "schema": "saal-qa-to-delivery-scope-v1",
+  "qa_source_commit": "5dcdcc03f5c54ff37589a20043a78ce509e1ceb0",
+  "final_source_commit": "2aba30fb6d07c3dcf676b930e2d04462ab1b69b2",
+  "all_qa_input_files_unchanged": true,
+  "post_qa_source_additions": [
+    "bounded provisioning-continuation drivers",
+    "frozen-model diagnostic/reporting helpers",
+    "physical delivery and verification helpers",
+    "reproduction documentation"
+  ],
+  "new_learning_worker_or_contract_changes": false,
+  "fresh_gpu_training_claim": false,
+  "additional_validation": "Actual provisioning failure/cleanup receipts; fresh frozen CPU inference; signed clean-extraction validation recorded separately.",
+  "qualification_status": "NOT_EVALUATED"
+}
