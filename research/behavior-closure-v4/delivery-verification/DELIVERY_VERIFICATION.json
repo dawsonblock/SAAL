@@ -1,0 +1,128 @@
+{
+  "schema": "saal-physical-delivery-verification-v1",
+  "archive": "SAAL-RSI-Behavior-Closure-v4-Full.zip",
+  "archive_sha256": "79fde8e6e6179aaef5c613f5df9c4112be1eb839a8b8e74bf0463a429b422b0d",
+  "archive_bytes": 2720415854,
+  "source_commit": "824f8183f1f21a5df5988d3fb9d94086012660c2",
+  "archive_evidence_commit": "70123c1fceb41e67442beaa06a93cf5e749e7157",
+  "manifest": {
+    "physical_and_restored_files": 2442,
+    "checkpoint_paths_restored": 6,
+    "historical_frozen_files": 253,
+    "qualification_status": "NOT_EVALUATED",
+    "trust": "Authenticated controller release; no independent qualification inferred."
+  },
+  "software_tests": {
+    "total": 745,
+    "passed": 745,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "suite": "core",
+        "xml": "tests/core.xml",
+        "sha256": "7a4631fbd0ae7f2df3d8cd372fca411489d7511e95f53a81ae4e6afe1bb112c8",
+        "tests": 636,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "suite": "corpus",
+        "xml": "tests/corpus.xml",
+        "sha256": "057846cabe6e0839df273a6388a37a7cd15e776fd705ba9593d663f6831f7099",
+        "tests": 38,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "suite": "reporting",
+        "xml": "tests/reporting.xml",
+        "sha256": "fe73f281327ab59ce6dbb8c44281c6684ffa721484f0fe345e429f797affa2ec",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "suite": "project",
+        "xml": "tests-after-storage-recovery/project.xml",
+        "sha256": "bf6f2089b7c954a6f42934bfc989b8e611813b24c97ac4479d5b8e45d0f86232",
+        "tests": 42,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "suite": "diverse",
+        "xml": "tests-after-storage-recovery/diverse.xml",
+        "sha256": "6d78cd8ec10c827bb53aa1a36bf332cee967400d9eab03c57b975951cd381489",
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "suite": "reliability",
+        "xml": "tests-after-storage-recovery/reliability.xml",
+        "sha256": "52937a7cf2c55701ae55d911074d395f4439aa66acc7f43a7a1a0592ea0ef645",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "fresh_colab_tests": {
+    "passed": 744,
+    "skipped": 1,
+    "total": 745,
+    "source_commit": "77c3a38313f2e12e9f592b7d5ff3a8b745350874"
+  },
+  "first_extraction_attempt_failure": {
+    "suite": "project",
+    "reason": "ENOSPC while writing a temporary native-validation fixture export",
+    "failure_log": "tests/project.log",
+    "preserved": true,
+    "recovery": "Verified duplicate immutable exports shared, temporary fixtures removed after preserving logs; affected and remaining suites rerun successfully."
+  },
+  "runtime_cleanup_verified": true,
+  "native_checkpoints": 69,
+  "model_roles": 23,
+  "numerical_replay_passed": 21,
+  "numerical_replay_failed": 2,
+  "human_reviews": 0,
+  "independent_review": "DEGRADED",
+  "independent_generalization": "NOT_ESTABLISHED",
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false,
+  "python": "3.12.0",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "verification_file_sha256": {
+    "immutable-export-storage.json": "1b1078957a7348bb3b54c0def8ac054a0370f5baed3ac041077f94c9737352b9",
+    "manifest-verification.json": "010236382ad81443e8f7c5833e4d418f6b5bb7b6972ca1c76cbeae61889eb024",
+    "post-test-manifest-verification.json": "010236382ad81443e8f7c5833e4d418f6b5bb7b6972ca1c76cbeae61889eb024",
+    "extraction.json": "c4a8ade3b3205583c48386de4e1b2ae9fcd902262a2fc10d3e7cd9f16861d8a5",
+    "storage-recovery.json": "e1e9914a7217fb0b0ff4d1e7f1acb351a540784b88d033f7e26aaaee96068d17",
+    "clean_test_runner.py": "6a1b2563113b4da13de234897ac99078b09882a5a2d68076f7801bfb71ce2290",
+    "tests/reporting.xml": "fe73f281327ab59ce6dbb8c44281c6684ffa721484f0fe345e429f797affa2ec",
+    "tests/corpus.xml": "057846cabe6e0839df273a6388a37a7cd15e776fd705ba9593d663f6831f7099",
+    "tests/core.log": "7fa7e253de59674448afbea7acebf5f83848544c4fc562b6a304547ceb927730",
+    "tests/test-results.json": "33c76c35f261b92ad2fbaed24401fe43b344678069f4c6d058aaec705471f2f9",
+    "tests/project.log": "323b70c11f144ec13bd0d0e7b558e0cbda1cb40096c2925f64152a9f5b0b19d2",
+    "tests/project.xml": "860bb5d6d7ee885fce6e895bfbca351bde4e20b8d297435ba6a0c699485a3e73",
+    "tests/reporting.log": "41d55eeeffc2eb999cc8456e6fb7235dbbe2416fc9df1b78bc525f7219e6ead7",
+    "tests/corpus.log": "1a1d06deb23d43c0c5d5ec0cbfacd0cbd443c2d3b47a646385939efd3dea316d",
+    "tests/core.xml": "7a4631fbd0ae7f2df3d8cd372fca411489d7511e95f53a81ae4e6afe1bb112c8",
+    "tests-after-storage-recovery/diverse.xml": "6d78cd8ec10c827bb53aa1a36bf332cee967400d9eab03c57b975951cd381489",
+    "tests-after-storage-recovery/reliability.log": "2679014decded4e633782a756c41ea6f806e4916c87b4fad01b1278b3f16ed19",
+    "tests-after-storage-recovery/test-results.json": "67062706a4281d037d814b5a15b012f2c59f7fd806b6405f1813a03bb21f2900",
+    "tests-after-storage-recovery/project.log": "7218598ae8bcd6ab1d1218a959ddab836c58030049dfdf54723107bc489faa59",
+    "tests-after-storage-recovery/project.xml": "bf6f2089b7c954a6f42934bfc989b8e611813b24c97ac4479d5b8e45d0f86232",
+    "tests-after-storage-recovery/diverse.log": "bf4f6cc5dfa10534b90050e189c0df6d14a4ce6ef4adbce5b364dd2678a3af3d",
+    "tests-after-storage-recovery/reliability.xml": "52937a7cf2c55701ae55d911074d395f4439aa66acc7f43a7a1a0592ea0ef645"
+  },
+  "trust": "Controller attribution and physical software/artifact verification. No independent empirical qualification or hardware attestation."
+}

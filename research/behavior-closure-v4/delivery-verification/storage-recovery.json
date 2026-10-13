@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "path": "research/behavior-closure-v4/experiment/colab-full/registry-export.json",
+      "sha256": "c9d5a0b3852c1d2838b59ba80e015dd6c5836fca81bdbb95e1932c96e4265b6a",
+      "bytes": 18409052
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/colab-paired/registry-export.json",
+      "sha256": "0064ad12cd02a279f68f522bbe5c38a2fc92195ca450ef3519a1e9614402c733",
+      "bytes": 146681778
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/continuation-01/colab/registry-export.json",
+      "sha256": "cb3b7ccbae601c05329f6bfcaae3f78bee4bfb5160c95c36fbea7a0834cef7e2",
+      "bytes": 91540464
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/continuation-02/colab/registry-export.json",
+      "sha256": "cfcd552ccbcd9189ca5a78fe85fb11e020834748c80af437787ab367f10d3314",
+      "bytes": 89067664
+    },
+    {
+      "path": "research/behavior-closure-v4/experiment/continuation-03/colab/registry-export.json",
+      "sha256": "1560642fc2d99f8401e40fdc981a5cdfad27df45ba830cfa7d3722e4f802403f",
+      "bytes": 55179106
+    },
+    {
+      "path": "research/behavior-closure-v4/legacy-head/colab/registry-export.json",
+      "sha256": "6d6c4d9b624fbe7223ff452a3560978172ca0944c328274b975f58c78bace318",
+      "bytes": 15011442
+    },
+    {
+      "path": "research/reliable-learning-v3/experiment/colab/registry-export.json",
+      "sha256": "14eced9876ed3e9f672df58dae96c7e0e99b208e0a2c4350f0cadaf4f3524316",
+      "bytes": 134112987
+    },
+    {
+      "path": "research/reliable-learning-v3/recovery/attempts/provision-04/registry-export.json",
+      "sha256": "f2a9a8e1a123f1237cdb50d4708f2da54401dc3fcdf2250d01739d174f3e6b26",
+      "bytes": 105358760
+    }
+  ],
+  "scope": "Completed immutable exports only; SQLite and source code not shared. Original and extracted bytes verified against published LFS objects.",
+  "failed_project_xml_sha256": "860bb5d6d7ee885fce6e895bfbca351bde4e20b8d297435ba6a0c699485a3e73",
+  "failed_project_log_sha256": "323b70c11f144ec13bd0d0e7b558e0cbda1cb40096c2925f64152a9f5b0b19d2",
+  "failure_reason": "ENOSPC during temporary fixture registry export; original logs retained."
+}

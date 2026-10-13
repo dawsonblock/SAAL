@@ -1,0 +1,76 @@
+...........................F..............                               [100%]
+=================================== FAILURES ===================================
+_ test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts[True] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10d7ed0a0>
+tmp_path = PosixPath('/Users/dawsonblock/Downloads/SAAL-RSI-Behavior-Closure-v4-Verification/tests/project-temp/test_real_native_validation_pr1')
+corrupt = True
+
+    @pytest.mark.parametrize('corrupt',[False,True])
+    def test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts(monkeypatch,tmp_path,corrupt):
+        repo=Path(__file__).resolve().parents[3]
+        project=repo/'research/reliable-learning-v3'
+        source=project/'experiment/artifacts/run-01-c6ae464acc2c'
+        pin=(project/'experiment/controller.pub').read_text().strip()
+        envelope=json.loads((source/'signed_training_job.json').read_text());job=verify(envelope,pin)
+        workspace=tmp_path/'controller';workspace.mkdir();artifacts=tmp_path/'recovered';artifacts.mkdir()
+        lock=repo/'configs/dependency-locks/pretrained-linux-x86_64-py313.txt'
+        shutil.copyfile(lock,workspace/'gpu-lock.txt');job_path=workspace/'job.json';job_path.write_text(json.dumps(envelope))
+        ledger_path=workspace/'budget.sqlite3';ledger=EpochExperimentRegistry(ledger_path,pin,max_jobs=1,max_seconds=3800)
+        ledger.reserve(envelope);ledger.close()
+        archive=tmp_path/'native.zip'
+        with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=1) as z:
+            for p in sorted(source.iterdir()):z.write(p,p.name)
+        raw=archive.read_bytes();chunk=tmp_path/'chunk';chunk.write_bytes(raw)
+        h=hashlib.sha256(raw).hexdigest()
+        manifest={'schema':'saal-artifact-transfer-v1','job_digest':sha(job),'size':len(raw),'sha256':h,
+                  'chunks':[{'name':'part-000.bin','size':len(raw),'sha256':h}]}
+        monkeypatch.setattr(backend,'run_remote_stage',lambda *args:manifest)
+        def download(command,*args):
+            Path(command[-1]).write_bytes(raw if not corrupt else raw[:-1]+bytes([raw[-1]^1]))
+        monkeypatch.setattr(backend,'download_read',download)
+        cleanup_calls=[]
+        def cleanup_timeout(command,*args):
+            if command[1]=='exec':
+                cleanup_calls.append(command);raise TimeoutError('optional export cleanup deadline')
+            return ''
+        monkeypatch.setattr(backend,'stream_command',cleanup_timeout)
+        config=workspace/'config.json';config.write_text(json.dumps({'workspace':str(workspace),'session':'test-no-remote','pin':pin,
+                 'jobs':[str(job_path)],'artifacts':str(artifacts),'ledger':str(ledger_path)}))
+        if corrupt:
+>           with pytest.raises(RuntimeError):backend.coordinator(config)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_cleanup_deferral.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/epoch_backend_v4.py:215: in coordinator
+    ledger.finish(digest,outcome,completed);outcomes.append(outcome);write_json(root/'outcomes.json',{'runs':outcomes});write_json(root/'registry-export.json',ledger.records())
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/model_monitor.py:21: in write_json
+    temporary.write_text(json.dumps(value,indent=2,allow_nan=False)+'\n');os.replace(temporary,path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/Users/dawsonblock/Downloads/SAAL-RSI-Behavior-Closure-v4-Verification/tests/project-temp/test_real_native_validation_pr1/controller/registry-export.json.tmp')
+data = '{\n  "attempts": [\n    {\n      "digest": "sha256:c6ae464acc2cb71b3f28642dd33e321570dbcd903ff971c1052de6e4a06c1e0e",...  "rollback_resistant": false,\n  "financial_cap": false,\n  "authority": "controller-owned development registry"\n}\n'
+encoding = 'locale', errors = None, newline = None
+
+    def write_text(self, data, encoding=None, errors=None, newline=None):
+        """
+        Open the file in text mode, write to it, and close the file.
+        """
+        if not isinstance(data, str):
+            raise TypeError('data must be str, not %s' %
+                            data.__class__.__name__)
+        encoding = io.text_encoding(encoding)
+        with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+>           return f.write(data)
+                   ^^^^^^^^^^^^^
+E           OSError: [Errno 28] No space left on device
+
+/Users/dawsonblock/.pyenv/versions/3.12.0/lib/python3.12/pathlib.py:1049: OSError
+----------------------------- Captured stdout call -----------------------------
+{"monitor": "campaign_progress", "completed_runs": 0, "total_runs": 1, "seed": 47, "mode": "answerdotai/ModernBERT-base / lora / complete-balanced-epochs-v1"}
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-RSI-Behavior-Closure-v4-Verification/tests/project.xml -
+=========================== short test summary info ============================
+FAILED research/behavior-closure-v4/tests/test_cleanup_deferral.py::test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts[True]

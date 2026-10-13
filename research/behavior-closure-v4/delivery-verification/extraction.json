@@ -1,0 +1,12 @@
+{
+  "clean_directory": "/private/tmp/saal-v4-clean-extraction-final",
+  "archive_sha256": "79fde8e6e6179aaef5c613f5df9c4112be1eb839a8b8e74bf0463a429b422b0d",
+  "members_read_completely": 2438,
+  "verified_tensor_hardlinks": [
+    "tensor_payloads/3f79afb2282fa1406d18ffb09c1bd853ced603935e9d62b8ff20db2c6710b082.safetensors",
+    "tensor_payloads/43dd467cb6b902d83f03f5cf1ab9324d1d2effcbe9c82f3cf42be542e76364fc.safetensors",
+    "tensor_payloads/74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be.safetensors",
+    "tensor_payloads/a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780.safetensors"
+  ],
+  "linked_source_bytes_are_shared": true
+}

@@ -1,0 +1,39 @@
+{
+  "suites": [
+    {
+      "suite": "project",
+      "returncode": 0,
+      "tests": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed_seconds": 11.236252209055237,
+      "xml_sha256": "bf6f2089b7c954a6f42934bfc989b8e611813b24c97ac4479d5b8e45d0f86232",
+      "log_sha256": "7218598ae8bcd6ab1d1218a959ddab836c58030049dfdf54723107bc489faa59"
+    },
+    {
+      "suite": "diverse",
+      "returncode": 0,
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed_seconds": 3.2014100829837844,
+      "xml_sha256": "6d78cd8ec10c827bb53aa1a36bf332cee967400d9eab03c57b975951cd381489",
+      "log_sha256": "bf4f6cc5dfa10534b90050e189c0df6d14a4ce6ef4adbce5b364dd2678a3af3d"
+    },
+    {
+      "suite": "reliability",
+      "returncode": 0,
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed_seconds": 0.5174631249392405,
+      "xml_sha256": "52937a7cf2c55701ae55d911074d395f4439aa66acc7f43a7a1a0592ea0ef645",
+      "log_sha256": "2679014decded4e633782a756c41ea6f806e4916c87b4fad01b1278b3f16ed19"
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

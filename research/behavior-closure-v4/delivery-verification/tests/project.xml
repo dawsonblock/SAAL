@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="42" time="13.220" timestamp="2026-10-12T23:31:48.176330-06:00" hostname="Mac.gateway.sasktel.net"><testcase classname="research.behavior-closure-v4.tests.test_calibration_roundoff" name="test_one_ulp_calibration_roundoff_has_no_effect_on_behavioral_rates" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_calibration_roundoff" name="test_forged_metrics_remain_rejected[large_calibration]" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_calibration_roundoff" name="test_forged_metrics_remain_rejected[critical_count]" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_calibration_roundoff" name="test_forged_metrics_remain_rejected[boolean_count]" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_calibration_roundoff" name="test_forged_metrics_remain_rejected[nan]" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_calibration_roundoff" name="test_forged_metrics_remain_rejected[class_nll]" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_calibration_roundoff" name="test_forged_metrics_remain_rejected[extra_field]" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_calibration_roundoff" name="test_probabilities_are_not_a_calibration_roundoff_exception" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_signed_physical_capsule_restores_complete_checkpoint_paths" time="0.826" /><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_delivery_tampering_never_verifies[manifest]" time="0.686" /><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_delivery_tampering_never_verifies[signature_pin]" time="0.654" /><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_delivery_tampering_never_verifies[payload]" time="0.836" /><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_delivery_tampering_never_verifies[extra]" time="0.772" /><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_delivery_tampering_never_verifies[restoration_source]" time="0.690" /><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_packaging_rejects_incomplete_or_rewritten_history[lfs_pointer]" time="0.779" /><testcase classname="research.behavior-closure-v4.tests.test_capsule_integrity" name="test_packaging_rejects_incomplete_or_rewritten_history[historical_source]" time="0.771" /><testcase classname="research.behavior-closure-v4.tests.test_clean_extraction" name="test_all_archive_members_read_into_new_directory" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_clean_extraction" name="test_archive_escape_rejected_before_any_member_is_written[../escape.py]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_clean_extraction" name="test_archive_escape_rejected_before_any_member_is_written[/absolute.py]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_clean_extraction" name="test_archive_escape_rejected_before_any_member_is_written[src/../../escape.py]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_clean_extraction" name="test_archive_escape_rejected_before_any_member_is_written[src\\escape.py]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_clean_extraction" name="test_substituted_archive_rejected_before_extraction" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_clean_extraction" name="test_hardlink_reuse_still_authenticates_the_archives_actual_tensor_bytes" time="0.274" /><testcase classname="research.behavior-closure-v4.tests.test_cleanup_deferral" name="test_optional_export_cleanup_timeout_is_reported_without_training_retry" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_cleanup_deferral" name="test_successful_cleanup_has_no_deferred_claim" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_cleanup_deferral" name="test_invalid_or_reused_local_log_is_not_masked_as_optional_network_failure" time="0.000" /><testcase classname="research.behavior-closure-v4.tests.test_cleanup_deferral" name="test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts[False]" time="4.995" /><testcase classname="research.behavior-closure-v4.tests.test_cleanup_deferral" name="test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts[True]" time="1.775"><failure message="OSError: [Errno 28] No space left on device">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x10d7ed0a0&gt;
+tmp_path = PosixPath('/Users/dawsonblock/Downloads/SAAL-RSI-Behavior-Closure-v4-Verification/tests/project-temp/test_real_native_validation_pr1')
+corrupt = True
+
+    @pytest.mark.parametrize('corrupt',[False,True])
+    def test_real_native_validation_precedes_cleanup_deferral_and_corruption_still_interrupts(monkeypatch,tmp_path,corrupt):
+        repo=Path(__file__).resolve().parents[3]
+        project=repo/'research/reliable-learning-v3'
+        source=project/'experiment/artifacts/run-01-c6ae464acc2c'
+        pin=(project/'experiment/controller.pub').read_text().strip()
+        envelope=json.loads((source/'signed_training_job.json').read_text());job=verify(envelope,pin)
+        workspace=tmp_path/'controller';workspace.mkdir();artifacts=tmp_path/'recovered';artifacts.mkdir()
+        lock=repo/'configs/dependency-locks/pretrained-linux-x86_64-py313.txt'
+        shutil.copyfile(lock,workspace/'gpu-lock.txt');job_path=workspace/'job.json';job_path.write_text(json.dumps(envelope))
+        ledger_path=workspace/'budget.sqlite3';ledger=EpochExperimentRegistry(ledger_path,pin,max_jobs=1,max_seconds=3800)
+        ledger.reserve(envelope);ledger.close()
+        archive=tmp_path/'native.zip'
+        with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=1) as z:
+            for p in sorted(source.iterdir()):z.write(p,p.name)
+        raw=archive.read_bytes();chunk=tmp_path/'chunk';chunk.write_bytes(raw)
+        h=hashlib.sha256(raw).hexdigest()
+        manifest={'schema':'saal-artifact-transfer-v1','job_digest':sha(job),'size':len(raw),'sha256':h,
+                  'chunks':[{'name':'part-000.bin','size':len(raw),'sha256':h}]}
+        monkeypatch.setattr(backend,'run_remote_stage',lambda *args:manifest)
+        def download(command,*args):
+            Path(command[-1]).write_bytes(raw if not corrupt else raw[:-1]+bytes([raw[-1]^1]))
+        monkeypatch.setattr(backend,'download_read',download)
+        cleanup_calls=[]
+        def cleanup_timeout(command,*args):
+            if command[1]=='exec':
+                cleanup_calls.append(command);raise TimeoutError('optional export cleanup deadline')
+            return ''
+        monkeypatch.setattr(backend,'stream_command',cleanup_timeout)
+        config=workspace/'config.json';config.write_text(json.dumps({'workspace':str(workspace),'session':'test-no-remote','pin':pin,
+                 'jobs':[str(job_path)],'artifacts':str(artifacts),'ledger':str(ledger_path)}))
+        if corrupt:
+&gt;           with pytest.raises(RuntimeError):backend.coordinator(config)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/behavior-closure-v4/tests/test_cleanup_deferral.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/saal_rsi/epoch_backend_v4.py:215: in coordinator
+    ledger.finish(digest,outcome,completed);outcomes.append(outcome);write_json(root/'outcomes.json',{'runs':outcomes});write_json(root/'registry-export.json',ledger.records())
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/saal_rsi/model_monitor.py:21: in write_json
+    temporary.write_text(json.dumps(value,indent=2,allow_nan=False)+'\n');os.replace(temporary,path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/Users/dawsonblock/Downloads/SAAL-RSI-Behavior-Closure-v4-Verification/tests/project-temp/test_real_native_validation_pr1/controller/registry-export.json.tmp')
+data = '{\n  "attempts": [\n    {\n      "digest": "sha256:c6ae464acc2cb71b3f28642dd33e321570dbcd903ff971c1052de6e4a06c1e0e",...  "rollback_resistant": false,\n  "financial_cap": false,\n  "authority": "controller-owned development registry"\n}\n'
+encoding = 'locale', errors = None, newline = None
+
+    def write_text(self, data, encoding=None, errors=None, newline=None):
+        """
+        Open the file in text mode, write to it, and close the file.
+        """
+        if not isinstance(data, str):
+            raise TypeError('data must be str, not %s' %
+                            data.__class__.__name__)
+        encoding = io.text_encoding(encoding)
+        with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+&gt;           return f.write(data)
+                   ^^^^^^^^^^^^^
+E           OSError: [Errno 28] No space left on device
+
+/Users/dawsonblock/.pyenv/versions/3.12.0/lib/python3.12/pathlib.py:1049: OSError</failure></testcase><testcase classname="research.behavior-closure-v4.tests.test_materialize_tensors" name="test_all_bytes_are_present_and_restore_is_idempotent" time="0.002" /><testcase classname="research.behavior-closure-v4.tests.test_materialize_tensors" name="test_missing_bytes_and_substitution_rejected[missing]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_materialize_tensors" name="test_missing_bytes_and_substitution_rejected[corrupted]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_materialize_tensors" name="test_missing_bytes_and_substitution_rejected[escape]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_materialize_tensors" name="test_missing_bytes_and_substitution_rejected[existing_substitution]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_monitor_failure" name="test_terminal_campaign_event_does_not_hide_failed_lifecycle" time="0.004" /><testcase classname="research.behavior-closure-v4.tests.test_public_baselines" name="test_majority_control_never_uses_development_labels" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_public_baselines" name="test_missing_training_class_cannot_create_admitted_control" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_streaming_transfer" name="test_streamed_archive_matches_original_with_only_one_copy" time="0.002" /><testcase classname="research.behavior-closure-v4.tests.test_streaming_transfer" name="test_invalid_stream_cannot_complete[reordered]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_streaming_transfer" name="test_invalid_stream_cannot_complete[corrupted]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_streaming_transfer" name="test_invalid_stream_cannot_complete[incomplete]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_streaming_transfer" name="test_invalid_stream_cannot_complete[duplicate]" time="0.001" /><testcase classname="research.behavior-closure-v4.tests.test_streaming_transfer" name="test_invalid_stream_cannot_complete[disk_substitution]" time="0.001" /></testsuite></testsuites>
