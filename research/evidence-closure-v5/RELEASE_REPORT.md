@@ -97,9 +97,11 @@ numerical failures at 1e-4. Targeted fresh CPU probes reproduced both failures
 exactly; changing thread count did not fix them and labels still agree. Their
 failures were not reclassified or pardoned.
 
-The physical archive carries a hash manifest and controller signature. Clean
-extraction, all-byte verification and extraction tests are recorded in its
-separate verification sidecar. Pinned upstream ModernBERT weights remain a
+The physical archive carries a hash manifest, published source identity and
+controller signature. **Fresh clean-extraction verification and tests of the
+final v5 archive have not been completed:** work stopped at the user's request.
+The completed clean-payload tests above apply to the Colab QA input, not to this
+final full archive. Pinned upstream ModernBERT weights remain a
 separately verified cache prerequisite. GitHub automatic source ZIPs may contain
 LFS pointers; the supplied physical ZIP contains checkpoint payload bytes.
 
