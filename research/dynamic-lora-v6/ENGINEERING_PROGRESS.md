@@ -71,3 +71,24 @@ Public families remain correlated and operator-authored, with zero human
 reviews. Independent generalization, sequential retention, an adaptive-rank
 advantage and recursive self-improvement have not been established. Tests
 and controller signatures cannot supply independent custody or qualification.
+
+## First post-freeze public regression check
+
+The additional bounded CPU collector has evaluated all initial, selected and
+terminal snapshots of the completed seed-47 fixed-r8 study candidate. It made
+3,720 predictions over the frozen 1,240-case public regression population,
+finished in 196.34 seconds against a 600-second worker wall limit, and verified
+the frozen backbone unchanged. Its native inference and three admission-negative
+checks are additional evidence, separate from the earlier 932-test QA count.
+
+The terminal checkpoint reached 90.56% overall accuracy and 83.06% complete-pair
+correctness, with 24 label-based action proposal errors. Two small diagnostic
+families scored zero: negated preference, 0/4; latest valid correction, 0/12.
+These exposed cases are not independent population estimates. The result shows
+why overall accuracy is insufficient for admission and does not qualify the
+candidate. Checkpoint selection and all admitted training jobs remain unchanged.
+
+The collector is separate from the T4 worker and uses no protected final data.
+Its plan, predictions, metrics, work accounting and frozen candidate identity
+are retained under `regression-study-v2`. Remaining candidates are evaluated
+only after their training, artifact verification and replay complete.

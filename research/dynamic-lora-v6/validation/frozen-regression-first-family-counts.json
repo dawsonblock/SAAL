@@ -1,0 +1,47 @@
+{
+  "candidate_binding": {
+    "cpu_replay_digest": "sha256:0c62e94a1de4db593c7e4ad56565016bc8e139b2f81804c6a2e9b05648829691",
+    "inventory_sha256": "19d7ce2b7f24e528b1b30f01e8e08f96667f0e4a4dabbe1f541da795adbf8077",
+    "job_digest": "sha256:d4da716a6b894908e078844862406c69366321ac03251f39c2fe5fbc24f790cc",
+    "result_digest": "sha256:4fd4b433a5515a2874284966041b32f3e313e21a18c3552ac691c5340a78b3ea"
+  },
+  "role": "terminal",
+  "family_case_counts": {
+    "compact_v2_budget_fragment": 96,
+    "compact_v2_deadline_fragment": 96,
+    "compact_v2_glossary_fragment": 96,
+    "compact_v2_permission_contrast": 96,
+    "compositional5_dual_bound_brief": 96,
+    "compositional5_revoked_with_missing_fields": 96,
+    "corrective4_joint_limits_and_priority": 96,
+    "corrective4_permission_and_missing_goal": 96,
+    "development_deadline_feasibility": 4,
+    "development_glossary_missing": 4,
+    "development_negated_preference": 4,
+    "development_quoted_consent": 4,
+    "diverse_contradictory_bulletin": 96,
+    "diverse_incident_revision": 96,
+    "diverse_numeric_composition": 96,
+    "diverse_unfamiliar_glossary": 96,
+    "regression_authority_provenance": 12,
+    "regression_budget_condition": 12,
+    "regression_latest_valid_correction": 12,
+    "regression_missing_numeric_constraint": 12,
+    "regression_scope_revocation": 12,
+    "regression_unknown_mapping": 12
+  },
+  "zero_accuracy_families": [
+    {
+      "family": "development_negated_preference",
+      "cases": 4,
+      "accuracy": 0.0
+    },
+    {
+      "family": "regression_latest_valid_correction",
+      "cases": 12,
+      "accuracy": 0.0
+    }
+  ],
+  "scope": "Public diagnostics; small family counts are not independent population estimates.",
+  "qualification_status": "NOT_EVALUATED"
+}
