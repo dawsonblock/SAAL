@@ -110,6 +110,17 @@ def prepare(stage, key_path, pilot_name='pilot-experiment'):
         replay = json.loads((PROJECT/'validation/fixed-r8-portable-replay.json').read_text())
         if old_export['campaign_state'] != 'FAILED' or old_export['provisioning_attempts'] != 1 or replay['verified'] is not True:
             raise ValueError('documented failed admission and successful repaired replay required')
+        from saal_rsi.adaptive_artifacts import validate_bundle, read_json, file_hash
+        from saal_rsi.epoch_metrics import prediction_equal
+        first = old_protocol['runs'][0]
+        old_job = verify(read_json(old/(first['name']+'-job.json')), old_pin)
+        old_digest = sha(old_job)
+        artifact = old/'artifacts'/('run-00-'+old_digest[7:19])
+        native = validate_bundle(artifact, old_job, old_pin, require_replay=True)
+        if (replay['job_digest'] != old_digest or replay['inventory_sha256'] != file_hash(artifact/'artifact_inventory.json')
+                or any(not prediction_equal(replay['predictions'][role], native['snapshots'][role]['predictions'],
+                    'modernbert-seqcls-v1', 1e-4) for role in ('initial', 'best', 'terminal'))):
+            raise ValueError('repair must reproduce actual authenticated checkpoint predictions')
         repair = {'failed_protocol_digest': sha(old_protocol), 'failed_export_digest': sha(old_export),
                   'controller_replay_digest': sha(replay),
                   'reason': 'Restore admitted initial classifier head before cross-platform identity checks. Preserve original failure; no prediction tolerance, rank schedule, data or training change.'}
