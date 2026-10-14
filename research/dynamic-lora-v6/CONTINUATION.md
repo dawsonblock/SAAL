@@ -87,6 +87,12 @@ It is not behavioral qualification and never changes the old failed budgets.
    `validation/frozen-regression-process-05-completion.json`.
    No collector is running as of that record; check later process records and
    actual commands before the next launch.
+   Invocation 07 (session 74580, PID 68437) exited successfully after collecting
+   the seed-109 fixed-r12 candidate. Eight public regression tasks are complete.
+   Its records are `validation/frozen-regression-process-07.json` and
+   `validation/frozen-regression-process-07-completion.json`.
+   No collector is running as of that record; use the highest numbered process
+   record and inspect actual commands before the next launch.
    Invocation 06 (session 12310, PID 66125) exited successfully after collecting
    the seed-109 fixed-r8 candidate. Seven public regression tasks are complete.
    Its records are `validation/frozen-regression-process-06.json` and
