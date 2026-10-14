@@ -1,0 +1,10 @@
+{
+  "controller_pid": 66125,
+  "created_utc": "2026-10-14T13:42:44.131023+00:00",
+  "exec_session": 12310,
+  "output": "research/dynamic-lora-v6/regression-study-v2",
+  "previous_completed_tasks": 6,
+  "previous_invocation_completed": true,
+  "source_plan_unchanged": true,
+  "scope": "Incremental collection of newly completed frozen seed-109 fixed-r8 candidate; six authenticated completed tasks skipped; no training or task retries."
+}
