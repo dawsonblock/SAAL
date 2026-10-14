@@ -1,0 +1,25 @@
+{
+  "schema": "saal-adaptive-pilot-figures-v1",
+  "report_sha256": "142e07190aa983a7a99302931df9a40a3bbc8cc15b8da5d1df0c7acc625e9362",
+  "plotting_versions": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.4.6"
+  },
+  "methods_present": [
+    "fixed-r8",
+    "fixed-r12",
+    "adalora-12-to-8"
+  ],
+  "scope": "Descriptive public engineering pilot, excluded seed; no significance, retention or independent-generalization claim.",
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false,
+  "files": {
+    "pilot-adalora-ranks.csv": "7a42c9b68667d3e98a76a2035c2747f60e4800a82e7cd0ef992fd4c6e489fa69",
+    "pilot-adalora-ranks.png": "4493b06f19371dfab2ce3920b345cc48d1c0b5658a5363e75af7b83716c8144f",
+    "pilot-adalora-ranks.svg": "523ec9a49eb2cb714d13ad5a5c14a526a2e519534e711c11b10591a00afffec5",
+    "pilot-learning-curves.png": "dc39378ba675a49c44363dd24deb005c3ac055f595206b09ee2186a69593ef9f",
+    "pilot-learning-curves.svg": "1b0c3ba9c9b08e407a3447ceb40d13c16c6397c0f936e996adc381bf3016b64b",
+    "pilot-rank-budget.png": "72227021725c00d78cd3838904386cd10acd5ca55b8fcca8211d62ca21519eb3",
+    "pilot-rank-budget.svg": "6a69549e80310bda9a75181e1b930dcbc9ed582a97aa19a9108f801970354ba5"
+  }
+}

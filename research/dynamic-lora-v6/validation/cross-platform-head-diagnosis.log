@@ -1,0 +1,35 @@
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 37098.42it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /Users/dawsonblock/Downloads/SAAL-RSI-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.bias   | MISSING    | 
+classifier.weight | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{
+  "cpu_unadapted_hash": "8ede0d34129d509187517b425ac3e8b44216f28244c194ba9449be30d4e13668",
+  "gpu_unadapted_hash": "005f4ed1d1030787f65e166b2ed1b09c7e947a354bb9f2b3d7bfc4bdcd264ff3",
+  "cpu_frozen_hash": "1a4e7deeb1e2869d30fb8f7fbca273ab4328f2019a6536ca93678a28841d6752",
+  "gpu_frozen_hash": "4159c96be22d5b7f13a70499f45a5ae56ba95f28585ea39317b05605c12b0293",
+  "initial_head_comparison": {
+    "base_model.model.head.modules_to_save.default.dense.weight": {
+      "equal": true,
+      "max_absolute_delta": 0.0
+    },
+    "base_model.model.head.modules_to_save.default.norm.weight": {
+      "equal": true,
+      "max_absolute_delta": 0.0
+    },
+    "base_model.model.classifier.modules_to_save.default.weight": {
+      "equal": false,
+      "max_absolute_delta": 1.4901161193847656e-08
+    },
+    "base_model.model.classifier.modules_to_save.default.bias": {
+      "equal": true,
+      "max_absolute_delta": 0.0
+    }
+  }
+}

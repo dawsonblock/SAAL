@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="2.909" timestamp="2026-10-13T21:10:03.006151-06:00" hostname="Mac.gateway.sasktel.net"><testcase classname="" name="research.dynamic-lora-v6.tests.test_pilot_portability" time="0.000"><error message="collection failure">research/dynamic-lora-v6/tests/test_pilot_portability.py:14: in &lt;module&gt;
+    spec.loader.exec_module(gate)
+&lt;frozen importlib._bootstrap_external&gt;:990: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:1127: in get_code
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:1185: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-qa-preflight-4wyby4d8/research/dynamic-lora-v6/prepare.py'</error></testcase></testsuite></testsuites>

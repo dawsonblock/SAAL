@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/colab_tests.py", line 161, in <module>
+    if __name__=='__main__':run(sys.argv[1] if len(sys.argv)>1 else 'colab-tests')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/colab_tests.py", line 63, in run
+    subprocess.run([sys.executable,'-m','pytest',tests,'-q','--junitxml='+str(out/('local-'+name+'.xml'))],cwd=extracted,env=dict(os.environ,PYTHONPATH=paths),stdout=log,stderr=subprocess.STDOUT,timeout=900,check=True)
+  File "/Users/dawsonblock/.pyenv/versions/3.12.0/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/dawsonblock/Downloads/SAAL-RSI-validation-envs/adaptive-v6-py312/bin/python', '-m', 'pytest', 'research/dynamic-lora-v6/tests', '-q', '--junitxml=/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/colab-tests/local-adaptive.xml']' returned non-zero exit status 2.

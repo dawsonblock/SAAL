@@ -1,0 +1,20 @@
+{
+  "runs": [
+    {
+      "run": "run-00-875f98391b45",
+      "job_digest": "sha256:875f98391b4509d793c15c078cfb47d8c389ef9e547e529e75a3237d2a89f2e2",
+      "state": "COMPLETED",
+      "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v2-01/artifacts/run-00-875f98391b45",
+      "method": "adalora-12-to-8",
+      "seed": 60606,
+      "result_digest": "sha256:677564fdec5d26c5c25597642f219de4be519d7d8dfbe6f6e4fecf8ced6a7e6c",
+      "unadapted_model_hash": "005f4ed1d1030787f65e166b2ed1b09c7e947a354bb9f2b3d7bfc4bdcd264ff3",
+      "controller_replay": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v2-01/colab/run-00-875f98391b45-controller-replay.json",
+      "controller_replay_digest": "sha256:40a974599ece0341231a03244f673f814c88824c17d3e556ea96b804a7e788e0",
+      "artifact_cleanup": {
+        "state": "CONFIRMED",
+        "deferred_to_session_stop": false
+      }
+    }
+  ]
+}

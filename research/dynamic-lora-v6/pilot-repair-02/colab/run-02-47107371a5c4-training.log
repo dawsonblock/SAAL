@@ -1,0 +1,36 @@
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 4464.85it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /content/saal-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+Traceback (most recent call last):
+  File "/content/saal-adaptive/worker.py", line 5, in <module>
+    main()
+    ~~~~^^
+  File "/content/saal-adaptive/src/saal_rsi/adaptive_worker.py", line 54, in main
+    backend = AdaptiveModernBERTBackend(job, snapshot).load_pretrained()
+  File "/content/saal-adaptive/src/saal_rsi/modernbert_backend.py", line 14, in load_pretrained
+    self.initialize_experiment();return self
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/content/saal-adaptive/src/saal_rsi/adaptive_backend.py", line 79, in initialize_experiment
+    raise ValueError('ranknum must be immutable')
+ValueError: ranknum must be immutable
+{"monitor": "worker_failure", "stage": "adaptive_train_replay_export", "error_type": "RuntimeError", "detail": "adaptive training or fresh replay child failed"}
+Traceback (most recent call last):
+  File "/tmp/ipykernel_843/2257049700.py", line 9, in <cell line: 0>
+    if p.wait():raise RuntimeError("adaptive training or fresh replay child failed")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: adaptive training or fresh replay child failed
+[0;31m---------------------------------------------------------------------------[0m[0;31mRuntimeError[0m                              Traceback (most recent call last)[0;32m/tmp/ipykernel_843/2257049700.py[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m      7[0m   [0mp[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mPopen[0m[0;34m([0m[0mcommand[0m[0;34m,[0m[0mstdout[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mPIPE[0m[0;34m,[0m[0mstderr[0m[0;34m=[0m[0msubprocess[0m[0;34m.[0m[0mSTDOUT[0m[0;34m,[0m[0menv[0m[0;34m=[0m[0menv[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m   [0;32mfor[0m [0mline[0m [0;32min[0m [0miter[0m[0;34m([0m[0mp[0m[0;34m.[0m[0mstdout[0m[0;34m.[0m[0mreadline[0m[0;34m,[0m[0;34mb""[0m[0;34m)[0m[0;34m:[0m[0mprint[0m[0;34m([0m[0mline[0m[0;34m.[0m[0mdecode[0m[0;34m([0m[0merrors[0m[0;34m=[0m[0;34m"replace"[0m[0;34m)[0m[0;34m,[0m[0mend[0m[0;34m=[0m[0;34m""[0m[0;34m,[0m[0mflush[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m   [0;32mif[0m [0mp[0m[0;34m.[0m[0mwait[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;32mraise[0m [0mRuntimeError[0m[0;34m([0m[0;34m"adaptive training or fresh replay child failed"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m  [0;32mwith[0m [0mzipfile[0m[0;34m.[0m[0mZipFile[0m[0;34m([0m[0;34m'/content/run-02-47107371a5c4.zip'[0m[0;34m,[0m[0;34m"x"[0m[0;34m,[0m[0mcompression[0m[0;34m=[0m[0mzipfile[0m[0;34m.[0m[0mZIP_DEFLATED[0m[0;34m,[0m[0mcompresslevel[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m [0;32mas[0m [0mz[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m   [0;32mfor[0m [0mn[0m [0;32min[0m [0;34m[[0m[0;34m'adapter_config.json'[0m[0;34m,[0m [0;34m'artifact_inventory.json'[0m[0;34m,[0m [0;34m'best.safetensors'[0m[0;34m,[0m [0;34m'best_rank_pattern.json'[0m[0;34m,[0m [0;34m'checkpoint_selection.json'[0m[0;34m,[0m [0;34m'dataset_manifest.json'[0m[0;34m,[0m [0;34m'fresh_process_replay.json'[0m[0;34m,[0m [0;34m'initial.safetensors'[0m[0;34m,[0m [0;34m'initial_rank_pattern.json'[0m[0;34m,[0m [0;34m'model_spec.json'[0m[0;34m,[0m [0;34m'rank_history.jsonl'[0m[0;34m,[0m [0;34m'rank_schedule.json'[0m[0;34m,[0m [0;34m'resource_accounting.json'[0m[0;34m,[0m [0;34m'result.json'[0m[0;34m,[0m [0;34m'sampler_manifest.json'[0m[0;34m,[0m [0;34m'signed_training_job.json'[0m[0;34m,[0m [0;34m'snapshot_manifest.json'[0m[0;34m,[0m [0;34m'terminal.safetensors'[0m[0;34m,[0m [0;34m'terminal_rank_pattern.json'[0m[0;34m,[0m [0;34m'training_metrics.jsonl'[0m[0;34m][0m[0;34m:[0m[0mz[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0mPath[0m[0;34m([0m[0;34m'/content/run-02-47107371a5c4'[0m[0;34m)[0m[0;34m/[0m[0mn[0m[0;34m,[0m[0mn[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mRuntimeError[0m: adaptive training or fresh replay child failed

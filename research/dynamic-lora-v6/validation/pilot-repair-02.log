@@ -1,0 +1,28 @@
+{"monitor": "lifecycle_terminal", "session": "saal-79bb3a37907c4c24a8f8", "state": "FAILED", "cleanup_verified": true, "evidence_errors": []}
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/prepare.py", line 218, in <module>
+    elif a.action == 'run': run(a.stage, a.cache, a.pilot)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/prepare.py", line 205, in run
+    return execute(folder/'colab', [folder/(d['name']+'-job.json') for d in protocol['runs']],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/adaptive_campaign.py", line 246, in execute
+    state = execute_colab_plan(plan, root)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor_v3.py", line 197, in execute_colab_plan
+    raise primary
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor_v3.py", line 148, in execute_colab_plan
+    stream_command(command, workspace/(str(number)+'-'+phase.lower()+'.log'),
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor.py", line 55, in stream_command
+    if rc:raise RuntimeError(f'Colab {command[1]} failed ({rc}): '+redact_monitor_text(tail.decode(errors='replace'))[-1200:])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Colab -I failed (1): e3fd2", "chunks": [{"name": "part-000.bin", "size": 15587278, "sha256": "f1066ad88cedecdfd1714ab47c488b6a57dfe5ab30df03e659a522ba81fe3fd2"}]}}
+{"monitor": "campaign_progress", "completed_runs": 2, "total_runs": 3, "seed": 60606, "mode": "fixed-r12"}
+{"monitor": "worker_failure", "stage": "adaptive_train_replay_export", "error_type": "RuntimeError", "detail": "adaptive training or fresh replay child failed"}
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-repair-02/colab/coordinate.py", line 4, in <module>
+    coordinator('/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-repair-02/colab/config.json')
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/adaptive_campaign.py", line 186, in coordinator
+    raise RuntimeError('adaptive campaign interrupted; no retry: '+str(outcome['error']))
+RuntimeError: adaptive campaign interrupted; no retry: {'type': 'RuntimeError', 'detail': 'Remote worker failed: {"monitor": "worker_failure", "stage": "adaptive_train_replay_export", "error_type": "RuntimeError", "detail": "adaptive training or fresh replay child failed"}'}
+

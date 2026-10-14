@@ -1,0 +1,19 @@
+Matplotlib is building the font cache; this may take a moment.
+{
+  "schema": "saal-adaptive-pilot-figures-v1",
+  "report_sha256": "de1be13bfcfaa1458470065009dfaec7ba0b8fd8789d97f3d3e25256cf1b71b6",
+  "plotting_versions": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.4.6"
+  },
+  "methods_present": [
+    "fixed-r8"
+  ],
+  "scope": "Descriptive public engineering pilot, excluded seed; no significance, retention or independent-generalization claim.",
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false,
+  "files": {
+    "pilot-learning-curves.png": "bb01a75c754e5a285b0514016f0da8d520a09b470314df43489d35d95da0a331",
+    "pilot-learning-curves.svg": "7c061514a28e9b7fd8c4b7c8229869f7482585d12ea93ea80dd982f388bed0bb"
+  }
+}

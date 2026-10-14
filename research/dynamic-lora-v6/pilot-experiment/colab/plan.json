@@ -1,0 +1,72 @@
+{
+  "schema": "saal-adaptive-colab-plan-v1",
+  "session": "saal-050f1b73c0f242f6860b",
+  "job_digest": "sha256:3581a413e629595dbd616bd070d9ab2fe050f2fea8df281056fee29560e861cb",
+  "estimated_max_seconds": 16200,
+  "commands": [
+    [
+      "colab",
+      "new",
+      "-s",
+      "saal-050f1b73c0f242f6860b",
+      "--gpu",
+      "T4"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-050f1b73c0f242f6860b",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-experiment/colab/gpu-lock.txt",
+      "/content/saal_adaptive_lock.txt"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-050f1b73c0f242f6860b",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-experiment/colab/worker.zip",
+      "/content/saal_adaptive_worker.zip"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-050f1b73c0f242f6860b",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-experiment/colab/install.py",
+      "--timeout",
+      "960"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-050f1b73c0f242f6860b",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-experiment/colab/gpu-observation.py",
+      "--timeout",
+      "30"
+    ],
+    [
+      "/Users/dawsonblock/Downloads/SAAL-RSI-validation-envs/adaptive-v6-py312/bin/python",
+      "-I",
+      "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-experiment/colab/coordinate.py"
+    ],
+    [
+      "colab",
+      "stop",
+      "-s",
+      "saal-050f1b73c0f242f6860b"
+    ]
+  ],
+  "phases": [
+    "PROVISIONING",
+    "UPLOAD_LOCK",
+    "UPLOAD_WORKER",
+    "DEPENDENCIES",
+    "HARDWARE_OBSERVATION",
+    "CAMPAIGN"
+  ],
+  "external_deployment_allowed": false
+}

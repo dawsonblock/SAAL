@@ -1,0 +1,20 @@
+{
+  "runs": [
+    {
+      "run": "run-00-53dd56d784a8",
+      "job_digest": "sha256:53dd56d784a8f9a72ba3e05d524130f39db441517406b1f06a73f869bf7a5376",
+      "state": "COMPLETED",
+      "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/cuda-v2-probe/artifacts/run-00-53dd56d784a8",
+      "method": "adalora-12-to-8",
+      "seed": 60606,
+      "result_digest": "sha256:5c51c8804c004ef173ca7e92e6a8320cb3a6077170f31f3eed665ae7b982f407",
+      "unadapted_model_hash": "005f4ed1d1030787f65e166b2ed1b09c7e947a354bb9f2b3d7bfc4bdcd264ff3",
+      "controller_replay": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/cuda-v2-probe/colab/run-00-53dd56d784a8-controller-replay.json",
+      "controller_replay_digest": "sha256:6fc7977066d8dcc3f9882cfe61598a32053aff162eace2f82f45986b0d499aaa",
+      "artifact_cleanup": {
+        "state": "CONFIRMED",
+        "deferred_to_session_stop": false
+      }
+    }
+  ]
+}

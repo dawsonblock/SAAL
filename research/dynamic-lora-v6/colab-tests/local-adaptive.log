@@ -1,0 +1,16 @@
+
+==================================== ERRORS ====================================
+__ ERROR collecting research/dynamic-lora-v6/tests/test_pilot_portability.py ___
+research/dynamic-lora-v6/tests/test_pilot_portability.py:14: in <module>
+    spec.loader.exec_module(gate)
+<frozen importlib._bootstrap_external>:990: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1127: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1185: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/saal-qa-preflight-4wyby4d8/research/dynamic-lora-v6/prepare.py'
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/colab-tests/local-adaptive.xml -
+=========================== short test summary info ============================
+ERROR research/dynamic-lora-v6/tests/test_pilot_portability.py - FileNotFound...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!

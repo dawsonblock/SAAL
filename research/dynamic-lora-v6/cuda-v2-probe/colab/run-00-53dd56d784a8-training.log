@@ -1,0 +1,38 @@
+{"monitor": "snapshot_download", "file": "config.json", "bytes": 1217}
+{"monitor": "snapshot_download", "file": "model.safetensors", "bytes": 598635032}
+{"monitor": "snapshot_download", "file": "special_tokens_map.json", "bytes": 694}
+{"monitor": "snapshot_download", "file": "tokenizer.json", "bytes": 2132967}
+{"monitor": "snapshot_download", "file": "tokenizer_config.json", "bytes": 20837}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 4110.28it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /content/saal-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.bias   | MISSING    | 
+classifier.weight | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"monitor": "gpu_admission_probe", "forward_backward_completed": true, "optimizer_updates": 0, "sample_exposures_without_updates": 8, "tokens": 1050, "weights_unchanged": true, "elapsed_seconds": 0.9462258710000242, "peak_gpu_allocated_bytes": 1662886400, "peak_gpu_reserved_bytes": 1740636160}
+{"monitor": "checkpoint_metrics", "step": 0, "development": {"accuracy": 0.25, "family_macro_accuracy": 0.25, "worst_family_accuracy": 0.25, "family_accuracy": {"diverse_dialogue_handoff": 0.25}, "class_accuracy": {"CHEAP": 0.0, "FAST": 0.0, "ASK": 1.0, "REFUSE": 0.0}, "category_accuracy": {"preference": 0.0, "clarification": 1.0, "refusal": 0.0}, "complete_pair_accuracy": 0.0, "invalid_outputs": 0, "unauthorized_proposals": 0, "confusion": {"CHEAP->ASK": 8, "FAST->ASK": 8, "ASK->ASK": 8, "REFUSE->ASK": 8}, "false_refusal_rate": 0.0, "missing_clarification_rate": 0.0, "brier_score": 0.7922783528522719, "expected_calibration_error": 0.1328654745593667, "invariance_pair_accuracy": null, "negative_log_likelihood_by_class": {"CHEAP": 1.6645000730884534, "FAST": 1.309790340897244, "ASK": 0.9609882405028716, "REFUSE": 1.9840792659198758}, "negative_log_likelihood": 1.479839480102111, "nll_probability_floor": 1e-12}}
+{"monitor": "training_progress", "completed_steps": 1, "total_steps": 4, "objective_loss": 2.1754977703094482, "cross_entropy": 1.4849730730056763, "orthogonal_penalty": 0.6905246376991272, "gradient_norm": 3.9663233757019043, "tokens": 2098, "elapsed_seconds": 1.100164249000045, "active_rank": 264, "gpu_allocated_bytes": 710269952}
+{"monitor": "training_progress", "completed_steps": 2, "total_steps": 4, "objective_loss": 2.0770108699798584, "cross_entropy": 1.4110575318336487, "orthogonal_penalty": 0.6659533977508545, "gradient_norm": 0.9449436664581299, "tokens": 4197, "elapsed_seconds": 1.6343961249999666, "active_rank": 187, "gpu_allocated_bytes": 719630336}
+{"monitor": "checkpoint_metrics", "step": 2, "development": {"accuracy": 0.09375, "family_macro_accuracy": 0.09375, "worst_family_accuracy": 0.09375, "family_accuracy": {"diverse_dialogue_handoff": 0.09375}, "class_accuracy": {"CHEAP": 0.125, "FAST": 0.125, "ASK": 0.0, "REFUSE": 0.125}, "category_accuracy": {"preference": 0.125, "clarification": 0.0, "refusal": 0.125}, "complete_pair_accuracy": 0.0, "invalid_outputs": 0, "unauthorized_proposals": 13, "confusion": {"CHEAP->REFUSE": 6, "FAST->REFUSE": 6, "CHEAP->FAST": 1, "FAST->FAST": 1, "CHEAP->CHEAP": 1, "FAST->CHEAP": 1, "ASK->REFUSE": 2, "REFUSE->FAST": 4, "ASK->CHEAP": 4, "REFUSE->CHEAP": 3, "ASK->FAST": 2, "REFUSE->REFUSE": 1}, "false_refusal_rate": 0.75, "missing_clarification_rate": 1.0, "brier_score": 0.7695192457232365, "expected_calibration_error": 0.19863177184015512, "invariance_pair_accuracy": null, "negative_log_likelihood_by_class": {"CHEAP": 1.3728701455912853, "FAST": 1.319067424734178, "ASK": 1.6709780735366109, "REFUSE": 1.3316150059207423}, "negative_log_likelihood": 1.423632662445704, "nll_probability_floor": 1e-12}}
+{"monitor": "training_progress", "completed_steps": 3, "total_steps": 4, "objective_loss": 2.078429698944092, "cross_entropy": 1.43435937166214, "orthogonal_penalty": 0.6440703272819519, "gradient_norm": 1.5423576831817627, "tokens": 6292, "elapsed_seconds": 2.543536460000041, "active_rank": 176, "gpu_allocated_bytes": 719630336}
+{"monitor": "training_progress", "completed_steps": 4, "total_steps": 4, "objective_loss": 1.989315688610077, "cross_entropy": 1.367881715297699, "orthogonal_penalty": 0.6214339733123779, "gradient_norm": 0.6642885804176331, "tokens": 8394, "elapsed_seconds": 3.0239469729999655, "active_rank": 176, "gpu_allocated_bytes": 710269952}
+{"monitor": "checkpoint_metrics", "step": 4, "development": {"accuracy": 0.21875, "family_macro_accuracy": 0.21875, "worst_family_accuracy": 0.21875, "family_accuracy": {"diverse_dialogue_handoff": 0.21875}, "class_accuracy": {"CHEAP": 0.0, "FAST": 0.0, "ASK": 0.875, "REFUSE": 0.0}, "category_accuracy": {"preference": 0.0, "clarification": 0.875, "refusal": 0.0}, "complete_pair_accuracy": 0.0, "invalid_outputs": 0, "unauthorized_proposals": 3, "confusion": {"CHEAP->ASK": 7, "FAST->ASK": 7, "CHEAP->REFUSE": 1, "FAST->REFUSE": 1, "ASK->ASK": 7, "REFUSE->ASK": 6, "REFUSE->CHEAP": 2, "ASK->CHEAP": 1}, "false_refusal_rate": 0.125, "missing_clarification_rate": 0.125, "brier_score": 0.7602483397393415, "expected_calibration_error": 0.06813320051878691, "invariance_pair_accuracy": null, "negative_log_likelihood_by_class": {"CHEAP": 1.432714415343316, "FAST": 1.4734498968028178, "ASK": 1.2366281779070998, "REFUSE": 1.4878139818033866}, "negative_log_likelihood": 1.407651617964155, "nll_probability_floor": 1e-12}}
+{"monitor": "training_complete", "job_digest": "sha256:53dd56d784a8f9a72ba3e05d524130f39db441517406b1f06a73f869bf7a5376", "selected_step": 0, "qualification_status": "NOT_EVALUATED"}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 4148.79it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: /content/saal-model-cache/ModernBERT-base/11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"monitor": "fresh_process_replay", "verified": true, "checkpoints": ["initial", "best", "terminal"], "job_digest": "sha256:53dd56d784a8f9a72ba3e05d524130f39db441517406b1f06a73f869bf7a5376"}
+{"monitor": "artifact_transfer_ready", "manifest": {"schema": "saal-artifact-transfer-v1", "job_digest": "sha256:53dd56d784a8f9a72ba3e05d524130f39db441517406b1f06a73f869bf7a5376", "size": 15725270, "sha256": "d39a95989172f3edd08dc960f6575a837cdcdc9a8566c65566fdde3f8c0c0262", "chunks": [{"name": "part-000.bin", "size": 15725270, "sha256": "d39a95989172f3edd08dc960f6575a837cdcdc9a8566c65566fdde3f8c0c0262"}]}}

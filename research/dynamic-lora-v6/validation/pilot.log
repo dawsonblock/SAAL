@@ -1,0 +1,20 @@
+{"monitor": "lifecycle_terminal", "session": "saal-050f1b73c0f242f6860b", "state": "FAILED", "cleanup_verified": true, "evidence_errors": []}
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/prepare.py", line 174, in <module>
+    return execute(folder/'colab', [folder/(d['name']+'-job.json') for d in protocol['runs']],
+                            ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/prepare.py", line 163, in run
+    print(json.dumps({'stage': stage, 'jobs_reserved': len(jobs), 'protocol_digest': sha(protocol), 'qualification_status': 'NOT_EVALUATED'}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/adaptive_campaign.py", line 244, in execute
+    state = execute_colab_plan(plan, root)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor_v3.py", line 197, in execute_colab_plan
+    raise primary
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor_v3.py", line 148, in execute_colab_plan
+    stream_command(command, workspace/(str(number)+'-'+phase.lower()+'.log'),
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor.py", line 55, in stream_command
+    if rc:raise RuntimeError(f'Colab {command[1]} failed ({rc}): '+redact_monitor_text(tail.decode(errors='replace'))[-1200:])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Colab -I failed (1):  \nclassifier.bias   | MISSING    | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n- MISSING:\tthose params were newly initialized because missing from the checkpoint. Consider training on your downstream task.\nTraceback (most recent call last):\n  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-experiment/colab/run-00-d9d3cc549f74-controller-replay-replay.py", line 9, in <module>\n    value=fresh_local_replay(\'/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-experiment/artifacts/run-00-d9d3cc549f74\',job,pin,\'/Users/dawsonblock/Downloads/SAAL-RSI-model-cache\')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/adaptive_campaign.py", line 81, in fresh_local_replay\n    raise ValueError(\'fresh local backbone / head identity mismatch\')\nValueError: fresh local backbone / head identity mismatch\n'}
+

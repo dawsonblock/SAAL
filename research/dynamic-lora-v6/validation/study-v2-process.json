@@ -1,0 +1,7 @@
+{
+  "controller_pid": 44830,
+  "idle_sleep_inhibitor_pid": 45251,
+  "scope": "Prevent idle system sleep only while this admitted controller lives; no global power setting changes.",
+  "exec_session": 81559,
+  "created_utc": "2026-10-14T11:04:29.745828+00:00"
+}

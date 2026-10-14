@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/native_smoke.py", line 87, in <module>
+    a = p.parse_args(); run(a.key, a.cache, a.attempt)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/native_smoke.py", line 68, in run
+    raise RuntimeError('native engineering check failed: '+method+' / '+phase)
+RuntimeError: native engineering check failed: fixed-r8 / training

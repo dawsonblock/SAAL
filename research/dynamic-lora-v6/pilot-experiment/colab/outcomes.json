@@ -1,0 +1,15 @@
+{
+  "runs": [
+    {
+      "run": "run-00-d9d3cc549f74",
+      "job_digest": "sha256:d9d3cc549f7451f5e995370c509c14a5621742cf8f28030eb77d05fe5ab0da97",
+      "state": "INTERRUPTED",
+      "method": "fixed-r8",
+      "seed": 60606,
+      "error": {
+        "type": "RuntimeError",
+        "detail": "Colab -I failed (1): er.weight | MISSING    | \nclassifier.bias   | MISSING    | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n- MISSING:\tthose params were newly initialized because missing from the checkpoint. Consider training on your downstream task.\nTraceback (most recent call last):\n  File \"/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-experiment/colab/run-00-d9d3cc549f74-controller-replay-replay.py\", line 9, in <module>\n    value=fresh_local_replay('/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-experiment/artifacts/run-00-d9d3cc549f74',job,pin,'/Users/dawsonblock/Downloads/SAAL-RSI-model-cache')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/adaptive_campaign.py\", line 81, in fresh_local_replay\n    raise ValueError('fresh local backbone / head identity mismatch')\nValueError: fresh local backbone / head identity mismatch\n"
+      }
+    }
+  ]
+}

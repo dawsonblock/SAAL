@@ -1,0 +1,31 @@
+........................................................................ [ 84%]
+............F                                                            [100%]
+=================================== FAILURES ===================================
+______________ test_explicit_regularizer_matches_pinned_peft_loss ______________
+
+    def test_explicit_regularizer_matches_pinned_peft_loss():
+        class Fixture(torch.nn.Module):
+            def __init__(self):
+                super().__init__(); self.left = torch.nn.Linear(8, 8); self.classifier = torch.nn.Linear(8, 4)
+            def forward(self, x, labels=None):
+                logits = self.classifier(self.left(x))
+                loss = torch.nn.functional.cross_entropy(logits, labels) if labels is not None else None
+                return SequenceClassifierOutput(loss=loss, logits=logits)
+        torch.manual_seed(60606)
+        model = get_peft_model(Fixture(), AdaLoraConfig(init_r=12, target_r=8, total_step=1000,
+            tinit=100, tfinal=200, target_modules=['left'], modules_to_save=['classifier'], orth_reg_weight=.5))
+        model.eval(); x = torch.randn(4, 8); labels = torch.tensor([0, 1, 2, 3])
+        backend = object.__new__(AdaptiveModernBERTBackend)
+        backend.adapter = adapter_spec('adalora-12-to-8'); backend.model = model
+        backend.trainable = {n: p for n, p in model.named_parameters() if p.requires_grad}
+        actual = model(x, labels=labels).loss
+        explicit = torch.nn.functional.cross_entropy(model(x).logits, labels)+backend.orthogonal_regularizer()
+>       assert torch.allclose(actual, explicit, atol=1e-7, rtol=1e-7)
+E       assert False
+E        +  where False = <built-in method allclose of type object at 0x10c2a76d0>(tensor(1.4770, grad_fn=<NllLossBackward0>), tensor(3.2036, grad_fn=<AddBackward0>), atol=1e-07, rtol=1e-07)
+E        +    where <built-in method allclose of type object at 0x10c2a76d0> = torch.allclose
+
+research/dynamic-lora-v6/tests/test_regularizer.py:26: AssertionError
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/validation/unit-tests-05.xml -
+=========================== short test summary info ============================
+FAILED research/dynamic-lora-v6/tests/test_regularizer.py::test_explicit_regularizer_matches_pinned_peft_loss

@@ -1,0 +1,32 @@
+{
+  "schema": "saal-colab-monitor-v3",
+  "session": "saal-79bb3a37907c4c24a8f8",
+  "phase": "FAILED",
+  "job_digest": "sha256:b1850f4383caaa49d39a82fa520c481b3e6bc2a447103c71ace20bd25bf89539",
+  "deadline_epoch": 1791964190.497726,
+  "heartbeat_epoch": 1791951114.637598,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 1000,
+  "total_steps": 1000,
+  "external_deployment_allowed": false,
+  "evidence_errors": [],
+  "elapsed_seconds": 3124.125940375001,
+  "watchdog_pid": 2576,
+  "active_command": null,
+  "last_remote_event": {
+    "monitor": "worker_failure",
+    "stage": "adaptive_train_replay_export",
+    "error_type": "RuntimeError",
+    "detail": "adaptive training or fresh replay child failed"
+  },
+  "latest_objective_loss": 0.19975644163787365,
+  "completed_runs": 2,
+  "total_runs": 3,
+  "current_seed": 60606,
+  "current_mode": "fixed-r12",
+  "error": {
+    "type": "RuntimeError",
+    "detail": "Colab -I failed (1): e3fd2\", \"chunks\": [{\"name\": \"part-000.bin\", \"size\": 15587278, \"sha256\": \"f1066ad88cedecdfd1714ab47c488b6a57dfe5ab30df03e659a522ba81fe3fd2\"}]}}\n{\"monitor\": \"campaign_progress\", \"completed_runs\": 2, \"total_runs\": 3, \"seed\": 60606, \"mode\": \"fixed-r12\"}\n{\"monitor\": \"worker_failure\", \"stage\": \"adaptive_train_replay_export\", \"error_type\": \"RuntimeError\", \"detail\": \"adaptive training or fresh replay child failed\"}\nTraceback (most recent call last):\n  File \"/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-repair-02/colab/coordinate.py\", line 4, in <module>\n    coordinator('/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-repair-02/colab/config.json')\n  File \"/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/adaptive_campaign.py\", line 186, in coordinator\n    raise RuntimeError('adaptive campaign interrupted; no retry: '+str(outcome['error']))\nRuntimeError: adaptive campaign interrupted; no retry: {'type': 'RuntimeError', 'detail': 'Remote worker failed: {\"monitor\": \"worker_failure\", \"stage\": \"adaptive_train_replay_export\", \"error_type\": \"RuntimeError\", \"detail\": \"adaptive training or fresh replay child failed\"}'}\n"
+  }
+}

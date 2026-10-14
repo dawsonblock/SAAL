@@ -1,0 +1,47 @@
+{
+  "runs": [
+    {
+      "run": "run-00-1b97c12fa84a",
+      "job_digest": "sha256:1b97c12fa84ae2bbcea88c71a5ebd5a0bda54e300de0ab277160bff5d43352a5",
+      "state": "COMPLETED",
+      "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-repair-02/artifacts/run-00-1b97c12fa84a",
+      "method": "fixed-r8",
+      "seed": 60606,
+      "result_digest": "sha256:d5bc7f0b89b366ca722f9524a2ce935ff5edaca5515452a628fb8c20b0ba160f",
+      "unadapted_model_hash": "005f4ed1d1030787f65e166b2ed1b09c7e947a354bb9f2b3d7bfc4bdcd264ff3",
+      "controller_replay": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-repair-02/colab/run-00-1b97c12fa84a-controller-replay.json",
+      "controller_replay_digest": "sha256:52dee5c339fcfa446266b126087318978f48c925106ecc55254c01c5fdb54d69",
+      "artifact_cleanup": {
+        "state": "CONFIRMED",
+        "deferred_to_session_stop": false
+      }
+    },
+    {
+      "run": "run-01-ee0df40d62e8",
+      "job_digest": "sha256:ee0df40d62e8969e1d4d8251d3ac7ed5fbe75f7355f9fa71b4acfefba7620c1f",
+      "state": "COMPLETED",
+      "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-repair-02/artifacts/run-01-ee0df40d62e8",
+      "method": "fixed-r12",
+      "seed": 60606,
+      "result_digest": "sha256:f8647381419eabe1b95c606be8b7c1bb420b2fb7355b40231f06980d585affd9",
+      "unadapted_model_hash": "005f4ed1d1030787f65e166b2ed1b09c7e947a354bb9f2b3d7bfc4bdcd264ff3",
+      "controller_replay": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-repair-02/colab/run-01-ee0df40d62e8-controller-replay.json",
+      "controller_replay_digest": "sha256:b8b6edbc80dedb6294b8edd6cef53d91230c71aeeee07871703e722653bcffd6",
+      "artifact_cleanup": {
+        "state": "CONFIRMED",
+        "deferred_to_session_stop": false
+      }
+    },
+    {
+      "run": "run-02-47107371a5c4",
+      "job_digest": "sha256:47107371a5c42731e2aca768841f0b7990b97bea71cc42a093d654c7e225e47c",
+      "state": "INTERRUPTED",
+      "method": "adalora-12-to-8",
+      "seed": 60606,
+      "error": {
+        "type": "RuntimeError",
+        "detail": "Remote worker failed: {\"monitor\": \"worker_failure\", \"stage\": \"adaptive_train_replay_export\", \"error_type\": \"RuntimeError\", \"detail\": \"adaptive training or fresh replay child failed\"}"
+      }
+    }
+  ]
+}

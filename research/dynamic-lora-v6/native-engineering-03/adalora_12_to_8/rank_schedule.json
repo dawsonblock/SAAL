@@ -1,0 +1,1 @@
+{"schedule":{"beta1":0.85,"beta2":0.85,"deltaT":1,"orth_reg_weight":0.5,"tfinal":1,"tinit":1,"total_step":4},"schema":"saal-adaptive-rank-schedule-v1"}
