@@ -12,7 +12,8 @@ ROOT=Path(__file__).resolve().parent;REPO=ROOT.parents[1]
 def digest(p):
  with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 def run(out_name='colab-tests'):
- if out_name not in ('colab-tests','colab-tests-02','colab-tests-03'):raise ValueError('closed QA attempt identity')
+ if out_name not in ('colab-tests','colab-tests-02','colab-tests-03','colab-tests-04'):raise ValueError('closed QA attempt identity')
+ commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
  out=ROOT/out_name;out.mkdir(exist_ok=False);files={}
  def add(p):
   n=p.relative_to(REPO).as_posix()
@@ -42,7 +43,7 @@ def run(out_name='colab-tests'):
  # New project tests and previous reporting controls are public source fixtures.
  for directory in ('research/behavior-closure-v4','research/reliable-learning-v3/tools','research/reliable-learning-v3/tests','research/evidence-closure-v5'):
   for p in (REPO/directory).rglob('*.py'):
-   if not any(x in p.parts for x in ('stage','packaging-attempt-01','colab-tests','colab-tests-02','colab-tests-03','colab-tests-04','colab-paired','colab-full','cpu-replay')):add(p)
+   if not any(x.startswith('colab-tests') or x in ('stage','packaging-attempt-01','colab-paired','colab-full','cpu-replay') for x in p.parts):add(p)
  for p in (REPO/'research/diverse-learning-v1/experiment').glob('*-job.json'):add(p)
  add(REPO/'research/diverse-learning-v1/experiment/signed_protocol.json')
  for directory in ('research/dynamic-lora-v6/tests','research/dynamic-lora-v6/native-engineering-05'):
@@ -52,6 +53,10 @@ def run(out_name='colab-tests'):
  # rather than relying on files available only in the developer checkout.
  for p in ROOT.glob('*.py'):add(p)
  for n in ('FOUNDATION.json','controller.pub','README.md'):add(ROOT/n)
+ sys.path.insert(0,str(REPO/'tools'))
+ from adaptive_qa_identity import source_identity
+ identity=source_identity(REPO,files,commit)
+ (out/'source-identity.json').write_bytes(canonical(identity))
  inventory={n:digest(p) for n,p in sorted(files.items())};(out/'input-inventory.json').write_bytes(canonical(inventory))
  archive=out/'test-inputs.zip'
  with zipfile.ZipFile(archive,'x',compression=zipfile.ZIP_DEFLATED,compresslevel=1) as z:
@@ -62,6 +67,8 @@ def run(out_name='colab-tests'):
  with tempfile.TemporaryDirectory(prefix='saal-qa-preflight-') as temp:
   extracted=Path(temp)
   with zipfile.ZipFile(archive) as z:z.extractall(extracted)
+  for name,h in inventory.items():
+   if digest(extracted/name)!=h:raise ValueError('clean QA input substitution '+name)
   for name,tests,paths in [('core','tests',str(extracted/'src')),('corpus','reviewed-decision-corpus/tests',str(extracted/'src')+':'+str(extracted/'reviewed-decision-corpus/src')),('reporting','research/reliable-learning-v3/tests',str(extracted/'src')),('project','research/behavior-closure-v4/tests',str(extracted/'src')),('diverse','research/diverse-learning-v1/tests',str(extracted/'src')+':'+str(extracted/'research/diverse-learning-v1/src')),('reliability','research/learning-reliability-v2/tools/test_postprocessing.py',str(extracted/'src')),('repairs','research/evidence-closure-v5/tests',str(extracted/'src')),('adaptive','research/dynamic-lora-v6/tests',str(extracted/'src'))]:
    with (out/('local-'+name+'.log')).open('w') as log:
     subprocess.run([sys.executable,'-m','pytest',tests,'-q','--junitxml='+str(out/('local-'+name+'.xml'))],cwd=extracted,env=dict(os.environ,PYTHONPATH=paths),stdout=log,stderr=subprocess.STDOUT,timeout=900,check=True)
@@ -103,7 +110,6 @@ finally:
  with zipfile.ZipFile('/content/saal-qa-results.zip','x',compression=zipfile.ZIP_DEFLATED) as z:
   for p in evidence.iterdir():z.write(p,p.name)
 """
- commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
  # Fixed-content upload chunks are idempotent. A failed large HTTP upload is
  # preserved in prior QA06; retries here apply only to these exact public bytes.
  parts=[]
