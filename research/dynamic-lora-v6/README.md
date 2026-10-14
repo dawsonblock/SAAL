@@ -70,7 +70,7 @@ release ZIP; `configs/pretrained/registry.json` authenticates their revisions
 and actual file hashes. Never substitute an LFS pointer for a tensor payload.
 
 After a campaign ends, report its validated training and replay evidence with
-`tools/adaptive_campaign_report.py pilot-experiment new-report.json`. A completed
+`tools/adaptive_campaign_report.py research/dynamic-lora-v6/pilot-experiment new-report.json`. A completed
 training run can still fail CPU/GPU replay or pilot admission; these outcomes
 remain separate in the report. Neither outcome grants qualification.
 
