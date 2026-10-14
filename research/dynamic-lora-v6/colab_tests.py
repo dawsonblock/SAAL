@@ -151,7 +151,11 @@ for item in PARTS:
  with zipfile.ZipFile(out/'results.zip') as z:
   if len(z.infolist())>20 or sum(i.file_size for i in z.infolist())>50_000_000 or any('/' in n or '..' in n for n in z.namelist()):raise ValueError('QA recovery bounds')
   z.extractall(out/'evidence')
- result=json.loads((out/'evidence/result.json').read_text())
- if result['returncodes']!={'core':0,'corpus':0,'reporting':0,'project':0,'diverse':0,'reliability':0,'repairs':0} or not state['cleanup_verified']:raise ValueError('Colab QA failed; retained evidence')
+ # Validate all eight suites, their actual JUnit cases, source/input identity,
+ # and confirmed teardown. The inherited seven-suite check omitted adaptive.
+ sys.path.insert(0,str(REPO/'tools'))
+ from adaptive_qa_result import validate_results
+ result=validate_results(out/'evidence',state,commit,digest(archive))
+ (out/'verified-results.json').write_bytes(canonical(result))
  print(json.dumps(result));return result
 if __name__=='__main__':run(sys.argv[1] if len(sys.argv)>1 else 'colab-tests')
