@@ -1,0 +1,17 @@
+..................................F..................................... [ 98%]
+.                                                                        [100%]
+=================================== FAILURES ===================================
+____ test_committed_draft_reconstructs_and_contains_no_executable_admission ____
+
+    def test_committed_draft_reconstructs_and_contains_no_executable_admission():
+        draft = load_draft_module().build_draft()
+>       assert canonical(draft) == canonical(json.loads((BASE/'CAMPAIGN_DRAFT.json').read_text()))
+E       assert b'{"analysis_...45e707187f"}}' == b'{"analysis_...45e707187f"}}'
+E         
+E         At index 11 diff: b'i' != b's'
+E         Use -v to get more diff
+
+research/dynamic-lora-v6/metric-repair/tests/test_draft.py:23: AssertionError
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/metric-repair/validation-01/numerical_repair.xml -
+=========================== short test summary info ============================
+FAILED research/dynamic-lora-v6/metric-repair/tests/test_draft.py::test_committed_draft_reconstructs_and_contains_no_executable_admission

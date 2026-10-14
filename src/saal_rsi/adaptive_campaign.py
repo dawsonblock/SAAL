@@ -24,12 +24,22 @@ from .spec import canonical, parse_unique_json, sha
 RECOVERED_FILES = FILES | {'artifact_inventory.json', 'fresh_process_replay.json'}
 
 
-def stage_worker(destination, include_v2=False):
+def stage_worker(destination, include_v2=False, *, version=None):
+    """Stage a closed versioned source inventory without authority credentials.
+
+    The legacy include_v2 argument retains its old meaning. New callers select
+    v3 explicitly; no existing signed worker is silently upgraded.
+    """
+    if version not in (None, 'v1', 'v2', 'v3') or include_v2 and version not in (None, 'v2'):
+        raise ValueError('explicit allowlisted worker version required')
+    version = version or ('v2' if include_v2 else 'v1')
     destination = Path(destination)
     package = destination/'src/saal_rsi'
     package.mkdir(parents=True)
     (package/'__init__.py').write_text('')
-    if include_v2:
+    if version == 'v3':
+        from .adaptive_contract_v3 import SOURCES as sources
+    elif version == 'v2':
         from .adaptive_contract_v2 import SOURCES as sources
     else:
         sources = SOURCES
@@ -44,11 +54,13 @@ def stage_worker(destination, include_v2=False):
     for name in ('pretrained-linux-x86_64-py313.txt', 'pretrained-macos-arm64-py312.txt'):
         (locks/name).write_bytes(registry_path().parents[1].joinpath('dependency-locks', name).read_bytes())
     bootstrap = "from pathlib import Path\nimport sys\nsys.path.insert(0,str(Path(__file__).resolve().parent/'src'))\n"
-    if include_v2:
+    if version in ('v2', 'v3'):
         bootstrap += ("import argparse\nfrom saal_rsi.pretrained_contract import job_bytes\nfrom saal_rsi.spec import parse_unique_json\n"
             "parser=argparse.ArgumentParser(add_help=False);parser.add_argument('--job');known,_=parser.parse_known_args()\n"
-            "schema=parse_unique_json(job_bytes(known.job))['payload']['schema'] if known.job else 'saal-adaptive-job-v1'\n"
-            "if schema=='saal-adaptive-job-v2':\n from saal_rsi.adaptive_worker_v2 import main\n"
+            "schema=parse_unique_json(job_bytes(known.job))['payload']['schema'] if known.job else 'saal-adaptive-job-v1'\n"+
+            ("if schema=='saal-adaptive-job-v3':\n from saal_rsi.adaptive_worker_v3 import main\n"
+             "elif schema=='saal-adaptive-job-v2':\n from saal_rsi.adaptive_worker_v2 import main\n"
+             if version == 'v3' else "if schema=='saal-adaptive-job-v2':\n from saal_rsi.adaptive_worker_v2 import main\n")+
             "elif schema=='saal-adaptive-job-v1':\n from saal_rsi.adaptive_worker import main\n"
             "else:raise ValueError('unknown signed worker version')\nmain()\n")
     else:
@@ -80,7 +92,9 @@ def unpack(archive, destination):
 
 def fresh_local_replay(bundle, job, pin, cache):
     from .adaptive_backend import verify_peft_implementation
-    if job['schema'] == 'saal-adaptive-job-v2':
+    if job['schema'] == 'saal-adaptive-job-v3':
+        from .adaptive_replay_v3 import PortableReplayBackendV3 as PortableReplayBackend
+    elif job['schema'] == 'saal-adaptive-job-v2':
         from .adaptive_replay_v2 import PortableReplayBackendV2 as PortableReplayBackend
     else:
         from .adaptive_replay import PortableReplayBackend
@@ -105,11 +119,17 @@ def fresh_local_replay(bundle, job, pin, cache):
         backend.restore_checkpoint(Path(bundle)/(role+'.safetensors'), read_json(Path(bundle)/(role+'_rank_pattern.json')))
         outputs[role] = backend.evaluate(rows)
     agreement = all(prediction_equal(outputs[r], result['snapshots'][r]['predictions'], 'modernbert-seqcls-v1', job['replay_tolerance']) for r in ROLES)
-    return {'schema': 'saal-adaptive-controller-replay-v1', 'job_digest': sha(job),
+    receipt = {'schema': 'saal-adaptive-controller-replay-v1', 'job_digest': sha(job),
             'inventory_sha256': file_hash(Path(bundle)/'artifact_inventory.json'),
             'predictions': outputs, 'verified': agreement, 'tolerance': job['replay_tolerance'],
             'runtime': 'fresh controller process; local CPU on macOS',
             'independent_administration': False, 'qualification_status': 'NOT_EVALUATED'}
+    if job['schema'] == 'saal-adaptive-job-v3':
+        receipt.update(schema='saal-adaptive-controller-replay-v3',
+                       numerical_metric_policy=job['numerical_metric_policy'],
+                       numerical_metric_policy_digest=job['numerical_metric_policy_digest'],
+                       worker_identity=job['worker_identity'])
+    return receipt
 
 
 def replay_command(config, bundle, job_file, destination):
@@ -214,12 +234,35 @@ def execute(workspace, job_paths, protocol_path, ledger_path, pin, artifacts, ca
     jobs = [validate_job(verify(read_json(path), pin)) for path in job_paths]
     if [sha(j) for j in jobs] != protocol['job_digests']:
         raise ValueError('signed campaign / job order substitution')
+    if (protocol.get('schema') == 'saal-adaptive-campaign-v3'
+            or any(j['schema'] == 'saal-adaptive-job-v3' for j in jobs)):
+        from .adaptive_evaluator_v3 import validate_protocol, validate_sources
+        from .adaptive_contract_v3 import SOURCES as v3_sources
+        validate_protocol(protocol)
+        if any(j['schema'] != 'saal-adaptive-job-v3' for j in jobs):
+            raise ValueError('v3 campaign cannot execute mixed worker admissions')
+        if (protocol.get('stage') not in ('ENGINEERING', 'PILOT', 'STUDY', 'DATA_CONTROL')
+                or any(descriptor['method'] != job['adapter']['method']
+                       or descriptor['seed'] != job['seed']
+                       or protocol['stage'] != job['campaign_stage']
+                       for descriptor, job in zip(protocol['runs'], jobs))):
+            raise ValueError('v3 campaign method, seed or stage differs from its signed jobs')
+        required = {'src/saal_rsi/'+n for n in v3_sources} | {
+            'src/saal_rsi/adaptive_campaign.py', 'src/saal_rsi/adaptive_registry.py',
+            'src/saal_rsi/adaptive_dispatch.py', 'src/saal_rsi/adaptive_replay_v3.py',
+            'src/saal_rsi/adaptive_evaluator_v3.py',
+            'research/dynamic-lora-v6/metric-repair/report_study_v3.py',
+            'research/dynamic-lora-v6/metric-repair/frozen_regression_v3.py',
+        }
+        validate_sources(protocol, Path(__file__).resolve().parents[2], required)
     root = Path(workspace).resolve()
     root.mkdir(exist_ok=False)
     require_storage(root)
     Path(artifacts).mkdir(exist_ok=False)
     session = 'saal-'+uuid.uuid4().hex[:20]
-    stage_worker(root/'stage', include_v2=any(j['schema'] == 'saal-adaptive-job-v2' for j in jobs))
+    version = ('v3' if any(j['schema'] == 'saal-adaptive-job-v3' for j in jobs) else
+               'v2' if any(j['schema'] == 'saal-adaptive-job-v2' for j in jobs) else 'v1')
+    stage_worker(root/'stage', version=version)
     with zipfile.ZipFile(root/'worker.zip', 'x', compression=zipfile.ZIP_DEFLATED) as z:
         for p in sorted((root/'stage').rglob('*')):
             if p.is_file(): z.write(p, p.relative_to(root/'stage').as_posix())

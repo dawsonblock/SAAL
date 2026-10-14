@@ -1,0 +1,52 @@
+{
+  "base_commit": "1456e8748f412fc5600fe6c3c5b9cfed2f033d57",
+  "branch": "repair/dynamic-lora-v6-metric-contract",
+  "existing_archive": {
+    "archive": "/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.5-dev6-Full-Research-Evidence.zip",
+    "historical_archive_unchanged": true,
+    "repacked": false,
+    "sha256": "9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b",
+    "size": 7470857286
+  },
+  "external_deployment_allowed": false,
+  "five_v5_jobs": "RESERVED_UNCHANGED",
+  "fresh_colab_validation": "NOT_RUN",
+  "hostile_code_containment": "NOT_ESTABLISHED",
+  "independent_generalization": "NOT_ESTABLISHED",
+  "independently_reviewed_novel_tasks": "REQUIRED_NOT_AVAILABLE",
+  "interrupted_run_reclassified": false,
+  "legacy_workers_unchanged": true,
+  "local_tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1040
+  },
+  "mechanism_attribution": "NOT_ESTABLISHED_SEPARATE_ABLATIONS_REQUIRED",
+  "missing_runs_imputed": false,
+  "new_admission": "NOT_AUTHORIZED_UNSIGNED_DRAFT_ONLY",
+  "new_campaign": "NOT_RUN",
+  "new_compute_reserved": false,
+  "numerical_metric_policy_digest": "sha256:8beee15e687872f46c05628082ba2ed63874a75e140f777eb20b5114f46701c0",
+  "old_attempt_states": {
+    "COMPLETED": 10,
+    "INTERRUPTED": 1,
+    "RESERVED": 4
+  },
+  "old_budget_reset": false,
+  "old_campaign_state": "FAILED",
+  "operational_custody_independence": "NOT_ESTABLISHED",
+  "parent_data_controls": "REQUIRE_SEPARATE_BUDGET_AND_SUCCESSFUL_NEW_STUDY",
+  "proposed_stage_run_counts": [
+    3,
+    15,
+    4
+  ],
+  "qualification_status": "NOT_EVALUATED",
+  "recursive_self_improvement": "NOT_ESTABLISHED",
+  "retention": "NOT_MEASURED_SEPARATE_PROTOCOL_REQUIRED",
+  "schema": "saal-numerical-repair-report-v1",
+  "status": "LOCAL_ENGINEERING_VALIDATED",
+  "tested_source_unchanged": true,
+  "worker_identity": "sha256:e7207e498137c8b58a116072473d8214a2f9321d101fb6fe27d20ff5adddc68a"
+}

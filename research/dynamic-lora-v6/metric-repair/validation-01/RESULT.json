@@ -1,0 +1,125 @@
+{
+  "evidence_files": {
+    "adaptive.log": "f85557f665aef6a93c06ffcdb7c81a311bba2d2159feffe7af2e6eba9dceb337",
+    "adaptive.xml": "41963158ab2cb5ffba596004d4524798126e72ecd8800c50524bea487d8f6bf0",
+    "core.log": "048f74caf9e9088696ce6d5214419d22b30c848d5d9115e66778f3c18364f022",
+    "core.xml": "5b048bd0903b88846e27d612d51394592ece791b51ac5b9c2f1c62e2488ad644",
+    "corpus.log": "7e08be9578ef0a3ed205af49104a49f0622dd4f311e9c6c7a69eae8596d67269",
+    "corpus.xml": "d4a789daf7713ec89f5109d2e19b02d74eab5c0cd1ddbb1f7c895ad9169e72e8",
+    "diverse.log": "8d0814775b9fb64253105a9582505a41b62068b89b093aec754fca888a2974a9",
+    "diverse.xml": "94996811a99fd112547717baee5892aa6443a9a5df25aaaa207ecdf6717b3eaa",
+    "numerical_repair.log": "5613dbe0c1adc6860234e74689773694b322c97fcd45fc8480ffc045be94d8d6",
+    "numerical_repair.xml": "ed0ffb05839714c808f99e059cd2d1a859362e9b26eea9833712e20e82fddac0",
+    "project.log": "5ff7b806f13e3fb0fe3a81dd16b5ec9a6e56f8636bae4cfea74e57b1588eb5eb",
+    "project.xml": "8baaa1d9591a55dffb35acf1ec983d13e3e31e966538125dec914d97bc43f2b0",
+    "reliability.log": "6489fb07d682023d462cc9da55ad7f68424f5b0fdb2ff964e58e4ad8aeaf512a",
+    "reliability.xml": "f70a65729c342754999969ec6cf509b55f4d068f4e49ef8dc48d525f0ade39ad",
+    "repairs.log": "ea7e331888c9a818621c4dd0981197282aadaa590b13a4cb0fb9da903b64a82c",
+    "repairs.xml": "34814d8ef8837ce51384d81a5599e2affb9c23faf6e7f7447848136fa47f0a90",
+    "reporting.log": "6166a852ec7777cb6236dfc48ccc45a80a112b9b98a1c7e5a3a705ec20171e7f",
+    "reporting.xml": "c2c1ad823fc3d583573f51f85703e0a08facb80e34e39fc68ea5676837835f20"
+  },
+  "external_deployment_allowed": false,
+  "fresh_colab_validation": "NOT_RUN",
+  "new_campaign_authorized": false,
+  "numerical_metric_policy_digest": "sha256:8beee15e687872f46c05628082ba2ed63874a75e140f777eb20b5114f46701c0",
+  "qualification_status": "NOT_EVALUATED",
+  "runtime": {
+    "executable": "/Users/dawsonblock/Downloads/SAAL-RSI-validation-envs/adaptive-v6-py312/bin/python",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "python": "3.12.0"
+  },
+  "schema": "saal-numerical-repair-local-qa-v1",
+  "status": "FAILED",
+  "suites": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 1,
+      "suite": "core",
+      "tests": 636,
+      "wall_seconds": 112.57177533301001
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "corpus",
+      "tests": 38,
+      "wall_seconds": 8.565422542000306
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "reporting",
+      "tests": 10,
+      "wall_seconds": 0.28605495899682865
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "project",
+      "tests": 42,
+      "wall_seconds": 7.951780584000517
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "diverse",
+      "tests": 15,
+      "wall_seconds": 3.170084334007697
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "reliability",
+      "tests": 4,
+      "wall_seconds": 0.49486579099902883
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "repairs",
+      "tests": 45,
+      "wall_seconds": 12.519575041995267
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "adaptive",
+      "tests": 142,
+      "wall_seconds": 9.32180883300316
+    },
+    {
+      "errors": 0,
+      "failures": 1,
+      "returncode": 1,
+      "skipped": 0,
+      "suite": "numerical_repair",
+      "tests": 73,
+      "wall_seconds": 14.545170375000453
+    }
+  ],
+  "totals": {
+    "errors": 0,
+    "failures": 1,
+    "skipped": 1,
+    "tests": 1005
+  },
+  "verified_at_utc": "2026-10-14T21:41:55.032804+00:00",
+  "worker_identity": "sha256:e7207e498137c8b58a116072473d8214a2f9321d101fb6fe27d20ff5adddc68a"
+}

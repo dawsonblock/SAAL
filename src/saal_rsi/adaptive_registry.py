@@ -14,8 +14,15 @@ class AdaptiveRegistry:
         self.pin = pin
         self.protocol = verify(protocol, pin)
         self.digest = sha(self.protocol)
-        if self.protocol.get('schema') not in ('saal-adaptive-campaign-v1', 'saal-adaptive-campaign-v2') or self.protocol.get('qualification_status') != 'NOT_EVALUATED' or self.protocol.get('external_deployment_allowed') is not False:
+        if self.protocol.get('schema') not in ('saal-adaptive-campaign-v1', 'saal-adaptive-campaign-v2', 'saal-adaptive-campaign-v3') or self.protocol.get('qualification_status') != 'NOT_EVALUATED' or self.protocol.get('external_deployment_allowed') is not False:
             raise ValueError('controller research campaign required')
+        if self.protocol['schema'] == 'saal-adaptive-campaign-v3':
+            from .adaptive_contract_v3 import worker_identity
+            from .numerical_metrics_v1 import POLICY, POLICY_DIGEST
+            if (canonical(self.protocol.get('numerical_metric_policy')) != canonical(POLICY)
+                    or self.protocol.get('numerical_metric_policy_digest') != POLICY_DIGEST
+                    or self.protocol.get('worker_identities') != {'v3': worker_identity()}):
+                raise ValueError('fresh v3 campaign must bind its numerical policy and worker identity')
         budget = self.protocol['budget']
         if (type(budget) is not dict or set(budget) != {'campaign_id', 'max_runs', 'total_lifecycle_seconds', 'max_provisioning_attempts', 'automatic_training_retries', 'financial_cap'}
                 or type(budget['max_provisioning_attempts']) is not int or budget['max_provisioning_attempts'] != 1
@@ -40,6 +47,15 @@ class AdaptiveRegistry:
 
     def reserve(self, envelope):
         job = validate_job(verify(envelope, self.pin))
+        if ((job['schema'] == 'saal-adaptive-job-v3')
+                != (self.protocol['schema'] == 'saal-adaptive-campaign-v3')):
+            raise ValueError('new numerical contract requires a separate v3 campaign admission')
+        if self.protocol['schema'] == 'saal-adaptive-campaign-v3' and (
+                job['schema'] != 'saal-adaptive-job-v3'
+                or job['worker_identity'] != self.protocol['worker_identities']['v3']
+                or canonical(job['numerical_metric_policy']) != canonical(self.protocol['numerical_metric_policy'])
+                or job['numerical_metric_policy_digest'] != self.protocol['numerical_metric_policy_digest']):
+            raise ValueError('v3 campaign requires exact newly admitted v3 numerical-contract jobs')
         budget = job['budget']
         configured = self.protocol['budget']
         if any(budget[k] != configured[k] for k in ('campaign_id', 'max_runs', 'total_lifecycle_seconds', 'automatic_training_retries', 'financial_cap')) or sha(job) not in self.protocol['job_digests']:

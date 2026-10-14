@@ -1,0 +1,53 @@
+{
+  "base_commit": "1456e8748f412fc5600fe6c3c5b9cfed2f033d57",
+  "existing_archive_sha256": "9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b",
+  "frozen_files": {
+    "configs/pretrained/registry.json": "acad2d4385379ce2de625d6890975171177a31389b8e6c65a4949d61a9dd2f48",
+    "configs/pretrained/tensor_inventories.json": "dcfff3ab242106c3d267f9d231a1f24f83945e2398305c2eb706662e268cbfb0",
+    "research/dynamic-lora-v6/FOUNDATION.json": "0e9383b9103535dfca0df117b41d09f3fd136a732e108a1feefaf6e8615e3fb0",
+    "research/dynamic-lora-v6/RELEASE_REPORT.md": "9b6298524a0c92e68e234d9048dd6014238ecf086f477eaf24954bf52343017b",
+    "research/dynamic-lora-v6/RESULTS.json": "0c02586654374f026f60b034b2186e8fee1158edf8d3cc1c2c3bae658801c802",
+    "research/dynamic-lora-v6/study-v2/artifacts/run-10-6e8b0b526bfc/artifact_inventory.json": "c7c3725f732740555f93ac5fd7b532f4bb03628c86b48936aaf2bb9ffe3e50f7",
+    "research/dynamic-lora-v6/study-v2/budget.sqlite3": "7e634f341edc23b2dd4f99a09c1194cf9f952f2d91cde2fede5f4af70a17db56",
+    "research/dynamic-lora-v6/study-v2/colab/registry-export.json": "82884b7b032d628d74bc6e381e3700fb21205bd784d95e57093e2cc08f29c75e",
+    "research/dynamic-lora-v6/study-v2/fixed_r12_157-job.json": "1b711e488f27b4a2bd76b815de5cb84d90fecca7cd7479806153428eae83ab89",
+    "research/dynamic-lora-v6/study-v2/signed_protocol.json": "40379e5be365a83f1dc1a303ccc22f5d8b82bf9a99371ca45b13c716cffe3f49",
+    "research/dynamic-lora-v6/validation/STUDY_CLOSURE_SIGNED.json": "89be12c0a251711d20900dc51006aee6a762c9f08a07a577b749372180fc0971",
+    "src/saal_rsi/adaptive_artifacts.py": "18e19785ef76b662414fab23c8e836ccacd17c1f59d20aad47d6368c1161fdb7",
+    "src/saal_rsi/adaptive_artifacts_v2.py": "7513b92b166bc26a1c6a504d28ebd129945a6e03fe8ca26bb1e5c02450b2c935",
+    "src/saal_rsi/adaptive_backend.py": "1bac81e125e31b85797b04216778c557fbaf7e74241f7ddbea71bc473d2ebc83",
+    "src/saal_rsi/adaptive_backend_v2.py": "05cd70d022e55f9a42b46a818b6ac460b53f85a2e16d0851da8e3456cfda3f3a",
+    "src/saal_rsi/adaptive_contract.py": "faf72e3d267de803751eadb590a87f8f0a8394e7340115833689d63d457ced61",
+    "src/saal_rsi/adaptive_contract_v2.py": "3245ab0249e45efba2439276967df3ed65328ff54ce01d1b528f65fbfe1ae8ca",
+    "src/saal_rsi/adaptive_dataset.py": "cc520c2e3410e802eeaf74642f0e3ebcb625d913dbbba6b2b92e550a5efff46f",
+    "src/saal_rsi/adaptive_evaluator.py": "37d21168434693a55d3d81a37dc12d9111915dbcdb6427a76c4114459138040e",
+    "src/saal_rsi/adaptive_rank_controller.py": "676e46d62f4685e528a7c428467af913726b9249a001643ae1890aa2402824b6",
+    "src/saal_rsi/adaptive_training.py": "0d30d5e25b7cd54d75c6057cd111d016df436dfb9eb975f845131a29972d503d",
+    "src/saal_rsi/adaptive_worker.py": "604f472fbeb9c41e910b3b8bdb38e2eab7a0cae8f662ae46819783a21e42f91a",
+    "src/saal_rsi/adaptive_worker_v2.py": "791efb1e14130c0d87757a0e59dcdbec0615f3b28edd15ef1ab74bf429841465",
+    "src/saal_rsi/checkpoint_selection.py": "33595fd797f0c00cf8c01c46a325a34482368a8d1ce22f4138e7699ee801c890",
+    "src/saal_rsi/epoch_metrics.py": "873a84fc113e6a8074f81407e24f8a5e6fb2f4d4d72f38fb62ee7c40e10e9416",
+    "src/saal_rsi/epoch_sampler.py": "e866aa7e1e66994559df6b15f8890a40794f673f7a9917a79675c083468830ae",
+    "src/saal_rsi/learning_backend.py": "f01d888e0dd0e150a3381070e201d09c8f51e4f17d9ef22a4ff0f27f70d1e2b8",
+    "src/saal_rsi/learning_dataset.py": "e32934a1600e0cd059ccd8235a178e21dfd777990b13c8fa62d55e42e3d803cb",
+    "src/saal_rsi/model_contract.py": "647a11994be28fe741bf02feebd5d66c2c40333fc4a358abd362e352642dd980",
+    "src/saal_rsi/modernbert_backend.py": "c187136e953bdb53663e2187f12eec1632da04ad95f11e607e47c046b06f332f",
+    "src/saal_rsi/pretrained_contract.py": "576ab8f995e42b5e1d1141a72dcd821e747364fcd7c78884b7b6e4fec28b2c63",
+    "src/saal_rsi/pretrained_registry.py": "e4ba44516e8bb7ae1ee6292592e8a76b1b30bac7a7a69f86866f56c6080a9fba",
+    "src/saal_rsi/spec.py": "6ad7aedcaab1517d4bb255a5f0bd017a74923a1e9b2e3be1ad2591eaa7c7881e",
+    "src/saal_rsi/task_oracles.py": "a1da09f9dbc778fc5f1429b44ace4c9b7434b67efe8c9b7743f4b48df55bc418",
+    "src/saal_rsi/validation.py": "2bd9947bfb025f23476467e73ddb70f6e86ecab07525be79b5dd1845e707187f"
+  },
+  "historical_attempt_counts": {
+    "COMPLETED": 10,
+    "INTERRUPTED": 1,
+    "RESERVED": 4
+  },
+  "historical_campaign_state": "FAILED",
+  "legacy_worker_identities": {
+    "v1": "sha256:c5bd510d80b383ebde3e197c069995f9f0a3c1c222ba8686e5f20558ebfd4054",
+    "v2": "sha256:8094583d8237d13602ac275d4d078e9a8ec03cfdd88534adde42b3316dc3966c"
+  },
+  "new_campaign_authorized": false,
+  "schema": "saal-numerical-repair-preservation-v1"
+}
