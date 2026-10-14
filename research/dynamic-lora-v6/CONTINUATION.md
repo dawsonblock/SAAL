@@ -93,6 +93,12 @@ It is not behavioral qualification and never changes the old failed budgets.
    `validation/frozen-regression-process-07-completion.json`.
    No collector is running as of that record; use the highest numbered process
    record and inspect actual commands before the next launch.
+   Invocation 08 (session 97135, PID 70591) exited successfully after collecting
+   the seed-109 AdaLoRA candidate. Nine public regression tasks are complete.
+   Its records are `validation/frozen-regression-process-08.json` and
+   `validation/frozen-regression-process-08-completion.json`.
+   No collector is running as of that record; use the highest numbered process
+   record and inspect actual commands before the next launch.
    Invocation 06 (session 12310, PID 66125) exited successfully after collecting
    the seed-109 fixed-r8 candidate. Seven public regression tasks are complete.
    Its records are `validation/frozen-regression-process-06.json` and
