@@ -22,6 +22,7 @@ from saal_rsi.spec import canonical, sha
 METHODS = ('fixed-r8', 'fixed-r12', 'adalora-12-to-8')
 SEEDS = (47, 83, 109, 157, 211)
 ENGINEERING_SEED = 60606
+PILOT_DIRECTORIES = ('pilot-experiment', 'pilot-repair-02')
 
 
 def digest(path):
@@ -96,9 +97,22 @@ def pilot_accepted(base=None):
     return sha(export)
 
 
-def prepare(stage, key_path):
+def prepare(stage, key_path, pilot_name='pilot-experiment'):
+    if pilot_name not in PILOT_DIRECTORIES: raise ValueError('closed pilot admission identity')
     foundation_digest = check_foundation()
-    prior_pilot = pilot_accepted() if stage != 'PILOT' else None
+    prior_pilot = pilot_accepted(PROJECT/pilot_name) if stage != 'PILOT' else None
+    repair = None
+    if stage == 'PILOT' and pilot_name == 'pilot-repair-02':
+        old = PROJECT/'pilot-experiment'
+        old_pin = (old/'controller.pub').read_text().strip()
+        old_protocol = verify(json.loads((old/'signed_protocol.json').read_text()), old_pin)
+        old_export = json.loads((old/'colab/registry-export.json').read_text())
+        replay = json.loads((PROJECT/'validation/fixed-r8-portable-replay.json').read_text())
+        if old_export['campaign_state'] != 'FAILED' or old_export['provisioning_attempts'] != 1 or replay['verified'] is not True:
+            raise ValueError('documented failed admission and successful repaired replay required')
+        repair = {'failed_protocol_digest': sha(old_protocol), 'failed_export_digest': sha(old_export),
+                  'controller_replay_digest': sha(replay),
+                  'reason': 'Restore admitted initial classifier head before cross-platform identity checks. Preserve original failure; no prediction tolerance, rank schedule, data or training change.'}
     if stage not in ('PILOT', 'STUDY', 'DATA_CONTROL'): raise ValueError('campaign phase')
     # These matched public diagnostic comparisons cannot establish independent
     # generalization. Separately authored/adjudicated final tasks remain absent.
@@ -111,11 +125,11 @@ def prepare(stage, key_path):
     if stage == 'PILOT': runs = [(m, ENGINEERING_SEED, 'expanded') for m in METHODS]
     elif stage == 'STUDY': runs = [(m, s, 'expanded') for s in SEEDS for m in METHODS]
     else: runs = [(m, s, 'parent') for s in (47, 83) for m in ('fixed-r8', 'adalora-12-to-8')]
-    folder = PROJECT/({'PILOT': 'pilot-experiment', 'STUDY': 'study-experiment', 'DATA_CONTROL': 'data-control-experiment'}[stage])
+    folder = PROJECT/({'PILOT': pilot_name, 'STUDY': 'study-experiment', 'DATA_CONTROL': 'data-control-experiment'}[stage])
     folder.mkdir(exist_ok=False)
     key = private_key(key_path)
     pin = key.public_key().public_bytes_raw().hex()
-    campaign_id = 'adaptive_v6_'+stage.lower()
+    campaign_id = 'adaptive_v6_'+stage.lower()+('_repair_02' if stage == 'PILOT' and pilot_name == 'pilot-repair-02' else '')
     budget = {'campaign_id': campaign_id, 'max_runs': len(runs),
               'total_lifecycle_seconds': len(runs)*5000+1200,
               'max_provisioning_attempts': 1, 'automatic_training_retries': 0, 'financial_cap': False}
@@ -136,6 +150,8 @@ def prepare(stage, key_path):
     protocol = {'schema': 'saal-adaptive-campaign-v1', 'stage': stage, 'source_files': source_map(),
                 'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
                 'foundation_digest': foundation_digest, 'worker_identity': worker_identity(),
+                'pilot_evidence_directory': pilot_name,
+                'controller_repair': repair,
                 'prior_pilot_digest': prior_pilot, 'runs': descriptors, 'job_digests': [d['job_digest'] for d in descriptors],
                 'parent_training_population_digest': sha([r for r in parent['records'] if r['split'] == 'train']),
                 'budget': budget, 'engineering_seed_excluded': ENGINEERING_SEED,
@@ -163,12 +179,16 @@ def prepare(stage, key_path):
     print(json.dumps({'stage': stage, 'jobs_reserved': len(jobs), 'protocol_digest': sha(protocol), 'qualification_status': 'NOT_EVALUATED'}))
 
 
-def run(stage, cache):
+def run(stage, cache, pilot_name='pilot-experiment'):
+    if pilot_name not in PILOT_DIRECTORIES: raise ValueError('closed pilot admission identity')
     check_foundation()
-    if stage != 'PILOT': pilot_accepted()
-    folder = PROJECT/({'PILOT': 'pilot-experiment', 'STUDY': 'study-experiment', 'DATA_CONTROL': 'data-control-experiment'}[stage])
+    folder = PROJECT/({'PILOT': pilot_name, 'STUDY': 'study-experiment', 'DATA_CONTROL': 'data-control-experiment'}[stage])
     pin = (folder/'controller.pub').read_text().strip()
     protocol = verify(json.loads((folder/'signed_protocol.json').read_text()), pin)
+    if stage != 'PILOT':
+        admitted_pilot = protocol['pilot_evidence_directory']
+        if admitted_pilot not in PILOT_DIRECTORIES or pilot_accepted(PROJECT/admitted_pilot) != protocol['prior_pilot_digest']:
+            raise ValueError('prior pilot evidence changed after study admission')
     if protocol['source_files'] != source_map() or protocol['worker_identity'] != worker_identity():
         raise ValueError('preregistered implementation changed')
     return execute(folder/'colab', [folder/(d['name']+'-job.json') for d in protocol['runs']],
@@ -179,8 +199,10 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('action', choices=('prepare', 'run', 'check'))
     p.add_argument('--stage', choices=('PILOT', 'STUDY', 'DATA_CONTROL'), default='PILOT')
+    p.add_argument('--pilot', choices=PILOT_DIRECTORIES, default='pilot-experiment',
+                   help='Explicit fresh public admission after a documented controller repair; never reset the original budget')
     p.add_argument('--key'); p.add_argument('--cache')
     a = p.parse_args()
-    if a.action == 'prepare': prepare(a.stage, a.key)
-    elif a.action == 'run': run(a.stage, a.cache)
+    if a.action == 'prepare': prepare(a.stage, a.key, a.pilot)
+    elif a.action == 'run': run(a.stage, a.cache, a.pilot)
     else: print(json.dumps({'foundation_digest': check_foundation()}))

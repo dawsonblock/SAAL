@@ -64,7 +64,8 @@ def unpack(archive, destination):
 
 
 def fresh_local_replay(bundle, job, pin, cache):
-    from .adaptive_backend import AdaptiveModernBERTBackend, verify_peft_implementation
+    from .adaptive_backend import verify_peft_implementation
+    from .adaptive_replay import PortableReplayBackend
     from .epoch_metrics import prediction_equal
     from .learning_backend import verify_dependencies
     from .pretrained_registry import validate_snapshot
@@ -76,7 +77,8 @@ def fresh_local_replay(bundle, job, pin, cache):
     spec = job['model_spec']
     snapshot = Path(cache)/spec['model_repository'].split('/')[-1]/spec['model_revision']
     validate_snapshot(snapshot, spec['model_repository'], spec['model_revision'])
-    backend = AdaptiveModernBERTBackend(job, snapshot).load_pretrained()
+    backend = PortableReplayBackend(job, snapshot, Path(bundle)/'initial.safetensors',
+                                    read_json(Path(bundle)/'initial_rank_pattern.json')).load_pretrained()
     if backend.unadapted_model_hash != result['unadapted_model_hash'] or backend.initial_frozen_hash != result['frozen_integrity']['initial']:
         raise ValueError('fresh local backbone / head identity mismatch')
     rows = [r for r in job['dataset']['records'] if r['split'] == 'development']

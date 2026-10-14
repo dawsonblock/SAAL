@@ -52,6 +52,11 @@ public comparison runs remain unqualified. `--stage DATA_CONTROL` defines the
 separate exploratory two-seed parent-training comparison. Do not restart or
 choose a checkpoint based on protected evaluation.
 
+The documented cross-platform head reconstruction repair has its own explicit
+`--pilot pilot-repair-02` admission. Both `prepare` and `run` accept that option.
+It requires the retained original failed admission and successful repaired
+checkpoint replay. Study admission must name the accepted pilot evidence.
+
 ## Artifact inspection
 
 ```sh

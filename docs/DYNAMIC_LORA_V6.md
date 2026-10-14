@@ -151,4 +151,14 @@ original checkout. The exact admission-time source is retained in
 packaging fixes do not alter the submitted worker, data, optimizer, rank
 schedule, numerical tolerances or acceptance thresholds.
 
+The first T4 admission exposed a cross-platform initialization difference:
+the classifier weight differed by at most `1.49e-8` between ARM and x86.
+Requiring a freshly randomized head to hash identically was incorrect replay
+reconstruction. Controller replay now restores the exact archived initial head
+before hashing, then checks the unchanged model/frozen hashes and `1e-4`
+prediction tolerance. Its restored predictions passed for all three snapshots.
+The failed original admission remains failed. A separate signed
+`pilot-repair-02` admission references that failure and repaired replay; it
+does not reset or reuse the original quota. The training worker is unchanged.
+
 Reference: [official PEFT AdaLoRA documentation](https://huggingface.co/docs/peft/en/package_reference/adalora).
