@@ -27,7 +27,7 @@ LFS = b'version https://git-lfs.github.com/spec/v1'
 
 
 def canonical(value):
-    return json.dumps(value, sort_keys=True, separators=(',', ':'), ensure_ascii=False,
+    return json.dumps(value, sort_keys=True, separators=(',', ':'),
                       allow_nan=False).encode()
 
 
