@@ -62,9 +62,13 @@ It is not behavioral qualification and never changes the old failed budgets.
    `validation/frozen-regression-process-*.json`; inspect the latest record
    and actual process command before launching another collector. The first
    invocation (session 41905) completed the two fixed seed-47 candidates.
-   The second invocation (session 68132) collects the newly completed AdaLoRA
-   candidate, retaining the same plan and skipping both authenticated completed
-   tasks. Output is `regression-study-v2`; logs are
+   The second invocation (session 68132) also exited successfully. It collected
+   the seed-47 AdaLoRA candidate using the same plan and skipped the two prior
+   completed tasks. Its completion record is
+   `validation/frozen-regression-process-02-completion.json`; all three seed-47
+   results were authenticated again in
+   `validation/frozen-regression-seed47-verified.json` (11,160 predictions).
+   Neither invocation is still running. Output is `regression-study-v2`; logs are
    `validation/frozen-regression-study*.log`.
    It freezes the 1,240-case public regression population and each completed
    candidate before inference. Each task has a 600-second wall limit and no

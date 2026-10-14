@@ -1,0 +1,3 @@
+{"regression_completed": 1, "method": "fixed-r8", "seed": 47}
+{"regression_completed": 2, "method": "fixed-r12", "seed": 47}
+{"completed_public_regressions": 2, "admitted_max": 15, "training_changed": false}

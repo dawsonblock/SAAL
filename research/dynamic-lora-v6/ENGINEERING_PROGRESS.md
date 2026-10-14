@@ -92,3 +92,25 @@ The collector is separate from the T4 worker and uses no protected final data.
 Its plan, predictions, metrics, work accounting and frozen candidate identity
 are retained under `regression-study-v2`. Remaining candidates are evaluated
 only after their training, artifact verification and replay complete.
+
+## Seed-47 public regression block complete
+
+All three seed-47 methods now have completed bounded CPU regression of their
+initial, selected and terminal snapshots: 11,160 predictions in total. The
+signed jobs, native artifacts, GPU/CPU replay bindings, regression result
+hashes and unchanged frozen backbones were checked again. Both collector
+invocations exited successfully. The evidence is recorded in
+`validation/frozen-regression-seed47-verified.json`.
+
+| Terminal public regression | Fixed r8 | Fixed r12 | AdaLoRA 12 to 8 |
+| --- | ---: | ---: | ---: |
+| Accuracy | 90.56% | 91.45% | 61.05% |
+| Complete counterfactual pairs | 83.06% | 83.23% | 29.52% |
+| Worst-family accuracy | 0.00% | 50.00% | 0.00% |
+| Label-based action proposal errors | 24 | 26 | 213 |
+
+These are descriptive results from one seed on exposed, correlated public
+examples. All three terminal candidates fail the existing behavioral screens.
+This is not the registered five-seed comparison, independent generalization
+or sequential retention evidence. All admitted training configurations and
+checkpoint choices remain unchanged; no candidate is promoted.
