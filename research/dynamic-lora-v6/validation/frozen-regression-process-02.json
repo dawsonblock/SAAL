@@ -1,0 +1,10 @@
+{
+  "controller_pid": 53430,
+  "exec_session": 68132,
+  "output": "research/dynamic-lora-v6/regression-study-v2",
+  "previous_invocation_completed": true,
+  "previous_completed_tasks": 2,
+  "source_plan_unchanged": true,
+  "scope": "Incremental collection of newly completed frozen candidates; previous tasks skipped; no training retries.",
+  "created_utc": "2026-10-14T12:14:44.627649+00:00"
+}

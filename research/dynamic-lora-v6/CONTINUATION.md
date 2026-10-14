@@ -58,9 +58,14 @@ It is not behavioral qualification and never changes the old failed budgets.
    heads; preserve all three snapshots. Use bounded processes, report measured
    work, and never select checkpoints or restart training using these results.
    The separate bounded CPU collector is now
-   `analysis/frozen_regression.py`. Its first invocation is recorded in
-   `validation/frozen-regression-process-01.json` (execution session 41905),
-   output `regression-study-v2`, log `validation/frozen-regression-study.log`.
+   `analysis/frozen_regression.py`. Invocations are recorded in
+   `validation/frozen-regression-process-*.json`; inspect the latest record
+   and actual process command before launching another collector. The first
+   invocation (session 41905) completed the two fixed seed-47 candidates.
+   The second invocation (session 68132) collects the newly completed AdaLoRA
+   candidate, retaining the same plan and skipping both authenticated completed
+   tasks. Output is `regression-study-v2`; logs are
+   `validation/frozen-regression-study*.log`.
    It freezes the 1,240-case public regression population and each completed
    candidate before inference. Each task has a 600-second wall limit and no
    automatic retry. Do not duplicate a live collector. Once that invocation
