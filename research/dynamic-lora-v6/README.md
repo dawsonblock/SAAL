@@ -83,6 +83,6 @@ The physical ZIP has its own signed inventory. Use its reported SHA-256 and
 the controller public key supplied with the delivery:
 
 ```sh
-.venv/bin/python tools/adaptive_capsule.py extract RELEASE.zip NEW_DIRECTORY ZIP_SHA256
-.venv/bin/python tools/adaptive_capsule.py verify NEW_DIRECTORY CONTROLLER_PUBLIC_KEY_HEX
+.venv/bin/python -I tools/adaptive_capsule.py extract RELEASE.zip NEW_DIRECTORY ZIP_SHA256
+.venv/bin/python -I tools/adaptive_capsule.py verify NEW_DIRECTORY CONTROLLER_PUBLIC_KEY_HEX
 ```

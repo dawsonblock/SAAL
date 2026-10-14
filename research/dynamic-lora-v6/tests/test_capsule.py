@@ -65,13 +65,16 @@ def test_clean_extraction_all_bytes_signature_and_alias_restoration(release, tmp
     assert not result['external_deployment_allowed']
 
 
-@pytest.mark.parametrize('fault', ['bytes', 'extra', 'missing', 'signer', 'manifest', 'symlink'])
+@pytest.mark.parametrize('fault', ['bytes', 'extra', 'bytecode', 'missing', 'signer', 'manifest', 'symlink'])
 def test_physical_release_negative_cases(release, fault):
     root, pin = release
     if fault == 'bytes':
         (root/'src/example.py').write_bytes(b'substituted')
     elif fault == 'extra':
         (root/'extra.txt').write_text('unregistered')
+    elif fault == 'bytecode':
+        cache = root/'src/__pycache__'; cache.mkdir()
+        (cache/'example.cpython-312.pyc').write_bytes(b'unregistered executable bytecode')
     elif fault == 'missing':
         (root/'src/example.py').unlink()
     elif fault == 'signer':
