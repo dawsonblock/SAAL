@@ -1,0 +1,7 @@
+{
+  "controller_pid": 51324,
+  "exec_session": 41905,
+  "output": "research/dynamic-lora-v6/regression-study-v2",
+  "scope": "CPU inference on completed frozen public candidates; no training, candidate selection or protected evaluation.",
+  "created_utc": "2026-10-14T12:07:18.909074+00:00"
+}

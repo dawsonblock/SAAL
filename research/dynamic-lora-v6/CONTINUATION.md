@@ -57,6 +57,23 @@ It is not behavioral qualification and never changes the old failed budgets.
    v1/v2 portable replay backend. Validate bundles first; restore exact initial
    heads; preserve all three snapshots. Use bounded processes, report measured
    work, and never select checkpoints or restart training using these results.
+   The separate bounded CPU collector is now
+   `analysis/frozen_regression.py`. Its first invocation is recorded in
+   `validation/frozen-regression-process-01.json` (execution session 41905),
+   output `regression-study-v2`, log `validation/frozen-regression-study.log`.
+   It freezes the 1,240-case public regression population and each completed
+   candidate before inference. Each task has a 600-second wall limit and no
+   automatic retry. Do not duplicate a live collector. Once that invocation
+   exits successfully, the same command can collect newly completed candidates;
+   authenticated completed tasks are skipped, and failed tasks block retries.
+   Command from repository root: `python
+   research/dynamic-lora-v6/analysis/frozen_regression.py
+   research/dynamic-lora-v6/study-v2
+   research/dynamic-lora-v6/regression-study-v2 MODEL_CACHE`.
+   Use a separate output plan for the four parent-data controls. The collector
+   is additional post-freeze analysis, not part of the earlier 932-test QA
+   count. Its actual admission-negative checks and native inference outcomes
+   must be reported separately.
 4. If any campaign fails, retain its failed budget and remaining reservations,
    report the scientific comparison as incomplete, and do not create another
    training admission automatically. No default-adapter promotion. Mechanism
