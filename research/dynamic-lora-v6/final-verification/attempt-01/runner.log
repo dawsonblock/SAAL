@@ -1,0 +1,15 @@
+{"suite": "core", "tests": 636, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "corpus", "tests": 38, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "reporting", "tests": 10, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "project", "tests": 42, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "diverse", "tests": 15, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "reliability", "tests": 4, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "repairs", "tests": 45, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "adaptive", "tests": 142, "failures": 0, "errors": 0, "skipped": 0}
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-RSI-Dynamic-LoRA-v6-final-verification/verify_final.py", line 71, in <module>
+    after_files=capsule.verify_files(CLEAN,PIN)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/tools/adaptive_capsule.py", line 168, in verify_files
+    raise ValueError('extra/missing capsule files')
+ValueError: extra/missing capsule files

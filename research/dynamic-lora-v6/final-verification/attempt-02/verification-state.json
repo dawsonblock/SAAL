@@ -1,0 +1,9 @@
+{
+  "error": {
+    "detail": "extra/missing capsule files",
+    "type": "ValueError"
+  },
+  "phase": "FAILED",
+  "pid": 81367,
+  "updated_utc": "2026-10-14T15:50:36.316143+00:00"
+}

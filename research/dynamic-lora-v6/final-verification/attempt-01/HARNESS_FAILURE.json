@@ -1,0 +1,191 @@
+{
+  "schema": "saal-final-verification-harness-incident-v1",
+  "observed_utc": "2026-10-14T15:46:19.503932+00:00",
+  "failure": "Verification parent launched with -I ignored PYTHONDONTWRITEBYTECODE; post-test imports wrote unregistered caches. Strict member check rejected them.",
+  "canonical_tests_passed": 932,
+  "missing_registered_files": [],
+  "unexpected_bytecode": [
+    {
+      "path": "research/dynamic-lora-v6/analysis/__pycache__/close_failed_study.cpython-312.pyc",
+      "bytes": 14107,
+      "sha256": "4ef06ef7152ad7ce404947beb235b0f3f25f0b925e45a32bc36309351cfc795e"
+    },
+    {
+      "path": "research/dynamic-lora-v6/analysis/__pycache__/frozen_regression.cpython-312.pyc",
+      "bytes": 17606,
+      "sha256": "216f95150d2da8d683e21b314cc84c6dbf7c5904121e2ec11dfd1ebee5e91cb2"
+    },
+    {
+      "path": "research/dynamic-lora-v6/analysis/__pycache__/report_study.cpython-312.pyc",
+      "bytes": 7787,
+      "sha256": "1a11df0c1ae0f7086bed69dbf5bdbe892902ee7bbe32c21a528c23c8a319d250"
+    },
+    {
+      "path": "src/saal/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 285,
+      "sha256": "b77610d71d6e94344ee028ab0cef804efc0bf07225756a867d6b5ef3596c8829"
+    },
+    {
+      "path": "src/saal/__pycache__/agent.cpython-312.pyc",
+      "bytes": 6733,
+      "sha256": "4272614cfdd18cdc588b6869d0d6a074e9d1b7edfe1ab3d1ab417fed47255a2a"
+    },
+    {
+      "path": "src/saal/__pycache__/authority.cpython-312.pyc",
+      "bytes": 18065,
+      "sha256": "3bf8b73f9b6f61db5eb60c3983019cd564c37b46a8738ab4d74694c93672780c"
+    },
+    {
+      "path": "src/saal/__pycache__/beliefs.cpython-312.pyc",
+      "bytes": 4394,
+      "sha256": "cbbb8e0f9a62ba377b5b01f48a83d5d8893fe879486629e596225e05c393b1a9"
+    },
+    {
+      "path": "src/saal/__pycache__/canonical.cpython-312.pyc",
+      "bytes": 3071,
+      "sha256": "1cca195cbb1e6876a55a49dd9769004d4c835de774dd18b66cad8d6c439fdbed"
+    },
+    {
+      "path": "src/saal/__pycache__/sim.cpython-312.pyc",
+      "bytes": 5392,
+      "sha256": "1c18738d922f05cfe6104fb65fea815e49bd77c21a1ff57d799e7d731a867822"
+    },
+    {
+      "path": "src/saal/__pycache__/train.cpython-312.pyc",
+      "bytes": 9390,
+      "sha256": "e480447255b3fbb99a77a61dd863c97764807eb67d2cc4626ae11184defc3c89"
+    },
+    {
+      "path": "src/saal/__pycache__/types.cpython-312.pyc",
+      "bytes": 3385,
+      "sha256": "dab4903490afb7b3c63749c9ed5d0a5e50b609d8e6d80ccad4ddeedbc65dc817"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 317,
+      "sha256": "f97eb19f28fa766d1da3bac46827813894dfb6ee8df442f67c41d12de3e38f9d"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/actor.cpython-312.pyc",
+      "bytes": 3473,
+      "sha256": "f5bfe42cea8b59a357b1bb4890475eeb24a7e278c59f039473ec9a3160e80f52"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/adaptive_artifacts.cpython-312.pyc",
+      "bytes": 30040,
+      "sha256": "e36f727ff7aa938dea4283f706c38d49d12a8bafadad35a727ba73571f85cc46"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/adaptive_artifacts_v2.cpython-312.pyc",
+      "bytes": 30480,
+      "sha256": "5530fd111d75e09dd5bad17a87f39a8d2a7360303455de68a72950c4ba849c39"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/adaptive_backend.cpython-312.pyc",
+      "bytes": 11476,
+      "sha256": "487bfa151632e5ff3ae8c863abfb87c68ff571b8eb475982a908ac5481567ba4"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/adaptive_contract.cpython-312.pyc",
+      "bytes": 12166,
+      "sha256": "cd8c0dc929241d8feaba844d0a037322df509eb0985821e2f7be8864c152d6bd"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/adaptive_contract_v2.cpython-312.pyc",
+      "bytes": 3119,
+      "sha256": "53661e71c9b7f5a6c47649bf7d81ca8350c7262c455fcf86090cc0cd00885623"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/adaptive_dataset.cpython-312.pyc",
+      "bytes": 6838,
+      "sha256": "20a27692ed8bd0611586cddb1c87a0a2a21d92620dc3ac33a2225ff5af4d1f37"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/adaptive_dispatch.cpython-312.pyc",
+      "bytes": 1292,
+      "sha256": "7503b8730b0f69d7164cb53c6c18747eed535f3f8ecef7ab6a222b7f7cbe1b15"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/adaptive_evaluator.cpython-312.pyc",
+      "bytes": 8000,
+      "sha256": "6aa018acfc01adaee81d658a6ffe8c0ad858a11b48b5dbbdce19d15d5e4924e0"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/adaptive_rank_controller.cpython-312.pyc",
+      "bytes": 15516,
+      "sha256": "ee22fa5493190b4fc232a70bcfde42a0098dde151ca4dd0cf28dde5a8a1e894e"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/adaptive_training.cpython-312.pyc",
+      "bytes": 14913,
+      "sha256": "7de142baeabc29101a62ed4bd24a66c3515b478ffdb771278d0e781add0dea40"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/checkpoint_selection.cpython-312.pyc",
+      "bytes": 10344,
+      "sha256": "934641d6e7493acd59fe0fcd46f1de3c6f714f24d35a7ed44916b0a544b45223"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/epoch_metrics.cpython-312.pyc",
+      "bytes": 4494,
+      "sha256": "d3586cea0e2c556a7ce43bd4bf690e15fca5e7f8323c90251dce54649dd7aeba"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/epoch_sampler.cpython-312.pyc",
+      "bytes": 6167,
+      "sha256": "ac412bcd6295a31d5ab18d6c59c4a3fce7c37283c15ed64f70282924db7c5954"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/learning_backend.cpython-312.pyc",
+      "bytes": 14405,
+      "sha256": "2f7a978578d2ea2f9f6d6b9f1eb568770192fccb203aaa785ca15a8d901ffc40"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/learning_dataset.cpython-312.pyc",
+      "bytes": 13553,
+      "sha256": "b5a23cbade668faa6f56c83cf0147680ff492068ded57f2dd096467c6a69d426"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/model_contract.cpython-312.pyc",
+      "bytes": 13442,
+      "sha256": "6ae0270c429014250c04b13107ea9d912205f8d91bb8b163f45e97f2e87b2c97"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/model_monitor.cpython-312.pyc",
+      "bytes": 17565,
+      "sha256": "3de8f4a28dc4e7f3b77e92f1ce34074f226b284d721f0d2ce1278a7928f1f1d5"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/modernbert_backend.cpython-312.pyc",
+      "bytes": 5572,
+      "sha256": "f63855a71d611b28079afd86a3e9cca1f016dc46015e29df6c72cdee05ffee8b"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/pretrained_contract.cpython-312.pyc",
+      "bytes": 16079,
+      "sha256": "49ca5eba4c2c60dac6eb96f75003b29ca78b7711dacd743233d0177692b4de60"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/processes.cpython-312.pyc",
+      "bytes": 7430,
+      "sha256": "dfc4de80732dceee88dbf2cbaeb3685bdecc9a4722c2aeb712ba0fa33911a166"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/spec.cpython-312.pyc",
+      "bytes": 5379,
+      "sha256": "d64e609cb99cc42977ddc5c7a5923ab6557f13f396cee702230269378174e6e0"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/task_oracles.cpython-312.pyc",
+      "bytes": 6667,
+      "sha256": "27b2e86bacc2ca8a42db9416769c3f3cc6ef64ca55988a4e77dc5fd8e9d5c068"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/validation.cpython-312.pyc",
+      "bytes": 3768,
+      "sha256": "4b6a776768300549728ff26ef191e7642db031edbbf62b229ab1a86b244497d8"
+    }
+  ],
+  "archive_sha256": "9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b",
+  "remediation": "Preserve failed attempt; discard only task-created extraction; fresh extraction and full verification with explicit -B -I. No cache whitelist or release-byte change."
+}

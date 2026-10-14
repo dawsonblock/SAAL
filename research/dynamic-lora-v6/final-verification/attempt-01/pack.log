@@ -1,0 +1,10 @@
+{
+  "archive": "/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.5-dev6-Full-Research-Evidence.zip",
+  "sha256": "9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b",
+  "bytes": 7470857286,
+  "logical_files": 6696,
+  "source_commit": "849760f49b1fc5d0cf8d941a3757c0e33fcf0a35",
+  "evidence_commit": "23b535a3cdf295a057e49d2d108899dddb55e137",
+  "controller_public_key": "e3db435cf14ebd609a7950c039a15809001bf00b23fa7deb363a7f1bffe0df4b",
+  "qualification_status": "NOT_EVALUATED"
+}

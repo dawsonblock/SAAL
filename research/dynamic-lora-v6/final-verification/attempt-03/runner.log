@@ -1,0 +1,9 @@
+{"suite": "core", "tests": 636, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "corpus", "tests": 38, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "reporting", "tests": 10, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "project", "tests": 42, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "diverse", "tests": 15, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "reliability", "tests": 4, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "repairs", "tests": 45, "failures": 0, "errors": 0, "skipped": 0}
+{"suite": "adaptive", "tests": 142, "failures": 0, "errors": 0, "skipped": 0}
+{"status": "VERIFIED", "archive_sha256": "9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b", "passed": 932, "totals": {"tests": 932, "failures": 0, "errors": 0, "skipped": 0}}

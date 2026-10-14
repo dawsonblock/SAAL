@@ -1,0 +1,10 @@
+{
+  "checkpoint_paths_restored": 6,
+  "evidence_commit": "23b535a3cdf295a057e49d2d108899dddb55e137",
+  "external_deployment_allowed": false,
+  "historical_frozen_files": 253,
+  "logical_files_verified": 6696,
+  "qualification_status": "NOT_EVALUATED",
+  "source_commit": "849760f49b1fc5d0cf8d941a3757c0e33fcf0a35",
+  "source_files_bound": 617
+}

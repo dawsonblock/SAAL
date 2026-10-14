@@ -1,0 +1,11 @@
+{
+  "verifier_pid": 81367,
+  "archive": "/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.5-dev6-Full-Research-Evidence.zip",
+  "clean_directory": "/Users/dawsonblock/Downloads/SAAL-RSI-Dynamic-LoRA-v6-clean-extraction-02",
+  "isolated_mode": true,
+  "explicit_no_bytecode_flag": true,
+  "previous_failed_attempt_preserved": "/Users/dawsonblock/Downloads/SAAL-RSI-Dynamic-LoRA-v6-final-verification",
+  "exec_session": 91346,
+  "returncode": 1,
+  "status": "FAILED_ISOLATED_WORKER_BYTECODE"
+}

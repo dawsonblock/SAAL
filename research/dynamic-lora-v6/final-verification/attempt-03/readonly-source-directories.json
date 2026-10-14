@@ -1,0 +1,10 @@
+{
+  "directories": [
+    "src",
+    "src/dream_rsi_governed",
+    "src/saal_rsi",
+    "src/saal",
+    "src/saal_diverse"
+  ],
+  "scope": "Prevent isolated child-process bytecode creation; registered source bytes unchanged; output and fixtures remain writable outside src."
+}

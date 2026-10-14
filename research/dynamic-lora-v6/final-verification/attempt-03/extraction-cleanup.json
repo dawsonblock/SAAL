@@ -1,0 +1,11 @@
+{
+  "schema": "saal-owned-verification-extraction-cleanup-v1",
+  "removed_directory": "/Users/dawsonblock/Downloads/SAAL-RSI-Dynamic-LoRA-v6-clean-extraction-03",
+  "after_successful_verification": true,
+  "verifier_returncode": 0,
+  "source_archive_unchanged": true,
+  "source_archive_sha256": "9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b",
+  "test_and_verification_logs_preserved": true,
+  "scope": "Only the disposable extraction created for this verification; repository, checkpoints, ZIP and user files retained.",
+  "observed_utc": "2026-10-14T15:58:19.760875+00:00"
+}

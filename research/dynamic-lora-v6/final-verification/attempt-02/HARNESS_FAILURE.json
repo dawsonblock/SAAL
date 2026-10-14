@@ -1,0 +1,76 @@
+{
+  "schema": "saal-final-verification-harness-incident-v1",
+  "observed_utc": "2026-10-14T15:52:48.720953+00:00",
+  "failure": "Parent explicit -B worked, but isolated worker subprocesses ignore PYTHONDONTWRITEBYTECODE and created source caches. Strict member check rejected them.",
+  "canonical_tests_passed": 932,
+  "missing_registered_files": [],
+  "unexpected_bytecode": [
+    {
+      "path": "src/saal/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 288,
+      "sha256": "cfb8265a95c1d38d5d45d42be7163f6bd641e0a5a9581d4d458c1b054ed354ee"
+    },
+    {
+      "path": "src/saal/__pycache__/agent.cpython-312.pyc",
+      "bytes": 6736,
+      "sha256": "f81fa9a1201f20fa10b10da20a8053e319fa789493c7ec70bfd8a48c17560149"
+    },
+    {
+      "path": "src/saal/__pycache__/authority.cpython-312.pyc",
+      "bytes": 18068,
+      "sha256": "e338f0a8cc31b834ececf2aabc892e901ffeda92b30c84931a1c6fb1214208b6"
+    },
+    {
+      "path": "src/saal/__pycache__/beliefs.cpython-312.pyc",
+      "bytes": 4397,
+      "sha256": "23ec5eeb44ac9f398ab9579defefcde9b29b61088b0b0eb51e55f76334a24c91"
+    },
+    {
+      "path": "src/saal/__pycache__/canonical.cpython-312.pyc",
+      "bytes": 3074,
+      "sha256": "1a21110d097a74ed76fa214ee5d652736e5b567ceafc4c4fa8df60ea8674f5d1"
+    },
+    {
+      "path": "src/saal/__pycache__/sim.cpython-312.pyc",
+      "bytes": 5395,
+      "sha256": "ea802c698f753a73e5a2dad65ada25a5a79dd9e0ed40befa01739101dbb207aa"
+    },
+    {
+      "path": "src/saal/__pycache__/train.cpython-312.pyc",
+      "bytes": 9393,
+      "sha256": "da3746eae7fa8c2aa42639e31466de2c0f48234dc33684793e2216680b454ece"
+    },
+    {
+      "path": "src/saal/__pycache__/types.cpython-312.pyc",
+      "bytes": 3388,
+      "sha256": "ea078fe0828e495853e882d19a754bea4e86ce3afc6348a6a88e628df989a2b1"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 320,
+      "sha256": "1ad6825a50c0892caca6bda27603eb6d1716393ceb101e09f068fb64dbb49b7e"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/actor.cpython-312.pyc",
+      "bytes": 3476,
+      "sha256": "d9e750257df0ef7846d959f15e6fcc9714d3d4e4a61860a95714b46ccafd5f8f"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/model_monitor.cpython-312.pyc",
+      "bytes": 17568,
+      "sha256": "2856fd92a5746935b19cb324c268f0a360cca3196f5d913bb51e8a5d5817ad0d"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/processes.cpython-312.pyc",
+      "bytes": 7433,
+      "sha256": "ee3c4c948e737da57a707556212400d486b8a3fce3894e59cf7d087cc67de656"
+    },
+    {
+      "path": "src/saal_rsi/__pycache__/spec.cpython-312.pyc",
+      "bytes": 5382,
+      "sha256": "ee0ee7b4b229aef451deccf279abf7a1a37ea0c6f6dfe3067d81356d7f9d9267"
+    }
+  ],
+  "archive_sha256": "9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b",
+  "remediation": "Preserve failed attempt; discard only task-created extraction; fresh extraction, explicit -B and read-only source directories. Isolated-import probe passed without bytecode. No cache whitelist or release-byte change."
+}

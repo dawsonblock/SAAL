@@ -1,5 +1,33 @@
 # Dynamic LoRA v6 — authorized continuation
 
+## Final handoff verified — no automatic continuation
+
+The physical release is
+`/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.5-dev6-Full-Research-Evidence.zip`,
+7,470,857,286 bytes, SHA-256
+`9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b`.
+Actual fresh extraction read all 6,692 physical members; 6,696 logical files,
+617 source files and all 253 frozen historical files verified. The final
+clean-extraction run passed all 932 canonical tests, with no failures, errors
+or skips. Closure reconstruction and signature verification passed; every
+file and the ZIP digest were checked again afterward, without changing the ZIP.
+
+Detached signed proof is in `final-verification/`, with attempt 03 authoritative.
+Attempts 01 and 02 passed tests but failed strict member verification on generated
+bytecode; both failures are preserved. The final harness uses explicit -B and
+read-only extracted source directories, with no cache whitelist. Only the
+disposable extraction was removed after success. The ZIP also has adjacent
+`.verification.json`, `.verification.signature.json` and a small
+`.verification-evidence.zip` for portable verification evidence.
+
+The ZIP binds source 849760f49b1fc5d0cf8d941a3757c0e33fcf0a35 and evidence
+23b535a3cdf295a057e49d2d108899dddb55e137. Later results-branch commits publish
+detached verification; they do not change or repackage the tested ZIP.
+All owned training, regression, packing and verification processes have ended.
+Pause the monitor at this handoff. No further training, data controls or
+qualification may start automatically; a future repair needs a new explicit
+admission. The FAILED study and NOT_EVALUATED status below remain unchanged.
+
 ## Current terminal incident: study failed, no further training
 
 The study stopped on 2026-10-14 at 15:01 UTC: 10 COMPLETED, 1 INTERRUPTED,

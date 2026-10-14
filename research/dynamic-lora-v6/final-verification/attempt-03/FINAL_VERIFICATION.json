@@ -1,0 +1,126 @@
+{
+  "archive": "/Users/dawsonblock/Downloads/SAAL-RSI-v0.9.5-dev6-Full-Research-Evidence.zip",
+  "archive_bytes": 7470857286,
+  "archive_sha256": "9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b",
+  "archive_unchanged_after_tests": true,
+  "campaign_state": "FAILED",
+  "canonical_suites": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "core",
+      "tests": 636,
+      "wall_seconds": 95.55502812500345
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "corpus",
+      "tests": 38,
+      "wall_seconds": 7.907412167005532
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "reporting",
+      "tests": 10,
+      "wall_seconds": 0.32161308400100097
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "project",
+      "tests": 42,
+      "wall_seconds": 7.730990374999237
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "diverse",
+      "tests": 15,
+      "wall_seconds": 2.9610691659981967
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "reliability",
+      "tests": 4,
+      "wall_seconds": 0.4922936250004568
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "repairs",
+      "tests": 45,
+      "wall_seconds": 12.232599125003617
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "returncode": 0,
+      "skipped": 0,
+      "suite": "adaptive",
+      "tests": 142,
+      "wall_seconds": 8.64061358300387
+    }
+  ],
+  "clean_closure_reconstruction": true,
+  "clean_extraction": {
+    "archive_sha256": "9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b",
+    "clean_directory": "/Users/dawsonblock/Downloads/SAAL-RSI-Dynamic-LoRA-v6-clean-extraction-03",
+    "members_read_completely": 6692
+  },
+  "controller_closure_signature_verified": true,
+  "controller_public_key": "e3db435cf14ebd609a7950c039a15809001bf00b23fa7deb363a7f1bffe0df4b",
+  "elapsed_seconds": 237.36267066001892,
+  "evidence_commit": "23b535a3cdf295a057e49d2d108899dddb55e137",
+  "external_deployment_allowed": false,
+  "independent_generalization": "NOT_ESTABLISHED",
+  "passed": 932,
+  "physical_verification_after": {
+    "checkpoint_paths_restored": 0,
+    "evidence_commit": "23b535a3cdf295a057e49d2d108899dddb55e137",
+    "external_deployment_allowed": false,
+    "historical_frozen_files": 253,
+    "logical_files_verified": 6696,
+    "qualification_status": "NOT_EVALUATED",
+    "source_commit": "849760f49b1fc5d0cf8d941a3757c0e33fcf0a35",
+    "source_files_bound": 617
+  },
+  "physical_verification_before": {
+    "checkpoint_paths_restored": 6,
+    "evidence_commit": "23b535a3cdf295a057e49d2d108899dddb55e137",
+    "external_deployment_allowed": false,
+    "historical_frozen_files": 253,
+    "logical_files_verified": 6696,
+    "qualification_status": "NOT_EVALUATED",
+    "source_commit": "849760f49b1fc5d0cf8d941a3757c0e33fcf0a35",
+    "source_files_bound": 617
+  },
+  "qualification_status": "NOT_EVALUATED",
+  "registered_comparison": "INCOMPLETE",
+  "schema": "saal-final-physical-release-verification-v1",
+  "source_commit": "849760f49b1fc5d0cf8d941a3757c0e33fcf0a35",
+  "status": "VERIFIED",
+  "test_logs_outside_release_tree": true,
+  "totals": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 932
+  }
+}
