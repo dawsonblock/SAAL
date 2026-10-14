@@ -132,4 +132,23 @@ anchors, independent credentials and qualification evidence remain required.
 No transfer, retention advantage, independent generalization, recursive
 self-improvement or production alignment is established by this release.
 
+## Physical release verification
+
+`tools/adaptive_capsule.py` authenticates the v5 foundation, retains its signed
+delivery metadata under provenance, packages actual LFS payload bytes, and
+binds source and evidence commits to a new controller-signed inventory. After
+clean extraction it verifies every file before restoring deduplicated tensor
+paths. The pinned official upstream model cache remains a separate download.
+
+`tools/adaptive_qa_result.py` requires all eight suites, source/input identity,
+consistent JUnit cases and confirmed runtime teardown. Missing adapter results
+cannot be reported as a successful historical seven-suite run.
+
+The pilot gate resolves artifacts inside the extracted package. Absolute
+controller paths are provenance and are never used to borrow files from the
+original checkout. The exact admission-time source is retained in
+`pilot-experiment/preregistered-source`; subsequent controller reporting and
+packaging fixes do not alter the submitted worker, data, optimizer, rank
+schedule, numerical tolerances or acceptance thresholds.
+
 Reference: [official PEFT AdaLoRA documentation](https://huggingface.co/docs/peft/en/package_reference/adalora).

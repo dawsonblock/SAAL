@@ -68,3 +68,16 @@ The main learning/evaluation/promotion systems are preserved. The adaptive CLI
 adds no promotion command. Upstream pretrained snapshots are separate from the
 release ZIP; `configs/pretrained/registry.json` authenticates their revisions
 and actual file hashes. Never substitute an LFS pointer for a tensor payload.
+
+After a campaign ends, report its validated training and replay evidence with
+`tools/adaptive_campaign_report.py pilot-experiment new-report.json`. A completed
+training run can still fail CPU/GPU replay or pilot admission; these outcomes
+remain separate in the report. Neither outcome grants qualification.
+
+The physical ZIP has its own signed inventory. Use its reported SHA-256 and
+the controller public key supplied with the delivery:
+
+```sh
+.venv/bin/python tools/adaptive_capsule.py extract RELEASE.zip NEW_DIRECTORY ZIP_SHA256
+.venv/bin/python tools/adaptive_capsule.py verify NEW_DIRECTORY CONTROLLER_PUBLIC_KEY_HEX
+```

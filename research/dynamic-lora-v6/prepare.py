@@ -54,31 +54,42 @@ def source_map():
     return {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(files)}
 
 
-def pilot_accepted():
+def pilot_accepted(base=None):
     """No study admission based solely on untrusted passing flags."""
     from saal_rsi.adaptive_artifacts import validate_bundle, read_json, file_hash
     from saal_rsi.epoch_metrics import prediction_equal
-    base = PROJECT/'pilot-experiment'
+    base = Path(base) if base is not None else PROJECT/'pilot-experiment'
     pin = (base/'controller.pub').read_text().strip()
     protocol = verify(read_json(base/'signed_protocol.json'), pin)
     export = read_json(base/'colab/registry-export.json')
     state = read_json(base/'colab/monitor-state.json')
-    if export['campaign_state'] != 'COMPLETED' or state['cleanup_verified'] is not True or len(export['attempts']) != 3:
+    if export['campaign_state'] != 'COMPLETED' or state['phase'] != 'COMPLETED' or state['cleanup_verified'] is not True or len(export['attempts']) != 3:
         raise ValueError('complete pilot and verified cleanup required before scientific admission')
     hashes, streams, methods = set(), set(), set()
     for row, descriptor in zip(export['attempts'], protocol['runs']):
         if row['state'] != 'COMPLETED': raise ValueError('pilot has failed / incomplete attempts')
         job = verify(read_json(base/(descriptor['name']+'-job.json')), pin)
         if job['steps'] != 1000 or job['seed'] != ENGINEERING_SEED: raise ValueError('full excluded-seed pilot required')
-        native = validate_bundle(row['outcome']['artifacts'], job, pin, require_replay=True)
-        receipt = read_json(row['outcome']['controller_replay'])
-        if receipt['inventory_sha256'] != file_hash(Path(row['outcome']['artifacts'])/'artifact_inventory.json') or receipt['job_digest'] != sha(job) or receipt['verified'] is not True:
+        digest = sha(job)
+        outcome = row['outcome']
+        if row['digest'] != digest or outcome['job_digest'] != digest or descriptor['job_digest'] != digest:
+            raise ValueError('pilot outcome / admission substitution')
+        import re
+        run_name = outcome['run']
+        if type(run_name) is not str or not re.fullmatch(r'run-[0-9]{2}-'+digest[7:19], run_name):
+            raise ValueError('pilot artifact run identity')
+        # Absolute controller paths are historical provenance only. A clean
+        # extraction must verify its own bytes, not read the original checkout.
+        artifact = base/'artifacts'/run_name
+        native = validate_bundle(artifact, job, pin, require_replay=True)
+        receipt = read_json(base/'colab'/(run_name+'-controller-replay.json'))
+        if receipt['inventory_sha256'] != file_hash(artifact/'artifact_inventory.json') or receipt['job_digest'] != digest or receipt['verified'] is not True:
             raise ValueError('fresh CPU replay identity failed')
         for role in ('initial', 'best', 'terminal'):
             if not prediction_equal(receipt['predictions'][role], native['snapshots'][role]['predictions'], 'modernbert-seqcls-v1', 1e-4):
                 raise ValueError('pilot checkpoint replay failed')
         hashes.add(native['unadapted_model_hash'])
-        streams.add(sha(read_json(Path(row['outcome']['artifacts'])/'sampler_manifest.json')['record_ids']))
+        streams.add(sha(read_json(artifact/'sampler_manifest.json')['record_ids']))
         methods.add(job['adapter']['method'])
     if len(hashes) != 1 or len(streams) != 1 or methods != set(METHODS):
         raise ValueError('pilot model / classifier / sampling mismatch')
