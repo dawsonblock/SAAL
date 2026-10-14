@@ -81,6 +81,12 @@ It is not behavioral qualification and never changes the old failed budgets.
    `validation/frozen-regression-process-04-completion.json`.
    No collector is still running as of that completion record; check the
    latest process record and actual command before the next launch.
+   Invocation 05 (session 47932, PID 63567) exited successfully after collecting
+   the seed-83 AdaLoRA candidate. Six public regression tasks are complete.
+   Its records are `validation/frozen-regression-process-05.json` and
+   `validation/frozen-regression-process-05-completion.json`.
+   No collector is running as of that record; check later process records and
+   actual commands before the next launch.
    Output is `regression-study-v2`; logs are
    `validation/frozen-regression-study*.log`.
    It freezes the 1,240-case public regression population and each completed

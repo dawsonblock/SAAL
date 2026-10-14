@@ -1,0 +1,10 @@
+{
+  "controller_pid": 63567,
+  "created_utc": "2026-10-14T13:17:47.417605+00:00",
+  "exec_session": 47932,
+  "output": "research/dynamic-lora-v6/regression-study-v2",
+  "previous_completed_tasks": 5,
+  "previous_invocation_completed": true,
+  "source_plan_unchanged": true,
+  "scope": "Incremental collection of newly completed frozen seed-83 AdaLoRA candidate; five authenticated completed tasks skipped; no training or task retries."
+}
