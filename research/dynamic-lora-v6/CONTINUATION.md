@@ -75,6 +75,12 @@ It is not behavioral qualification and never changes the old failed budgets.
    `validation/frozen-regression-process-03-completion.json`.
    None of these three collector invocations is still running; always check
    the latest process record and actual process command before another launch.
+   Invocation 04 (session 34902, PID 61405) exited successfully after collecting
+   the seed-83 fixed-r12 candidate. Five public regression tasks are complete.
+   Its records are `validation/frozen-regression-process-04.json` and
+   `validation/frozen-regression-process-04-completion.json`.
+   No collector is still running as of that completion record; check the
+   latest process record and actual command before the next launch.
    Output is `regression-study-v2`; logs are
    `validation/frozen-regression-study*.log`.
    It freezes the 1,240-case public regression population and each completed
