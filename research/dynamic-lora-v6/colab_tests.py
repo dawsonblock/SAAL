@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parent;REPO=ROOT.parents[1]
 def digest(p):
  with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 def run(out_name='colab-tests'):
- if out_name not in ('colab-tests',):raise ValueError('closed QA attempt identity')
+ if out_name not in ('colab-tests','colab-tests-02'):raise ValueError('closed QA attempt identity')
  out=ROOT/out_name;out.mkdir(exist_ok=False);files={}
  def add(p):
   n=p.relative_to(REPO).as_posix()
@@ -48,6 +48,10 @@ def run(out_name='colab-tests'):
  for directory in ('research/dynamic-lora-v6/tests','research/dynamic-lora-v6/native-engineering-05'):
   for p in (REPO/directory).rglob('*'):
    if p.is_file() and 'worker' not in p.relative_to(REPO/directory).parts:add(p)
+ # Portability tests import the controller entry point. Include its real source
+ # rather than relying on files available only in the developer checkout.
+ for p in ROOT.glob('*.py'):add(p)
+ for n in ('FOUNDATION.json','controller.pub','README.md'):add(ROOT/n)
  inventory={n:digest(p) for n,p in sorted(files.items())};(out/'input-inventory.json').write_bytes(canonical(inventory))
  archive=out/'test-inputs.zip'
  with zipfile.ZipFile(archive,'x',compression=zipfile.ZIP_DEFLATED,compresslevel=1) as z:
