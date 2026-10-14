@@ -1,0 +1,1 @@
+{"completed_optimizer_updates":1000,"elapsed_seconds":983.4765365760002,"microbatches":2000,"peak_gpu_allocated_bytes":2771747328,"peak_gpu_reserved_bytes":3097493504,"sample_exposures":16000,"tokens":2379594,"total_parameters":151012616,"trainable_parameters":1404676}

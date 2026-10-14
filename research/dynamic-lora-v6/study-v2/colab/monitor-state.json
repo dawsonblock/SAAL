@@ -1,0 +1,42 @@
+{
+  "schema": "saal-colab-monitor-v3",
+  "session": "saal-c9456df8eb3d4554bd7b",
+  "phase": "FAILED",
+  "job_digest": "sha256:ed38b130f68fd0f186d8cedd5a8089f1a0819a3587951c7136a994f9d990382d",
+  "deadline_epoch": 1792052054.661937,
+  "heartbeat_epoch": 1791990092.594792,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 1000,
+  "total_steps": 1000,
+  "external_deployment_allowed": false,
+  "evidence_errors": [],
+  "elapsed_seconds": 14237.898746709005,
+  "watchdog_pid": 45087,
+  "active_command": null,
+  "last_remote_event": {
+    "monitor": "artifact_transfer_ready",
+    "manifest": {
+      "schema": "saal-artifact-transfer-v1",
+      "job_digest": "sha256:6e8b0b526bfcba3884bdf07cd68d0566fe80ca487efccc8e96a3ff731e645e5c",
+      "size": 15585022,
+      "sha256": "81bba817b899b04be73f770718e731cc9afe0d1ca45e691898e91fec19b6443d",
+      "chunks": [
+        {
+          "name": "part-000.bin",
+          "size": 15585022,
+          "sha256": "81bba817b899b04be73f770718e731cc9afe0d1ca45e691898e91fec19b6443d"
+        }
+      ]
+    }
+  },
+  "latest_objective_loss": 0.10193040384911001,
+  "completed_runs": 10,
+  "total_runs": 15,
+  "current_seed": 157,
+  "current_mode": "fixed-r8",
+  "error": {
+    "type": "RuntimeError",
+    "detail": "Colab -I failed (1):  \"verified\": true, \"checkpoints\": [\"initial\", \"best\", \"terminal\"], \"job_digest\": \"sha256:6e8b0b526bfcba3884bdf07cd68d0566fe80ca487efccc8e96a3ff731e645e5c\"}\n{\"monitor\": \"artifact_transfer_ready\", \"manifest\": {\"schema\": \"saal-artifact-transfer-v1\", \"job_digest\": \"sha256:6e8b0b526bfcba3884bdf07cd68d0566fe80ca487efccc8e96a3ff731e645e5c\", \"size\": 15585022, \"sha256\": \"81bba817b899b04be73f770718e731cc9afe0d1ca45e691898e91fec19b6443d\", \"chunks\": [{\"name\": \"part-000.bin\", \"size\": 15585022, \"sha256\": \"81bba817b899b04be73f770718e731cc9afe0d1ca45e691898e91fec19b6443d\"}]}}\nTraceback (most recent call last):\n  File \"/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/study-v2/colab/coordinate.py\", line 4, in <module>\n    coordinator('/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/study-v2/colab/config.json')\n  File \"/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/adaptive_campaign.py\", line 204, in coordinator\n    raise RuntimeError('adaptive campaign interrupted; no retry: '+str(outcome['error']))\nRuntimeError: adaptive campaign interrupted; no retry: {'type': 'ValueError', 'detail': 'snapshot predictions / metrics consistency'}\n"
+  }
+}

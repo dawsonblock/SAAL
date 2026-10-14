@@ -1,5 +1,27 @@
 # Dynamic LoRA v6 — authorized continuation
 
+## Current terminal incident: study failed, no further training
+
+The study stopped on 2026-10-14 at 15:01 UTC: 10 COMPLETED, 1 INTERRUPTED,
+4 RESERVED; the consumed budget is FAILED. The fixed-r12 seed-157 bundle
+reproduces a strict metric-consistency rejection: its Brier score differs
+by one ULP (1.3877787807814457e-17) on controller recomputation. All other
+recomputed metrics match. Do not rewrite the original result, weaken its
+validator or retry the job. The full five-seed report rejects this campaign.
+The exact T4 session was stopped and absence reconfirmed; controller and
+watchdog are absent. Parent-data controls must remain unstarted because their
+prerequisite failed. No replacement admission is authorized automatically.
+
+All 10 accepted candidates now have completed frozen public regression.
+Collector invocation 09 (session 44432, PID 74918) exited 0; its process and
+completion records are in validation. No collector is currently running.
+RESULTS.json, RELEASE_REPORT.md and validation/STUDY_CLOSURE_SIGNED.json
+preserve the final incomplete outcome. The posthoc analysis script
+analysis/close_failed_study.py reproduces the rejection and all closure checks.
+Finish publication, full physical packaging, clean extraction and canonical
+tests, then pause the monitor after the verified handoff. Do not treat the
+old success-path instructions below as permission to resume failed training.
+
 Work in `/Users/dawsonblock/Downloads/SAAL-diverse-publish`. This is the user's
 authorized Dynamic LoRA v6 study and release, including the 15 matched runs
 and four exploratory parent-data controls. New protected evaluations and

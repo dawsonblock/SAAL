@@ -1,0 +1,10 @@
+{
+  "controller_pid": 74918,
+  "created_utc": "2026-10-14T15:29:06.230066+00:00",
+  "exec_session": 44432,
+  "output": "research/dynamic-lora-v6/regression-study-v2",
+  "previous_completed_tasks": 9,
+  "previous_invocation_completed": true,
+  "source_plan_unchanged": true,
+  "scope": "Final collection of completed frozen seed-157 fixed-r8 candidate after campaign failure; interrupted candidate excluded; nine completed tasks skipped; no training or task retries."
+}

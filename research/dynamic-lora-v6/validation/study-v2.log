@@ -1,0 +1,27 @@
+{"monitor": "lifecycle_terminal", "session": "saal-c9456df8eb3d4554bd7b", "state": "FAILED", "cleanup_verified": true, "evidence_errors": []}
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/prepare_v2.py", line 235, in <module>
+    elif args.action == 'run': run(args.stage, args.cache)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/prepare_v2.py", line 225, in run
+    return execute(folder/'colab', [folder/(d['name']+'-job.json') for d in p['runs']], folder/'signed_protocol.json', folder/'budget.sqlite3', pin, folder/'artifacts', cache)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/adaptive_campaign.py", line 264, in execute
+    state = execute_colab_plan(plan, root)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor_v3.py", line 197, in execute_colab_plan
+    raise primary
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor_v3.py", line 148, in execute_colab_plan
+    stream_command(command, workspace/(str(number)+'-'+phase.lower()+'.log'),
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/model_monitor.py", line 55, in stream_command
+    if rc:raise RuntimeError(f'Colab {command[1]} failed ({rc}): '+redact_monitor_text(tail.decode(errors='replace'))[-1200:])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Colab -I failed (1):  "verified": true, "checkpoints": ["initial", "best", "terminal"], "job_digest": "sha256:6e8b0b526bfcba3884bdf07cd68d0566fe80ca487efccc8e96a3ff731e645e5c"}
+{"monitor": "artifact_transfer_ready", "manifest": {"schema": "saal-artifact-transfer-v1", "job_digest": "sha256:6e8b0b526bfcba3884bdf07cd68d0566fe80ca487efccc8e96a3ff731e645e5c", "size": 15585022, "sha256": "81bba817b899b04be73f770718e731cc9afe0d1ca45e691898e91fec19b6443d", "chunks": [{"name": "part-000.bin", "size": 15585022, "sha256": "81bba817b899b04be73f770718e731cc9afe0d1ca45e691898e91fec19b6443d"}]}}
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/study-v2/colab/coordinate.py", line 4, in <module>
+    coordinator('/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/study-v2/colab/config.json')
+  File "/Users/dawsonblock/Downloads/SAAL-diverse-publish/src/saal_rsi/adaptive_campaign.py", line 204, in coordinator
+    raise RuntimeError('adaptive campaign interrupted; no retry: '+str(outcome['error']))
+RuntimeError: adaptive campaign interrupted; no retry: {'type': 'ValueError', 'detail': 'snapshot predictions / metrics consistency'}
+

@@ -1,5 +1,11 @@
 # SAAL-RSI Dynamic LoRA v6 — engineering pilot complete
 
+Final status: the subsequent study stopped with 10 accepted runs, one
+interrupted run and four unrun reservations. See the
+[final research report](RELEASE_REPORT.md) for the numerical validation defect,
+all recovered results and confirmed cleanup. The snapshot below is retained
+as the earlier engineering progress record.
+
 Snapshot: 2026-10-14T11:06:07.322202+00:00. This is a progress report; the final study and ZIP are pending.
 
 The CUDA AdaLoRA initialization defect is fixed through a new signed v2
