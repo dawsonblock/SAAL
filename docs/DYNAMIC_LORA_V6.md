@@ -162,3 +162,32 @@ The failed original admission remains failed. A separate signed
 does not reset or reuse the original quota. The training worker is unchanged.
 
 Reference: [official PEFT AdaLoRA documentation](https://huggingface.co/docs/peft/en/package_reference/adalora).
+
+## CUDA scaling repair and composite engineering pilot
+
+The second T4 admission completed and independently replayed both fixed-rank
+controls. Its AdaLoRA worker rejected initialization before update zero:
+PEFT 0.21.2 can re-register an immutable `ranknum` tensor as trainable when
+moving it to CUDA. The original worker and failed campaign remain unchanged.
+
+`saal-adaptive-job-v2` admits only AdaLoRA with an explicit scaling policy.
+It checks every scaling tensor's shape, FP32 type and exact value 12 before
+restoring `requires_grad=False`. Its source identity, result schema and
+artifact validator are separate from v1. No scaling values, training steps,
+loss, data, learning rates or replay tolerance change. Fixed-rank controls
+continue using their original v1 identity.
+
+`research/dynamic-lora-v6/prepare_v2.py` permits a fresh four-update CUDA probe,
+then a separately budgeted 1,000-update AdaLoRA pilot. The latter's signed
+protocol freezes the two completed v1 fixed controls before training. The
+composite pilot requires their actual signed jobs, tensor inventories, sample
+streams, base/head hashes, all initial/best/terminal GPU and CPU replays and
+confirmed exact-session cleanup. It does not turn the failed parent campaign
+into a successful one. Engineering validation is distinct from behavioral
+screening and scientific comparison.
+
+Only after that gate can a new 15-run five-seed public study be admitted.
+The four parent-data controls require completion of the main study. Every
+campaign consumes a new signed budget; old reservations and failures stay
+visible. Neither public comparison consumes protected evaluation alpha or
+establishes independent generalization.

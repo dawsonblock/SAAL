@@ -3,8 +3,8 @@ import argparse
 import json
 from pathlib import Path
 
-from .adaptive_artifacts import validate_bundle, read_json
-from .adaptive_contract import validate_job
+from .adaptive_artifacts import read_json
+from .adaptive_dispatch import validate_job, validate_bundle
 from .adaptive_campaign import fresh_local_replay
 from .model_contract import verify
 from .spec import canonical, sha

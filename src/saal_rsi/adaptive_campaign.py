@@ -9,8 +9,9 @@ import uuid
 import zipfile
 from pathlib import Path
 
-from .adaptive_contract import SOURCES, validate_job
-from .adaptive_artifacts import FILES, ROLES, read_json, validate_bundle, file_hash
+from .adaptive_contract import SOURCES
+from .adaptive_artifacts import FILES, ROLES, read_json, file_hash
+from .adaptive_dispatch import validate_job, validate_bundle
 from .adaptive_registry import AdaptiveRegistry
 from .epoch_backend_v6 import (run_remote_stage, download_read, StreamingArchive,
                                cleanup_export, CHUNK_BYTES)
@@ -23,12 +24,16 @@ from .spec import canonical, parse_unique_json, sha
 RECOVERED_FILES = FILES | {'artifact_inventory.json', 'fresh_process_replay.json'}
 
 
-def stage_worker(destination):
+def stage_worker(destination, include_v2=False):
     destination = Path(destination)
     package = destination/'src/saal_rsi'
     package.mkdir(parents=True)
     (package/'__init__.py').write_text('')
-    for name in SOURCES:
+    if include_v2:
+        from .adaptive_contract_v2 import SOURCES as sources
+    else:
+        sources = SOURCES
+    for name in sources:
         (package/name).write_bytes(Path(__file__).with_name(name).read_bytes())
     configs = destination/'configs/pretrained'
     configs.mkdir(parents=True)
@@ -38,7 +43,17 @@ def stage_worker(destination):
     locks.mkdir(parents=True)
     for name in ('pretrained-linux-x86_64-py313.txt', 'pretrained-macos-arm64-py312.txt'):
         (locks/name).write_bytes(registry_path().parents[1].joinpath('dependency-locks', name).read_bytes())
-    (destination/'worker.py').write_text("from pathlib import Path\nimport sys\nsys.path.insert(0,str(Path(__file__).resolve().parent/'src'))\nfrom saal_rsi.adaptive_worker import main\nmain()\n")
+    bootstrap = "from pathlib import Path\nimport sys\nsys.path.insert(0,str(Path(__file__).resolve().parent/'src'))\n"
+    if include_v2:
+        bootstrap += ("import argparse\nfrom saal_rsi.pretrained_contract import job_bytes\nfrom saal_rsi.spec import parse_unique_json\n"
+            "parser=argparse.ArgumentParser(add_help=False);parser.add_argument('--job');known,_=parser.parse_known_args()\n"
+            "schema=parse_unique_json(job_bytes(known.job))['payload']['schema'] if known.job else 'saal-adaptive-job-v1'\n"
+            "if schema=='saal-adaptive-job-v2':\n from saal_rsi.adaptive_worker_v2 import main\n"
+            "elif schema=='saal-adaptive-job-v1':\n from saal_rsi.adaptive_worker import main\n"
+            "else:raise ValueError('unknown signed worker version')\nmain()\n")
+    else:
+        bootstrap += "from saal_rsi.adaptive_worker import main\nmain()\n"
+    (destination/'worker.py').write_text(bootstrap)
 
 
 def require_storage(path):
@@ -65,7 +80,10 @@ def unpack(archive, destination):
 
 def fresh_local_replay(bundle, job, pin, cache):
     from .adaptive_backend import verify_peft_implementation
-    from .adaptive_replay import PortableReplayBackend
+    if job['schema'] == 'saal-adaptive-job-v2':
+        from .adaptive_replay_v2 import PortableReplayBackendV2 as PortableReplayBackend
+    else:
+        from .adaptive_replay import PortableReplayBackend
     from .epoch_metrics import prediction_equal
     from .learning_backend import verify_dependencies
     from .pretrained_registry import validate_snapshot
@@ -201,7 +219,7 @@ def execute(workspace, job_paths, protocol_path, ledger_path, pin, artifacts, ca
     require_storage(root)
     Path(artifacts).mkdir(exist_ok=False)
     session = 'saal-'+uuid.uuid4().hex[:20]
-    stage_worker(root/'stage')
+    stage_worker(root/'stage', include_v2=any(j['schema'] == 'saal-adaptive-job-v2' for j in jobs))
     with zipfile.ZipFile(root/'worker.zip', 'x', compression=zipfile.ZIP_DEFLATED) as z:
         for p in sorted((root/'stage').rglob('*')):
             if p.is_file(): z.write(p, p.relative_to(root/'stage').as_posix())

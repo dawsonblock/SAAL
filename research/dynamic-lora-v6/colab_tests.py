@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parent;REPO=ROOT.parents[1]
 def digest(p):
  with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 def run(out_name='colab-tests'):
- if out_name not in ('colab-tests','colab-tests-02','colab-tests-03','colab-tests-04'):raise ValueError('closed QA attempt identity')
+ if out_name not in ('colab-tests','colab-tests-02','colab-tests-03','colab-tests-04','colab-tests-05'):raise ValueError('closed QA attempt identity')
  commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
  out=ROOT/out_name;out.mkdir(exist_ok=False);files={}
  def add(p):

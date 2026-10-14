@@ -2,7 +2,7 @@
 import sqlite3
 from pathlib import Path
 
-from .adaptive_contract import validate_job
+from .adaptive_dispatch import validate_job
 from .model_contract import verify
 from .spec import canonical, parse_unique_json, sha
 from .storage import private_database
@@ -14,7 +14,7 @@ class AdaptiveRegistry:
         self.pin = pin
         self.protocol = verify(protocol, pin)
         self.digest = sha(self.protocol)
-        if self.protocol.get('schema') != 'saal-adaptive-campaign-v1' or self.protocol.get('qualification_status') != 'NOT_EVALUATED' or self.protocol.get('external_deployment_allowed') is not False:
+        if self.protocol.get('schema') not in ('saal-adaptive-campaign-v1', 'saal-adaptive-campaign-v2') or self.protocol.get('qualification_status') != 'NOT_EVALUATED' or self.protocol.get('external_deployment_allowed') is not False:
             raise ValueError('controller research campaign required')
         budget = self.protocol['budget']
         if (type(budget) is not dict or set(budget) != {'campaign_id', 'max_runs', 'total_lifecycle_seconds', 'max_provisioning_attempts', 'automatic_training_retries', 'financial_cap'}

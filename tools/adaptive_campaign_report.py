@@ -7,7 +7,8 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'src'))
-from saal_rsi.adaptive_artifacts import read_json, validate_bundle, file_hash
+from saal_rsi.adaptive_artifacts import read_json, file_hash
+from saal_rsi.adaptive_dispatch import validate_bundle
 from saal_rsi.epoch_metrics import prediction_equal
 from saal_rsi.model_contract import verify
 from saal_rsi.spec import canonical, sha
