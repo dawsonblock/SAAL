@@ -68,7 +68,14 @@ It is not behavioral qualification and never changes the old failed budgets.
    `validation/frozen-regression-process-02-completion.json`; all three seed-47
    results were authenticated again in
    `validation/frozen-regression-seed47-verified.json` (11,160 predictions).
-   Neither invocation is still running. Output is `regression-study-v2`; logs are
+   Invocation 03 (session 2281, PID 58791) also exited successfully after
+   collecting the seed-83 fixed-r8 candidate. Four public regression tasks
+   are now complete. Its records are
+   `validation/frozen-regression-process-03.json` and
+   `validation/frozen-regression-process-03-completion.json`.
+   None of these three collector invocations is still running; always check
+   the latest process record and actual process command before another launch.
+   Output is `regression-study-v2`; logs are
    `validation/frozen-regression-study*.log`.
    It freezes the 1,240-case public regression population and each completed
    candidate before inference. Each task has a 600-second wall limit and no
