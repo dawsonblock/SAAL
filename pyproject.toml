@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "saal-rsi-governed"
-version = "0.9.4.3"
+version = "0.9.5.dev6"
 description = "SAAL and Dream-RSI combined governed research, simulated evaluator and bounded discovery"
 requires-python = ">=3.11"
 dependencies = ["cryptography>=41"]
@@ -21,6 +21,7 @@ saal-rsi = "saal_rsi.cli:main"
 saal-model = "saal_rsi.model_cli:main"
 saal-pretrained = "saal_rsi.pretrained_cli:main"
 saal-repair = "saal_rsi.corrective_cli:main"
+saal-adaptive = "saal_rsi.adaptive_cli:main"
 saal = "saal.cli:main"
 dream-rsi = "dream_rsi_governed.cli:main"
 
