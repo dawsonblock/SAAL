@@ -153,6 +153,28 @@ def rank_history(root, job):
                   'active_rank_total': sum(sum(m) for m in state['masks'].values())}
 
 
+def validate_training_metrics(root, job):
+    """Require one finite, admitted learning-rate record per completed update."""
+    path = Path(root)/'training_metrics.jsonl'
+    if path.stat().st_size > 64_000_000:
+        raise ValueError('training metric log bound')
+    rows = [parse_unique_json(line) for line in path.read_bytes().splitlines()]
+    progress = [r for r in rows if type(r) is dict and r.get('monitor') == 'training_progress']
+    if len(progress) != job['steps'] or [r.get('optimizer_step') for r in progress] != list(range(1, job['steps']+1)):
+        raise ValueError('one learning-rate telemetry record per completed update required')
+    if any(r.get('monitor') == 'optimizer_interrupted' for r in rows):
+        raise ValueError('interrupted optimizer cannot produce a completed result bundle')
+    expected = {'head': job['head_learning_rate'], 'adapter': job['learning_rate']}
+    for row in progress:
+        rates = row.get('learning_rates')
+        if (row.get('optimizer') != 'AdamW' or row.get('scheduler') != 'none'
+                or type(rates) is not dict or set(rates) != set(expected)
+                or any(type(rates[k]) is not float or not math.isfinite(rates[k])
+                       or rates[k] != expected[k] for k in expected)):
+            raise ValueError('effective per-update optimizer learning rates differ from admission')
+    return progress
+
+
 def validate_bundle(root, job, pin, *, require_replay=False):
     root = Path(root)
     validate_job(job)
@@ -222,6 +244,7 @@ def validate_bundle(root, job, pin, *, require_replay=False):
             or type(preflight.get('tokens')) is not int or preflight['tokens'] < job['batch_size']):
         raise ValueError('forward/backward admission probe evidence')
     rows, summary = rank_history(root, job)
+    validate_training_metrics(root, job)
     if canonical(result.get('allocation')) != canonical(summary):
         raise ValueError('rank completion summary')
     training = [r for r in job['dataset']['records'] if r['split'] == 'train']

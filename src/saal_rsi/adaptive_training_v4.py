@@ -143,6 +143,10 @@ def train(backend, job, out, *, deadline=None):
         # PEFT importance updates consume gradients above. Only now clear them.
         optimizer.zero_grad(set_to_none=True)
         emit({'monitor': 'training_progress', 'completed_steps': step, 'total_steps': job['steps'],
+              'optimizer_step': step,
+              'optimizer': 'AdamW', 'scheduler': 'none',
+              'learning_rates': {'head': float(optimizer.param_groups[0]['lr']),
+                                 'adapter': float(optimizer.param_groups[1]['lr'])},
               'objective_loss': objective/job['accumulation'], 'cross_entropy': ce/job['accumulation'],
               'orthogonal_penalty': penalty/job['accumulation'], 'gradient_norm': gradients['norm'],
               'tokens': tokens, 'elapsed_seconds': time.monotonic()-started,

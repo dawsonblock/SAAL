@@ -22,29 +22,12 @@ def _key_files(tmp_path, key=None):
     return key, secret, pin
 
 
-def test_builder_makes_new_signed_pilot_budget_without_provisioning(tmp_path):
+def test_v3_builder_rejects_stale_source_binding_after_v4_worker_changes(tmp_path):
     _, secret, pinfile = _key_files(tmp_path)
-    out = admit_pilot_v3.prepare(tmp_path/'pilot-v3', secret, pinfile)
-    pin = pinfile.read_text().strip()
-    protocol_envelope = json.loads((out/'signed_protocol.json').read_text())
-    protocol = verify(protocol_envelope, pin)
-    assert protocol['schema'] == 'saal-adaptive-campaign-v3'
-    assert protocol['stage'] == 'PILOT'
-    assert protocol['colab_cli_version'] == '0.7.4'
-    assert protocol['qualification_status'] == 'NOT_EVALUATED'
-    assert protocol['external_deployment_allowed'] is False
-    assert len(protocol['runs']) == 3
-    assert {row['method'] for row in protocol['runs']} == {'fixed-r8', 'fixed-r12', 'adalora-12-to-8'}
-    assert len(list((out/'jobs').glob('*-job.json'))) == 3
-    reservation = json.loads((out/'preprovision-registry.json').read_text())
-    assert reservation['campaign_state'] == 'PREPARED'
-    assert reservation['provisioning_attempts'] == 0
-    assert len(reservation['attempts']) == 3
-    assert not list(out.rglob('*.ed25519'))
-    assert not (out/'controller.key').exists()
-    authorization = json.loads((out/'authorization-record.json').read_text())
-    assert authorization['approval_source'] == 'direct user instruction in this conversation'
-    assert (out/'budget.sqlite3').exists()
+    out = tmp_path/'pilot-v3'
+    with pytest.raises(ValueError, match='controller / analysis source changed'):
+        admit_pilot_v3.prepare(out, secret, pinfile)
+    assert not out.exists()
 
 
 def test_builder_rejects_wrong_controller_key_before_creating_output(tmp_path):

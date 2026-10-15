@@ -4,6 +4,11 @@ This is an offline engineering repair on a separate branch. It does not start
 training, create a signed admission, reserve or refund compute, modify the
 closed study, or claim independent review or qualification.
 
+The subsequent v4 metric-bound worker and local admission/accounting checks are
+tracked in `metric-repair/FOLLOWUP_V4_STATUS.md`. That follow-up still has no
+Colab campaign run; its reviewer, signed-admission, static-control and full
+campaign-executor gates remain explicit.
+
 ## Findings from the immutable pilot
 
 The pilot did not show zero learning. AdaLoRA began at 24.4% public development

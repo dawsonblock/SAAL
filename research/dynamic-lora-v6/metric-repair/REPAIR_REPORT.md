@@ -1,5 +1,10 @@
 # Numerical contract repair — final engineering report
 
+This report records the earlier v3 numerical-contract repair. The additive v4
+collapse-remediation status and its current execution blockers are documented in
+[FOLLOWUP_V4_STATUS.md](FOLLOWUP_V4_STATUS.md); the v3 proposal remains unsigned
+and is not an executable v4 admission.
+
 The versioned metric repair is implemented and locally validated. A fresh
 research campaign remains unauthorized and unrun.
 
