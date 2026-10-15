@@ -1,0 +1,14 @@
+{
+  "workspace": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/colab",
+  "session": "saal-88f235cf4b274b47baf8",
+  "pin": "e3db435cf14ebd609a7950c039a15809001bf00b23fa7deb363a7f1bffe0df4b",
+  "protocol": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/signed_protocol.json",
+  "ledger": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/budget.sqlite3",
+  "jobs": [
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/jobs/fixed_r8_60606-job.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/jobs/fixed_r12_60606-job.json",
+    "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/jobs/adalora_12_to_8_60606-job.json"
+  ],
+  "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/artifacts",
+  "cache": "/Users/dawsonblock/.cache/saal-model-cache"
+}

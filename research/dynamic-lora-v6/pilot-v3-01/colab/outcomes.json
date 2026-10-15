@@ -1,0 +1,52 @@
+{
+  "runs": [
+    {
+      "run": "run-00-75e7a094f934",
+      "job_digest": "sha256:75e7a094f93460c45243936d9127987859a1870c9aa73f4b7094bafb6e270c07",
+      "state": "COMPLETED",
+      "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/artifacts/run-00-75e7a094f934",
+      "method": "fixed-r8",
+      "seed": 60606,
+      "result_digest": "sha256:bc7910f0a3e78292d8bdd1ce784bc3725502cdb3666fa2e66f41c6e60e165cdd",
+      "unadapted_model_hash": "005f4ed1d1030787f65e166b2ed1b09c7e947a354bb9f2b3d7bfc4bdcd264ff3",
+      "controller_replay": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/colab/run-00-75e7a094f934-controller-replay.json",
+      "controller_replay_digest": "sha256:155d4756cab66ff88bc031a248637ee9280d1fa9db1ef465481506fe68115591",
+      "artifact_cleanup": {
+        "state": "CONFIRMED",
+        "deferred_to_session_stop": false
+      }
+    },
+    {
+      "run": "run-01-d80958105095",
+      "job_digest": "sha256:d809581050952e3c5fdd29f340db0505390d5d2749c3d12fe9720aa827a68054",
+      "state": "COMPLETED",
+      "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/artifacts/run-01-d80958105095",
+      "method": "fixed-r12",
+      "seed": 60606,
+      "result_digest": "sha256:4efc8b66f4063c27b77b06c487d595d7396f818adbdcb7b35590aa4caaeb9475",
+      "unadapted_model_hash": "005f4ed1d1030787f65e166b2ed1b09c7e947a354bb9f2b3d7bfc4bdcd264ff3",
+      "controller_replay": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/colab/run-01-d80958105095-controller-replay.json",
+      "controller_replay_digest": "sha256:0368d0dc75eb9c50311f89719595b9aa78078ee16ee9ff455de2aae2dade6ea4",
+      "artifact_cleanup": {
+        "state": "CONFIRMED",
+        "deferred_to_session_stop": false
+      }
+    },
+    {
+      "run": "run-02-fd938b4cf0ea",
+      "job_digest": "sha256:fd938b4cf0ea2c679c367d9946467d87b6104438bfe585b67fc11a15d6b924b1",
+      "state": "COMPLETED",
+      "artifacts": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/artifacts/run-02-fd938b4cf0ea",
+      "method": "adalora-12-to-8",
+      "seed": 60606,
+      "result_digest": "sha256:cd10cc2b31d57d2f769775d02ab8d5c1e32d4dfbf37cfbe8adb66430cfa89936",
+      "unadapted_model_hash": "005f4ed1d1030787f65e166b2ed1b09c7e947a354bb9f2b3d7bfc4bdcd264ff3",
+      "controller_replay": "/Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/pilot-v3-01/colab/run-02-fd938b4cf0ea-controller-replay.json",
+      "controller_replay_digest": "sha256:c5eba4ee233f98944264b5d6269052afcb914617e1687ee411f1fd1c64b1fc82",
+      "artifact_cleanup": {
+        "state": "CONFIRMED",
+        "deferred_to_session_stop": false
+      }
+    }
+  ]
+}
