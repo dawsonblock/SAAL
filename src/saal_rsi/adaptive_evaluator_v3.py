@@ -25,8 +25,10 @@ def validate_protocol(protocol):
             or protocol.get('qualification_status') != 'NOT_EVALUATED'
             or protocol.get('external_deployment_allowed') is not False
             or protocol.get('worker_identities') != {'v3': worker_identity()}
+            or type(protocol.get('colab_cli_version')) is not str
+            or not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', protocol['colab_cli_version'])
             or protocol.get('numerical_metric_policy_digest') != POLICY_DIGEST):
-        raise ValueError('v3 public campaign with bound numerical policy and worker required')
+        raise ValueError('v3 public campaign with bound numerical policy, worker and Colab CLI required')
     validate_policy(protocol.get('numerical_metric_policy'))
     runs = protocol.get('runs')
     if type(runs) is not list or not 1 <= len(runs) <= 25:

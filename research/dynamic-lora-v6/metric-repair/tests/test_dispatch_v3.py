@@ -44,8 +44,12 @@ def protocol_for(job, key):
     budget = {k: job['budget'][k] for k in ('campaign_id', 'max_runs',
         'total_lifecycle_seconds', 'automatic_training_retries', 'financial_cap')}
     budget['max_provisioning_attempts'] = 1
-    return sign({'schema': 'saal-adaptive-campaign-v3', 'budget': budget,
+    return sign({'schema': 'saal-adaptive-campaign-v3', 'stage': job['campaign_stage'],
+        'runs': [{'name': job['budget']['run_id'], 'method': job['adapter']['method'],
+                  'seed': job['seed'], 'job_digest': sha(job)}],
+        'budget': budget,
         'job_digests': [sha(job)], 'worker_identities': {'v3': worker_identity()},
+        'colab_cli_version': '0.7.4',
         'numerical_metric_policy': copy.deepcopy(POLICY),
         'numerical_metric_policy_digest': POLICY_DIGEST,
         'qualification_status': 'NOT_EVALUATED', 'external_deployment_allowed': False}, key)
@@ -87,7 +91,7 @@ def test_unknown_staging_version_fails_before_filesystem_mutation(tmp_path, vers
     assert not destination.exists()
 
 
-@pytest.mark.parametrize('fault', ['policy', 'digest', 'worker', 'missing_policy'])
+@pytest.mark.parametrize('fault', ['policy', 'digest', 'worker', 'missing_policy', 'missing_cli', 'invalid_cli'])
 def test_v3_protocol_rejects_changed_policy_or_worker_before_budget_creation(tmp_path, v3_job, fault):
     key = Ed25519PrivateKey.generate()
     envelope = protocol_for(v3_job, key)
@@ -95,11 +99,28 @@ def test_v3_protocol_rejects_changed_policy_or_worker_before_budget_creation(tmp
     if fault == 'policy': payload['numerical_metric_policy'] = {'unregistered': True}
     elif fault == 'digest': payload['numerical_metric_policy_digest'] = 'sha256:'+'0'*64
     elif fault == 'worker': payload['worker_identities'] = {'v3': 'sha256:'+'0'*64}
-    else: del payload['numerical_metric_policy']
+    elif fault == 'missing_policy': del payload['numerical_metric_policy']
+    elif fault == 'missing_cli': del payload['colab_cli_version']
+    else: payload['colab_cli_version'] = 'latest'
     path = tmp_path/'budget.sqlite3'
-    with pytest.raises(ValueError, match='numerical policy'):
+    with pytest.raises(ValueError):
         AdaptiveRegistry(path, key.public_key().public_bytes_raw().hex(), sign(payload, key), create=True)
     assert not path.exists()
+
+
+@pytest.mark.parametrize(('stdout', 'expected', 'valid'), [
+    ('Version: 0.7.4\n', '0.7.4', True),
+    ('Version: 0.7.5\n', '0.7.4', False),
+    ('unknown\n', '0.7.4', False),
+])
+def test_colab_cli_version_must_match_signed_preprovision_value(monkeypatch, stdout, expected, valid):
+    from saal_rsi import adaptive_campaign
+    monkeypatch.setattr(adaptive_campaign.subprocess, 'run', lambda *a, **k: SimpleNamespace(stdout=stdout))
+    if valid:
+        assert adaptive_campaign.verify_colab_cli_version(expected) == expected
+    else:
+        with pytest.raises(ValueError, match='Colab CLI version'):
+            adaptive_campaign.verify_colab_cli_version(expected)
 
 
 def test_fresh_v3_budget_cannot_reserve_legacy_jobs_or_reset_interruption(tmp_path, v3_job, job_arguments):

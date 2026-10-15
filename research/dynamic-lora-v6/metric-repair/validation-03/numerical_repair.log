@@ -1,0 +1,51 @@
+.............................FF......................................... [ 63%]
+.........................................                                [100%]
+=================================== FAILURES ===================================
+_ test_v3_protocol_rejects_changed_policy_or_worker_before_budget_creation[missing_cli] _
+
+tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-116/test_v3_protocol_rejects_chang4')
+v3_job = {'accumulation': 2, 'adapter': {'bias': 'none', 'dropout': 0.05, 'init_r': 12, 'lora_alpha': 24, ...}, 'batch_size': 8...: {'automatic_training_retries': 0, 'campaign_id': 'numeric_v3_test', 'financial_cap': False, 'max_runs': 3, ...}, ...}
+fault = 'missing_cli'
+
+    @pytest.mark.parametrize('fault', ['policy', 'digest', 'worker', 'missing_policy', 'missing_cli', 'invalid_cli'])
+    def test_v3_protocol_rejects_changed_policy_or_worker_before_budget_creation(tmp_path, v3_job, fault):
+        key = Ed25519PrivateKey.generate()
+        envelope = protocol_for(v3_job, key)
+        payload = envelope['payload']
+        if fault == 'policy': payload['numerical_metric_policy'] = {'unregistered': True}
+        elif fault == 'digest': payload['numerical_metric_policy_digest'] = 'sha256:'+'0'*64
+        elif fault == 'worker': payload['worker_identities'] = {'v3': 'sha256:'+'0'*64}
+        elif fault == 'missing_policy': del payload['numerical_metric_policy']
+        elif fault == 'missing_cli': del payload['colab_cli_version']
+        else: payload['colab_cli_version'] = 'latest'
+        path = tmp_path/'budget.sqlite3'
+>       with pytest.raises(ValueError, match='numerical policy'):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+research/dynamic-lora-v6/metric-repair/tests/test_dispatch_v3.py:103: Failed
+_ test_v3_protocol_rejects_changed_policy_or_worker_before_budget_creation[invalid_cli] _
+
+tmp_path = PosixPath('/private/var/folders/xt/jh84t2kj6hl26tk5qx3m_28h0000gn/T/pytest-of-dawsonblock/pytest-116/test_v3_protocol_rejects_chang5')
+v3_job = {'accumulation': 2, 'adapter': {'bias': 'none', 'dropout': 0.05, 'init_r': 12, 'lora_alpha': 24, ...}, 'batch_size': 8...: {'automatic_training_retries': 0, 'campaign_id': 'numeric_v3_test', 'financial_cap': False, 'max_runs': 3, ...}, ...}
+fault = 'invalid_cli'
+
+    @pytest.mark.parametrize('fault', ['policy', 'digest', 'worker', 'missing_policy', 'missing_cli', 'invalid_cli'])
+    def test_v3_protocol_rejects_changed_policy_or_worker_before_budget_creation(tmp_path, v3_job, fault):
+        key = Ed25519PrivateKey.generate()
+        envelope = protocol_for(v3_job, key)
+        payload = envelope['payload']
+        if fault == 'policy': payload['numerical_metric_policy'] = {'unregistered': True}
+        elif fault == 'digest': payload['numerical_metric_policy_digest'] = 'sha256:'+'0'*64
+        elif fault == 'worker': payload['worker_identities'] = {'v3': 'sha256:'+'0'*64}
+        elif fault == 'missing_policy': del payload['numerical_metric_policy']
+        elif fault == 'missing_cli': del payload['colab_cli_version']
+        else: payload['colab_cli_version'] = 'latest'
+        path = tmp_path/'budget.sqlite3'
+>       with pytest.raises(ValueError, match='numerical policy'):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+research/dynamic-lora-v6/metric-repair/tests/test_dispatch_v3.py:103: Failed
+- generated xml file: /Users/dawsonblock/Downloads/SAAL-diverse-publish/research/dynamic-lora-v6/metric-repair/validation-03/numerical_repair.xml -
+=========================== short test summary info ============================
+FAILED research/dynamic-lora-v6/metric-repair/tests/test_dispatch_v3.py::test_v3_protocol_rejects_changed_policy_or_worker_before_budget_creation[missing_cli]
+FAILED research/dynamic-lora-v6/metric-repair/tests/test_dispatch_v3.py::test_v3_protocol_rejects_changed_policy_or_worker_before_budget_creation[invalid_cli]

@@ -16,6 +16,7 @@ from saal_rsi.spec import canonical, sha
 
 METHODS = ('fixed-r8', 'fixed-r12', 'adalora-12-to-8')
 SEEDS = (47, 83, 109, 157, 211)
+COLAB_CLI_VERSION = '0.7.4'
 
 
 def build_draft():
@@ -70,6 +71,7 @@ def build_draft():
         'pretrained-linux-x86_64-py313.txt', 'pretrained-macos-arm64-py312.txt')]
     return {'schema': 'saal-adaptive-v3-review-draft-v1', 'authorization_status': 'NOT_AUTHORIZED',
         'executable_admission': False, 'signatures': [], 'budget_reserved': False,
+        'colab_cli_version': COLAB_CLI_VERSION,
         'worker_identity': worker_identity(), 'numerical_metric_policy': copy.deepcopy(POLICY),
         'numerical_metric_policy_digest': POLICY_DIGEST,
         'worker_source_files': {n: hashlib.sha256((ROOT/'src/saal_rsi'/n).read_bytes()).hexdigest() for n in SOURCES},

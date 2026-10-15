@@ -17,8 +17,10 @@ class AdaptiveRegistry:
         if self.protocol.get('schema') not in ('saal-adaptive-campaign-v1', 'saal-adaptive-campaign-v2', 'saal-adaptive-campaign-v3') or self.protocol.get('qualification_status') != 'NOT_EVALUATED' or self.protocol.get('external_deployment_allowed') is not False:
             raise ValueError('controller research campaign required')
         if self.protocol['schema'] == 'saal-adaptive-campaign-v3':
+            from .adaptive_evaluator_v3 import validate_protocol
             from .adaptive_contract_v3 import worker_identity
             from .numerical_metrics_v1 import POLICY, POLICY_DIGEST
+            validate_protocol(self.protocol)
             if (canonical(self.protocol.get('numerical_metric_policy')) != canonical(POLICY)
                     or self.protocol.get('numerical_metric_policy_digest') != POLICY_DIGEST
                     or self.protocol.get('worker_identities') != {'v3': worker_identity()}):

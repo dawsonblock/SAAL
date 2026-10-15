@@ -2,6 +2,7 @@
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -74,6 +75,16 @@ def require_storage(path):
     if free < 768*1024**2:
         raise OSError(28, 'adaptive artifact recovery requires 768 MiB working headroom')
     return {'free_bytes': free, 'required_bytes': 768*1024**2}
+
+
+def verify_colab_cli_version(expected):
+    """Check the signed control-plane client identity before provisioning."""
+    completed = subprocess.run(['colab', 'version'], check=True, capture_output=True,
+                               text=True, timeout=15)
+    match = re.fullmatch(r'Version: ([0-9]+\.[0-9]+\.[0-9]+)\s*', completed.stdout)
+    if match is None or match.group(1) != expected:
+        raise ValueError('installed Colab CLI version differs from signed campaign')
+    return match.group(1)
 
 
 def unpack(archive, destination):
@@ -255,6 +266,7 @@ def execute(workspace, job_paths, protocol_path, ledger_path, pin, artifacts, ca
             'research/dynamic-lora-v6/metric-repair/frozen_regression_v3.py',
         }
         validate_sources(protocol, Path(__file__).resolve().parents[2], required)
+        verify_colab_cli_version(protocol['colab_cli_version'])
     root = Path(workspace).resolve()
     root.mkdir(exist_ok=False)
     require_storage(root)

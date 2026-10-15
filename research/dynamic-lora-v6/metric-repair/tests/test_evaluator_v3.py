@@ -208,6 +208,7 @@ def test_new_report_requires_all_fifteen_runs_even_with_a_fresh_v3_policy(tmp_pa
              'job_digest': sha(method)} for method in ('fixed-r8', 'fixed-r12', 'adalora-12-to-8')]
     protocol = {'schema': 'saal-adaptive-campaign-v3', 'stage': 'STUDY', 'runs': runs,
         'job_digests': [run['job_digest'] for run in runs],
+        'colab_cli_version': '0.7.4',
         'worker_identities': {'v3': worker_identity()}, 'numerical_metric_policy': POLICY,
         'numerical_metric_policy_digest': POLICY_DIGEST, 'qualification_status': 'NOT_EVALUATED',
         'external_deployment_allowed': False,
@@ -257,6 +258,7 @@ def test_campaign_rejects_unbound_controller_source_before_staging_or_spending(
     protocol = {'schema': 'saal-adaptive-campaign-v3', 'stage': 'ENGINEERING',
         'qualification_status': 'NOT_EVALUATED',
         'external_deployment_allowed': False, 'worker_identities': {'v3': worker_identity()},
+        'colab_cli_version': '0.7.4',
         'numerical_metric_policy': POLICY, 'numerical_metric_policy_digest': POLICY_DIGEST,
         'runs': [{'name': 'test_run', 'seed': job['seed'], 'method': job['adapter']['method'],
                   'job_digest': sha(job)}], 'job_digests': [sha(job)]}
