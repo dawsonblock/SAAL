@@ -64,3 +64,14 @@ attestations and fresh signed admission. Do not launch training before those
 conditions are satisfied. Retention, novel independent evaluation, operational
 custody independence, hostile-code containment, qualification, deployment and
 recursive self-improvement remain unestablished.
+
+## v4 schema-hardening follow-up (2026-10-15)
+
+The v4 protocol validator now requires an exact top-level field set and rejects
+empty source inventories, malformed required-source entries, and unsafe
+relative source paths. Negative tests cover unknown authority fields and these
+malformed inputs. The pinned local canonical suite passed **1,076 tests** with
+zero failures, errors, or skips on Python 3.12.0/macOS ARM64; the validation
+runner confirmed the tested source stayed unchanged. This remains local
+engineering evidence only. It does not create a campaign admission, authorize
+Colab, or change qualification status.

@@ -10,7 +10,13 @@ from .spec import canonical, sha
 
 def validate_protocol(protocol):
     """Validate a *new* v4 protocol without spending or creating a budget."""
-    if (type(protocol) is not dict
+    protocol_fields = {
+        'schema', 'stage', 'budget', 'job_digests', 'runs', 'worker_identities',
+        'numerical_metric_policy', 'numerical_metric_policy_digest', 'colab_cli_version',
+        'source_files', 'required_source_files', 'independent_generalization',
+        'qualification_status', 'external_deployment_allowed',
+    }
+    if (type(protocol) is not dict or set(protocol) != protocol_fields
             or protocol.get('schema') != 'saal-adaptive-campaign-v4'
             or protocol.get('qualification_status') != 'NOT_EVALUATED'
             or protocol.get('external_deployment_allowed') is not False
@@ -60,11 +66,12 @@ def validate_protocol(protocol):
         raise ValueError('ordered job digest / stage identity mismatch')
     sources = protocol.get('source_files')
     required = protocol.get('required_source_files')
-    if (type(sources) is not dict or type(required) is not list or not required
+    if (type(sources) is not dict or not sources or type(required) is not list or not required
+            or any(type(item) is not str or not item for item in required)
             or len(set(required)) != len(required) or not set(required) <= set(sources)):
         raise ValueError('explicit v4 controller and analysis source identities required')
     for name, digest in sources.items():
-        if (type(name) is not str or Path(name).is_absolute() or '..' in Path(name).parts
+        if (type(name) is not str or not name or Path(name).is_absolute() or '..' in Path(name).parts
                 or type(digest) is not str or not re.fullmatch(r'[0-9a-f]{64}', digest)):
             raise ValueError('safe relative source digest inventory required')
     if protocol.get('independent_generalization') != 'NOT_ESTABLISHED':

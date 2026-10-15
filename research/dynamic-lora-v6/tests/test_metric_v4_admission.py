@@ -61,7 +61,10 @@ def test_v4_protocol_binds_metric_worker_job_and_source(admitted_job, tmp_path):
     with pytest.raises(ValueError): validate_jobs(protocol,[sign(wrong,key)],pin)
 
 
-@pytest.mark.parametrize('mutation', ['retry','budget','duplicate','generalization','legacy'])
+@pytest.mark.parametrize('mutation', [
+    'retry', 'budget', 'duplicate', 'generalization', 'legacy',
+    'unknown_field', 'malformed_required_sources', 'unsafe_source_name',
+])
 def test_v4_protocol_rejects_unsafe_or_downgraded_contract(admitted_job,tmp_path,mutation):
     _,_,_,_,_,protocol=_signed_pair(admitted_job,tmp_path)
     p=copy.deepcopy(protocol)
@@ -69,7 +72,12 @@ def test_v4_protocol_rejects_unsafe_or_downgraded_contract(admitted_job,tmp_path
     elif mutation=='budget': p['budget']['max_provisioning_attempts']=2
     elif mutation=='duplicate': p['runs'].append(copy.deepcopy(p['runs'][0]));p['job_digests'].append(p['job_digests'][0])
     elif mutation=='generalization': p['independent_generalization']='ESTABLISHED'
-    else: p['schema']='saal-adaptive-campaign-v3'
+    elif mutation=='legacy': p['schema']='saal-adaptive-campaign-v3'
+    elif mutation=='unknown_field': p['authority_override'] = True
+    elif mutation=='malformed_required_sources': p['required_source_files'] = [[]]
+    elif mutation=='unsafe_source_name':
+        p['source_files'] = {'../outside.py': '0' * 64}
+        p['required_source_files'] = ['../outside.py']
     with pytest.raises(ValueError): validate_protocol(p)
 
 
