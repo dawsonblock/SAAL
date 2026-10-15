@@ -1,0 +1,37 @@
+{
+  "schema": "saal-dynamic-lora-v2-matched-pilot-draft",
+  "status": "NOT_AUTHORIZED_NOT_SIGNED_NOT_RESERVED",
+  "campaign_id": "adaptive_v6_v2_metric_repair_pilot",
+  "purpose": "Diagnose whether adaptive rank allocation adds value after review of terminal refusal-boundary failures; engineering/public-development pilot only.",
+  "required_preconditions": [
+    "Independent reviewers complete and adjudicate the blind review packet.",
+    "Any changed labels are independently approved and the new public dataset manifest is frozen.",
+    "A v4 worker and artifact validator bind numerical_metric_policy_v2, per-update learning rates, class/family support, checkpoint metrics, and exact worker identity.",
+    "The new worker passes local adversarial, deterministic numerical, artifact-replay, allocation-timing, and version-substitution tests.",
+    "A new signed admission and durable budget are issued by the authorized controller; prior budgets are not reused."
+  ],
+  "design": {
+    "seeds": [47, 83, 109],
+    "arms": [
+      {"id": "fixed-r8", "method": "fixed-lora", "active_rank": 8},
+      {"id": "fixed-r12", "method": "fixed-lora", "active_rank": 12},
+      {"id": "adalora-12-to-8", "method": "adalora", "initial_rank": 12, "target_rank": 8, "allocation": "importance-driven registered schedule"},
+      {"id": "adalora-static-r8", "method": "adalora-parameterization", "stored_rank": 12, "active_rank": 8, "allocation": "fixed predeclared mask; no adaptive reallocation"}
+    ],
+    "planned_run_count": 12,
+    "starting_point": "Within each seed, clone the same frozen ModernBERT weights and classifier head for every arm.",
+    "data_and_order": "Same reviewed public training records, frozen split, sampler seed, batch order, and exposure count for all arms.",
+    "optimizer": "AdamW; preserve admitted 0.0003 adapter and head rates for the first matched comparison; no scheduler or other one-factor change.",
+    "budget": {"updates_per_run": 1000, "sample_exposures_per_run": 16000, "retries": 0, "authorization": "NONE"},
+    "checkpoint_policy": "Keep initial, best-public-development, and terminal checkpoints. Do not use regression data for selection.",
+    "telemetry": ["actual optimizer-group learning rates after every update", "loss components", "gradient norms", "per-class and per-family scores", "critical-error counts and denominators", "pair numerator and denominator", "active/stored rank by layer", "memory and elapsed time"]
+  },
+  "screening_rules_to_preregister": {
+    "primary_public_endpoint": "mean complete-counterfactual-pair improvement of AdaLoRA-12-to-8 over fixed-r8 at least 0.05 across the three registered seeds",
+    "mechanism_check": "Compare AdaLoRA-12-to-8 against AdaLoRA-static-r8; if there is no consistent pair-performance advantage, do not attribute gains to adaptive allocation.",
+    "guardrails": ["No per-seed worst-family regression versus fixed-r8.", "No increase in REFUSE-to-CHEAP/FAST or ASK-to-CHEAP/FAST proposals versus fixed-r8.", "Preserve all seeds and failures; do not select a seed after observing results."],
+    "interpretation": "Three-seed public screening only; no significance, independent generalization, qualification, or deployment claim. A later confirmatory study needs a separate protocol and admission."
+  },
+  "current_attempts": {"new_attempts_created": 0, "old_attempts_modified": false, "old_budget_reset": false},
+  "authority": {"signature": null, "reservation": null, "training_started": false, "protected_data_access": false, "qualification_status": "NOT_EVALUATED", "external_deployment_allowed": false}
+}

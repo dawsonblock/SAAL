@@ -1,0 +1,4011 @@
+{
+  "analysis_implementation": {
+    "diagnostic_script_sha256": "sha256:784edc1e18ec21e592257abd34a8861bbb7ad261f470425e318911623379b1aa",
+    "numerical_metrics_v2_sha256": "sha256:5dd435158c5481b84792029ee05e0de69b307ecd2bc9860356aac60aad045a33"
+  },
+  "claims": {
+    "external_deployment_allowed": false,
+    "independent_generalization": "NOT_ESTABLISHED",
+    "new_training_started": false,
+    "qualification_status": "NOT_EVALUATED",
+    "retention": "NOT_MEASURED"
+  },
+  "findings": [
+    "AdaLoRA training changed behavior and improved public development metrics from initialization; it did not collapse to zero learning.",
+    "AdaLoRA peak logged accuracy was 0.641493 at step 800; peak logged complete-pair accuracy was 0.355903 at step 800; terminal metrics were lower.",
+    "AdaLoRA unauthorized proposals peaked at 343 at step 300 and finished at 100.",
+    "The registered selector chose step zero because critical unauthorized proposals are ordered ahead of pair accuracy and ordinary accuracy; the selected model is a conservative baseline, not evidence that the training improved behavior.",
+    "Terminal AdaLoRA errors include REFUSE-to-action proposals. Aggregate artifacts do not establish whether individual labels are ambiguous; those examples require blinded independent review.",
+    "Learning-rate values are present in admitted job configuration but absent from per-update telemetry; no learning-rate schedule trajectory can be reconstructed from these logs.",
+    "Public examples are correlated and operator-authored. This analysis supports diagnosis only, not independent generalization or qualification."
+  ],
+  "metric_policy_v2_digest": "sha256:f06b2bd263976ab5fcd1104720840236d0a23446bfdeb7bf2ff46853a137125b",
+  "runs": [
+    {
+      "checkpoint_steps": {
+        "best": 700,
+        "initial": 0,
+        "terminal": 1000
+      },
+      "checkpoints": {
+        "best": {
+          "accuracy": 0.8220486111111112,
+          "brier_score": "0.245270469737194035",
+          "category_accuracy": {
+            "clarification": 1.0,
+            "ordinary": 0.71875,
+            "preference": 0.725,
+            "refusal": 0.8402777777777778
+          },
+          "class_accuracy": {
+            "ASK": 1.0,
+            "CHEAP": 0.7847222222222222,
+            "FAST": 0.6631944444444444,
+            "REFUSE": 0.8402777777777778
+          },
+          "complete_pair_accuracy": 0.6666666666666666,
+          "confusion": {
+            "ASK->ASK": 288,
+            "CHEAP->CHEAP": 226,
+            "CHEAP->FAST": 6,
+            "CHEAP->REFUSE": 56,
+            "FAST->CHEAP": 56,
+            "FAST->FAST": 191,
+            "FAST->REFUSE": 41,
+            "REFUSE->ASK": 18,
+            "REFUSE->CHEAP": 18,
+            "REFUSE->FAST": 10,
+            "REFUSE->REFUSE": 242
+          },
+          "counterfactual_pair_correct": 384,
+          "counterfactual_pair_total": 576,
+          "critical_errors": {
+            "counts": {
+              "authorization_violation": 28,
+              "clarification_not_returned": 0,
+              "false_refusal": 97,
+              "unsafe_action_when_clarification_required": 0
+            },
+            "denominators": {
+              "ask": 288,
+              "ask_or_refuse": 576,
+              "permitted": 576,
+              "refuse": 288
+            },
+            "rates": {
+              "any_action_on_ask_or_refuse": "0.048611111111111111",
+              "authorization_violation_per_refuse": "0.097222222222222222",
+              "clarification_not_returned_per_ask": "0.000000000000000000",
+              "false_refusal_per_permitted": "0.168402777777777778",
+              "unsafe_action_per_ask": "0.000000000000000000"
+            }
+          },
+          "expected_calibration_error": "0.027873508037171430",
+          "false_refusal_rate": 0.1684027777777778,
+          "family_accuracy": {
+            "compact_v2_amendment_brief": 0.8125,
+            "compact_v2_choice_question": 0.9166666666666666,
+            "compact_v2_constraint_card": 0.9270833333333334,
+            "compact_v2_instruction_receipt": 0.9375,
+            "compositional5_constraint_timeline": 0.6875,
+            "compositional5_revision_letter": 0.6666666666666666,
+            "corrective4_multi_condition_receipt": 0.8333333333333334,
+            "corrective4_two_speaker_revision": 0.78125,
+            "diverse_contract_addendum": 0.8541666666666666,
+            "diverse_dialogue_handoff": 0.8645833333333334,
+            "diverse_priority_register": 0.75,
+            "diverse_research_notebook": 0.8333333333333334
+          },
+          "family_macro_accuracy": 0.8220486111111112,
+          "invalid_outputs": 0,
+          "invariance_pair_accuracy": null,
+          "missing_clarification_rate": 0.0,
+          "negative_log_likelihood": "0.418758416877888654",
+          "negative_log_likelihood_by_class": {
+            "ASK": "0.035841202810528185",
+            "CHEAP": "0.439688848657694170",
+            "FAST": "0.826628591867020350",
+            "REFUSE": "0.372875024176311909"
+          },
+          "nll_probability_floor": "0.000000000001",
+          "numerical_metric_schema": "saal-classification-diagnostics-v2",
+          "support": {
+            "by_class": {
+              "ASK": 288,
+              "CHEAP": 288,
+              "FAST": 288,
+              "REFUSE": 288
+            },
+            "by_family": {
+              "compact_v2_amendment_brief": 96,
+              "compact_v2_choice_question": 96,
+              "compact_v2_constraint_card": 96,
+              "compact_v2_instruction_receipt": 96,
+              "compositional5_constraint_timeline": 96,
+              "compositional5_revision_letter": 96,
+              "corrective4_multi_condition_receipt": 96,
+              "corrective4_two_speaker_revision": 96,
+              "diverse_contract_addendum": 96,
+              "diverse_dialogue_handoff": 96,
+              "diverse_priority_register": 96,
+              "diverse_research_notebook": 96
+            },
+            "counterfactual_pairs": {
+              "counterfactual_opposite_label": 576,
+              "other_or_incomplete": 0,
+              "same_label_invariance": 0
+            },
+            "records": 1152
+          },
+          "unauthorized_proposals": 28,
+          "worst_family_accuracy": 0.6666666666666666
+        },
+        "initial": {
+          "accuracy": 0.2439236111111111,
+          "brier_score": "0.778669736320565227",
+          "category_accuracy": {
+            "clarification": 0.8715277777777778,
+            "ordinary": 0.10416666666666667,
+            "preference": 0.041666666666666664,
+            "refusal": 0.0
+          },
+          "class_accuracy": {
+            "ASK": 0.8715277777777778,
+            "CHEAP": 0.003472222222222222,
+            "FAST": 0.10069444444444445,
+            "REFUSE": 0.0
+          },
+          "complete_pair_accuracy": 0.0,
+          "confusion": {
+            "ASK->ASK": 251,
+            "ASK->CHEAP": 1,
+            "ASK->FAST": 36,
+            "CHEAP->ASK": 256,
+            "CHEAP->CHEAP": 1,
+            "CHEAP->FAST": 31,
+            "FAST->ASK": 258,
+            "FAST->CHEAP": 1,
+            "FAST->FAST": 29,
+            "REFUSE->ASK": 263,
+            "REFUSE->FAST": 25
+          },
+          "counterfactual_pair_correct": 0,
+          "counterfactual_pair_total": 576,
+          "critical_errors": {
+            "counts": {
+              "authorization_violation": 25,
+              "clarification_not_returned": 37,
+              "false_refusal": 0,
+              "unsafe_action_when_clarification_required": 37
+            },
+            "denominators": {
+              "ask": 288,
+              "ask_or_refuse": 576,
+              "permitted": 576,
+              "refuse": 288
+            },
+            "rates": {
+              "any_action_on_ask_or_refuse": "0.107638888888888889",
+              "authorization_violation_per_refuse": "0.086805555555555556",
+              "clarification_not_returned_per_ask": "0.128472222222222222",
+              "false_refusal_per_permitted": "0.000000000000000000",
+              "unsafe_action_per_ask": "0.128472222222222222"
+            }
+          },
+          "expected_calibration_error": "0.115044735682507356",
+          "false_refusal_rate": 0.0,
+          "family_accuracy": {
+            "compact_v2_amendment_brief": 0.25,
+            "compact_v2_choice_question": 0.25,
+            "compact_v2_constraint_card": 0.25,
+            "compact_v2_instruction_receipt": 0.25,
+            "compositional5_constraint_timeline": 0.25,
+            "compositional5_revision_letter": 0.1875,
+            "corrective4_multi_condition_receipt": 0.23958333333333334,
+            "corrective4_two_speaker_revision": 0.25,
+            "diverse_contract_addendum": 0.25,
+            "diverse_dialogue_handoff": 0.25,
+            "diverse_priority_register": 0.25,
+            "diverse_research_notebook": 0.25
+          },
+          "family_macro_accuracy": 0.2439236111111111,
+          "invalid_outputs": 0,
+          "invariance_pair_accuracy": null,
+          "missing_clarification_rate": 0.1284722222222222,
+          "negative_log_likelihood": "1.443567566072462649",
+          "negative_log_likelihood_by_class": {
+            "ASK": "1.049508669443482584",
+            "CHEAP": "1.504887438033610873",
+            "FAST": "1.341131602987950662",
+            "REFUSE": "1.878742553824806476"
+          },
+          "nll_probability_floor": "0.000000000001",
+          "numerical_metric_schema": "saal-classification-diagnostics-v2",
+          "support": {
+            "by_class": {
+              "ASK": 288,
+              "CHEAP": 288,
+              "FAST": 288,
+              "REFUSE": 288
+            },
+            "by_family": {
+              "compact_v2_amendment_brief": 96,
+              "compact_v2_choice_question": 96,
+              "compact_v2_constraint_card": 96,
+              "compact_v2_instruction_receipt": 96,
+              "compositional5_constraint_timeline": 96,
+              "compositional5_revision_letter": 96,
+              "corrective4_multi_condition_receipt": 96,
+              "corrective4_two_speaker_revision": 96,
+              "diverse_contract_addendum": 96,
+              "diverse_dialogue_handoff": 96,
+              "diverse_priority_register": 96,
+              "diverse_research_notebook": 96
+            },
+            "counterfactual_pairs": {
+              "counterfactual_opposite_label": 576,
+              "other_or_incomplete": 0,
+              "same_label_invariance": 0
+            },
+            "records": 1152
+          },
+          "unauthorized_proposals": 62,
+          "worst_family_accuracy": 0.1875
+        },
+        "terminal": {
+          "accuracy": 0.9210069444444444,
+          "brier_score": "0.118324777835075903",
+          "category_accuracy": {
+            "clarification": 1.0,
+            "ordinary": 0.9375,
+            "preference": 0.9020833333333333,
+            "refusal": 0.8680555555555556
+          },
+          "class_accuracy": {
+            "ASK": 1.0,
+            "CHEAP": 0.9583333333333334,
+            "FAST": 0.8576388888888888,
+            "REFUSE": 0.8680555555555556
+          },
+          "complete_pair_accuracy": 0.8454861111111112,
+          "confusion": {
+            "ASK->ASK": 288,
+            "CHEAP->CHEAP": 276,
+            "CHEAP->FAST": 4,
+            "CHEAP->REFUSE": 8,
+            "FAST->CHEAP": 28,
+            "FAST->FAST": 247,
+            "FAST->REFUSE": 13,
+            "REFUSE->ASK": 5,
+            "REFUSE->CHEAP": 29,
+            "REFUSE->FAST": 4,
+            "REFUSE->REFUSE": 250
+          },
+          "counterfactual_pair_correct": 487,
+          "counterfactual_pair_total": 576,
+          "critical_errors": {
+            "counts": {
+              "authorization_violation": 33,
+              "clarification_not_returned": 0,
+              "false_refusal": 21,
+              "unsafe_action_when_clarification_required": 0
+            },
+            "denominators": {
+              "ask": 288,
+              "ask_or_refuse": 576,
+              "permitted": 576,
+              "refuse": 288
+            },
+            "rates": {
+              "any_action_on_ask_or_refuse": "0.057291666666666667",
+              "authorization_violation_per_refuse": "0.114583333333333333",
+              "clarification_not_returned_per_ask": "0.000000000000000000",
+              "false_refusal_per_permitted": "0.036458333333333333",
+              "unsafe_action_per_ask": "0.000000000000000000"
+            }
+          },
+          "expected_calibration_error": "0.016689421634914147",
+          "false_refusal_rate": 0.036458333333333336,
+          "family_accuracy": {
+            "compact_v2_amendment_brief": 0.8854166666666666,
+            "compact_v2_choice_question": 0.9895833333333334,
+            "compact_v2_constraint_card": 0.9895833333333334,
+            "compact_v2_instruction_receipt": 0.9895833333333334,
+            "compositional5_constraint_timeline": 0.7395833333333334,
+            "compositional5_revision_letter": 0.71875,
+            "corrective4_multi_condition_receipt": 0.9583333333333334,
+            "corrective4_two_speaker_revision": 0.9375,
+            "diverse_contract_addendum": 0.9583333333333334,
+            "diverse_dialogue_handoff": 0.9583333333333334,
+            "diverse_priority_register": 0.9479166666666666,
+            "diverse_research_notebook": 0.9791666666666666
+          },
+          "family_macro_accuracy": 0.9210069444444444,
+          "invalid_outputs": 0,
+          "invariance_pair_accuracy": null,
+          "missing_clarification_rate": 0.0,
+          "negative_log_likelihood": "0.212055298319478592",
+          "negative_log_likelihood_by_class": {
+            "ASK": "0.004159272316075935",
+            "CHEAP": "0.148387701186770928",
+            "FAST": "0.409503803511545228",
+            "REFUSE": "0.286170416263522276"
+          },
+          "nll_probability_floor": "0.000000000001",
+          "numerical_metric_schema": "saal-classification-diagnostics-v2",
+          "support": {
+            "by_class": {
+              "ASK": 288,
+              "CHEAP": 288,
+              "FAST": 288,
+              "REFUSE": 288
+            },
+            "by_family": {
+              "compact_v2_amendment_brief": 96,
+              "compact_v2_choice_question": 96,
+              "compact_v2_constraint_card": 96,
+              "compact_v2_instruction_receipt": 96,
+              "compositional5_constraint_timeline": 96,
+              "compositional5_revision_letter": 96,
+              "corrective4_multi_condition_receipt": 96,
+              "corrective4_two_speaker_revision": 96,
+              "diverse_contract_addendum": 96,
+              "diverse_dialogue_handoff": 96,
+              "diverse_priority_register": 96,
+              "diverse_research_notebook": 96
+            },
+            "counterfactual_pairs": {
+              "counterfactual_opposite_label": 576,
+              "other_or_incomplete": 0,
+              "same_label_invariance": 0
+            },
+            "records": 1152
+          },
+          "unauthorized_proposals": 33,
+          "worst_family_accuracy": 0.71875
+        }
+      },
+      "job_digest": "sha256:75e7a094f93460c45243936d9127987859a1870c9aa73f4b7094bafb6e270c07",
+      "logged_development_curve": [
+        {
+          "metrics": {
+            "accuracy": 0.2439236111111111,
+            "brier_score": "0.778669736320565227",
+            "category_accuracy": {
+              "clarification": 0.8715277777777778,
+              "ordinary": 0.10416666666666667,
+              "preference": 0.041666666666666664,
+              "refusal": 0.0
+            },
+            "class_accuracy": {
+              "ASK": 0.8715277777777778,
+              "CHEAP": 0.003472222222222222,
+              "FAST": 0.10069444444444445,
+              "REFUSE": 0.0
+            },
+            "complete_pair_accuracy": 0.0,
+            "confusion": {
+              "ASK->ASK": 251,
+              "ASK->CHEAP": 1,
+              "ASK->FAST": 36,
+              "CHEAP->ASK": 256,
+              "CHEAP->CHEAP": 1,
+              "CHEAP->FAST": 31,
+              "FAST->ASK": 258,
+              "FAST->CHEAP": 1,
+              "FAST->FAST": 29,
+              "REFUSE->ASK": 263,
+              "REFUSE->FAST": 25
+            },
+            "counterfactual_pair_correct": 0,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 25,
+                "clarification_not_returned": 37,
+                "false_refusal": 0,
+                "unsafe_action_when_clarification_required": 37
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.107638888888888889",
+                "authorization_violation_per_refuse": "0.086805555555555556",
+                "clarification_not_returned_per_ask": "0.128472222222222222",
+                "false_refusal_per_permitted": "0.000000000000000000",
+                "unsafe_action_per_ask": "0.128472222222222222"
+              }
+            },
+            "expected_calibration_error": "0.115044735682507356",
+            "false_refusal_rate": 0.0,
+            "family_accuracy": {
+              "compact_v2_amendment_brief": 0.25,
+              "compact_v2_choice_question": 0.25,
+              "compact_v2_constraint_card": 0.25,
+              "compact_v2_instruction_receipt": 0.25,
+              "compositional5_constraint_timeline": 0.25,
+              "compositional5_revision_letter": 0.1875,
+              "corrective4_multi_condition_receipt": 0.23958333333333334,
+              "corrective4_two_speaker_revision": 0.25,
+              "diverse_contract_addendum": 0.25,
+              "diverse_dialogue_handoff": 0.25,
+              "diverse_priority_register": 0.25,
+              "diverse_research_notebook": 0.25
+            },
+            "family_macro_accuracy": 0.2439236111111111,
+            "invalid_outputs": 0,
+            "invariance_pair_accuracy": null,
+            "missing_clarification_rate": 0.1284722222222222,
+            "negative_log_likelihood": "1.443567566072462649",
+            "negative_log_likelihood_by_class": {
+              "ASK": "1.049508669443482584",
+              "CHEAP": "1.504887438033610873",
+              "FAST": "1.341131602987950662",
+              "REFUSE": "1.878742553824806476"
+            },
+            "nll_probability_floor": "0.000000000001",
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 62,
+            "worst_family_accuracy": 0.1875
+          },
+          "step": 0
+        },
+        {
+          "metrics": {
+            "accuracy": 0.3463541666666667,
+            "complete_pair_accuracy": 0.06944444444444445,
+            "confusion": {
+              "ASK->ASK": 128,
+              "ASK->CHEAP": 63,
+              "ASK->FAST": 53,
+              "ASK->REFUSE": 44,
+              "CHEAP->ASK": 41,
+              "CHEAP->CHEAP": 115,
+              "CHEAP->FAST": 69,
+              "CHEAP->REFUSE": 63,
+              "FAST->ASK": 25,
+              "FAST->CHEAP": 105,
+              "FAST->FAST": 90,
+              "FAST->REFUSE": 68,
+              "REFUSE->ASK": 61,
+              "REFUSE->CHEAP": 92,
+              "REFUSE->FAST": 69,
+              "REFUSE->REFUSE": 66
+            },
+            "counterfactual_pair_correct": 40,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 161,
+                "clarification_not_returned": 160,
+                "false_refusal": 131,
+                "unsafe_action_when_clarification_required": 116
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.480902777777777778",
+                "authorization_violation_per_refuse": "0.559027777777777778",
+                "clarification_not_returned_per_ask": "0.555555555555555556",
+                "false_refusal_per_permitted": "0.227430555555555556",
+                "unsafe_action_per_ask": "0.402777777777777778"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 277,
+            "worst_family_accuracy": 0.2708333333333333
+          },
+          "step": 100
+        },
+        {
+          "metrics": {
+            "accuracy": 0.59375,
+            "complete_pair_accuracy": 0.2795138888888889,
+            "confusion": {
+              "ASK->ASK": 269,
+              "ASK->CHEAP": 1,
+              "ASK->REFUSE": 18,
+              "CHEAP->CHEAP": 173,
+              "CHEAP->FAST": 81,
+              "CHEAP->REFUSE": 34,
+              "FAST->CHEAP": 68,
+              "FAST->FAST": 168,
+              "FAST->REFUSE": 52,
+              "REFUSE->ASK": 26,
+              "REFUSE->CHEAP": 110,
+              "REFUSE->FAST": 78,
+              "REFUSE->REFUSE": 74
+            },
+            "counterfactual_pair_correct": 161,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 188,
+                "clarification_not_returned": 19,
+                "false_refusal": 86,
+                "unsafe_action_when_clarification_required": 1
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.328125000000000000",
+                "authorization_violation_per_refuse": "0.652777777777777778",
+                "clarification_not_returned_per_ask": "0.065972222222222222",
+                "false_refusal_per_permitted": "0.149305555555555556",
+                "unsafe_action_per_ask": "0.003472222222222222"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 189,
+            "worst_family_accuracy": 0.5
+          },
+          "step": 200
+        },
+        {
+          "metrics": {
+            "accuracy": 0.6501736111111112,
+            "complete_pair_accuracy": 0.3472222222222222,
+            "confusion": {
+              "ASK->ASK": 287,
+              "ASK->REFUSE": 1,
+              "CHEAP->CHEAP": 210,
+              "CHEAP->FAST": 62,
+              "CHEAP->REFUSE": 16,
+              "FAST->CHEAP": 68,
+              "FAST->FAST": 208,
+              "FAST->REFUSE": 12,
+              "REFUSE->ASK": 33,
+              "REFUSE->CHEAP": 136,
+              "REFUSE->FAST": 75,
+              "REFUSE->REFUSE": 44
+            },
+            "counterfactual_pair_correct": 200,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 211,
+                "clarification_not_returned": 1,
+                "false_refusal": 28,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.366319444444444444",
+                "authorization_violation_per_refuse": "0.732638888888888889",
+                "clarification_not_returned_per_ask": "0.003472222222222222",
+                "false_refusal_per_permitted": "0.048611111111111111",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 211,
+            "worst_family_accuracy": 0.53125
+          },
+          "step": 300
+        },
+        {
+          "metrics": {
+            "accuracy": 0.6527777777777778,
+            "complete_pair_accuracy": 0.3576388888888889,
+            "confusion": {
+              "ASK->ASK": 272,
+              "ASK->REFUSE": 16,
+              "CHEAP->CHEAP": 173,
+              "CHEAP->FAST": 109,
+              "CHEAP->REFUSE": 6,
+              "FAST->CHEAP": 21,
+              "FAST->FAST": 265,
+              "FAST->REFUSE": 2,
+              "REFUSE->ASK": 28,
+              "REFUSE->CHEAP": 99,
+              "REFUSE->FAST": 119,
+              "REFUSE->REFUSE": 42
+            },
+            "counterfactual_pair_correct": 206,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 218,
+                "clarification_not_returned": 16,
+                "false_refusal": 8,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.378472222222222222",
+                "authorization_violation_per_refuse": "0.756944444444444444",
+                "clarification_not_returned_per_ask": "0.055555555555555556",
+                "false_refusal_per_permitted": "0.013888888888888889",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 218,
+            "worst_family_accuracy": 0.53125
+          },
+          "step": 400
+        },
+        {
+          "metrics": {
+            "accuracy": 0.7109375,
+            "complete_pair_accuracy": 0.4565972222222222,
+            "confusion": {
+              "ASK->ASK": 259,
+              "ASK->REFUSE": 29,
+              "CHEAP->CHEAP": 186,
+              "CHEAP->FAST": 36,
+              "CHEAP->REFUSE": 66,
+              "FAST->CHEAP": 21,
+              "FAST->FAST": 228,
+              "FAST->REFUSE": 39,
+              "REFUSE->ASK": 17,
+              "REFUSE->CHEAP": 64,
+              "REFUSE->FAST": 61,
+              "REFUSE->REFUSE": 146
+            },
+            "counterfactual_pair_correct": 263,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 125,
+                "clarification_not_returned": 29,
+                "false_refusal": 105,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.217013888888888889",
+                "authorization_violation_per_refuse": "0.434027777777777778",
+                "clarification_not_returned_per_ask": "0.100694444444444444",
+                "false_refusal_per_permitted": "0.182291666666666667",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 125,
+            "worst_family_accuracy": 0.5416666666666666
+          },
+          "step": 500
+        },
+        {
+          "metrics": {
+            "accuracy": 0.7925347222222222,
+            "complete_pair_accuracy": 0.59375,
+            "confusion": {
+              "ASK->ASK": 288,
+              "CHEAP->CHEAP": 250,
+              "CHEAP->FAST": 22,
+              "CHEAP->REFUSE": 16,
+              "FAST->CHEAP": 42,
+              "FAST->FAST": 229,
+              "FAST->REFUSE": 17,
+              "REFUSE->ASK": 27,
+              "REFUSE->CHEAP": 79,
+              "REFUSE->FAST": 36,
+              "REFUSE->REFUSE": 146
+            },
+            "counterfactual_pair_correct": 342,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 115,
+                "clarification_not_returned": 0,
+                "false_refusal": 33,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.199652777777777778",
+                "authorization_violation_per_refuse": "0.399305555555555556",
+                "clarification_not_returned_per_ask": "0.000000000000000000",
+                "false_refusal_per_permitted": "0.057291666666666667",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 115,
+            "worst_family_accuracy": 0.6979166666666666
+          },
+          "step": 600
+        },
+        {
+          "metrics": {
+            "accuracy": 0.8220486111111112,
+            "complete_pair_accuracy": 0.6666666666666666,
+            "confusion": {
+              "ASK->ASK": 288,
+              "CHEAP->CHEAP": 226,
+              "CHEAP->FAST": 6,
+              "CHEAP->REFUSE": 56,
+              "FAST->CHEAP": 56,
+              "FAST->FAST": 191,
+              "FAST->REFUSE": 41,
+              "REFUSE->ASK": 18,
+              "REFUSE->CHEAP": 18,
+              "REFUSE->FAST": 10,
+              "REFUSE->REFUSE": 242
+            },
+            "counterfactual_pair_correct": 384,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 28,
+                "clarification_not_returned": 0,
+                "false_refusal": 97,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.048611111111111111",
+                "authorization_violation_per_refuse": "0.097222222222222222",
+                "clarification_not_returned_per_ask": "0.000000000000000000",
+                "false_refusal_per_permitted": "0.168402777777777778",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 28,
+            "worst_family_accuracy": 0.6666666666666666
+          },
+          "step": 700
+        },
+        {
+          "metrics": {
+            "accuracy": 0.9131944444444444,
+            "complete_pair_accuracy": 0.8298611111111112,
+            "confusion": {
+              "ASK->ASK": 286,
+              "ASK->REFUSE": 2,
+              "CHEAP->CHEAP": 248,
+              "CHEAP->FAST": 11,
+              "CHEAP->REFUSE": 29,
+              "FAST->CHEAP": 12,
+              "FAST->FAST": 271,
+              "FAST->REFUSE": 5,
+              "REFUSE->ASK": 12,
+              "REFUSE->CHEAP": 15,
+              "REFUSE->FAST": 14,
+              "REFUSE->REFUSE": 247
+            },
+            "counterfactual_pair_correct": 478,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 29,
+                "clarification_not_returned": 2,
+                "false_refusal": 34,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.050347222222222222",
+                "authorization_violation_per_refuse": "0.100694444444444444",
+                "clarification_not_returned_per_ask": "0.006944444444444444",
+                "false_refusal_per_permitted": "0.059027777777777778",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 29,
+            "worst_family_accuracy": 0.7395833333333334
+          },
+          "step": 800
+        },
+        {
+          "metrics": {
+            "accuracy": 0.9244791666666666,
+            "complete_pair_accuracy": 0.8524305555555556,
+            "confusion": {
+              "ASK->ASK": 282,
+              "ASK->REFUSE": 6,
+              "CHEAP->CHEAP": 272,
+              "CHEAP->FAST": 8,
+              "CHEAP->REFUSE": 8,
+              "FAST->CHEAP": 10,
+              "FAST->FAST": 276,
+              "FAST->REFUSE": 2,
+              "REFUSE->ASK": 3,
+              "REFUSE->CHEAP": 39,
+              "REFUSE->FAST": 11,
+              "REFUSE->REFUSE": 235
+            },
+            "counterfactual_pair_correct": 491,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 50,
+                "clarification_not_returned": 6,
+                "false_refusal": 10,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.086805555555555556",
+                "authorization_violation_per_refuse": "0.173611111111111111",
+                "clarification_not_returned_per_ask": "0.020833333333333333",
+                "false_refusal_per_permitted": "0.017361111111111111",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 50,
+            "worst_family_accuracy": 0.71875
+          },
+          "step": 900
+        },
+        {
+          "metrics": {
+            "accuracy": 0.9210069444444444,
+            "brier_score": "0.118324777835075903",
+            "category_accuracy": {
+              "clarification": 1.0,
+              "ordinary": 0.9375,
+              "preference": 0.9020833333333333,
+              "refusal": 0.8680555555555556
+            },
+            "class_accuracy": {
+              "ASK": 1.0,
+              "CHEAP": 0.9583333333333334,
+              "FAST": 0.8576388888888888,
+              "REFUSE": 0.8680555555555556
+            },
+            "complete_pair_accuracy": 0.8454861111111112,
+            "confusion": {
+              "ASK->ASK": 288,
+              "CHEAP->CHEAP": 276,
+              "CHEAP->FAST": 4,
+              "CHEAP->REFUSE": 8,
+              "FAST->CHEAP": 28,
+              "FAST->FAST": 247,
+              "FAST->REFUSE": 13,
+              "REFUSE->ASK": 5,
+              "REFUSE->CHEAP": 29,
+              "REFUSE->FAST": 4,
+              "REFUSE->REFUSE": 250
+            },
+            "counterfactual_pair_correct": 487,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 33,
+                "clarification_not_returned": 0,
+                "false_refusal": 21,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.057291666666666667",
+                "authorization_violation_per_refuse": "0.114583333333333333",
+                "clarification_not_returned_per_ask": "0.000000000000000000",
+                "false_refusal_per_permitted": "0.036458333333333333",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "expected_calibration_error": "0.016689421634914147",
+            "false_refusal_rate": 0.036458333333333336,
+            "family_accuracy": {
+              "compact_v2_amendment_brief": 0.8854166666666666,
+              "compact_v2_choice_question": 0.9895833333333334,
+              "compact_v2_constraint_card": 0.9895833333333334,
+              "compact_v2_instruction_receipt": 0.9895833333333334,
+              "compositional5_constraint_timeline": 0.7395833333333334,
+              "compositional5_revision_letter": 0.71875,
+              "corrective4_multi_condition_receipt": 0.9583333333333334,
+              "corrective4_two_speaker_revision": 0.9375,
+              "diverse_contract_addendum": 0.9583333333333334,
+              "diverse_dialogue_handoff": 0.9583333333333334,
+              "diverse_priority_register": 0.9479166666666666,
+              "diverse_research_notebook": 0.9791666666666666
+            },
+            "family_macro_accuracy": 0.9210069444444444,
+            "invalid_outputs": 0,
+            "invariance_pair_accuracy": null,
+            "missing_clarification_rate": 0.0,
+            "negative_log_likelihood": "0.212055298319478592",
+            "negative_log_likelihood_by_class": {
+              "ASK": "0.004159272316075935",
+              "CHEAP": "0.148387701186770928",
+              "FAST": "0.409503803511545228",
+              "REFUSE": "0.286170416263522276"
+            },
+            "nll_probability_floor": "0.000000000001",
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 33,
+            "worst_family_accuracy": 0.71875
+          },
+          "step": 1000
+        }
+      ],
+      "method": "fixed-r8",
+      "rank": {
+        "initial_active_rank": 176,
+        "rank_history_events": 1000,
+        "terminal_active_rank": 176,
+        "unique_logged_active_ranks": [
+          176
+        ]
+      },
+      "run_id": "run-00-75e7a094f934",
+      "seed": 60606,
+      "selection": {
+        "best_is_initial": false,
+        "best_step": 700,
+        "explanation": {
+          "best_counterfactual_pairs_correct": 384,
+          "best_step_zero": false,
+          "best_unauthorized_count": 28,
+          "initial_counterfactual_pairs_correct": 0,
+          "initial_unauthorized_count": 62,
+          "selection_policy_orders_unauthorized_before_pair_and_accuracy": true
+        },
+        "policy": "public-guardrails-pair-family-v1"
+      },
+      "source_digests": {
+        "checkpoint_selection.json": "sha256:05f1ce944cf26448072d0253b5dc90487a56c4abeea2fc6085ca1c94bf70bf1a",
+        "rank_history.jsonl": "sha256:e9270f23f193a3846c3b7450c9349d38b9f5a3241380edb4a61153b4a2de5089",
+        "result.json": "sha256:bc7910f0a3e78292d8bdd1ce784bc3725502cdb3666fa2e66f41c6e60e165cdd",
+        "signed_training_job.json": "sha256:5f9d209000908251f04e0a587a181e1e64428f9816e75a9c4859e3f848b00518",
+        "training_metrics.jsonl": "sha256:324a419952364858b2af23ef6adf3560c50520dd0956c334ee17120ae8e05292"
+      },
+      "training": {
+        "configured_head_learning_rate": 0.0003,
+        "configured_learning_rate": 0.0003,
+        "gradient_norm_max": 22.142972946166992,
+        "gradient_norm_max_step": 781,
+        "gradient_norm_min": 0.24070818722248077,
+        "learning_rate_logged_per_update": false,
+        "logged_updates": 1000,
+        "loss_first_100_mean": 1.3713522338867188,
+        "loss_last_100_mean": 0.24114670580485836,
+        "loss_max": 1.5321335792541504,
+        "loss_min": 0.008520210860297084,
+        "optimizer": "AdamW (from admitted worker configuration)"
+      },
+      "worker_identity": "sha256:e7207e498137c8b58a116072473d8214a2f9321d101fb6fe27d20ff5adddc68a"
+    },
+    {
+      "checkpoint_steps": {
+        "best": 700,
+        "initial": 0,
+        "terminal": 1000
+      },
+      "checkpoints": {
+        "best": {
+          "accuracy": 0.90625,
+          "brier_score": "0.138635242191344875",
+          "category_accuracy": {
+            "clarification": 0.9965277777777778,
+            "ordinary": 0.9166666666666666,
+            "preference": 0.8729166666666667,
+            "refusal": 0.8680555555555556
+          },
+          "class_accuracy": {
+            "ASK": 0.9965277777777778,
+            "CHEAP": 0.8298611111111112,
+            "FAST": 0.9305555555555556,
+            "REFUSE": 0.8680555555555556
+          },
+          "complete_pair_accuracy": 0.8159722222222222,
+          "confusion": {
+            "ASK->ASK": 287,
+            "ASK->REFUSE": 1,
+            "CHEAP->CHEAP": 239,
+            "CHEAP->FAST": 14,
+            "CHEAP->REFUSE": 35,
+            "FAST->CHEAP": 15,
+            "FAST->FAST": 268,
+            "FAST->REFUSE": 5,
+            "REFUSE->ASK": 14,
+            "REFUSE->CHEAP": 14,
+            "REFUSE->FAST": 10,
+            "REFUSE->REFUSE": 250
+          },
+          "counterfactual_pair_correct": 470,
+          "counterfactual_pair_total": 576,
+          "critical_errors": {
+            "counts": {
+              "authorization_violation": 24,
+              "clarification_not_returned": 1,
+              "false_refusal": 40,
+              "unsafe_action_when_clarification_required": 0
+            },
+            "denominators": {
+              "ask": 288,
+              "ask_or_refuse": 576,
+              "permitted": 576,
+              "refuse": 288
+            },
+            "rates": {
+              "any_action_on_ask_or_refuse": "0.041666666666666667",
+              "authorization_violation_per_refuse": "0.083333333333333333",
+              "clarification_not_returned_per_ask": "0.003472222222222222",
+              "false_refusal_per_permitted": "0.069444444444444444",
+              "unsafe_action_per_ask": "0.000000000000000000"
+            }
+          },
+          "expected_calibration_error": "0.018173351625187529",
+          "false_refusal_rate": 0.06944444444444445,
+          "family_accuracy": {
+            "compact_v2_amendment_brief": 0.9375,
+            "compact_v2_choice_question": 0.96875,
+            "compact_v2_constraint_card": 0.96875,
+            "compact_v2_instruction_receipt": 0.9791666666666666,
+            "compositional5_constraint_timeline": 0.6979166666666666,
+            "compositional5_revision_letter": 0.6979166666666666,
+            "corrective4_multi_condition_receipt": 0.9270833333333334,
+            "corrective4_two_speaker_revision": 0.9166666666666666,
+            "diverse_contract_addendum": 0.9583333333333334,
+            "diverse_dialogue_handoff": 0.9375,
+            "diverse_priority_register": 0.9166666666666666,
+            "diverse_research_notebook": 0.96875
+          },
+          "family_macro_accuracy": 0.90625,
+          "invalid_outputs": 0,
+          "invariance_pair_accuracy": null,
+          "missing_clarification_rate": 0.003472222222222222,
+          "negative_log_likelihood": "0.253239637536938196",
+          "negative_log_likelihood_by_class": {
+            "ASK": "0.037763791956324806",
+            "CHEAP": "0.388045177931015114",
+            "FAST": "0.204006164569615222",
+            "REFUSE": "0.383143415690797645"
+          },
+          "nll_probability_floor": "0.000000000001",
+          "numerical_metric_schema": "saal-classification-diagnostics-v2",
+          "support": {
+            "by_class": {
+              "ASK": 288,
+              "CHEAP": 288,
+              "FAST": 288,
+              "REFUSE": 288
+            },
+            "by_family": {
+              "compact_v2_amendment_brief": 96,
+              "compact_v2_choice_question": 96,
+              "compact_v2_constraint_card": 96,
+              "compact_v2_instruction_receipt": 96,
+              "compositional5_constraint_timeline": 96,
+              "compositional5_revision_letter": 96,
+              "corrective4_multi_condition_receipt": 96,
+              "corrective4_two_speaker_revision": 96,
+              "diverse_contract_addendum": 96,
+              "diverse_dialogue_handoff": 96,
+              "diverse_priority_register": 96,
+              "diverse_research_notebook": 96
+            },
+            "counterfactual_pairs": {
+              "counterfactual_opposite_label": 576,
+              "other_or_incomplete": 0,
+              "same_label_invariance": 0
+            },
+            "records": 1152
+          },
+          "unauthorized_proposals": 24,
+          "worst_family_accuracy": 0.6979166666666666
+        },
+        "initial": {
+          "accuracy": 0.2439236111111111,
+          "brier_score": "0.778669736320565227",
+          "category_accuracy": {
+            "clarification": 0.8715277777777778,
+            "ordinary": 0.10416666666666667,
+            "preference": 0.041666666666666664,
+            "refusal": 0.0
+          },
+          "class_accuracy": {
+            "ASK": 0.8715277777777778,
+            "CHEAP": 0.003472222222222222,
+            "FAST": 0.10069444444444445,
+            "REFUSE": 0.0
+          },
+          "complete_pair_accuracy": 0.0,
+          "confusion": {
+            "ASK->ASK": 251,
+            "ASK->CHEAP": 1,
+            "ASK->FAST": 36,
+            "CHEAP->ASK": 256,
+            "CHEAP->CHEAP": 1,
+            "CHEAP->FAST": 31,
+            "FAST->ASK": 258,
+            "FAST->CHEAP": 1,
+            "FAST->FAST": 29,
+            "REFUSE->ASK": 263,
+            "REFUSE->FAST": 25
+          },
+          "counterfactual_pair_correct": 0,
+          "counterfactual_pair_total": 576,
+          "critical_errors": {
+            "counts": {
+              "authorization_violation": 25,
+              "clarification_not_returned": 37,
+              "false_refusal": 0,
+              "unsafe_action_when_clarification_required": 37
+            },
+            "denominators": {
+              "ask": 288,
+              "ask_or_refuse": 576,
+              "permitted": 576,
+              "refuse": 288
+            },
+            "rates": {
+              "any_action_on_ask_or_refuse": "0.107638888888888889",
+              "authorization_violation_per_refuse": "0.086805555555555556",
+              "clarification_not_returned_per_ask": "0.128472222222222222",
+              "false_refusal_per_permitted": "0.000000000000000000",
+              "unsafe_action_per_ask": "0.128472222222222222"
+            }
+          },
+          "expected_calibration_error": "0.115044735682507356",
+          "false_refusal_rate": 0.0,
+          "family_accuracy": {
+            "compact_v2_amendment_brief": 0.25,
+            "compact_v2_choice_question": 0.25,
+            "compact_v2_constraint_card": 0.25,
+            "compact_v2_instruction_receipt": 0.25,
+            "compositional5_constraint_timeline": 0.25,
+            "compositional5_revision_letter": 0.1875,
+            "corrective4_multi_condition_receipt": 0.23958333333333334,
+            "corrective4_two_speaker_revision": 0.25,
+            "diverse_contract_addendum": 0.25,
+            "diverse_dialogue_handoff": 0.25,
+            "diverse_priority_register": 0.25,
+            "diverse_research_notebook": 0.25
+          },
+          "family_macro_accuracy": 0.2439236111111111,
+          "invalid_outputs": 0,
+          "invariance_pair_accuracy": null,
+          "missing_clarification_rate": 0.1284722222222222,
+          "negative_log_likelihood": "1.443567566072462649",
+          "negative_log_likelihood_by_class": {
+            "ASK": "1.049508669443482584",
+            "CHEAP": "1.504887438033610873",
+            "FAST": "1.341131602987950662",
+            "REFUSE": "1.878742553824806476"
+          },
+          "nll_probability_floor": "0.000000000001",
+          "numerical_metric_schema": "saal-classification-diagnostics-v2",
+          "support": {
+            "by_class": {
+              "ASK": 288,
+              "CHEAP": 288,
+              "FAST": 288,
+              "REFUSE": 288
+            },
+            "by_family": {
+              "compact_v2_amendment_brief": 96,
+              "compact_v2_choice_question": 96,
+              "compact_v2_constraint_card": 96,
+              "compact_v2_instruction_receipt": 96,
+              "compositional5_constraint_timeline": 96,
+              "compositional5_revision_letter": 96,
+              "corrective4_multi_condition_receipt": 96,
+              "corrective4_two_speaker_revision": 96,
+              "diverse_contract_addendum": 96,
+              "diverse_dialogue_handoff": 96,
+              "diverse_priority_register": 96,
+              "diverse_research_notebook": 96
+            },
+            "counterfactual_pairs": {
+              "counterfactual_opposite_label": 576,
+              "other_or_incomplete": 0,
+              "same_label_invariance": 0
+            },
+            "records": 1152
+          },
+          "unauthorized_proposals": 62,
+          "worst_family_accuracy": 0.1875
+        },
+        "terminal": {
+          "accuracy": 0.90625,
+          "brier_score": "0.117789875331699523",
+          "category_accuracy": {
+            "clarification": 1.0,
+            "ordinary": 0.9375,
+            "preference": 0.85,
+            "refusal": 0.8958333333333334
+          },
+          "class_accuracy": {
+            "ASK": 1.0,
+            "CHEAP": 0.9652777777777778,
+            "FAST": 0.7638888888888888,
+            "REFUSE": 0.8958333333333334
+          },
+          "complete_pair_accuracy": 0.8194444444444444,
+          "confusion": {
+            "ASK->ASK": 288,
+            "CHEAP->CHEAP": 278,
+            "CHEAP->FAST": 3,
+            "CHEAP->REFUSE": 7,
+            "FAST->CHEAP": 52,
+            "FAST->FAST": 220,
+            "FAST->REFUSE": 16,
+            "REFUSE->ASK": 3,
+            "REFUSE->CHEAP": 25,
+            "REFUSE->FAST": 2,
+            "REFUSE->REFUSE": 258
+          },
+          "counterfactual_pair_correct": 472,
+          "counterfactual_pair_total": 576,
+          "critical_errors": {
+            "counts": {
+              "authorization_violation": 27,
+              "clarification_not_returned": 0,
+              "false_refusal": 23,
+              "unsafe_action_when_clarification_required": 0
+            },
+            "denominators": {
+              "ask": 288,
+              "ask_or_refuse": 576,
+              "permitted": 576,
+              "refuse": 288
+            },
+            "rates": {
+              "any_action_on_ask_or_refuse": "0.046875000000000000",
+              "authorization_violation_per_refuse": "0.093750000000000000",
+              "clarification_not_returned_per_ask": "0.000000000000000000",
+              "false_refusal_per_permitted": "0.039930555555555556",
+              "unsafe_action_per_ask": "0.000000000000000000"
+            }
+          },
+          "expected_calibration_error": "0.028858037355045478",
+          "false_refusal_rate": 0.03993055555555555,
+          "family_accuracy": {
+            "compact_v2_amendment_brief": 0.875,
+            "compact_v2_choice_question": 0.9791666666666666,
+            "compact_v2_constraint_card": 0.9895833333333334,
+            "compact_v2_instruction_receipt": 1.0,
+            "compositional5_constraint_timeline": 0.625,
+            "compositional5_revision_letter": 0.6458333333333334,
+            "corrective4_multi_condition_receipt": 0.9791666666666666,
+            "corrective4_two_speaker_revision": 0.9583333333333334,
+            "diverse_contract_addendum": 0.9791666666666666,
+            "diverse_dialogue_handoff": 0.9895833333333334,
+            "diverse_priority_register": 0.875,
+            "diverse_research_notebook": 0.9791666666666666
+          },
+          "family_macro_accuracy": 0.90625,
+          "invalid_outputs": 0,
+          "invariance_pair_accuracy": null,
+          "missing_clarification_rate": 0.0,
+          "negative_log_likelihood": "0.203585577096559525",
+          "negative_log_likelihood_by_class": {
+            "ASK": "0.007447686611974282",
+            "CHEAP": "0.083738645026097916",
+            "FAST": "0.505486768492922418",
+            "REFUSE": "0.217669208255243484"
+          },
+          "nll_probability_floor": "0.000000000001",
+          "numerical_metric_schema": "saal-classification-diagnostics-v2",
+          "support": {
+            "by_class": {
+              "ASK": 288,
+              "CHEAP": 288,
+              "FAST": 288,
+              "REFUSE": 288
+            },
+            "by_family": {
+              "compact_v2_amendment_brief": 96,
+              "compact_v2_choice_question": 96,
+              "compact_v2_constraint_card": 96,
+              "compact_v2_instruction_receipt": 96,
+              "compositional5_constraint_timeline": 96,
+              "compositional5_revision_letter": 96,
+              "corrective4_multi_condition_receipt": 96,
+              "corrective4_two_speaker_revision": 96,
+              "diverse_contract_addendum": 96,
+              "diverse_dialogue_handoff": 96,
+              "diverse_priority_register": 96,
+              "diverse_research_notebook": 96
+            },
+            "counterfactual_pairs": {
+              "counterfactual_opposite_label": 576,
+              "other_or_incomplete": 0,
+              "same_label_invariance": 0
+            },
+            "records": 1152
+          },
+          "unauthorized_proposals": 27,
+          "worst_family_accuracy": 0.625
+        }
+      },
+      "job_digest": "sha256:d809581050952e3c5fdd29f340db0505390d5d2749c3d12fe9720aa827a68054",
+      "logged_development_curve": [
+        {
+          "metrics": {
+            "accuracy": 0.2439236111111111,
+            "brier_score": "0.778669736320565227",
+            "category_accuracy": {
+              "clarification": 0.8715277777777778,
+              "ordinary": 0.10416666666666667,
+              "preference": 0.041666666666666664,
+              "refusal": 0.0
+            },
+            "class_accuracy": {
+              "ASK": 0.8715277777777778,
+              "CHEAP": 0.003472222222222222,
+              "FAST": 0.10069444444444445,
+              "REFUSE": 0.0
+            },
+            "complete_pair_accuracy": 0.0,
+            "confusion": {
+              "ASK->ASK": 251,
+              "ASK->CHEAP": 1,
+              "ASK->FAST": 36,
+              "CHEAP->ASK": 256,
+              "CHEAP->CHEAP": 1,
+              "CHEAP->FAST": 31,
+              "FAST->ASK": 258,
+              "FAST->CHEAP": 1,
+              "FAST->FAST": 29,
+              "REFUSE->ASK": 263,
+              "REFUSE->FAST": 25
+            },
+            "counterfactual_pair_correct": 0,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 25,
+                "clarification_not_returned": 37,
+                "false_refusal": 0,
+                "unsafe_action_when_clarification_required": 37
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.107638888888888889",
+                "authorization_violation_per_refuse": "0.086805555555555556",
+                "clarification_not_returned_per_ask": "0.128472222222222222",
+                "false_refusal_per_permitted": "0.000000000000000000",
+                "unsafe_action_per_ask": "0.128472222222222222"
+              }
+            },
+            "expected_calibration_error": "0.115044735682507356",
+            "false_refusal_rate": 0.0,
+            "family_accuracy": {
+              "compact_v2_amendment_brief": 0.25,
+              "compact_v2_choice_question": 0.25,
+              "compact_v2_constraint_card": 0.25,
+              "compact_v2_instruction_receipt": 0.25,
+              "compositional5_constraint_timeline": 0.25,
+              "compositional5_revision_letter": 0.1875,
+              "corrective4_multi_condition_receipt": 0.23958333333333334,
+              "corrective4_two_speaker_revision": 0.25,
+              "diverse_contract_addendum": 0.25,
+              "diverse_dialogue_handoff": 0.25,
+              "diverse_priority_register": 0.25,
+              "diverse_research_notebook": 0.25
+            },
+            "family_macro_accuracy": 0.2439236111111111,
+            "invalid_outputs": 0,
+            "invariance_pair_accuracy": null,
+            "missing_clarification_rate": 0.1284722222222222,
+            "negative_log_likelihood": "1.443567566072462649",
+            "negative_log_likelihood_by_class": {
+              "ASK": "1.049508669443482584",
+              "CHEAP": "1.504887438033610873",
+              "FAST": "1.341131602987950662",
+              "REFUSE": "1.878742553824806476"
+            },
+            "nll_probability_floor": "0.000000000001",
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 62,
+            "worst_family_accuracy": 0.1875
+          },
+          "step": 0
+        },
+        {
+          "metrics": {
+            "accuracy": 0.3671875,
+            "complete_pair_accuracy": 0.0763888888888889,
+            "confusion": {
+              "ASK->ASK": 196,
+              "ASK->CHEAP": 5,
+              "ASK->FAST": 64,
+              "ASK->REFUSE": 23,
+              "CHEAP->ASK": 83,
+              "CHEAP->CHEAP": 49,
+              "CHEAP->FAST": 95,
+              "CHEAP->REFUSE": 61,
+              "FAST->ASK": 65,
+              "FAST->CHEAP": 35,
+              "FAST->FAST": 124,
+              "FAST->REFUSE": 64,
+              "REFUSE->ASK": 93,
+              "REFUSE->CHEAP": 37,
+              "REFUSE->FAST": 104,
+              "REFUSE->REFUSE": 54
+            },
+            "counterfactual_pair_correct": 44,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 141,
+                "clarification_not_returned": 92,
+                "false_refusal": 125,
+                "unsafe_action_when_clarification_required": 69
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.364583333333333333",
+                "authorization_violation_per_refuse": "0.489583333333333333",
+                "clarification_not_returned_per_ask": "0.319444444444444444",
+                "false_refusal_per_permitted": "0.217013888888888889",
+                "unsafe_action_per_ask": "0.239583333333333333"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 210,
+            "worst_family_accuracy": 0.25
+          },
+          "step": 100
+        },
+        {
+          "metrics": {
+            "accuracy": 0.6180555555555556,
+            "complete_pair_accuracy": 0.3090277777777778,
+            "confusion": {
+              "ASK->ASK": 287,
+              "ASK->REFUSE": 1,
+              "CHEAP->CHEAP": 197,
+              "CHEAP->FAST": 90,
+              "CHEAP->REFUSE": 1,
+              "FAST->CHEAP": 82,
+              "FAST->FAST": 204,
+              "FAST->REFUSE": 2,
+              "REFUSE->ASK": 38,
+              "REFUSE->CHEAP": 134,
+              "REFUSE->FAST": 92,
+              "REFUSE->REFUSE": 24
+            },
+            "counterfactual_pair_correct": 178,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 226,
+                "clarification_not_returned": 1,
+                "false_refusal": 3,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.392361111111111111",
+                "authorization_violation_per_refuse": "0.784722222222222222",
+                "clarification_not_returned_per_ask": "0.003472222222222222",
+                "false_refusal_per_permitted": "0.005208333333333333",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 226,
+            "worst_family_accuracy": 0.5104166666666666
+          },
+          "step": 200
+        },
+        {
+          "metrics": {
+            "accuracy": 0.6744791666666666,
+            "complete_pair_accuracy": 0.390625,
+            "confusion": {
+              "ASK->ASK": 288,
+              "CHEAP->CHEAP": 200,
+              "CHEAP->FAST": 74,
+              "CHEAP->REFUSE": 14,
+              "FAST->CHEAP": 43,
+              "FAST->FAST": 238,
+              "FAST->REFUSE": 7,
+              "REFUSE->ASK": 33,
+              "REFUSE->CHEAP": 117,
+              "REFUSE->FAST": 87,
+              "REFUSE->REFUSE": 51
+            },
+            "counterfactual_pair_correct": 225,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 204,
+                "clarification_not_returned": 0,
+                "false_refusal": 21,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.354166666666666667",
+                "authorization_violation_per_refuse": "0.708333333333333333",
+                "clarification_not_returned_per_ask": "0.000000000000000000",
+                "false_refusal_per_permitted": "0.036458333333333333",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 204,
+            "worst_family_accuracy": 0.53125
+          },
+          "step": 300
+        },
+        {
+          "metrics": {
+            "accuracy": 0.7204861111111112,
+            "complete_pair_accuracy": 0.46875,
+            "confusion": {
+              "ASK->ASK": 288,
+              "CHEAP->CHEAP": 170,
+              "CHEAP->FAST": 66,
+              "CHEAP->REFUSE": 52,
+              "FAST->CHEAP": 12,
+              "FAST->FAST": 238,
+              "FAST->REFUSE": 38,
+              "REFUSE->ASK": 33,
+              "REFUSE->CHEAP": 55,
+              "REFUSE->FAST": 66,
+              "REFUSE->REFUSE": 134
+            },
+            "counterfactual_pair_correct": 270,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 121,
+                "clarification_not_returned": 0,
+                "false_refusal": 90,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.210069444444444444",
+                "authorization_violation_per_refuse": "0.420138888888888889",
+                "clarification_not_returned_per_ask": "0.000000000000000000",
+                "false_refusal_per_permitted": "0.156250000000000000",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 121,
+            "worst_family_accuracy": 0.5729166666666666
+          },
+          "step": 400
+        },
+        {
+          "metrics": {
+            "accuracy": 0.7864583333333334,
+            "complete_pair_accuracy": 0.5972222222222222,
+            "confusion": {
+              "ASK->ASK": 265,
+              "ASK->REFUSE": 23,
+              "CHEAP->CHEAP": 176,
+              "CHEAP->FAST": 25,
+              "CHEAP->REFUSE": 87,
+              "FAST->CHEAP": 8,
+              "FAST->FAST": 238,
+              "FAST->REFUSE": 42,
+              "REFUSE->ASK": 18,
+              "REFUSE->CHEAP": 16,
+              "REFUSE->FAST": 27,
+              "REFUSE->REFUSE": 227
+            },
+            "counterfactual_pair_correct": 344,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 43,
+                "clarification_not_returned": 23,
+                "false_refusal": 129,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.074652777777777778",
+                "authorization_violation_per_refuse": "0.149305555555555556",
+                "clarification_not_returned_per_ask": "0.079861111111111111",
+                "false_refusal_per_permitted": "0.223958333333333333",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 43,
+            "worst_family_accuracy": 0.5729166666666666
+          },
+          "step": 500
+        },
+        {
+          "metrics": {
+            "accuracy": 0.8142361111111112,
+            "complete_pair_accuracy": 0.6440972222222222,
+            "confusion": {
+              "ASK->ASK": 286,
+              "ASK->REFUSE": 2,
+              "CHEAP->CHEAP": 265,
+              "CHEAP->FAST": 8,
+              "CHEAP->REFUSE": 15,
+              "FAST->CHEAP": 66,
+              "FAST->FAST": 210,
+              "FAST->REFUSE": 12,
+              "REFUSE->ASK": 24,
+              "REFUSE->CHEAP": 71,
+              "REFUSE->FAST": 16,
+              "REFUSE->REFUSE": 177
+            },
+            "counterfactual_pair_correct": 371,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 87,
+                "clarification_not_returned": 2,
+                "false_refusal": 27,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.151041666666666667",
+                "authorization_violation_per_refuse": "0.302083333333333333",
+                "clarification_not_returned_per_ask": "0.006944444444444444",
+                "false_refusal_per_permitted": "0.046875000000000000",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 87,
+            "worst_family_accuracy": 0.59375
+          },
+          "step": 600
+        },
+        {
+          "metrics": {
+            "accuracy": 0.90625,
+            "complete_pair_accuracy": 0.8159722222222222,
+            "confusion": {
+              "ASK->ASK": 287,
+              "ASK->REFUSE": 1,
+              "CHEAP->CHEAP": 239,
+              "CHEAP->FAST": 14,
+              "CHEAP->REFUSE": 35,
+              "FAST->CHEAP": 15,
+              "FAST->FAST": 268,
+              "FAST->REFUSE": 5,
+              "REFUSE->ASK": 14,
+              "REFUSE->CHEAP": 14,
+              "REFUSE->FAST": 10,
+              "REFUSE->REFUSE": 250
+            },
+            "counterfactual_pair_correct": 470,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 24,
+                "clarification_not_returned": 1,
+                "false_refusal": 40,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.041666666666666667",
+                "authorization_violation_per_refuse": "0.083333333333333333",
+                "clarification_not_returned_per_ask": "0.003472222222222222",
+                "false_refusal_per_permitted": "0.069444444444444444",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 24,
+            "worst_family_accuracy": 0.6979166666666666
+          },
+          "step": 700
+        },
+        {
+          "metrics": {
+            "accuracy": 0.9366319444444444,
+            "complete_pair_accuracy": 0.8732638888888888,
+            "confusion": {
+              "ASK->ASK": 285,
+              "ASK->REFUSE": 3,
+              "CHEAP->CHEAP": 265,
+              "CHEAP->FAST": 11,
+              "CHEAP->REFUSE": 12,
+              "FAST->CHEAP": 10,
+              "FAST->FAST": 275,
+              "FAST->REFUSE": 3,
+              "REFUSE->ASK": 5,
+              "REFUSE->CHEAP": 14,
+              "REFUSE->FAST": 15,
+              "REFUSE->REFUSE": 254
+            },
+            "counterfactual_pair_correct": 503,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 29,
+                "clarification_not_returned": 3,
+                "false_refusal": 15,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.050347222222222222",
+                "authorization_violation_per_refuse": "0.100694444444444444",
+                "clarification_not_returned_per_ask": "0.010416666666666667",
+                "false_refusal_per_permitted": "0.026041666666666667",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 29,
+            "worst_family_accuracy": 0.7604166666666666
+          },
+          "step": 800
+        },
+        {
+          "metrics": {
+            "accuracy": 0.9279513888888888,
+            "complete_pair_accuracy": 0.859375,
+            "confusion": {
+              "ASK->ASK": 287,
+              "ASK->REFUSE": 1,
+              "CHEAP->CHEAP": 281,
+              "CHEAP->FAST": 7,
+              "FAST->CHEAP": 21,
+              "FAST->FAST": 265,
+              "FAST->REFUSE": 2,
+              "REFUSE->ASK": 4,
+              "REFUSE->CHEAP": 35,
+              "REFUSE->FAST": 13,
+              "REFUSE->REFUSE": 236
+            },
+            "counterfactual_pair_correct": 495,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 48,
+                "clarification_not_returned": 1,
+                "false_refusal": 2,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.083333333333333333",
+                "authorization_violation_per_refuse": "0.166666666666666667",
+                "clarification_not_returned_per_ask": "0.003472222222222222",
+                "false_refusal_per_permitted": "0.003472222222222222",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 48,
+            "worst_family_accuracy": 0.75
+          },
+          "step": 900
+        },
+        {
+          "metrics": {
+            "accuracy": 0.90625,
+            "brier_score": "0.117789875331699523",
+            "category_accuracy": {
+              "clarification": 1.0,
+              "ordinary": 0.9375,
+              "preference": 0.85,
+              "refusal": 0.8958333333333334
+            },
+            "class_accuracy": {
+              "ASK": 1.0,
+              "CHEAP": 0.9652777777777778,
+              "FAST": 0.7638888888888888,
+              "REFUSE": 0.8958333333333334
+            },
+            "complete_pair_accuracy": 0.8194444444444444,
+            "confusion": {
+              "ASK->ASK": 288,
+              "CHEAP->CHEAP": 278,
+              "CHEAP->FAST": 3,
+              "CHEAP->REFUSE": 7,
+              "FAST->CHEAP": 52,
+              "FAST->FAST": 220,
+              "FAST->REFUSE": 16,
+              "REFUSE->ASK": 3,
+              "REFUSE->CHEAP": 25,
+              "REFUSE->FAST": 2,
+              "REFUSE->REFUSE": 258
+            },
+            "counterfactual_pair_correct": 472,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 27,
+                "clarification_not_returned": 0,
+                "false_refusal": 23,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.046875000000000000",
+                "authorization_violation_per_refuse": "0.093750000000000000",
+                "clarification_not_returned_per_ask": "0.000000000000000000",
+                "false_refusal_per_permitted": "0.039930555555555556",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "expected_calibration_error": "0.028858037355045478",
+            "false_refusal_rate": 0.03993055555555555,
+            "family_accuracy": {
+              "compact_v2_amendment_brief": 0.875,
+              "compact_v2_choice_question": 0.9791666666666666,
+              "compact_v2_constraint_card": 0.9895833333333334,
+              "compact_v2_instruction_receipt": 1.0,
+              "compositional5_constraint_timeline": 0.625,
+              "compositional5_revision_letter": 0.6458333333333334,
+              "corrective4_multi_condition_receipt": 0.9791666666666666,
+              "corrective4_two_speaker_revision": 0.9583333333333334,
+              "diverse_contract_addendum": 0.9791666666666666,
+              "diverse_dialogue_handoff": 0.9895833333333334,
+              "diverse_priority_register": 0.875,
+              "diverse_research_notebook": 0.9791666666666666
+            },
+            "family_macro_accuracy": 0.90625,
+            "invalid_outputs": 0,
+            "invariance_pair_accuracy": null,
+            "missing_clarification_rate": 0.0,
+            "negative_log_likelihood": "0.203585577096559525",
+            "negative_log_likelihood_by_class": {
+              "ASK": "0.007447686611974282",
+              "CHEAP": "0.083738645026097916",
+              "FAST": "0.505486768492922418",
+              "REFUSE": "0.217669208255243484"
+            },
+            "nll_probability_floor": "0.000000000001",
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 27,
+            "worst_family_accuracy": 0.625
+          },
+          "step": 1000
+        }
+      ],
+      "method": "fixed-r12",
+      "rank": {
+        "initial_active_rank": 264,
+        "rank_history_events": 1000,
+        "terminal_active_rank": 264,
+        "unique_logged_active_ranks": [
+          264
+        ]
+      },
+      "run_id": "run-01-d80958105095",
+      "seed": 60606,
+      "selection": {
+        "best_is_initial": false,
+        "best_step": 700,
+        "explanation": {
+          "best_counterfactual_pairs_correct": 470,
+          "best_step_zero": false,
+          "best_unauthorized_count": 24,
+          "initial_counterfactual_pairs_correct": 0,
+          "initial_unauthorized_count": 62,
+          "selection_policy_orders_unauthorized_before_pair_and_accuracy": true
+        },
+        "policy": "public-guardrails-pair-family-v1"
+      },
+      "source_digests": {
+        "checkpoint_selection.json": "sha256:01bf55d00a73b813f3b51feb88d85e97773df7f986776a279816a93bc746df19",
+        "rank_history.jsonl": "sha256:688b81f1305c4a2f0e4de96bd7d722b661127f4519ffbf63ab2177bbfdf6a499",
+        "result.json": "sha256:4efc8b66f4063c27b77b06c487d595d7396f818adbdcb7b35590aa4caaeb9475",
+        "signed_training_job.json": "sha256:aea9416e002d0b3dd96f70e69e9c632f594121d0c90d3573e6bedde1af7ff649",
+        "training_metrics.jsonl": "sha256:686446f9df09c0d5c0db4c053064e4006bfd9f6a70c88bf0fd2626010f9768c6"
+      },
+      "training": {
+        "configured_head_learning_rate": 0.0003,
+        "configured_learning_rate": 0.0003,
+        "gradient_norm_max": 12.80187702178955,
+        "gradient_norm_max_step": 771,
+        "gradient_norm_min": 0.22507718205451965,
+        "learning_rate_logged_per_update": false,
+        "logged_updates": 1000,
+        "loss_first_100_mean": 1.3717655694484712,
+        "loss_last_100_mean": 0.20053177221037913,
+        "loss_max": 1.5250054001808167,
+        "loss_min": 0.006219979783054441,
+        "optimizer": "AdamW (from admitted worker configuration)"
+      },
+      "worker_identity": "sha256:e7207e498137c8b58a116072473d8214a2f9321d101fb6fe27d20ff5adddc68a"
+    },
+    {
+      "checkpoint_steps": {
+        "best": 0,
+        "initial": 0,
+        "terminal": 1000
+      },
+      "checkpoints": {
+        "best": {
+          "accuracy": 0.2439236111111111,
+          "brier_score": "0.778669736320565227",
+          "category_accuracy": {
+            "clarification": 0.8715277777777778,
+            "ordinary": 0.10416666666666667,
+            "preference": 0.041666666666666664,
+            "refusal": 0.0
+          },
+          "class_accuracy": {
+            "ASK": 0.8715277777777778,
+            "CHEAP": 0.003472222222222222,
+            "FAST": 0.10069444444444445,
+            "REFUSE": 0.0
+          },
+          "complete_pair_accuracy": 0.0,
+          "confusion": {
+            "ASK->ASK": 251,
+            "ASK->CHEAP": 1,
+            "ASK->FAST": 36,
+            "CHEAP->ASK": 256,
+            "CHEAP->CHEAP": 1,
+            "CHEAP->FAST": 31,
+            "FAST->ASK": 258,
+            "FAST->CHEAP": 1,
+            "FAST->FAST": 29,
+            "REFUSE->ASK": 263,
+            "REFUSE->FAST": 25
+          },
+          "counterfactual_pair_correct": 0,
+          "counterfactual_pair_total": 576,
+          "critical_errors": {
+            "counts": {
+              "authorization_violation": 25,
+              "clarification_not_returned": 37,
+              "false_refusal": 0,
+              "unsafe_action_when_clarification_required": 37
+            },
+            "denominators": {
+              "ask": 288,
+              "ask_or_refuse": 576,
+              "permitted": 576,
+              "refuse": 288
+            },
+            "rates": {
+              "any_action_on_ask_or_refuse": "0.107638888888888889",
+              "authorization_violation_per_refuse": "0.086805555555555556",
+              "clarification_not_returned_per_ask": "0.128472222222222222",
+              "false_refusal_per_permitted": "0.000000000000000000",
+              "unsafe_action_per_ask": "0.128472222222222222"
+            }
+          },
+          "expected_calibration_error": "0.115044735682507356",
+          "false_refusal_rate": 0.0,
+          "family_accuracy": {
+            "compact_v2_amendment_brief": 0.25,
+            "compact_v2_choice_question": 0.25,
+            "compact_v2_constraint_card": 0.25,
+            "compact_v2_instruction_receipt": 0.25,
+            "compositional5_constraint_timeline": 0.25,
+            "compositional5_revision_letter": 0.1875,
+            "corrective4_multi_condition_receipt": 0.23958333333333334,
+            "corrective4_two_speaker_revision": 0.25,
+            "diverse_contract_addendum": 0.25,
+            "diverse_dialogue_handoff": 0.25,
+            "diverse_priority_register": 0.25,
+            "diverse_research_notebook": 0.25
+          },
+          "family_macro_accuracy": 0.2439236111111111,
+          "invalid_outputs": 0,
+          "invariance_pair_accuracy": null,
+          "missing_clarification_rate": 0.1284722222222222,
+          "negative_log_likelihood": "1.443567566072462649",
+          "negative_log_likelihood_by_class": {
+            "ASK": "1.049508669443482584",
+            "CHEAP": "1.504887438033610873",
+            "FAST": "1.341131602987950662",
+            "REFUSE": "1.878742553824806476"
+          },
+          "nll_probability_floor": "0.000000000001",
+          "numerical_metric_schema": "saal-classification-diagnostics-v2",
+          "support": {
+            "by_class": {
+              "ASK": 288,
+              "CHEAP": 288,
+              "FAST": 288,
+              "REFUSE": 288
+            },
+            "by_family": {
+              "compact_v2_amendment_brief": 96,
+              "compact_v2_choice_question": 96,
+              "compact_v2_constraint_card": 96,
+              "compact_v2_instruction_receipt": 96,
+              "compositional5_constraint_timeline": 96,
+              "compositional5_revision_letter": 96,
+              "corrective4_multi_condition_receipt": 96,
+              "corrective4_two_speaker_revision": 96,
+              "diverse_contract_addendum": 96,
+              "diverse_dialogue_handoff": 96,
+              "diverse_priority_register": 96,
+              "diverse_research_notebook": 96
+            },
+            "counterfactual_pairs": {
+              "counterfactual_opposite_label": 576,
+              "other_or_incomplete": 0,
+              "same_label_invariance": 0
+            },
+            "records": 1152
+          },
+          "unauthorized_proposals": 62,
+          "worst_family_accuracy": 0.1875
+        },
+        "initial": {
+          "accuracy": 0.2439236111111111,
+          "brier_score": "0.778669736320565227",
+          "category_accuracy": {
+            "clarification": 0.8715277777777778,
+            "ordinary": 0.10416666666666667,
+            "preference": 0.041666666666666664,
+            "refusal": 0.0
+          },
+          "class_accuracy": {
+            "ASK": 0.8715277777777778,
+            "CHEAP": 0.003472222222222222,
+            "FAST": 0.10069444444444445,
+            "REFUSE": 0.0
+          },
+          "complete_pair_accuracy": 0.0,
+          "confusion": {
+            "ASK->ASK": 251,
+            "ASK->CHEAP": 1,
+            "ASK->FAST": 36,
+            "CHEAP->ASK": 256,
+            "CHEAP->CHEAP": 1,
+            "CHEAP->FAST": 31,
+            "FAST->ASK": 258,
+            "FAST->CHEAP": 1,
+            "FAST->FAST": 29,
+            "REFUSE->ASK": 263,
+            "REFUSE->FAST": 25
+          },
+          "counterfactual_pair_correct": 0,
+          "counterfactual_pair_total": 576,
+          "critical_errors": {
+            "counts": {
+              "authorization_violation": 25,
+              "clarification_not_returned": 37,
+              "false_refusal": 0,
+              "unsafe_action_when_clarification_required": 37
+            },
+            "denominators": {
+              "ask": 288,
+              "ask_or_refuse": 576,
+              "permitted": 576,
+              "refuse": 288
+            },
+            "rates": {
+              "any_action_on_ask_or_refuse": "0.107638888888888889",
+              "authorization_violation_per_refuse": "0.086805555555555556",
+              "clarification_not_returned_per_ask": "0.128472222222222222",
+              "false_refusal_per_permitted": "0.000000000000000000",
+              "unsafe_action_per_ask": "0.128472222222222222"
+            }
+          },
+          "expected_calibration_error": "0.115044735682507356",
+          "false_refusal_rate": 0.0,
+          "family_accuracy": {
+            "compact_v2_amendment_brief": 0.25,
+            "compact_v2_choice_question": 0.25,
+            "compact_v2_constraint_card": 0.25,
+            "compact_v2_instruction_receipt": 0.25,
+            "compositional5_constraint_timeline": 0.25,
+            "compositional5_revision_letter": 0.1875,
+            "corrective4_multi_condition_receipt": 0.23958333333333334,
+            "corrective4_two_speaker_revision": 0.25,
+            "diverse_contract_addendum": 0.25,
+            "diverse_dialogue_handoff": 0.25,
+            "diverse_priority_register": 0.25,
+            "diverse_research_notebook": 0.25
+          },
+          "family_macro_accuracy": 0.2439236111111111,
+          "invalid_outputs": 0,
+          "invariance_pair_accuracy": null,
+          "missing_clarification_rate": 0.1284722222222222,
+          "negative_log_likelihood": "1.443567566072462649",
+          "negative_log_likelihood_by_class": {
+            "ASK": "1.049508669443482584",
+            "CHEAP": "1.504887438033610873",
+            "FAST": "1.341131602987950662",
+            "REFUSE": "1.878742553824806476"
+          },
+          "nll_probability_floor": "0.000000000001",
+          "numerical_metric_schema": "saal-classification-diagnostics-v2",
+          "support": {
+            "by_class": {
+              "ASK": 288,
+              "CHEAP": 288,
+              "FAST": 288,
+              "REFUSE": 288
+            },
+            "by_family": {
+              "compact_v2_amendment_brief": 96,
+              "compact_v2_choice_question": 96,
+              "compact_v2_constraint_card": 96,
+              "compact_v2_instruction_receipt": 96,
+              "compositional5_constraint_timeline": 96,
+              "compositional5_revision_letter": 96,
+              "corrective4_multi_condition_receipt": 96,
+              "corrective4_two_speaker_revision": 96,
+              "diverse_contract_addendum": 96,
+              "diverse_dialogue_handoff": 96,
+              "diverse_priority_register": 96,
+              "diverse_research_notebook": 96
+            },
+            "counterfactual_pairs": {
+              "counterfactual_opposite_label": 576,
+              "other_or_incomplete": 0,
+              "same_label_invariance": 0
+            },
+            "records": 1152
+          },
+          "unauthorized_proposals": 62,
+          "worst_family_accuracy": 0.1875
+        },
+        "terminal": {
+          "accuracy": 0.6119791666666666,
+          "brier_score": "0.486351074358938937",
+          "category_accuracy": {
+            "clarification": 0.9618055555555556,
+            "ordinary": 0.6770833333333334,
+            "preference": 0.43333333333333335,
+            "refusal": 0.5381944444444444
+          },
+          "class_accuracy": {
+            "ASK": 0.9618055555555556,
+            "CHEAP": 0.5381944444444444,
+            "FAST": 0.4097222222222222,
+            "REFUSE": 0.5381944444444444
+          },
+          "complete_pair_accuracy": 0.3194444444444444,
+          "confusion": {
+            "ASK->ASK": 277,
+            "ASK->REFUSE": 11,
+            "CHEAP->ASK": 4,
+            "CHEAP->CHEAP": 155,
+            "CHEAP->FAST": 27,
+            "CHEAP->REFUSE": 102,
+            "FAST->ASK": 6,
+            "FAST->CHEAP": 71,
+            "FAST->FAST": 118,
+            "FAST->REFUSE": 93,
+            "REFUSE->ASK": 33,
+            "REFUSE->CHEAP": 79,
+            "REFUSE->FAST": 21,
+            "REFUSE->REFUSE": 155
+          },
+          "counterfactual_pair_correct": 184,
+          "counterfactual_pair_total": 576,
+          "critical_errors": {
+            "counts": {
+              "authorization_violation": 100,
+              "clarification_not_returned": 11,
+              "false_refusal": 195,
+              "unsafe_action_when_clarification_required": 0
+            },
+            "denominators": {
+              "ask": 288,
+              "ask_or_refuse": 576,
+              "permitted": 576,
+              "refuse": 288
+            },
+            "rates": {
+              "any_action_on_ask_or_refuse": "0.173611111111111111",
+              "authorization_violation_per_refuse": "0.347222222222222222",
+              "clarification_not_returned_per_ask": "0.038194444444444444",
+              "false_refusal_per_permitted": "0.338541666666666667",
+              "unsafe_action_per_ask": "0.000000000000000000"
+            }
+          },
+          "expected_calibration_error": "0.051781711608378424",
+          "false_refusal_rate": 0.3385416666666667,
+          "family_accuracy": {
+            "compact_v2_amendment_brief": 0.5416666666666666,
+            "compact_v2_choice_question": 0.6145833333333334,
+            "compact_v2_constraint_card": 0.53125,
+            "compact_v2_instruction_receipt": 0.5520833333333334,
+            "compositional5_constraint_timeline": 0.6145833333333334,
+            "compositional5_revision_letter": 0.6041666666666666,
+            "corrective4_multi_condition_receipt": 0.6770833333333334,
+            "corrective4_two_speaker_revision": 0.625,
+            "diverse_contract_addendum": 0.6979166666666666,
+            "diverse_dialogue_handoff": 0.6041666666666666,
+            "diverse_priority_register": 0.53125,
+            "diverse_research_notebook": 0.75
+          },
+          "family_macro_accuracy": 0.6119791666666666,
+          "invalid_outputs": 0,
+          "invariance_pair_accuracy": null,
+          "missing_clarification_rate": 0.03819444444444445,
+          "negative_log_likelihood": "0.849557809398379831",
+          "negative_log_likelihood_by_class": {
+            "ASK": "0.107029317666988735",
+            "CHEAP": "0.928791771775330311",
+            "FAST": "1.303988915162517133",
+            "REFUSE": "1.058421232988683146"
+          },
+          "nll_probability_floor": "0.000000000001",
+          "numerical_metric_schema": "saal-classification-diagnostics-v2",
+          "support": {
+            "by_class": {
+              "ASK": 288,
+              "CHEAP": 288,
+              "FAST": 288,
+              "REFUSE": 288
+            },
+            "by_family": {
+              "compact_v2_amendment_brief": 96,
+              "compact_v2_choice_question": 96,
+              "compact_v2_constraint_card": 96,
+              "compact_v2_instruction_receipt": 96,
+              "compositional5_constraint_timeline": 96,
+              "compositional5_revision_letter": 96,
+              "corrective4_multi_condition_receipt": 96,
+              "corrective4_two_speaker_revision": 96,
+              "diverse_contract_addendum": 96,
+              "diverse_dialogue_handoff": 96,
+              "diverse_priority_register": 96,
+              "diverse_research_notebook": 96
+            },
+            "counterfactual_pairs": {
+              "counterfactual_opposite_label": 576,
+              "other_or_incomplete": 0,
+              "same_label_invariance": 0
+            },
+            "records": 1152
+          },
+          "unauthorized_proposals": 100,
+          "worst_family_accuracy": 0.53125
+        }
+      },
+      "job_digest": "sha256:fd938b4cf0ea2c679c367d9946467d87b6104438bfe585b67fc11a15d6b924b1",
+      "logged_development_curve": [
+        {
+          "metrics": {
+            "accuracy": 0.2439236111111111,
+            "brier_score": "0.778669736320565227",
+            "category_accuracy": {
+              "clarification": 0.8715277777777778,
+              "ordinary": 0.10416666666666667,
+              "preference": 0.041666666666666664,
+              "refusal": 0.0
+            },
+            "class_accuracy": {
+              "ASK": 0.8715277777777778,
+              "CHEAP": 0.003472222222222222,
+              "FAST": 0.10069444444444445,
+              "REFUSE": 0.0
+            },
+            "complete_pair_accuracy": 0.0,
+            "confusion": {
+              "ASK->ASK": 251,
+              "ASK->CHEAP": 1,
+              "ASK->FAST": 36,
+              "CHEAP->ASK": 256,
+              "CHEAP->CHEAP": 1,
+              "CHEAP->FAST": 31,
+              "FAST->ASK": 258,
+              "FAST->CHEAP": 1,
+              "FAST->FAST": 29,
+              "REFUSE->ASK": 263,
+              "REFUSE->FAST": 25
+            },
+            "counterfactual_pair_correct": 0,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 25,
+                "clarification_not_returned": 37,
+                "false_refusal": 0,
+                "unsafe_action_when_clarification_required": 37
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.107638888888888889",
+                "authorization_violation_per_refuse": "0.086805555555555556",
+                "clarification_not_returned_per_ask": "0.128472222222222222",
+                "false_refusal_per_permitted": "0.000000000000000000",
+                "unsafe_action_per_ask": "0.128472222222222222"
+              }
+            },
+            "expected_calibration_error": "0.115044735682507356",
+            "false_refusal_rate": 0.0,
+            "family_accuracy": {
+              "compact_v2_amendment_brief": 0.25,
+              "compact_v2_choice_question": 0.25,
+              "compact_v2_constraint_card": 0.25,
+              "compact_v2_instruction_receipt": 0.25,
+              "compositional5_constraint_timeline": 0.25,
+              "compositional5_revision_letter": 0.1875,
+              "corrective4_multi_condition_receipt": 0.23958333333333334,
+              "corrective4_two_speaker_revision": 0.25,
+              "diverse_contract_addendum": 0.25,
+              "diverse_dialogue_handoff": 0.25,
+              "diverse_priority_register": 0.25,
+              "diverse_research_notebook": 0.25
+            },
+            "family_macro_accuracy": 0.2439236111111111,
+            "invalid_outputs": 0,
+            "invariance_pair_accuracy": null,
+            "missing_clarification_rate": 0.1284722222222222,
+            "negative_log_likelihood": "1.443567566072462649",
+            "negative_log_likelihood_by_class": {
+              "ASK": "1.049508669443482584",
+              "CHEAP": "1.504887438033610873",
+              "FAST": "1.341131602987950662",
+              "REFUSE": "1.878742553824806476"
+            },
+            "nll_probability_floor": "0.000000000001",
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 62,
+            "worst_family_accuracy": 0.1875
+          },
+          "step": 0
+        },
+        {
+          "metrics": {
+            "accuracy": 0.3628472222222222,
+            "complete_pair_accuracy": 0.08159722222222222,
+            "confusion": {
+              "ASK->ASK": 137,
+              "ASK->CHEAP": 63,
+              "ASK->FAST": 51,
+              "ASK->REFUSE": 37,
+              "CHEAP->ASK": 25,
+              "CHEAP->CHEAP": 137,
+              "CHEAP->FAST": 85,
+              "CHEAP->REFUSE": 41,
+              "FAST->ASK": 16,
+              "FAST->CHEAP": 129,
+              "FAST->FAST": 95,
+              "FAST->REFUSE": 48,
+              "REFUSE->ASK": 48,
+              "REFUSE->CHEAP": 118,
+              "REFUSE->FAST": 73,
+              "REFUSE->REFUSE": 49
+            },
+            "counterfactual_pair_correct": 47,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 191,
+                "clarification_not_returned": 151,
+                "false_refusal": 89,
+                "unsafe_action_when_clarification_required": 114
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.529513888888888889",
+                "authorization_violation_per_refuse": "0.663194444444444444",
+                "clarification_not_returned_per_ask": "0.524305555555555556",
+                "false_refusal_per_permitted": "0.154513888888888889",
+                "unsafe_action_per_ask": "0.395833333333333333"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 305,
+            "worst_family_accuracy": 0.25
+          },
+          "step": 100
+        },
+        {
+          "metrics": {
+            "accuracy": 0.3880208333333333,
+            "complete_pair_accuracy": 0.09722222222222222,
+            "confusion": {
+              "ASK->ASK": 270,
+              "ASK->CHEAP": 7,
+              "ASK->FAST": 1,
+              "ASK->REFUSE": 10,
+              "CHEAP->ASK": 135,
+              "CHEAP->CHEAP": 51,
+              "CHEAP->FAST": 46,
+              "CHEAP->REFUSE": 56,
+              "FAST->ASK": 135,
+              "FAST->CHEAP": 37,
+              "FAST->FAST": 68,
+              "FAST->REFUSE": 48,
+              "REFUSE->ASK": 143,
+              "REFUSE->CHEAP": 46,
+              "REFUSE->FAST": 41,
+              "REFUSE->REFUSE": 58
+            },
+            "counterfactual_pair_correct": 56,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 87,
+                "clarification_not_returned": 18,
+                "false_refusal": 104,
+                "unsafe_action_when_clarification_required": 8
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.164930555555555556",
+                "authorization_violation_per_refuse": "0.302083333333333333",
+                "clarification_not_returned_per_ask": "0.062500000000000000",
+                "false_refusal_per_permitted": "0.180555555555555556",
+                "unsafe_action_per_ask": "0.027777777777777778"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 95,
+            "worst_family_accuracy": 0.2708333333333333
+          },
+          "step": 200
+        },
+        {
+          "metrics": {
+            "accuracy": 0.4939236111111111,
+            "complete_pair_accuracy": 0.19618055555555555,
+            "confusion": {
+              "ASK->ASK": 171,
+              "ASK->CHEAP": 62,
+              "ASK->FAST": 53,
+              "ASK->REFUSE": 2,
+              "CHEAP->ASK": 7,
+              "CHEAP->CHEAP": 156,
+              "CHEAP->FAST": 121,
+              "CHEAP->REFUSE": 4,
+              "FAST->ASK": 3,
+              "FAST->CHEAP": 67,
+              "FAST->FAST": 213,
+              "FAST->REFUSE": 5,
+              "REFUSE->ASK": 31,
+              "REFUSE->CHEAP": 106,
+              "REFUSE->FAST": 122,
+              "REFUSE->REFUSE": 29
+            },
+            "counterfactual_pair_correct": 113,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 228,
+                "clarification_not_returned": 117,
+                "false_refusal": 9,
+                "unsafe_action_when_clarification_required": 115
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.595486111111111111",
+                "authorization_violation_per_refuse": "0.791666666666666667",
+                "clarification_not_returned_per_ask": "0.406250000000000000",
+                "false_refusal_per_permitted": "0.015625000000000000",
+                "unsafe_action_per_ask": "0.399305555555555556"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 343,
+            "worst_family_accuracy": 0.3333333333333333
+          },
+          "step": 300
+        },
+        {
+          "metrics": {
+            "accuracy": 0.5329861111111112,
+            "complete_pair_accuracy": 0.2170138888888889,
+            "confusion": {
+              "ASK->ASK": 216,
+              "ASK->CHEAP": 8,
+              "ASK->FAST": 13,
+              "ASK->REFUSE": 51,
+              "CHEAP->ASK": 8,
+              "CHEAP->CHEAP": 131,
+              "CHEAP->FAST": 87,
+              "CHEAP->REFUSE": 62,
+              "FAST->ASK": 4,
+              "FAST->CHEAP": 60,
+              "FAST->FAST": 181,
+              "FAST->REFUSE": 43,
+              "REFUSE->ASK": 40,
+              "REFUSE->CHEAP": 82,
+              "REFUSE->FAST": 80,
+              "REFUSE->REFUSE": 86
+            },
+            "counterfactual_pair_correct": 125,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 162,
+                "clarification_not_returned": 72,
+                "false_refusal": 105,
+                "unsafe_action_when_clarification_required": 21
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.317708333333333333",
+                "authorization_violation_per_refuse": "0.562500000000000000",
+                "clarification_not_returned_per_ask": "0.250000000000000000",
+                "false_refusal_per_permitted": "0.182291666666666667",
+                "unsafe_action_per_ask": "0.072916666666666667"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 183,
+            "worst_family_accuracy": 0.3333333333333333
+          },
+          "step": 400
+        },
+        {
+          "metrics": {
+            "accuracy": 0.5546875,
+            "complete_pair_accuracy": 0.24131944444444445,
+            "confusion": {
+              "ASK->ASK": 260,
+              "ASK->CHEAP": 17,
+              "ASK->FAST": 5,
+              "ASK->REFUSE": 6,
+              "CHEAP->ASK": 31,
+              "CHEAP->CHEAP": 169,
+              "CHEAP->FAST": 78,
+              "CHEAP->REFUSE": 10,
+              "FAST->ASK": 25,
+              "FAST->CHEAP": 78,
+              "FAST->FAST": 174,
+              "FAST->REFUSE": 11,
+              "REFUSE->ASK": 68,
+              "REFUSE->CHEAP": 116,
+              "REFUSE->FAST": 68,
+              "REFUSE->REFUSE": 36
+            },
+            "counterfactual_pair_correct": 139,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 184,
+                "clarification_not_returned": 28,
+                "false_refusal": 21,
+                "unsafe_action_when_clarification_required": 22
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.357638888888888889",
+                "authorization_violation_per_refuse": "0.638888888888888889",
+                "clarification_not_returned_per_ask": "0.097222222222222222",
+                "false_refusal_per_permitted": "0.036458333333333333",
+                "unsafe_action_per_ask": "0.076388888888888889"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 206,
+            "worst_family_accuracy": 0.4375
+          },
+          "step": 500
+        },
+        {
+          "metrics": {
+            "accuracy": 0.5954861111111112,
+            "complete_pair_accuracy": 0.2864583333333333,
+            "confusion": {
+              "ASK->ASK": 285,
+              "ASK->CHEAP": 1,
+              "ASK->FAST": 1,
+              "ASK->REFUSE": 1,
+              "CHEAP->ASK": 24,
+              "CHEAP->CHEAP": 183,
+              "CHEAP->FAST": 47,
+              "CHEAP->REFUSE": 34,
+              "FAST->ASK": 19,
+              "FAST->CHEAP": 96,
+              "FAST->FAST": 148,
+              "FAST->REFUSE": 25,
+              "REFUSE->ASK": 64,
+              "REFUSE->CHEAP": 111,
+              "REFUSE->FAST": 43,
+              "REFUSE->REFUSE": 70
+            },
+            "counterfactual_pair_correct": 165,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 154,
+                "clarification_not_returned": 3,
+                "false_refusal": 59,
+                "unsafe_action_when_clarification_required": 2
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.270833333333333333",
+                "authorization_violation_per_refuse": "0.534722222222222222",
+                "clarification_not_returned_per_ask": "0.010416666666666667",
+                "false_refusal_per_permitted": "0.102430555555555556",
+                "unsafe_action_per_ask": "0.006944444444444444"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 156,
+            "worst_family_accuracy": 0.4895833333333333
+          },
+          "step": 600
+        },
+        {
+          "metrics": {
+            "accuracy": 0.6128472222222222,
+            "complete_pair_accuracy": 0.3142361111111111,
+            "confusion": {
+              "ASK->ASK": 282,
+              "ASK->REFUSE": 6,
+              "CHEAP->ASK": 4,
+              "CHEAP->CHEAP": 155,
+              "CHEAP->FAST": 76,
+              "CHEAP->REFUSE": 53,
+              "FAST->ASK": 6,
+              "FAST->CHEAP": 77,
+              "FAST->FAST": 181,
+              "FAST->REFUSE": 24,
+              "REFUSE->ASK": 36,
+              "REFUSE->CHEAP": 101,
+              "REFUSE->FAST": 63,
+              "REFUSE->REFUSE": 88
+            },
+            "counterfactual_pair_correct": 181,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 164,
+                "clarification_not_returned": 6,
+                "false_refusal": 77,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.284722222222222222",
+                "authorization_violation_per_refuse": "0.569444444444444444",
+                "clarification_not_returned_per_ask": "0.020833333333333333",
+                "false_refusal_per_permitted": "0.133680555555555556",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 164,
+            "worst_family_accuracy": 0.4895833333333333
+          },
+          "step": 700
+        },
+        {
+          "metrics": {
+            "accuracy": 0.6414930555555556,
+            "complete_pair_accuracy": 0.3559027777777778,
+            "confusion": {
+              "ASK->ASK": 279,
+              "ASK->CHEAP": 1,
+              "ASK->REFUSE": 8,
+              "CHEAP->ASK": 1,
+              "CHEAP->CHEAP": 188,
+              "CHEAP->FAST": 82,
+              "CHEAP->REFUSE": 17,
+              "FAST->ASK": 1,
+              "FAST->CHEAP": 76,
+              "FAST->FAST": 203,
+              "FAST->REFUSE": 8,
+              "REFUSE->ASK": 26,
+              "REFUSE->CHEAP": 118,
+              "REFUSE->FAST": 75,
+              "REFUSE->REFUSE": 69
+            },
+            "counterfactual_pair_correct": 205,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 193,
+                "clarification_not_returned": 9,
+                "false_refusal": 25,
+                "unsafe_action_when_clarification_required": 1
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.336805555555555556",
+                "authorization_violation_per_refuse": "0.670138888888888889",
+                "clarification_not_returned_per_ask": "0.031250000000000000",
+                "false_refusal_per_permitted": "0.043402777777777778",
+                "unsafe_action_per_ask": "0.003472222222222222"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 194,
+            "worst_family_accuracy": 0.5104166666666666
+          },
+          "step": 800
+        },
+        {
+          "metrics": {
+            "accuracy": 0.6371527777777778,
+            "complete_pair_accuracy": 0.3454861111111111,
+            "confusion": {
+              "ASK->ASK": 288,
+              "CHEAP->ASK": 2,
+              "CHEAP->CHEAP": 171,
+              "CHEAP->FAST": 68,
+              "CHEAP->REFUSE": 47,
+              "FAST->ASK": 7,
+              "FAST->CHEAP": 63,
+              "FAST->FAST": 183,
+              "FAST->REFUSE": 35,
+              "REFUSE->ASK": 40,
+              "REFUSE->CHEAP": 89,
+              "REFUSE->FAST": 67,
+              "REFUSE->REFUSE": 92
+            },
+            "counterfactual_pair_correct": 199,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 156,
+                "clarification_not_returned": 0,
+                "false_refusal": 82,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.270833333333333333",
+                "authorization_violation_per_refuse": "0.541666666666666667",
+                "clarification_not_returned_per_ask": "0.000000000000000000",
+                "false_refusal_per_permitted": "0.142361111111111111",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 156,
+            "worst_family_accuracy": 0.5520833333333334
+          },
+          "step": 900
+        },
+        {
+          "metrics": {
+            "accuracy": 0.6119791666666666,
+            "brier_score": "0.486351074358938937",
+            "category_accuracy": {
+              "clarification": 0.9618055555555556,
+              "ordinary": 0.6770833333333334,
+              "preference": 0.43333333333333335,
+              "refusal": 0.5381944444444444
+            },
+            "class_accuracy": {
+              "ASK": 0.9618055555555556,
+              "CHEAP": 0.5381944444444444,
+              "FAST": 0.4097222222222222,
+              "REFUSE": 0.5381944444444444
+            },
+            "complete_pair_accuracy": 0.3194444444444444,
+            "confusion": {
+              "ASK->ASK": 277,
+              "ASK->REFUSE": 11,
+              "CHEAP->ASK": 4,
+              "CHEAP->CHEAP": 155,
+              "CHEAP->FAST": 27,
+              "CHEAP->REFUSE": 102,
+              "FAST->ASK": 6,
+              "FAST->CHEAP": 71,
+              "FAST->FAST": 118,
+              "FAST->REFUSE": 93,
+              "REFUSE->ASK": 33,
+              "REFUSE->CHEAP": 79,
+              "REFUSE->FAST": 21,
+              "REFUSE->REFUSE": 155
+            },
+            "counterfactual_pair_correct": 184,
+            "counterfactual_pair_total": 576,
+            "critical_errors": {
+              "counts": {
+                "authorization_violation": 100,
+                "clarification_not_returned": 11,
+                "false_refusal": 195,
+                "unsafe_action_when_clarification_required": 0
+              },
+              "denominators": {
+                "ask": 288,
+                "ask_or_refuse": 576,
+                "permitted": 576,
+                "refuse": 288
+              },
+              "rates": {
+                "any_action_on_ask_or_refuse": "0.173611111111111111",
+                "authorization_violation_per_refuse": "0.347222222222222222",
+                "clarification_not_returned_per_ask": "0.038194444444444444",
+                "false_refusal_per_permitted": "0.338541666666666667",
+                "unsafe_action_per_ask": "0.000000000000000000"
+              }
+            },
+            "expected_calibration_error": "0.051781711608378424",
+            "false_refusal_rate": 0.3385416666666667,
+            "family_accuracy": {
+              "compact_v2_amendment_brief": 0.5416666666666666,
+              "compact_v2_choice_question": 0.6145833333333334,
+              "compact_v2_constraint_card": 0.53125,
+              "compact_v2_instruction_receipt": 0.5520833333333334,
+              "compositional5_constraint_timeline": 0.6145833333333334,
+              "compositional5_revision_letter": 0.6041666666666666,
+              "corrective4_multi_condition_receipt": 0.6770833333333334,
+              "corrective4_two_speaker_revision": 0.625,
+              "diverse_contract_addendum": 0.6979166666666666,
+              "diverse_dialogue_handoff": 0.6041666666666666,
+              "diverse_priority_register": 0.53125,
+              "diverse_research_notebook": 0.75
+            },
+            "family_macro_accuracy": 0.6119791666666666,
+            "invalid_outputs": 0,
+            "invariance_pair_accuracy": null,
+            "missing_clarification_rate": 0.03819444444444445,
+            "negative_log_likelihood": "0.849557809398379831",
+            "negative_log_likelihood_by_class": {
+              "ASK": "0.107029317666988735",
+              "CHEAP": "0.928791771775330311",
+              "FAST": "1.303988915162517133",
+              "REFUSE": "1.058421232988683146"
+            },
+            "nll_probability_floor": "0.000000000001",
+            "numerical_metric_schema": "saal-classification-diagnostics-v2",
+            "support": {
+              "by_class": {
+                "ASK": 288,
+                "CHEAP": 288,
+                "FAST": 288,
+                "REFUSE": 288
+              },
+              "by_family": {
+                "compact_v2_amendment_brief": 96,
+                "compact_v2_choice_question": 96,
+                "compact_v2_constraint_card": 96,
+                "compact_v2_instruction_receipt": 96,
+                "compositional5_constraint_timeline": 96,
+                "compositional5_revision_letter": 96,
+                "corrective4_multi_condition_receipt": 96,
+                "corrective4_two_speaker_revision": 96,
+                "diverse_contract_addendum": 96,
+                "diverse_dialogue_handoff": 96,
+                "diverse_priority_register": 96,
+                "diverse_research_notebook": 96
+              },
+              "counterfactual_pairs": {
+                "counterfactual_opposite_label": 576,
+                "other_or_incomplete": 0,
+                "same_label_invariance": 0
+              },
+              "records": 1152
+            },
+            "unauthorized_proposals": 100,
+            "worst_family_accuracy": 0.53125
+          },
+          "step": 1000
+        }
+      ],
+      "method": "adalora-12-to-8",
+      "rank": {
+        "initial_active_rank": 264,
+        "rank_history_events": 1000,
+        "terminal_active_rank": 176,
+        "unique_logged_active_ranks": [
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          190,
+          191,
+          192,
+          193,
+          195,
+          196,
+          197,
+          199,
+          200,
+          202,
+          204,
+          206,
+          208,
+          210,
+          212,
+          214,
+          216,
+          218,
+          221,
+          223,
+          226,
+          228,
+          231,
+          234,
+          237,
+          240,
+          243,
+          246,
+          249,
+          253,
+          256,
+          260,
+          264
+        ]
+      },
+      "run_id": "run-02-fd938b4cf0ea",
+      "seed": 60606,
+      "selection": {
+        "best_is_initial": true,
+        "best_step": 0,
+        "explanation": {
+          "best_counterfactual_pairs_correct": 0,
+          "best_step_zero": true,
+          "best_unauthorized_count": 62,
+          "initial_counterfactual_pairs_correct": 0,
+          "initial_unauthorized_count": 62,
+          "selection_policy_orders_unauthorized_before_pair_and_accuracy": true
+        },
+        "policy": "public-guardrails-pair-family-v1"
+      },
+      "source_digests": {
+        "checkpoint_selection.json": "sha256:4d7a36b9d21b16b4f1126a351dea45e0e89d7de357bf994c4d83608f6cc7b3cf",
+        "rank_history.jsonl": "sha256:eb0de56d7220ce9a5e8d288b978089946df00a5f97f7816dc5a521c46d6048d1",
+        "result.json": "sha256:cd10cc2b31d57d2f769775d02ab8d5c1e32d4dfbf37cfbe8adb66430cfa89936",
+        "signed_training_job.json": "sha256:87ba9ad6433771f10e563da47fae877412bd263025432b25c13a7c660c352d6d",
+        "training_metrics.jsonl": "sha256:c1666b4d126a6130a564a6ccddca8416f79ab4049abe1281c3eaaca1cd43b1e7"
+      },
+      "training": {
+        "configured_head_learning_rate": 0.0003,
+        "configured_learning_rate": 0.0003,
+        "gradient_norm_max": 13.367523193359375,
+        "gradient_norm_max_step": 789,
+        "gradient_norm_min": 0.9019691944122314,
+        "learning_rate_logged_per_update": false,
+        "logged_updates": 1000,
+        "loss_first_100_mean": 1.3693349808454514,
+        "loss_last_100_mean": 0.8553800565004349,
+        "loss_max": 1.5900057554244995,
+        "loss_min": 0.5331819653511047,
+        "optimizer": "AdamW (from admitted worker configuration)"
+      },
+      "worker_identity": "sha256:e7207e498137c8b58a116072473d8214a2f9321d101fb6fe27d20ff5adddc68a"
+    }
+  ],
+  "schema": "saal-dynamic-lora-pilot-diagnostic-v1",
+  "scope": "post-hoc public development diagnostics; not qualification or new experiment evidence",
+  "training_root": "results branch: research/dynamic-lora-v6/pilot-v3-01/artifacts"
+}
