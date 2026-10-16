@@ -6,7 +6,7 @@ Status: **PARTIAL — tooling, full regression and checkpoint content verificati
 
 - Created `repair/saal-v097-wp02-recovery` from the v0.9.7 development baseline at `fb2e7eb000fb2a4ca50e2b5ec5034e02d3b95f4c`; the remote source-integrity ref matched that commit at inspection.
 - Recorded the expected v0.9.6 archive hash and the missing-input state without substituting another archive.
-- Added a hash-gated, non-importing comparator for the exact v0.9.6 candidate allowlist and a manifest reconciler that requires explicit path-scope declarations.
+- Added a hash-gated, non-importing comparator for the exact v0.9.6 candidate allowlist and a manifest reconciler that requires explicit scope declarations.
 - Built and independently re-verified a 332-file development source snapshot. Static local imports and file bytes verify; the snapshot explicitly remains unreviewed, unsigned and release-ineligible.
 - Verified all six historical checkpoint paths in the baseline Git LFS checkout: four unique payloads, each 598,445,904 bytes, match their full pointer SHA-256 values. All six parse as Safetensors with 138 tensors and match the pinned ModernBERT base inventory plus the four-class classifier conversion.
 - Recorded the prior v0.9.5-dev6 archive findings without changing its historical ZIP or manifests. The former archive is still physically incomplete even though the missing checkpoint payloads now exist in the current checkout.
@@ -14,7 +14,7 @@ Status: **PARTIAL — tooling, full regression and checkpoint content verificati
 
 ## Validation
 
-Pinned macOS arm64 Python 3.12.0 environment, with the repository locks and versions recorded in `release/TEST_REPORT.json`: **661 passed, 0 failed, 0 errors, 0 skipped**, exit code 0, in 152.54 seconds. The dedicated WP0.2 recovery tests also passed (13 tests). Two expected `zipfile` warnings were emitted by duplicate-member test fixtures.
+Pinned macOS arm64 Python 3.12.0 environment with the repository locks: the core suite passed **661 tests** and the separate `research/dynamic-lora-v6/tests` suite passed **165 tests**. Both exited 0 with no failures, errors or skips. Core duration was 152.54 seconds; the historical suite took 12.90 seconds. Exact versions and lock digests are recorded in `release/TEST_REPORT.json`. Two expected `zipfile` warnings came from duplicate-member test fixtures in the core suite.
 
 ## Remaining blockers
 

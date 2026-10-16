@@ -1,4 +1,15 @@
 {
+  "additional_suite": {
+    "command": "PYTHONPATH=src /Users/dawsonblock/Downloads/SAAL-RSI-validation-envs/adaptive-v6-py312/bin/python -m pytest -o addopts='' research/dynamic-lora-v6/tests -q -ra",
+    "duration_seconds": 12.9,
+    "errors": 0,
+    "exit_code": 0,
+    "failed": 0,
+    "passed": 165,
+    "path": "research/dynamic-lora-v6/tests",
+    "skipped": 0,
+    "timestamp_utc": "2026-10-16T23:25:56Z"
+  },
   "command": "PYTHONPATH=src /Users/dawsonblock/Downloads/SAAL-RSI-validation-envs/adaptive-v6-py312/bin/python -m pytest -o addopts='' tests -q -ra",
   "dependency_locks": [
     {
@@ -23,6 +34,7 @@
     "transformers": "5.19.0"
   },
   "exit_code": 0,
+  "overall_status": "PASS_BOTH_SEPARATE_SUITES",
   "qualification": "Engineering regression only; does not authenticate source publisher, complete WP0.2 provenance, qualify model behavior, or authorize GPU execution.",
   "result": {
     "duration_seconds": 152.54,

@@ -2,7 +2,7 @@
   "checkpoint_content_integrity": "VERIFIED",
   "checkpoint_provenance": "UNVERIFIED_PUBLISHER_TRUST",
   "decision": "NOT_READY_FOR_WP0_2_RELEASE_CLOSURE",
-  "development_source_tests": "PASS: 661 passed, 0 failed, 0 errors, 0 skipped",
+  "development_source_tests": "PASS: core 661 passed; dynamic-lora-v6 165 passed; zero failures, errors or skips",
   "external_execution_authorized": false,
   "independent_qualification": "NOT_ESTABLISHED",
   "manifest_reconciliation": "PARTIAL_TARGET_ARCHIVE_MISSING_AND_NESTED_SCOPE_REVIEW_OPEN",

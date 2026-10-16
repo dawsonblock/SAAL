@@ -6,6 +6,16 @@
     "unique_object_count": 4
   },
   "clean_release_package_built": false,
+  "historical_dynamic_lora_v6_suite": {
+    "duration_seconds": 12.9,
+    "errors": 0,
+    "exit_code": 0,
+    "failed": 0,
+    "passed": 165,
+    "report": "research/saal-v097/release/TEST_REPORT.json",
+    "skipped": 0,
+    "status": "PASS"
+  },
   "manifest_reconciliation": {
     "prior_archive_findings_recorded": true,
     "status": "PARTIAL",
