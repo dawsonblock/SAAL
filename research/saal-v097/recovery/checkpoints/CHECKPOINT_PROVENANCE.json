@@ -1,0 +1,54 @@
+{
+  "external_publisher_key_pin": null,
+  "git_commit_signature_verified": false,
+  "historical_relationships": {
+    "behavior_closure_v4_best_equals_terminal": true,
+    "initial_payload_shared_across_campaigns": true
+  },
+  "payload_content_status": "HASH_VERIFIED",
+  "pointer_records": [
+    {
+      "git_pointer_blob": "39ce2a5a38bb4a9872e20680c805b8379da7e32f",
+      "oid_sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/initial.safetensors",
+      "size_bytes": 598445904
+    },
+    {
+      "git_pointer_blob": "45c07c3675e1a3eda87767cdf5d415e8bd5af2fc",
+      "oid_sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780",
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/best.safetensors",
+      "size_bytes": 598445904
+    },
+    {
+      "git_pointer_blob": "45c07c3675e1a3eda87767cdf5d415e8bd5af2fc",
+      "oid_sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780",
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/terminal.safetensors",
+      "size_bytes": 598445904
+    },
+    {
+      "git_pointer_blob": "39ce2a5a38bb4a9872e20680c805b8379da7e32f",
+      "oid_sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/initial.safetensors",
+      "size_bytes": 598445904
+    },
+    {
+      "git_pointer_blob": "f4731d080bb2de85adde6bfce23443525081723c",
+      "oid_sha256": "3f79afb2282fa1406d18ffb09c1bd853ced603935e9d62b8ff20db2c6710b082",
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/best.safetensors",
+      "size_bytes": 598445904
+    },
+    {
+      "git_pointer_blob": "1e541a88bdd0043b02179cf65f3a5ace262ba6da",
+      "oid_sha256": "43dd467cb6b902d83f03f5cf1ab9324d1d2effcbe9c82f3cf42be542e76364fc",
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/terminal.safetensors",
+      "size_bytes": 598445904
+    }
+  ],
+  "qualification": "Content integrity is verified; provenance is not closed until the baseline/source and publisher identity are independently trusted.",
+  "remote_ref_match_observed": true,
+  "remote_ref_observed": "origin/repair/saal-v097-source-integrity",
+  "schema": "saal-checkpoint-provenance-v1",
+  "source_commit": "fb2e7eb000fb2a4ca50e2b5ec5034e02d3b95f4c",
+  "tensor_structure_status": "MATCHES_PINNED_LOCAL_MODERNBERT_INVENTORY_AND_CLASSIFIER_CONVERSION",
+  "trust_status": "UNAUTHENTICATED_PUBLISHER"
+}

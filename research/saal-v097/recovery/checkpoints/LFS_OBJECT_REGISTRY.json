@@ -1,0 +1,56 @@
+{
+  "declared_path_count": 6,
+  "objects": [
+    {
+      "content_status": "HASH_VERIFIED",
+      "oid_sha256": "3f79afb2282fa1406d18ffb09c1bd853ced603935e9d62b8ff20db2c6710b082",
+      "paths": [
+        "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/best.safetensors"
+      ],
+      "provenance_status": "POINTER_BOUND_TO_BASELINE_COMMIT; PUBLISHER_TRUST_UNVERIFIED",
+      "size_bytes": 598445904,
+      "tensor_count": 138,
+      "tensor_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645"
+    },
+    {
+      "content_status": "HASH_VERIFIED",
+      "oid_sha256": "43dd467cb6b902d83f03f5cf1ab9324d1d2effcbe9c82f3cf42be542e76364fc",
+      "paths": [
+        "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/terminal.safetensors"
+      ],
+      "provenance_status": "POINTER_BOUND_TO_BASELINE_COMMIT; PUBLISHER_TRUST_UNVERIFIED",
+      "size_bytes": 598445904,
+      "tensor_count": 138,
+      "tensor_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645"
+    },
+    {
+      "content_status": "HASH_VERIFIED",
+      "oid_sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "paths": [
+        "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/initial.safetensors",
+        "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/initial.safetensors"
+      ],
+      "provenance_status": "POINTER_BOUND_TO_BASELINE_COMMIT; PUBLISHER_TRUST_UNVERIFIED",
+      "size_bytes": 598445904,
+      "tensor_count": 138,
+      "tensor_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645"
+    },
+    {
+      "content_status": "HASH_VERIFIED",
+      "oid_sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780",
+      "paths": [
+        "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/best.safetensors",
+        "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/terminal.safetensors"
+      ],
+      "provenance_status": "POINTER_BOUND_TO_BASELINE_COMMIT; PUBLISHER_TRUST_UNVERIFIED",
+      "size_bytes": 598445904,
+      "tensor_count": 138,
+      "tensor_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645"
+    }
+  ],
+  "publisher_authentication": "NOT_ESTABLISHED",
+  "retrieval_status": "OBJECTS_ALREADY_HYDRATED_IN_BASELINE_CHECKOUT; NO_DOWNLOAD_OR_DUPLICATE_COPY_PERFORMED",
+  "schema": "saal-lfs-object-registry-v1",
+  "source_commit": "fb2e7eb000fb2a4ca50e2b5ec5034e02d3b95f4c",
+  "unique_object_count": 4
+}

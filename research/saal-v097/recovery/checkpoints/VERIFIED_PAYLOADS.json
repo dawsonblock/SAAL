@@ -1,0 +1,190 @@
+{
+  "baseline_commit": "fb2e7eb000fb2a4ca50e2b5ec5034e02d3b95f4c",
+  "checkpoint_path_count": 6,
+  "checkpoints": [
+    {
+      "content_status": "HASH_VERIFIED",
+      "declared_size_bytes": 598445904,
+      "git_pointer_blob": "39ce2a5a38bb4a9872e20680c805b8379da7e32f",
+      "observed_sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "observed_size_bytes": 598445904,
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/initial.safetensors",
+      "pointer_oid_sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "provenance_status": "POINTER_BOUND_TO_BASELINE_COMMIT; PUBLISHER_TRUST_UNVERIFIED",
+      "structural_checks": {
+        "base_tensors_matched": 136,
+        "checkpoint_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645",
+        "checkpoint_tensor_count": 138,
+        "expected_classifier_tensors": [
+          "classifier.bias",
+          "classifier.weight"
+        ],
+        "expected_upstream_head_replacements": [
+          "decoder.bias"
+        ],
+        "upstream_tensor_count": 137
+      },
+      "tensor_count": 138,
+      "tensor_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645"
+    },
+    {
+      "content_status": "HASH_VERIFIED",
+      "declared_size_bytes": 598445904,
+      "git_pointer_blob": "45c07c3675e1a3eda87767cdf5d415e8bd5af2fc",
+      "observed_sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780",
+      "observed_size_bytes": 598445904,
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/best.safetensors",
+      "pointer_oid_sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780",
+      "provenance_status": "POINTER_BOUND_TO_BASELINE_COMMIT; PUBLISHER_TRUST_UNVERIFIED",
+      "structural_checks": {
+        "base_tensors_matched": 136,
+        "checkpoint_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645",
+        "checkpoint_tensor_count": 138,
+        "expected_classifier_tensors": [
+          "classifier.bias",
+          "classifier.weight"
+        ],
+        "expected_upstream_head_replacements": [
+          "decoder.bias"
+        ],
+        "upstream_tensor_count": 137
+      },
+      "tensor_count": 138,
+      "tensor_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645"
+    },
+    {
+      "content_status": "HASH_VERIFIED",
+      "declared_size_bytes": 598445904,
+      "git_pointer_blob": "45c07c3675e1a3eda87767cdf5d415e8bd5af2fc",
+      "observed_sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780",
+      "observed_size_bytes": 598445904,
+      "path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/terminal.safetensors",
+      "pointer_oid_sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780",
+      "provenance_status": "POINTER_BOUND_TO_BASELINE_COMMIT; PUBLISHER_TRUST_UNVERIFIED",
+      "structural_checks": {
+        "base_tensors_matched": 136,
+        "checkpoint_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645",
+        "checkpoint_tensor_count": 138,
+        "expected_classifier_tensors": [
+          "classifier.bias",
+          "classifier.weight"
+        ],
+        "expected_upstream_head_replacements": [
+          "decoder.bias"
+        ],
+        "upstream_tensor_count": 137
+      },
+      "tensor_count": 138,
+      "tensor_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645"
+    },
+    {
+      "content_status": "HASH_VERIFIED",
+      "declared_size_bytes": 598445904,
+      "git_pointer_blob": "39ce2a5a38bb4a9872e20680c805b8379da7e32f",
+      "observed_sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "observed_size_bytes": 598445904,
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/initial.safetensors",
+      "pointer_oid_sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be",
+      "provenance_status": "POINTER_BOUND_TO_BASELINE_COMMIT; PUBLISHER_TRUST_UNVERIFIED",
+      "structural_checks": {
+        "base_tensors_matched": 136,
+        "checkpoint_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645",
+        "checkpoint_tensor_count": 138,
+        "expected_classifier_tensors": [
+          "classifier.bias",
+          "classifier.weight"
+        ],
+        "expected_upstream_head_replacements": [
+          "decoder.bias"
+        ],
+        "upstream_tensor_count": 137
+      },
+      "tensor_count": 138,
+      "tensor_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645"
+    },
+    {
+      "content_status": "HASH_VERIFIED",
+      "declared_size_bytes": 598445904,
+      "git_pointer_blob": "f4731d080bb2de85adde6bfce23443525081723c",
+      "observed_sha256": "3f79afb2282fa1406d18ffb09c1bd853ced603935e9d62b8ff20db2c6710b082",
+      "observed_size_bytes": 598445904,
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/best.safetensors",
+      "pointer_oid_sha256": "3f79afb2282fa1406d18ffb09c1bd853ced603935e9d62b8ff20db2c6710b082",
+      "provenance_status": "POINTER_BOUND_TO_BASELINE_COMMIT; PUBLISHER_TRUST_UNVERIFIED",
+      "structural_checks": {
+        "base_tensors_matched": 136,
+        "checkpoint_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645",
+        "checkpoint_tensor_count": 138,
+        "expected_classifier_tensors": [
+          "classifier.bias",
+          "classifier.weight"
+        ],
+        "expected_upstream_head_replacements": [
+          "decoder.bias"
+        ],
+        "upstream_tensor_count": 137
+      },
+      "tensor_count": 138,
+      "tensor_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645"
+    },
+    {
+      "content_status": "HASH_VERIFIED",
+      "declared_size_bytes": 598445904,
+      "git_pointer_blob": "1e541a88bdd0043b02179cf65f3a5ace262ba6da",
+      "observed_sha256": "43dd467cb6b902d83f03f5cf1ab9324d1d2effcbe9c82f3cf42be542e76364fc",
+      "observed_size_bytes": 598445904,
+      "path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/terminal.safetensors",
+      "pointer_oid_sha256": "43dd467cb6b902d83f03f5cf1ab9324d1d2effcbe9c82f3cf42be542e76364fc",
+      "provenance_status": "POINTER_BOUND_TO_BASELINE_COMMIT; PUBLISHER_TRUST_UNVERIFIED",
+      "structural_checks": {
+        "base_tensors_matched": 136,
+        "checkpoint_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645",
+        "checkpoint_tensor_count": 138,
+        "expected_classifier_tensors": [
+          "classifier.bias",
+          "classifier.weight"
+        ],
+        "expected_upstream_head_replacements": [
+          "decoder.bias"
+        ],
+        "upstream_tensor_count": 137
+      },
+      "tensor_count": 138,
+      "tensor_inventory_sha256": "c32897287d3b90f4a4f58ad58e05c328b3179b07a7d0e6c93fff4ffb19674645"
+    }
+  ],
+  "content_integrity": "VERIFIED",
+  "generated_at_utc": "2026-10-16T23:16:07Z",
+  "historical_reproduction_status": "PROVENANCE_PENDING_TRUSTED_PUBLISHER_OR_SOURCE_REVIEW",
+  "payload_groups": [
+    {
+      "paths": [
+        "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/best.safetensors"
+      ],
+      "sha256": "3f79afb2282fa1406d18ffb09c1bd853ced603935e9d62b8ff20db2c6710b082"
+    },
+    {
+      "paths": [
+        "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/terminal.safetensors"
+      ],
+      "sha256": "43dd467cb6b902d83f03f5cf1ab9324d1d2effcbe9c82f3cf42be542e76364fc"
+    },
+    {
+      "paths": [
+        "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/initial.safetensors",
+        "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/initial.safetensors"
+      ],
+      "sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be"
+    },
+    {
+      "paths": [
+        "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/best.safetensors",
+        "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/terminal.safetensors"
+      ],
+      "sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780"
+    }
+  ],
+  "publisher_provenance": "NOT_AUTHENTICATED_BY_THIS_VERIFIER",
+  "schema": "saal-checkpoint-verification-v1",
+  "unique_payload_count": 4
+}

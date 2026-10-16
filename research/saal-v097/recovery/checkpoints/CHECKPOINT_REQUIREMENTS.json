@@ -1,0 +1,32 @@
+{
+  "schema": "saal-checkpoint-requirements-v1",
+  "baseline_commit": "fb2e7eb000fb2a4ca50e2b5ec5034e02d3b95f4c",
+  "expected_checkpoint_path_count": 6,
+  "expected_unique_payload_count": 4,
+  "architecture": {
+    "kind": "ModernBertForSequenceClassification",
+    "model_id": "answerdotai/ModernBERT-base",
+    "model_revision": "11aa1a9b1d9dd6e8cded5040fe217c9b6ef92e88",
+    "upstream_metadata_path": "configs/pretrained/ModernBERT-base-upstream.json",
+    "upstream_metadata_sha256": "6182040f7189832f8583d5c5646411fe8527deca6c3522a83e0a4120f6667177",
+    "upstream_inventory_path": "configs/pretrained/tensor_inventories.json",
+    "upstream_inventory_sha256": "dcfff3ab242106c3d267f9d231a1f24f83945e2398305c2eb706662e268cbfb0",
+    "upstream_inventory_model_key": "answerdotai/ModernBERT-base",
+    "expected_upstream_head_replacements": ["decoder.bias"],
+    "classifier_tensors": {
+      "classifier.bias": {"dtype": "F32", "shape": [4]},
+      "classifier.weight": {"dtype": "F32", "shape": [4, 768]}
+    },
+    "expected_tensor_count": 138
+  },
+  "checkpoints": [
+    {"path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/initial.safetensors", "oid_sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be", "size_bytes": 598445904, "git_pointer_blob": "39ce2a5a38bb4a9872e20680c805b8379da7e32f"},
+    {"path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/best.safetensors", "oid_sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780", "size_bytes": 598445904, "git_pointer_blob": "45c07c3675e1a3eda87767cdf5d415e8bd5af2fc"},
+    {"path": "research/behavior-closure-v4/experiment/artifacts/run-00-7f4563c3d645/terminal.safetensors", "oid_sha256": "a7d7c8882acf39d355113db69a9fdf437d0f8b90c00b6e682e46a417baa2b780", "size_bytes": 598445904, "git_pointer_blob": "45c07c3675e1a3eda87767cdf5d415e8bd5af2fc"},
+    {"path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/initial.safetensors", "oid_sha256": "74a8bd877d717e17a4eeb5d267fe7dabc220d8e2fd3beb9b1c29f8f5fab4e0be", "size_bytes": 598445904, "git_pointer_blob": "39ce2a5a38bb4a9872e20680c805b8379da7e32f"},
+    {"path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/best.safetensors", "oid_sha256": "3f79afb2282fa1406d18ffb09c1bd853ced603935e9d62b8ff20db2c6710b082", "size_bytes": 598445904, "git_pointer_blob": "f4731d080bb2de85adde6bfce23443525081723c"},
+    {"path": "research/reliable-learning-v3/recovery/experiment/artifacts/run-06-d007a32c8446/terminal.safetensors", "oid_sha256": "43dd467cb6b902d83f03f5cf1ab9324d1d2effcbe9c82f3cf42be542e76364fc", "size_bytes": 598445904, "git_pointer_blob": "1e541a88bdd0043b02179cf65f3a5ace262ba6da"}
+  ],
+  "verification_time_utc": "2026-10-16T23:16:07Z",
+  "publisher_trust": "NOT_ESTABLISHED"
+}
