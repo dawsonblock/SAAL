@@ -15,6 +15,7 @@ import shutil
 import stat
 import subprocess
 import tarfile
+import tomllib
 import zipfile
 
 
@@ -260,7 +261,8 @@ def package(destination, baseline, key_path, source_ref, evidence_ref):
                     raise ValueError('source differs from published commit '+member.name)
                 source_identity[member.name] = h
         results = read_json((ROOT/'research/dynamic-lora-v6/RESULTS.json').read_bytes())
-        layout = {'schema': 'saal-complete-physical-capsule-v6', 'version': '0.9.5.dev6',
+        package_version = tomllib.loads((ROOT/'pyproject.toml').read_text(encoding='utf-8'))['project']['version']
+        layout = {'schema': 'saal-complete-physical-capsule-v6', 'version': package_version,
             'source_commit': source_commit, 'evidence_commit': evidence_commit,
             'baseline_archive_sha256': V5_HASH, 'tensor_aliases': len(aliases),
             'historical_checkpoint_payloads_included': True, 'upstream_pretrained_cache_included': False,

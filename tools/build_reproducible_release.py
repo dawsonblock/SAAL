@@ -1,11 +1,20 @@
 """Freeze signed physical bytes and build a self-contained ZIP outside the checkout."""
 from pathlib import Path
-import argparse,hashlib,json,zipfile
+import argparse,hashlib,json,tomllib,zipfile
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from verify_reproducible_release import canonical,file_hash,physical_file,included_files,verify
 
+LEGACY_VERSION='0.9.4.3'
+
+def require_legacy_release(root):
+ project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))
+ version=project.get('project',{}).get('version')
+ if version!=LEGACY_VERSION:
+  raise ValueError(f'legacy v1 release builder only supports {LEGACY_VERSION}; current package is {version!r}')
+
 def freeze(root,key_path):
  root=root.resolve()
+ require_legacy_release(root)
  if key_path.resolve().is_relative_to(root):raise ValueError('Signing key must remain outside checkout')
  e=root/'reproducibility-evidence';key=Ed25519PrivateKey.from_private_bytes(key_path.read_bytes())
  excluded={'MANIFEST.sha256','reproducibility-evidence/changes.json'}
@@ -22,6 +31,7 @@ def freeze(root,key_path):
  (e/'signed-release.json').write_bytes(canonical({'payload':body,'signature':key.sign(canonical(body)).hex()}));pin=key.public_key().public_bytes_raw().hex();(e/'controller.pub').write_text(pin+'\n');return verify(root,pin)
 def archive(root,output,pin):
  root=root.resolve();output=output.resolve()
+ require_legacy_release(root)
  if output.is_relative_to(root):raise ValueError('Archive must be outside checkout')
  result=verify(root,pin)
  names=sorted(included_files(root)|{'reproducibility-evidence/physical-inventory.json','reproducibility-evidence/signed-release.json','reproducibility-evidence/controller.pub'})

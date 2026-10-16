@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 
+from . import __version__
 from .adaptive_artifacts import read_json
 from .adaptive_dispatch import validate_job, validate_bundle
 from .adaptive_campaign import fresh_local_replay
@@ -18,7 +19,7 @@ def main():
     a = p.parse_args()
     job = validate_job(verify(read_json(a.job), a.public_key))
     if a.action == 'inspect':
-        value = {'research_version': '0.9.5.dev6', 'job_digest': sha(job), 'adapter': job['adapter'],
+        value = {'research_version': __version__, 'job_digest': sha(job), 'adapter': job['adapter'],
                  'steps': job['steps'], 'sample_exposures': job['steps']*job['batch_size']*job['accumulation'],
                  'dataset_digest': job['dataset_digest'], 'qualification_status': 'NOT_EVALUATED',
                  'external_deployment_allowed': False}
