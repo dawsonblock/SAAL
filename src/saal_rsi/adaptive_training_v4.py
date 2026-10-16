@@ -6,7 +6,7 @@ import math
 import time
 from pathlib import Path
 
-from .adaptive_rank_controller import RankController, initial_state
+from .adaptive_rank_controller_v4 import RankController, initial_state
 from .epoch_sampler import sample_ids
 from .numerical_metrics_v2 import diagnostics
 from .epoch_metrics import prediction_equal

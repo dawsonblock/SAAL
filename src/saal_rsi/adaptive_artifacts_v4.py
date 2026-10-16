@@ -4,10 +4,10 @@ import hashlib
 import math
 from pathlib import Path
 
-from .adaptive_backend import tensor_inventory
+from .adaptive_backend_v4 import tensor_inventory
 from .adaptive_contract_v4 import validate_job, RANKNUM_POLICY
 from .numerical_metrics_v2 import POLICY, POLICY_DIGEST, validate_policy
-from .adaptive_rank_controller import budget_schedule, initial_state, validate_state
+from .adaptive_rank_controller_v4 import budget_schedule, initial_state, validate_state
 from .numerical_metrics_v2 import diagnostics
 from .epoch_metrics import prediction_equal
 from .epoch_sampler import sample_ids
@@ -58,7 +58,7 @@ def validate_checkpoint(path, adapter, state):
     for n, t in values.items():
         if list(t.shape) != expected[n] or t.dtype != torch.float32 or not torch.isfinite(t).all():
             raise ValueError('checkpoint shape / dtype / finite values')
-    if adapter['method'] == 'adalora-12-to-8':
+    if adapter['method'] in ('adalora-12-to-8', 'adalora-static-r12'):
         for target, mask in state['masks'].items():
             prefix = 'base_model.model.'+target
             if values[prefix+'.ranknum.default'].item() != float(adapter['init_r']):
@@ -80,6 +80,7 @@ def rank_history(root, job):
     previous = 'sha256:'+'0'*64
     state = initial_state(adapter)
     applied = adapter['init_r']*len(adapter['target_modules'])
+    adalora = adapter['method'] in ('adalora-12-to-8', 'adalora-static-r12')
     dynamic = adapter['method'] == 'adalora-12-to-8'
     fields = {'schema', 'completed_optimizer_step', 'previous_hash', 'allocated_this_update',
               'scheduled_budget', 'applied_budget', 'state', 'active_rank_by_layer',
@@ -120,7 +121,7 @@ def rank_history(root, job):
             if type(values) is not list or len(values) != adapter['init_r'] or any(type(x) not in (int, float) or not math.isfinite(x) or x < 0 for x in values):
                 raise ValueError('invalid triplet importance')
         nonzero = row['nonzero_singular_by_layer']
-        if dynamic:
+        if adalora:
             if type(nonzero) is not dict or set(nonzero) != set(active) or any(type(nonzero[t]) is not int or not 0 <= nonzero[t] <= active[t] for t in active):
                 raise ValueError('nonzero singular / active rank mismatch')
         elif nonzero is not None:
@@ -130,7 +131,7 @@ def rank_history(root, job):
         if (type(layer_norms) is not dict or set(layer_norms) != set(adapter['target_modules'])
                 or any(type(v) not in (int, float) or not math.isfinite(v) or v < 0 for v in layer_norms.values())):
             raise ValueError('finite per-layer adapter gradient evidence required')
-        expected_gradients = len(tensor_inventory(adapter))-(len(active) if dynamic else 0)
+        expected_gradients = len(tensor_inventory(adapter))-(len(active) if adalora else 0)
         if (type(gradients) is not dict or set(gradients) != {'finite', 'norm', 'gradient_tensors'}
                 or gradients['finite'] is not True or type(gradients['norm']) not in (int, float)
                 or not math.isfinite(gradients['norm']) or gradients['norm'] < 0
@@ -148,6 +149,10 @@ def rank_history(root, job):
                     or not 0 < sum(sum(m) for m in state['masks'].values()) <= adapter['target_r']*len(state['masks'])
                     or sum(rows[-1]['nonzero_singular_by_layer'].values()) == 0):
         raise ValueError('adaptive mode never performed a valid rank reduction')
+    if adapter['method'] == 'adalora-static-r12' and (
+            allocations or state['masks'] != initial_state(adapter)['masks']
+            or sum(rows[-1]['nonzero_singular_by_layer'].values()) == 0):
+        raise ValueError('static AdaLoRA must retain all initialized rank components')
     return rows, {'completed_optimizer_updates': job['steps'], 'allocation_events': allocations,
                   'rank_history_digest': previous, 'stored_rank_per_layer': adapter['init_r'],
                   'active_rank_total': sum(sum(m) for m in state['masks'].values())}
@@ -208,7 +213,9 @@ def validate_bundle(root, job, pin, *, require_replay=False):
         raise ValueError('result numerical metric policy substitution')
     if type(result.get('ranknum_normalized')) is not int or not 0 <= result['ranknum_normalized'] <= 22:
         raise ValueError('ranknum initialization normalization evidence')
-    if job['adapter']['method'] != 'adalora-12-to-8' and result['ranknum_normalized'] != 0:
+    is_adalora = job['adapter']['method'] in ('adalora-12-to-8', 'adalora-static-r12')
+    expected_ranknum = len(job['adapter']['target_modules']) if is_adalora else 0
+    if result['ranknum_normalized'] != expected_ranknum:
         raise ValueError('fixed adapter cannot normalize ranknum')
     if (result.get('schema') != 'saal-adaptive-result-v4' or result.get('ranknum_policy') != RANKNUM_POLICY or result.get('job_digest') != sha(job)
             or result.get('worker_identity') != job['worker_identity'] or result.get('adapter_method') != job['adapter']['method']
@@ -304,7 +311,7 @@ def validate_bundle(root, job, pin, *, require_replay=False):
         if state != expected_state:
             raise ValueError('checkpoint rank pattern / history substitution')
         checkpoint = validate_checkpoint(root/(role+'.safetensors'), job['adapter'], state)
-        if job['adapter']['method'] == 'adalora-12-to-8' and evidence['step']:
+        if job['adapter']['method'] in ('adalora-12-to-8', 'adalora-static-r12') and evidence['step']:
             import torch
             actual_nonzero = {t: int(torch.count_nonzero(checkpoint['base_model.model.'+t+'.lora_E.default'])) for t in job['adapter']['target_modules']}
             if actual_nonzero != rows[evidence['step']-1]['nonzero_singular_by_layer']:

@@ -61,5 +61,7 @@ def test_v4_staging_contains_allowlisted_worker_and_no_private_key(tmp_path, adm
         capture_output=True, text=True, timeout=30)
     assert result.returncode == 0, result.stderr
     assert (target/'src/saal_rsi/adaptive_worker_v4.py').is_file()
+    assert (target/'src/saal_rsi/adaptive_backend_v4.py').is_file()
+    assert (target/'src/saal_rsi/adaptive_rank_controller_v4.py').is_file()
     assert not list(target.rglob('*.ed25519'))
     assert not list(target.rglob('*private*key*'))

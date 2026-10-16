@@ -9,7 +9,7 @@ from pathlib import Path
 
 from .adaptive_contract_v4 import validate_job, RANKNUM_POLICY
 from .numerical_metrics_v2 import POLICY, POLICY_DIGEST
-from .adaptive_backend_v2 import CudaSafeAdaLoRABackend as AdaptiveModernBERTBackend
+from .adaptive_backend_v2_v4 import CudaSafeAdaLoRABackend as AdaptiveModernBERTBackend
 from .adaptive_backend import verify_peft_implementation
 from .adaptive_artifacts_v4 import ROLES, seal, validate_bundle, read_json, file_hash
 from .adaptive_training_v4 import train

@@ -51,7 +51,7 @@ def validate_protocol(protocol):
                 or type(run['name']) is not str
                 or not re.fullmatch(r'[A-Za-z0-9_-]{1,100}', run['name'])
                 or run['name'] in names
-                or run['method'] not in ('fixed-r8', 'fixed-r12', 'adalora-12-to-8')
+                or run['method'] not in ('fixed-r8', 'fixed-r12', 'adalora-static-r12', 'adalora-12-to-8')
                 or type(run['seed']) is not int or not 0 <= run['seed'] <= 2**31-1
                 or type(run['job_digest']) is not str
                 or not re.fullmatch(r'sha256:[0-9a-f]{64}', run['job_digest'])

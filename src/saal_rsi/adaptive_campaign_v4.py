@@ -2,6 +2,8 @@
 from pathlib import Path
 
 from .pretrained_contract import registry_path
+from .adaptive_artifacts import read_json
+from .model_monitor import stream_command
 
 
 def stage_worker(destination):
@@ -42,3 +44,27 @@ from saal_rsi.adaptive_worker_v4 import main
 main()
 """
     (destination/'worker.py').write_text(bootstrap)
+
+
+def replay_command(config, bundle, job_file, destination):
+    """Replay a frozen v4 bundle in a separate local process; never trains."""
+    import sys
+
+    bundle, job_file, destination = Path(bundle), Path(job_file), Path(destination)
+    if destination.exists() or destination.is_symlink():
+        raise FileExistsError('preserve prior v4 replay receipt')
+    script = Path(config['workspace'])/(destination.stem+'-replay-v4.py')
+    root = str(Path(__file__).resolve().parents[1])
+    script.write_text(
+        'import sys\nfrom pathlib import Path\n'+f'sys.path.insert(0,{root!r})\n'+
+        'from saal_rsi.adaptive_replay_v4 import fresh_local_replay\n'+
+        'from saal_rsi.model_contract import verify\n'+
+        'from saal_rsi.spec import canonical,parse_unique_json\n'+
+        f"pin={config['pin']!r}\n"+
+        f"job=verify(parse_unique_json(Path({str(job_file)!r}).read_bytes()),pin)\n"+
+        f"value=fresh_local_replay({str(bundle)!r},job,pin,{config['cache']!r})\n"+
+        f"with Path({str(destination)!r}).open('xb') as output:output.write(canonical(value))\n"+
+        'from saal_rsi.adaptive_artifacts_v4 import validate_bundle\n'+
+        f"validate_bundle({str(bundle)!r},job,pin,require_replay=True)\n"+
+        'if not value["verified"]:raise ValueError("v4 local checkpoint replay failed")\n')
+    stream_command([sys.executable, '-I', str(script)], destination.with_suffix('.log'), 600)

@@ -105,3 +105,31 @@ def test_v4_registry_requires_all_reservations_before_provision(admitted_job,tmp
     ledger=AdaptiveRegistryV4(tmp_path/'empty.sqlite3',pin,protocol_envelope,[envelope],create=True)
     with pytest.raises(ValueError): ledger.begin_provisioning()
     ledger.close()
+
+
+def test_static_adalora_is_a_v4_only_no_reallocation_control(admitted_job):
+    from saal_rsi.adaptive_contract_v4 import adapter_spec, validate_adapter
+    adapter = adapter_spec('adalora-static-r12', total_steps=8, tinit=2, tfinal=2, delta=1)
+    validate_adapter(adapter, 8)
+    assert adapter['init_r'] == adapter['target_r'] == 12
+    assert adapter['mask_policy'] == 'fixed-no-reallocation-v1'
+    assert adapter['schedule']['total_step'] == 8
+    with pytest.raises(ValueError):
+        __import__('saal_rsi.adaptive_contract_v3', fromlist=['validate_job']).validate_job(
+            {**admitted_job, 'adapter': adapter})
+
+
+def test_v4_job_can_bind_static_adalora_without_reinterpreting_legacy(admitted_job):
+    from saal_rsi.adaptive_contract_v4 import adapter_spec
+    base = _make_job(admitted_job)
+    adapter = adapter_spec('adalora-static-r12', total_steps=base['steps'],
+                            tinit=1, tfinal=1, delta=1)
+    adapter['target_modules'] = base['adapter']['target_modules']
+    job = new_job(base['model_spec'], base['dataset'], adapter,
+        seed=base['seed'], budget=base['budget'], steps=base['steps'],
+        batch_size=base['batch_size'], accumulation=base['accumulation'],
+        max_seconds=base['max_seconds'], campaign_stage=base['campaign_stage'],
+        learning_rate=base['learning_rate'], head_learning_rate=base['head_learning_rate'],
+        checkpoint_interval=base['checkpoint_interval'])
+    assert job['schema'] == 'saal-adaptive-job-v4'
+    assert job['adapter']['method'] == 'adalora-static-r12'
