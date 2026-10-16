@@ -10,7 +10,7 @@ This branch is `repair/saal-v097-source-integrity`, based on the available `repa
 - Aligned `pyproject.toml`, `saal_rsi.__version__`, adaptive CLI output, and newly generated capsule metadata to `0.9.7.dev0`.
 - Guarded the legacy physical-release-v1 builder so it refuses to label this v0.9.7 development source as v0.9.4.3. The v0.9.4.3 verifier remains available for its original signed format.
 - Audited the available 7,470,857,286-byte v0.9.5-dev6 evidence archive. Its ZIP had 6,692 readable members, no unsafe paths, duplicates, LFS pointers, or read errors. Its root manifest omitted six checkpoint files: `run-00-7f4563c3d645` from behavior-closure-v4 and `run-06-d007a32c8446` from reliable-learning-v3, each missing `initial`, `best`, and `terminal` safetensors. Several nested packaging manifests reference standalone package files absent from the outer archive. Its package metadata (`0.9.5.dev6`) and runtime module (`0.9.4.3`) disagreed. The audit does not authenticate a publisher key.
-- Generated `recovery/source-closure-candidate-v6.json` over 325 source, test, tool, configuration, and dependency files. It passes static local-import closure and byte verification, while remaining explicitly `UNREVIEWED_DEVELOPMENT`, unauthenticated, and release-ineligible.
+- Generated `recovery/source-closure-candidate-v6.json` over 326 source, test, tool, configuration, and dependency files. It passes static local-import closure and byte verification, while remaining explicitly `UNREVIEWED_DEVELOPMENT`, unauthenticated, and release-ineligible.
 
 ## Validation and limits
 
