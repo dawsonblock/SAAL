@@ -1,0 +1,62 @@
+{
+  "baseline_branch": "repair/saal-v097-source-integrity",
+  "baseline_commit": "fb2e7eb000fb2a4ca50e2b5ec5034e02d3b95f4c",
+  "baseline_remote_ref_matches": true,
+  "dependency_lock": {
+    "path": "configs/dependency-locks/macos-arm64-py312.txt",
+    "pretrained_lock_path": "configs/dependency-locks/pretrained-macos-arm64-py312.txt",
+    "pretrained_lock_sha256": "941d0aeadcde3baa1e9b14882d64b790981c4cb3081bfb2f0b7ba05312fc6cc2",
+    "sha256": "77510c93d2824e292b00e4a6f7e525f2cc34c5542d5055ee52a006915340a419"
+  },
+  "development_version": "0.9.7.dev0",
+  "pinned_environment": {
+    "packages": {
+      "cryptography": "48.0.1",
+      "huggingface-hub": "1.33.0",
+      "numpy": "2.4.6",
+      "peft": "0.21.2",
+      "pytest": "8.4.2",
+      "safetensors": "0.8.0",
+      "torch": "2.10.0",
+      "transformers": "5.19.0"
+    },
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "python": "3.12.0"
+  },
+  "prior_validation": {
+    "elapsed_seconds": 110.39,
+    "environment": "Pinned macOS arm64 Python 3.12 validation environment",
+    "python": "3.12.0",
+    "result_source": "The development status document records this result; a new full run is required after WP0.2 changes.",
+    "source_document": "docs/SAAL_V097_DEVELOPMENT_STATUS.md",
+    "source_document_sha256": "fc9901795a132dc7711bc4d57ebd62e7cb09c546b493f2c2353d5e77934e774c",
+    "status": "RECORDED_BASELINE_NOT_REUSED_AS_MERGED_BRANCH_ACCEPTANCE",
+    "suite": "648 collected; 647 passed; 1 skipped"
+  },
+  "provenance_limit": "The repository ref and local hashes identify bytes, but no independently administered publisher trust root or authenticated source-review attestation is established.",
+  "schema": "saal-v097-baseline-evidence-v1",
+  "source_snapshot": {
+    "file_count": 326,
+    "path": "research/saal-v097/recovery/source-closure-candidate-v6.json",
+    "publisher_authenticated": false,
+    "release_eligible": false,
+    "review_status": "UNREVIEWED_DEVELOPMENT",
+    "sha256_of_json_file": "98c8cab66a138e2ae13175f5e60e413f2cc937c8a894048e509e471f433a25c8"
+  },
+  "upstream_metadata": {
+    "modernbert_metadata_path": "configs/pretrained/ModernBERT-base-upstream.json",
+    "modernbert_metadata_sha256": "6182040f7189832f8583d5c5646411fe8527deca6c3522a83e0a4120f6667177",
+    "modernbert_tensor_inventory_path": "configs/pretrained/tensor_inventories.json",
+    "modernbert_tensor_inventory_sha256": "dcfff3ab242106c3d267f9d231a1f24f83945e2398305c2eb706662e268cbfb0"
+  },
+  "worktree_at_branch_creation": "CLEAN",
+  "wp02_candidate_source_snapshot": {
+    "file_count": 332,
+    "path": "research/saal-v097/release/SOURCE_SNAPSHOT_WP02.json",
+    "publisher_authenticated": false,
+    "raw_file_sha256": "424c30e4d991dacd996fc53a9c2dbe119a1d49afdaf69289694d721b51e04e80",
+    "release_eligible": false,
+    "review_status": "UNREVIEWED_DEVELOPMENT",
+    "snapshot_digest": "cd8668220f616000f7fb2fc312c91f540fdc656e58d06d14843c934cec5dc456"
+  }
+}

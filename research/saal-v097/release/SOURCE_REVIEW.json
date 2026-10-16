@@ -1,0 +1,10 @@
+{
+  "dynamic_import_review": "NOT_COMPLETED",
+  "external_trust_anchor": null,
+  "publisher_authentication": "NOT_ESTABLISHED",
+  "review_attestations": [],
+  "review_status": "UNREVIEWED_DEVELOPMENT",
+  "reviewer_identity": null,
+  "schema": "saal-source-review-v1",
+  "source_snapshot_digest": "cd8668220f616000f7fb2fc312c91f540fdc656e58d06d14843c934cec5dc456"
+}

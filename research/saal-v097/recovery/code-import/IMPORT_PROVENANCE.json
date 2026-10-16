@@ -1,0 +1,7 @@
+{
+  "schema": "saal-v097-import-provenance-v1",
+  "archive_observed": false,
+  "imported_files": [],
+  "status": "NO_IMPORTS_PERFORMED",
+  "reason": "The exact archive bytes are unavailable, so candidate file hashes and compatibility cannot be reviewed."
+}

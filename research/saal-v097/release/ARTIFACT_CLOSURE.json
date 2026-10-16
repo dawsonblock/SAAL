@@ -1,0 +1,29 @@
+{
+  "dependency_lock_digest": "95577ac83e5cff4ea434919a6448579f53ea3e989ffa234907019406735aab9d",
+  "historical_manifest_references": [
+    "research/saal-v097/recovery/predecessor-v095dev6/ARCHIVE_AUDIT.json"
+  ],
+  "integrity_status": "NOT_VERIFIED",
+  "optional_historical_artifacts": [
+    {
+      "name": "four unique ModernBERT historical checkpoint objects",
+      "registry": "research/saal-v097/recovery/checkpoints/LFS_OBJECT_REGISTRY.json",
+      "status": "CONTENT_HASH_VERIFIED_PUBLISHER_PROVENANCE_UNVERIFIED"
+    }
+  ],
+  "physical_inventory_digest": "98f1dc43192298ce4f5e05809512be8601d1a9fa17a8e30941bbfc9f88109960",
+  "physical_inventory_path": "research/saal-v097/release/PHYSICAL_INVENTORY.json",
+  "publisher_authentication": "NOT_ESTABLISHED",
+  "release_eligible": false,
+  "release_version": "0.9.7.dev0",
+  "required_external_artifacts": [
+    {
+      "expected_sha256": "d5f42a0705d9711bdb3ce04953a928e96aa5a4762f2022ad5cfd2a2ff4c858f1",
+      "name": "SAAL-RSI-v0.9.6-research-upgrade.zip",
+      "status": "MISSING_REQUIRED_FOR_SOURCE_RECONCILIATION"
+    }
+  ],
+  "schema": "saal-artifact-closure-v1",
+  "source_snapshot_digest": "cd8668220f616000f7fb2fc312c91f540fdc656e58d06d14843c934cec5dc456",
+  "source_snapshot_path": "research/saal-v097/release/SOURCE_SNAPSHOT_WP02.json"
+}

@@ -1,0 +1,93 @@
+{
+  "manifest_findings": [
+    {
+      "digest_mismatch_count": 0,
+      "disposition": "RESTORED",
+      "entries": 6696,
+      "missing_count": 6,
+      "path": "MANIFEST.sha256",
+      "prior_audit_status": "MISMATCH",
+      "resolution_note": "All six listed payloads now exist in the current baseline Git LFS checkout and pass byte verification. The historical ZIP itself remains unchanged and still physically omits those members."
+    },
+    {
+      "digest_mismatch_count": 0,
+      "disposition": "REQUIRED_UNRESOLVED",
+      "entries": 2615,
+      "missing_count": 2611,
+      "path": "provenance/evidence-closure-v5-delivery/MANIFEST.sha256",
+      "prior_audit_status": "MISMATCH",
+      "resolution_note": "The predecessor audit reports missing members. The original archive bytes and manifest raw bytes are unavailable here, so standalone-package scope cannot yet be independently declared."
+    },
+    {
+      "digest_mismatch_count": 0,
+      "disposition": "REQUIRED_UNRESOLVED",
+      "entries": 2128,
+      "missing_count": 2126,
+      "path": "reproducibility-evidence/history/MANIFEST.sha256",
+      "prior_audit_status": "MISMATCH",
+      "resolution_note": "The predecessor audit reports missing members. The original archive bytes and manifest raw bytes are unavailable here, so standalone-package scope cannot yet be independently declared."
+    },
+    {
+      "digest_mismatch_count": 0,
+      "disposition": "VALID_HISTORICAL_SCOPE",
+      "entries": 351,
+      "missing_count": 0,
+      "path": "research/diverse-learning-v1/MANIFEST.sha256",
+      "prior_audit_status": "MATCH",
+      "resolution_note": "The predecessor audit reports all entries present with no digest mismatch under its checked scope."
+    },
+    {
+      "digest_mismatch_count": 0,
+      "disposition": "REQUIRED_UNRESOLVED",
+      "entries": 898,
+      "missing_count": 897,
+      "path": "research/learning-reliability-v2/packaging/MANIFEST.sha256",
+      "prior_audit_status": "MISMATCH",
+      "resolution_note": "The predecessor audit reports missing members. The original archive bytes and manifest raw bytes are unavailable here, so standalone-package scope cannot yet be independently declared."
+    },
+    {
+      "digest_mismatch_count": 0,
+      "disposition": "REQUIRED_UNRESOLVED",
+      "entries": 1231,
+      "missing_count": 1230,
+      "path": "research/reliable-learning-v3/packaging/MANIFEST.sha256",
+      "prior_audit_status": "MISMATCH",
+      "resolution_note": "The predecessor audit reports missing members. The original archive bytes and manifest raw bytes are unavailable here, so standalone-package scope cannot yet be independently declared."
+    },
+    {
+      "digest_mismatch_count": 0,
+      "disposition": "VALID_HISTORICAL_SCOPE",
+      "entries": 37,
+      "missing_count": 0,
+      "path": "reviewed-decision-corpus/MANIFEST.sha256",
+      "prior_audit_status": "MATCH",
+      "resolution_note": "The predecessor audit reports all entries present with no digest mismatch under its checked scope."
+    }
+  ],
+  "original_manifest_bytes_modified": false,
+  "overall_status": "UNRESOLVED_TARGET_ARCHIVE_MISSING_AND_NESTED_STANDALONE_SCOPE_REVIEW_PENDING",
+  "prior_archive_audit": {
+    "audit_record": "research/saal-v097/recovery/predecessor-v095dev6/ARCHIVE_AUDIT.json",
+    "audit_record_sha256": "45ecb0fdc9560bb89809f966edf82811cceac6289c3bcfedfc2056322c35e74a",
+    "member_count": 6692,
+    "name": "SAAL-RSI-v0.9.5-dev6-Full-Research-Evidence.zip",
+    "publisher_authenticated": false,
+    "sha256": "9d3b115adcb0262354173a949ed9266812dd289247c1c2b73fff2aeb1326185b",
+    "size_bytes": 7470857286
+  },
+  "requested_archive": {
+    "disposition": "REQUIRED_UNRESOLVED",
+    "expected_sha256": "d5f42a0705d9711bdb3ce04953a928e96aa5a4762f2022ad5cfd2a2ff4c858f1",
+    "name": "SAAL-RSI-v0.9.6-research-upgrade.zip",
+    "observed": false
+  },
+  "schema": "saal-manifest-reconciliation-record-v1",
+  "target_archive_manifests_reconciled": false,
+  "version_finding": {
+    "current_development_version": "0.9.7.dev0",
+    "historical_disposition": "PRESERVED_UNCHANGED",
+    "new_manifest_disposition": "CORRECTED_IN_NEW_MANIFEST",
+    "pyproject_version": "0.9.5.dev6",
+    "runtime_version": "0.9.4.3"
+  }
+}

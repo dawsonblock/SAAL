@@ -1,0 +1,15 @@
+{
+  "checkpoint_content_integrity": "VERIFIED",
+  "checkpoint_provenance": "UNVERIFIED_PUBLISHER_TRUST",
+  "decision": "NOT_READY_FOR_WP0_2_RELEASE_CLOSURE",
+  "development_source_tests": "PASS: 661 passed, 0 failed, 0 errors, 0 skipped",
+  "external_execution_authorized": false,
+  "independent_qualification": "NOT_ESTABLISHED",
+  "manifest_reconciliation": "PARTIAL_TARGET_ARCHIVE_MISSING_AND_NESTED_SCOPE_REVIEW_OPEN",
+  "publisher_key": "NOT_ESTABLISHED",
+  "release_version": "0.9.7.dev0",
+  "runtime_package_built": false,
+  "schema": "saal-v097-release-decision-v1",
+  "source_reconciliation": "BLOCKED_V096_ARCHIVE_MISSING",
+  "source_reviewer": "NOT_INDEPENDENTLY_ASSIGNED"
+}

@@ -1,0 +1,37 @@
+{
+  "checkpoint_payloads": {
+    "path_count": 6,
+    "publisher_provenance": "UNVERIFIED",
+    "status": "HASH_AND_STRUCTURE_VERIFIED",
+    "unique_object_count": 4
+  },
+  "clean_release_package_built": false,
+  "manifest_reconciliation": {
+    "prior_archive_findings_recorded": true,
+    "status": "PARTIAL",
+    "target_archive_scopes_resolved": false
+  },
+  "overall_status": "PARTIAL_ENGINEERING_VERIFICATION_NOT_RELEASE_VERIFIED",
+  "pinned_test_suite": {
+    "duration_seconds": 152.54,
+    "errors": 0,
+    "exit_code": 0,
+    "failed": 0,
+    "passed": 661,
+    "report": "research/saal-v097/release/TEST_REPORT.json",
+    "skipped": 0,
+    "status": "PASS"
+  },
+  "requested_source_archive": {
+    "expected_sha256": "d5f42a0705d9711bdb3ce04953a928e96aa5a4762f2022ad5cfd2a2ff4c858f1",
+    "status": "MISSING"
+  },
+  "schema": "saal-v097-verification-report-v1",
+  "source_snapshot": {
+    "file_count": 332,
+    "publisher_authenticated": false,
+    "snapshot_digest": "cd8668220f616000f7fb2fc312c91f540fdc656e58d06d14843c934cec5dc456",
+    "status": "CONTENT_VERIFIED"
+  },
+  "trusted_publisher_signature_verified": false
+}

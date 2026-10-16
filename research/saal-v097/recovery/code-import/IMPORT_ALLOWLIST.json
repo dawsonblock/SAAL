@@ -1,0 +1,87 @@
+{
+  "candidates": [
+    {
+      "archive_suffix": "src/saal_rsi/adaptive_coordinator_v5.py",
+      "baseline_path": "src/saal_rsi/adaptive_coordinator_v5.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "IMPORT_AND_HARDEN"
+    },
+    {
+      "archive_suffix": "src/saal_rsi/authority/budget_authority_v5.py",
+      "baseline_path": "src/saal_rsi/authority/budget_authority_v5.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "IMPORT_WITH_COMPATIBILITY_REVIEW"
+    },
+    {
+      "archive_suffix": "src/saal_rsi/authority/source_closure_v5.py",
+      "baseline_path": "src/saal_rsi/authority/source_closure_v5.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "REFERENCE_ONLY_KEEP_V6_AUTHORITATIVE"
+    },
+    {
+      "archive_suffix": "src/saal_rsi/evaluation/safety_feasibility.py",
+      "baseline_path": "src/saal_rsi/evaluation/safety_feasibility.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "IMPORT_AND_TEST"
+    },
+    {
+      "archive_suffix": "src/saal_rsi/evaluation/bundle_feasibility_v5.py",
+      "baseline_path": "src/saal_rsi/evaluation/bundle_feasibility_v5.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "DEVELOPMENT_ONLY_EVALUATOR"
+    },
+    {
+      "archive_suffix": "src/saal_rsi/evaluation/independent_evidence.py",
+      "baseline_path": "src/saal_rsi/evaluation/independent_evidence.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "IMPORT_WITH_SIGNER_TRUST_REVIEW"
+    },
+    {
+      "archive_suffix": "src/saal_rsi/evaluation/replay_receipt_v5.py",
+      "baseline_path": "src/saal_rsi/evaluation/replay_receipt_v5.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "IMPORT_WITH_PROTOCOL_COMPATIBILITY_CHECKS"
+    },
+    {
+      "archive_suffix": "src/saal_rsi/evaluation/learning_curves.py",
+      "baseline_path": "src/saal_rsi/evaluation/learning_curves.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "IMPORT_AND_TEST"
+    },
+    {
+      "archive_suffix": "src/saal_rsi/learning/failure_diagnoser.py",
+      "baseline_path": "src/saal_rsi/learning/failure_diagnoser.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "EXPERIMENTAL_MODULE"
+    },
+    {
+      "archive_suffix": "src/saal_rsi/learning/intervention_controller.py",
+      "baseline_path": "src/saal_rsi/learning/intervention_controller.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "PROPOSAL_ONLY_CONTROLLER"
+    },
+    {
+      "archive_suffix": "src/saal_rsi/learning/skill_registry.py",
+      "baseline_path": "src/saal_rsi/learning/skill_registry.py",
+      "status": "NOT_IMPORTED",
+      "treatment": "IMPORT_AND_VALIDATE_STORAGE_SEMANTICS"
+    },
+    {
+      "archive_suffix": "tests/v096/test_v096_upgrade.py",
+      "baseline_path": null,
+      "status": "NOT_IMPORTED",
+      "treatment": "ADAPT_AS_V097_REGRESSION_TESTS"
+    }
+  ],
+  "excluded_classes": [
+    "pyproject.toml",
+    "package initializers",
+    "release scripts",
+    "historical evidence",
+    "signing material",
+    "obsolete source-closure implementations"
+  ],
+  "schema": "saal-v097-import-allowlist-v1",
+  "source_archive_sha256": "d5f42a0705d9711bdb3ce04953a928e96aa5a4762f2022ad5cfd2a2ff4c858f1",
+  "status": "CANDIDATE_LIST_ONLY_ARCHIVE_MISSING"
+}

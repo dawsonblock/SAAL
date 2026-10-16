@@ -1,0 +1,41 @@
+{
+  "command": "PYTHONPATH=src /Users/dawsonblock/Downloads/SAAL-RSI-validation-envs/adaptive-v6-py312/bin/python -m pytest -o addopts='' tests -q -ra",
+  "dependency_locks": [
+    {
+      "path": "configs/dependency-locks/macos-arm64-py312.txt",
+      "sha256": "77510c93d2824e292b00e4a6f7e525f2cc34c5542d5055ee52a006915340a419"
+    },
+    {
+      "path": "configs/dependency-locks/pretrained-macos-arm64-py312.txt",
+      "sha256": "941d0aeadcde3baa1e9b14882d64b790981c4cb3081bfb2f0b7ba05312fc6cc2"
+    }
+  ],
+  "environment": {
+    "cryptography": "48.0.1",
+    "huggingface-hub": "1.33.0",
+    "numpy": "2.4.6",
+    "peft": "0.21.2",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "pytest": "8.4.2",
+    "python": "3.12.0",
+    "safetensors": "0.8.0",
+    "torch": "2.10.0",
+    "transformers": "5.19.0"
+  },
+  "exit_code": 0,
+  "qualification": "Engineering regression only; does not authenticate source publisher, complete WP0.2 provenance, qualify model behavior, or authorize GPU execution.",
+  "result": {
+    "duration_seconds": 152.54,
+    "errors": 0,
+    "failed": 0,
+    "passed": 661,
+    "skipped": 0
+  },
+  "run_id": "wp02-full-tests-20261016-232437-utc",
+  "schema": "saal-v097-test-report-v1",
+  "source_snapshot_digest": "cd8668220f616000f7fb2fc312c91f540fdc656e58d06d14843c934cec5dc456",
+  "timestamp_utc": "2026-10-16T23:24:37Z",
+  "warnings": [
+    "Two intentional zipfile duplicate-member fixture warnings in archive-integrity tests."
+  ]
+}

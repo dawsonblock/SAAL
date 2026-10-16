@@ -1,0 +1,10 @@
+{
+  "schema": "saal-v097-source-comparison-v1",
+  "candidate_archive": "SAAL-RSI-v0.9.6-research-upgrade.zip",
+  "expected_archive_sha256": "d5f42a0705d9711bdb3ce04953a928e96aa5a4762f2022ad5cfd2a2ff4c858f1",
+  "observed_archive_sha256": null,
+  "baseline_commit": "fb2e7eb000fb2a4ca50e2b5ec5034e02d3b95f4c",
+  "comparison_status": "NOT_RUN_INPUT_UNAVAILABLE",
+  "files": [],
+  "note": "No v0.9.6 source file was imported or inferred from the archive name."
+}

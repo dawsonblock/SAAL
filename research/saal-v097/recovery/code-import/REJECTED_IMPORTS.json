@@ -1,0 +1,7 @@
+{
+  "schema": "saal-v097-rejected-imports-v1",
+  "archive_observed": false,
+  "rejected_files": [],
+  "excluded_classes_from_plan": ["pyproject.toml", "package initializers", "release scripts", "historical evidence", "signing material", "obsolete source-closure implementations"],
+  "status": "NO_ARCHIVE_BYTES_TO_CLASSIFY"
+}

@@ -1,0 +1,15 @@
+{
+  "environment": "macOS arm64 Python 3.12",
+  "lock_provenance": "Repository-pinned development locks; publisher authentication not established",
+  "locks": [
+    {
+      "path": "configs/dependency-locks/macos-arm64-py312.txt",
+      "sha256": "77510c93d2824e292b00e4a6f7e525f2cc34c5542d5055ee52a006915340a419"
+    },
+    {
+      "path": "configs/dependency-locks/pretrained-macos-arm64-py312.txt",
+      "sha256": "941d0aeadcde3baa1e9b14882d64b790981c4cb3081bfb2f0b7ba05312fc6cc2"
+    }
+  ],
+  "schema": "saal-v097-dependency-lock-reference-v1"
+}
