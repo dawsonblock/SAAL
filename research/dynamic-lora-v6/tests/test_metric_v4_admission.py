@@ -7,6 +7,7 @@ from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from saal_rsi.adaptive_contract_v4 import new_job, POLICY, POLICY_DIGEST, worker_identity
 from saal_rsi.adaptive_evaluator_v4 import validate_protocol, validate_jobs, validate_sources
 from saal_rsi.adaptive_registry_v4 import AdaptiveRegistryV4
+from saal_rsi.adaptive_runtime_v4 import runtime_requirements
 from saal_rsi.model_contract import sign
 from saal_rsi.spec import sha
 
@@ -17,6 +18,7 @@ def _make_job(base):
                   total_lifecycle_seconds=5500,reserved_seconds=5000)
     return new_job(base['model_spec'], base['dataset'], base['adapter'],
         seed=base['seed'], budget=budget, steps=base['steps'],
+        runtime_requirements=runtime_requirements('T4', 'STANDARD'),
         batch_size=base['batch_size'], accumulation=base['accumulation'],
         max_seconds=base['max_seconds'], campaign_stage='ENGINEERING',
         learning_rate=base['learning_rate'], head_learning_rate=base['head_learning_rate'],
@@ -32,7 +34,7 @@ def _signed_pair(base, tmp_path):
     budget = {'campaign_id': job['budget']['campaign_id'], 'max_runs': 1,
         'total_lifecycle_seconds': job['budget']['total_lifecycle_seconds'],
         'max_provisioning_attempts': 1, 'automatic_training_retries': 0,
-        'financial_cap': False}
+        'financial_cap': False, 'max_compute_units': 10}
     sources = {'src/saal_rsi/adaptive_evaluator_v4.py': hashlib.sha256(
         __import__('pathlib').Path(__file__).parents[3].joinpath('src/saal_rsi/adaptive_evaluator_v4.py').read_bytes()).hexdigest()}
     protocol = {'schema':'saal-adaptive-campaign-v4','stage':'ENGINEERING','budget':budget,
@@ -43,6 +45,10 @@ def _signed_pair(base, tmp_path):
         'numerical_metric_policy_digest':POLICY_DIGEST,
         'colab_cli_version':'0.7.4','source_files':sources,
         'required_source_files':list(sources),
+        'runtime_requirements':runtime_requirements('T4', 'STANDARD'),
+        'data_review_status':'UNREVIEWED_PUBLIC_DIAGNOSTIC',
+        'scope':'ENGINEERING_ONLY_NO_BEHAVIORAL_CLAIM',
+        'signer_status':'SELF_SIGNED_DEVELOPMENT_ONLY_NOT_INDEPENDENT',
         'independent_generalization':'NOT_ESTABLISHED',
         'qualification_status':'NOT_EVALUATED','external_deployment_allowed':False}
     return key, pin, job, envelope, sign(protocol,key), protocol
@@ -127,6 +133,7 @@ def test_v4_job_can_bind_static_adalora_without_reinterpreting_legacy(admitted_j
     adapter['target_modules'] = base['adapter']['target_modules']
     job = new_job(base['model_spec'], base['dataset'], adapter,
         seed=base['seed'], budget=base['budget'], steps=base['steps'],
+        runtime_requirements=runtime_requirements('T4', 'STANDARD'),
         batch_size=base['batch_size'], accumulation=base['accumulation'],
         max_seconds=base['max_seconds'], campaign_stage=base['campaign_stage'],
         learning_rate=base['learning_rate'], head_learning_rate=base['head_learning_rate'],

@@ -8,6 +8,7 @@ import time
 from pathlib import Path
 
 from .adaptive_contract_v4 import validate_job, RANKNUM_POLICY
+from .adaptive_runtime_v4 import host_memory_bytes, validate_runtime_observation
 from .numerical_metrics_v2 import POLICY, POLICY_DIGEST
 from .adaptive_backend_v2_v4 import CudaSafeAdaLoRABackend as AdaptiveModernBERTBackend
 from .adaptive_backend import verify_peft_implementation
@@ -43,13 +44,30 @@ def main():
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
     free = total = 0
+    runtime_observation = None
     spec = job['model_spec']
     if spec['compute_backend'] == 'colab':
-        if not torch.cuda.is_available() or 'T4' not in torch.cuda.get_device_name():
-            raise ValueError('exact admitted T4 is unavailable')
+        if not torch.cuda.is_available():
+            raise ValueError('admitted CUDA accelerator is unavailable')
         free, total = torch.cuda.mem_get_info()
         if free < 6*1024**3 or os.environ.get('SAAL_HASH_LOCK_ENFORCED') != '1':
             raise ValueError('GPU memory / hash lock admission failed')
+        props = torch.cuda.get_device_properties(0)
+        requirements = job['runtime_requirements']
+        runtime_observation = {
+            'device': str(torch.cuda.current_device()),
+            'gpu': torch.cuda.get_device_name(0),
+            'accelerator': requirements['accelerator'],
+            'gpu_memory_bytes': int(props.total_memory),
+            'free_gpu_bytes_preflight': int(free),
+            'host_memory_bytes': host_memory_bytes(),
+            'high_memory_observed': host_memory_bytes() >= 32*1024**3,
+            'dependency_hash_lock_enforced': os.environ.get('SAAL_HASH_LOCK_ENFORCED') == '1',
+        }
+        # torch.cuda.current_device() returns an integer; the artifact contract
+        # uses the conventional stable device identity string.
+        runtime_observation['device'] = 'cuda:'+str(torch.cuda.current_device())
+        validate_runtime_observation(requirements, runtime_observation)
         torch.cuda.reset_peak_memory_stats()
     snapshot = fetch_snapshot(args.cache, spec['model_repository'], spec['model_revision'],
                               lambda v: print(json.dumps(v), flush=True))
@@ -114,6 +132,7 @@ def main():
                            'python': platform.python_version(), 'platform': platform.platform(),
                            'device': str(next(backend.model.parameters()).device),
                            'gpu': torch.cuda.get_device_name() if torch.cuda.is_available() else None,
+                           **(runtime_observation or {}),
                            'free_gpu_bytes_preflight': free, 'total_gpu_bytes': total,
                            'attention': spec['attention_implementation'],
                            'deterministic_algorithms': torch.are_deterministic_algorithms_enabled(),

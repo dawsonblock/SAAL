@@ -3,6 +3,7 @@ from pathlib import Path
 import re
 
 from .adaptive_contract_v4 import validate_job, worker_identity
+from .adaptive_runtime_v4 import validate_runtime_requirements
 from .numerical_metrics_v2 import POLICY_DIGEST, validate_policy
 from .model_contract import verify
 from .spec import canonical, sha
@@ -14,7 +15,8 @@ def validate_protocol(protocol):
         'schema', 'stage', 'budget', 'job_digests', 'runs', 'worker_identities',
         'numerical_metric_policy', 'numerical_metric_policy_digest', 'colab_cli_version',
         'source_files', 'required_source_files', 'independent_generalization',
-        'qualification_status', 'external_deployment_allowed',
+        'qualification_status', 'external_deployment_allowed', 'runtime_requirements',
+        'data_review_status', 'scope', 'signer_status',
     }
     if (type(protocol) is not dict or set(protocol) != protocol_fields
             or protocol.get('schema') != 'saal-adaptive-campaign-v4'
@@ -30,7 +32,7 @@ def validate_protocol(protocol):
     if (type(budget) is not dict
             or set(budget) != {'campaign_id', 'max_runs', 'total_lifecycle_seconds',
                                'max_provisioning_attempts', 'automatic_training_retries',
-                               'financial_cap'}
+                               'financial_cap', 'max_compute_units'}
             or type(budget['campaign_id']) is not str
             or not re.fullmatch(r'[A-Za-z0-9_-]{1,100}', budget['campaign_id'])
             or type(budget['max_runs']) is not int or not 1 <= budget['max_runs'] <= 25
@@ -40,8 +42,15 @@ def validate_protocol(protocol):
             or budget['max_provisioning_attempts'] != 1
             or type(budget['automatic_training_retries']) is not int
             or budget['automatic_training_retries'] != 0
-            or budget['financial_cap'] is not False):
+            or budget['financial_cap'] is not False
+            or type(budget['max_compute_units']) is not int
+            or not 1 <= budget['max_compute_units'] <= 100):
         raise ValueError('one-provision, no-retry bounded public budget required')
+    validate_runtime_requirements(protocol.get('runtime_requirements'))
+    if (protocol.get('data_review_status') != 'UNREVIEWED_PUBLIC_DIAGNOSTIC'
+            or protocol.get('scope') != 'ENGINEERING_ONLY_NO_BEHAVIORAL_CLAIM'
+            or protocol.get('signer_status') != 'SELF_SIGNED_DEVELOPMENT_ONLY_NOT_INDEPENDENT'):
+        raise ValueError('unreviewed data may be used only for a bounded engineering diagnostic')
     runs = protocol.get('runs')
     if type(runs) is not list or not 1 <= len(runs) <= budget['max_runs']:
         raise ValueError('bounded exact run descriptors required')
@@ -95,6 +104,7 @@ def validate_jobs(protocol, envelopes, pin):
                 or budget['total_lifecycle_seconds'] != protocol['budget']['total_lifecycle_seconds']
                 or budget['automatic_training_retries'] != 0
                 or budget['financial_cap'] is not False
+                or canonical(job['runtime_requirements']) != canonical(protocol['runtime_requirements'])
                 or job['numerical_metric_policy_digest'] != protocol['numerical_metric_policy_digest']
                 or canonical(job['numerical_metric_policy']) != canonical(protocol['numerical_metric_policy'])):
             raise ValueError('signed v4 job does not match protocol admission')

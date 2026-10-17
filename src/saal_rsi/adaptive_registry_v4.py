@@ -100,7 +100,9 @@ class AdaptiveRegistryV4:
                         'SELECT digest,run_id,seconds,state,outcome FROM attempts ORDER BY rowid')]
         return {'schema': 'saal-adaptive-budget-export-v4', 'protocol_digest': self.digest,
                 'campaign_state': state, 'provisioning_attempts': provisions, 'attempts': attempts,
-                'rollback_resistant': False, 'financial_cap': False,
+                'rollback_resistant': False,
+                'compute_units_cap': self.protocol['budget']['max_compute_units'],
+                'financial_cap': False,
                 'protected_alpha_consumed': False, 'qualification_status': 'NOT_EVALUATED',
                 'external_deployment_allowed': False}
 

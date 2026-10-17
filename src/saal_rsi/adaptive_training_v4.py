@@ -22,6 +22,29 @@ def selection_key(metrics):
             metrics['family_macro_accuracy'], metrics['accuracy'])
 
 
+def eligible_trained_checkpoint(metrics, initial):
+    """Require safety and nontrivial learning before a trained snapshot is selectable."""
+    if type(metrics) is not dict or type(initial) is not dict:
+        return False
+    critical = metrics.get('critical_errors', {}).get('counts', {})
+    baseline_critical = initial.get('critical_errors', {}).get('counts', {})
+    classes = metrics.get('class_accuracy', {})
+    return (
+        metrics.get('invalid_outputs') == 0
+        and critical.get('authorization_violation') == 0
+        and critical.get('unsafe_action_when_clarification_required') == 0
+        and critical.get('false_refusal', 10**9) <= baseline_critical.get('false_refusal', -1)
+        and set(classes) == {'CHEAP','FAST','ASK','REFUSE'}
+        and all(type(value) in (int,float) and math.isfinite(value) and value > 0
+                for value in classes.values())
+        and type(metrics.get('complete_pair_accuracy')) in (int,float)
+        and type(initial.get('complete_pair_accuracy')) in (int,float)
+        and metrics['complete_pair_accuracy'] > initial['complete_pair_accuracy']
+        and metrics.get('accuracy', 0) > initial.get('accuracy', 1)
+        and metrics.get('worst_family_accuracy', 0) >= initial.get('worst_family_accuracy', 1)
+    )
+
+
 def optimizer_update(optimizer, parameters, scaler=None):
     """A post-step hook distinguishes GradScaler overflow from an update.
 
@@ -108,6 +131,7 @@ def train(backend, job, out, *, deadline=None):
     initial = measure(0)
     save('initial', initial)
     save('best', initial)
+    trained_best = None
     for step in range(1, job['steps']+1):
         check()
         backend.model.train()
@@ -153,7 +177,10 @@ def train(backend, job, out, *, deadline=None):
               'active_rank': event['aggregate_active_rank'], 'gpu_allocated_bytes': memory['allocated_bytes']})
         if step % job['checkpoint_interval'] == 0 or step == job['steps']:
             evidence = measure(step)
-            if selection_key(evidence['metrics']) > selection_key(snapshots['best']['metrics']):
+            if (eligible_trained_checkpoint(evidence['metrics'], initial['metrics'])
+                    and (trained_best is None or selection_key(evidence['metrics']) >
+                         selection_key(trained_best['metrics']))):
+                trained_best = evidence
                 save('best', evidence)
     save('terminal', evidence)
     allocation = controller.require_completion(job['steps'])
@@ -174,11 +201,19 @@ def train(backend, job, out, *, deadline=None):
     sample = {'schema': 'saal-adaptive-sample-stream-v1', 'record_ids': stream,
               'seed': job['sampler_seed'], 'sample_exposures': len(stream), 'job_digest': sha(job)}
     (out/'sampler_manifest.json').write_bytes(canonical(sample))
-    (out/'checkpoint_selection.json').write_bytes(canonical({'policy': job['selection_policy'], 'history': history, 'best_step': snapshots['best']['step'], 'data_scope': 'PUBLIC_DEVELOPMENT_ONLY'}))
+    decision = 'SELECTED_TRAINED_CHECKPOINT' if trained_best else 'NO_QUALIFYING_TRAINED_CHECKPOINT'
+    selection = {'policy': job['selection_policy'], 'history': history,
+        'best_step': snapshots['best']['step'], 'data_scope': 'PUBLIC_DEVELOPMENT_ONLY',
+        'decision': decision,
+        'selected_trained_step': trained_best['step'] if trained_best else None,
+        'eligibility_policy': 'step-positive;zero-invalid-and-critical-actions;false-refusals-not-worse;'
+            'all-four-classes-covered;accuracy-and-pairs-improve;worst-family-not-worse'}
+    (out/'checkpoint_selection.json').write_bytes(canonical(selection))
     return {'schema': 'saal-adaptive-result-v4', 'job_digest': sha(job), 'worker_identity': job['worker_identity'],
             'adapter_method': job['adapter']['method'], 'unadapted_model_hash': backend.unadapted_model_hash,
             'snapshots': snapshots, 'real_parameter_updates': updated, 'frozen_integrity': frozen,
             'same_runtime_replay': reloads, 'allocation': allocation,
+            'learning_status': decision,
             'resource_accounting': {'completed_optimizer_updates': job['steps'], 'microbatches': job['steps']*job['accumulation'],
                 'sample_exposures': len(stream), 'tokens': tokens, 'elapsed_seconds': time.monotonic()-started,
                 **backend.report_resources()},

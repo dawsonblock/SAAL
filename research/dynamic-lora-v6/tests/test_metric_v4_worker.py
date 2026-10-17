@@ -6,6 +6,7 @@ import pytest
 
 from saal_rsi.adaptive_campaign_v4 import stage_worker
 from saal_rsi.adaptive_contract_v4 import POLICY, POLICY_DIGEST, new_job, validate_job, worker_identity
+from saal_rsi.adaptive_runtime_v4 import runtime_requirements
 from saal_rsi.adaptive_contract_v3 import POLICY as V3_POLICY, POLICY_DIGEST as V3_POLICY_DIGEST
 from saal_rsi.adaptive_contract_v3 import validate_job as validate_v3
 from saal_rsi.adaptive_dispatch import validate_job as dispatch_v3
@@ -17,6 +18,7 @@ def v4_job(admitted_job):
     budget = copy.deepcopy(admitted_job['budget'])
     return new_job(admitted_job['model_spec'], admitted_job['dataset'], admitted_job['adapter'],
         seed=admitted_job['seed'], budget=budget, steps=admitted_job['steps'],
+        runtime_requirements=runtime_requirements('T4', 'STANDARD'),
         batch_size=admitted_job['batch_size'], accumulation=admitted_job['accumulation'],
         max_seconds=admitted_job['max_seconds'], campaign_stage='ENGINEERING',
         learning_rate=admitted_job['learning_rate'], head_learning_rate=admitted_job['head_learning_rate'],

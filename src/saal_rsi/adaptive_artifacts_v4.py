@@ -240,8 +240,12 @@ def validate_bundle(root, job, pin, *, require_replay=False):
             or runtime.get('deterministic_algorithms') is not True or runtime.get('matmul_tf32') is not False):
         raise ValueError('runtime dependency / attention identity')
     if spec['compute_backend'] == 'colab':
-        if runtime.get('device') != 'cuda:0' or type(runtime.get('gpu')) is not str or 'T4' not in runtime['gpu'] or runtime.get('dependency_hash_lock_enforced') is not True:
-            raise ValueError('admitted T4 / hash lock not recorded')
+        from .adaptive_runtime_v4 import validate_runtime_observation
+        observation_fields = ('device', 'gpu', 'accelerator', 'gpu_memory_bytes',
+                              'free_gpu_bytes_preflight', 'host_memory_bytes',
+                              'high_memory_observed', 'dependency_hash_lock_enforced')
+        observation = {name: runtime.get(name) for name in observation_fields}
+        validate_runtime_observation(job['runtime_requirements'], observation)
     if type(result.get('total_worker_seconds')) not in (int, float) or not math.isfinite(result['total_worker_seconds']) or not 0 < result['total_worker_seconds'] <= job['max_seconds']:
         raise ValueError('end-to-end worker deadline')
     preflight = result.get('preflight', {})
@@ -286,14 +290,19 @@ def validate_bundle(root, job, pin, *, require_replay=False):
     selection = read_json(root/'checkpoint_selection.json')
     expected_steps = [0]+[s for s in range(1, job['steps']+1) if s % job['checkpoint_interval'] == 0 or s == job['steps']]
     history = selection.get('history', [])
+    from .adaptive_training_v4 import selection_key, eligible_trained_checkpoint
+    initial_metrics = history[0]['metrics'] if history else None
+    eligible = [m for m in history[1:]
+                if eligible_trained_checkpoint(m['metrics'], initial_metrics)] if initial_metrics else []
+    best = max(eligible,key=lambda m:selection_key(m['metrics'])) if eligible else (history[0] if history else {})
+    expected_decision = 'SELECTED_TRAINED_CHECKPOINT' if eligible else 'NO_QUALIFYING_TRAINED_CHECKPOINT'
     if (selection.get('policy') != job['selection_policy'] or selection.get('data_scope') != 'PUBLIC_DEVELOPMENT_ONLY'
+            or selection.get('decision') != expected_decision
+            or selection.get('selected_trained_step') != (best.get('step') if eligible else None)
+            or type(selection.get('eligibility_policy')) is not str
+            or result.get('learning_status') != expected_decision
             or any(type(m.get('step')) is not int for m in history) or [m['step'] for m in history] != expected_steps):
         raise ValueError('development selection schedule')
-    from .adaptive_training_v4 import selection_key
-    best = history[0]
-    for m in history[1:]:
-        if selection_key(m['metrics']) > selection_key(best['metrics']):
-            best = m
     snapshots = result.get('snapshots')
     if type(snapshots) is not dict or set(snapshots) != set(ROLES):
         raise ValueError('initial/best/terminal snapshots required')

@@ -5,16 +5,19 @@ from pathlib import Path
 
 from . import adaptive_contract_v3 as v3
 from .numerical_metrics_v2 import POLICY, POLICY_DIGEST, validate_policy
+from .adaptive_runtime_v4 import validate_runtime_requirements
 from .spec import canonical, sha
 
 SCHEMA = 'saal-adaptive-job-v4'
 RANKNUM_POLICY = v3.RANKNUM_POLICY
 METRIC_POLICY = POLICY
+SELECTION_POLICY = 'public-critical-pair-nonzero-v2-no-step-zero-success'
 SOURCES = v3.SOURCES + (
     'numerical_metrics_v2.py', 'adaptive_contract_v4.py',
     'adaptive_training_v4.py', 'adaptive_artifacts_v4.py', 'adaptive_worker_v4.py',
     'adaptive_backend_v4.py', 'adaptive_backend_v2_v4.py',
     'adaptive_rank_controller_v4.py', 'adaptive_replay_v4.py',
+    'adaptive_runtime_v4.py',
 )
 
 
@@ -64,11 +67,16 @@ def validate_job(job):
             or job.get('worker_identity') != worker_identity()
             or job.get('numerical_metric_policy_digest') != POLICY_DIGEST):
         raise ValueError('fresh v2-metric v4 admission required')
+    runtime = validate_runtime_requirements(job.get('runtime_requirements'))
+    if job.get('selection_policy') != SELECTION_POLICY:
+        raise ValueError('v4 trained-checkpoint eligibility policy required')
     validate_policy(job.get('numerical_metric_policy'))
     validate_adapter(job.get('adapter'), job.get('steps'))
     constraints = dict(job)
     for name in ('numerical_metric_policy', 'numerical_metric_policy_digest'):
         constraints.pop(name)
+    constraints.pop('runtime_requirements')
+    constraints['selection_policy'] = v3.v1.SELECTION
     constraints.update(schema=v3.SCHEMA, worker_identity=v3.worker_identity())
     if job['adapter']['method'] == 'adalora-static-r12':
         constraints['adapter'] = v3.v1.adapter_spec('fixed-r12')
@@ -88,11 +96,14 @@ def new_job(*args, **kwargs):
             spec, dataset, adapter = kwargs.pop('spec'), kwargs.pop('dataset'), kwargs.pop('adapter')
         except KeyError as exc:
             raise TypeError('v4 new_job requires spec, dataset and adapter') from exc
+    runtime = kwargs.pop('runtime_requirements', None)
     validate_adapter(adapter, kwargs.get('steps', 1000))
     legacy_adapter = v3.v1.adapter_spec('fixed-r12') if adapter['method'] == 'adalora-static-r12' else adapter
     job = v3.new_job(spec, dataset, legacy_adapter, **kwargs)
     job['adapter'] = copy.deepcopy(adapter)
     job.update(schema=SCHEMA, numerical_metric_policy=copy.deepcopy(POLICY),
-               numerical_metric_policy_digest=POLICY_DIGEST)
+               numerical_metric_policy_digest=POLICY_DIGEST,
+               runtime_requirements=validate_runtime_requirements(runtime),
+               selection_policy=SELECTION_POLICY)
     job['worker_identity'] = worker_identity()
     return validate_job(job)
