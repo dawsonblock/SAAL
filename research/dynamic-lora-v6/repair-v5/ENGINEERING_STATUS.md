@@ -1,87 +1,102 @@
-# Dynamic LoRA v5 repair: engineering status
+# Dynamic LoRA v5 repair status
 
-Status: **development diagnostics only**. This change does not create a signed
-campaign, launch training, qualify a checkpoint, or authorize deployment.
+Status: **development implementation; no A100 campaign admitted or run**.
+
+This slice implements a static AdaLoRA diagnostic path and hard authorization
+checks. It does not change v4 job semantics, historical results, spent budgets,
+qualification status, or deployment authority.
 
 ## Implemented
 
-- Added a closed scientific-configuration schema for the 200-update static
-  AdaLoRA orthogonal-regularization screen. It binds the immutable ModernBERT
-  model and tokenizer identities, registered target modules, platform lock,
-  dataset/source/sample-order digests, seeds, optimizer settings, head policy,
-  evaluation cadence, exposure count, and checkpoint policy.
-- Added four static AdaLoRA coefficients (`0`, `0.01`, `0.1`, `0.5`) and a
-  matched fixed-r8 reference. The only planned ablation difference is the
-  orthogonal coefficient; AdaLoRA rank allocation remains disabled.
-- Kept these records distinct from `saal-adaptive-job-v4`. Every generated
-  record explicitly requires a fresh signed admission and carries
-  `NOT_EVALUATED`, no holdout, no resume, no automatic retry, and no external
-  deployment authority.
-- Added an independent PyTorch reference for PEFT 0.21.2's SVD linear update,
-  including the stored-rank normalization epsilon, optional rank mask, and
-  adapter-disabled path.
-- Confirmed with a differential test that PEFT's `AdaLoraModel` adds its
-  orthogonal term to a loss-bearing output, while the generic `PeftModel`
-  wrapper in the tested `task_type=None` configuration returns the task loss
-  without that augmentation. SAAL's manual regularizer path is therefore
-  necessary for this configuration and must remain single-counted.
-- Added diagnostics for CE versus weighted orthogonal gradients and their
-  cosine/relative norm, low-rank effective-update norms and changes, rank-mask
-  budget checks, per-tensor gradients/updates, Adam moments, and predicted
-  clipping scale.
-- Reproduced a rank-mask edge case in pinned PEFT 0.21.2: a zeroed singular
-  value can receive a nonzero AdamW gradient/update and regrow unless its mask
-  is reapplied. SAAL's current rank controller reapplies the saved mask after
-  each successful update, which restores the forward mask, but the optimizer
-  moment remains nonzero. This gives the later reference-versus-hardened
-  optimizer-state comparison a concrete test case; neither policy is changed
-  in this static-SVD repair slice.
-- Added CPU tests for PEFT forward parity, zero initial SVD output, ten-step
-  factor updates, checkpoint reload parity, regularizer aggregation, numerical
-  diagnostics, masks, and static pilot configuration invariants.
+- Added a closed scientific config for the four 200-update static AdaLoRA
+  regularization arms and a matched fixed-r8 reference. The config binds model,
+  tokenizer, dataset, sample order, dependency lock, numerical metric policy,
+  optimizer, seed, head policy, and checkpoint-selection policy.
+- Expanded the scientific source digest to bind every Python file under
+  `src/saal_rsi` plus the pretrained model registry. The dependency lock and
+  model snapshot remain separately bound.
+- Added a v5 ModernBERT backend. It passes the registered training seed,
+  supports fixed-r8 and static AdaLoRA-r12, applies the configured orthogonal
+  coefficient exactly once, and never calls the dynamic rank allocator.
+- Added a bounded 200-update loop with completed-update checks, FP16/BF16
+  handling, CE/orthogonal gradient diagnostics, clipping telemetry, per-tensor
+  parameter changes and Adam moments, effective low-rank update norms,
+  class/family/pair metrics, resource observations, and initial/best/terminal
+  checkpoint replay checks. The dropout RNG uses its separately registered
+  seed. Development checkpoint selection puts complete-pair accuracy first,
+  then worst-family and family-macro accuracy, with safety and nontrivial
+  learning gates applied before ranking. It cannot select step zero as a
+  trained result; an empty feasible set is `NO_QUALIFYING_CHECKPOINT`.
+- Added a signed-admission controller path. It requires a controller-owned
+  public trust store, an unexpired signature binding the exact config/data/
+  source/model/tokenizer/dependency/metric identities, an A100/high-RAM
+  hash-lock preflight, a signed one-use attempt receipt, and a signed terminal
+  outcome receipt. Receipts bind the entire signed admission envelope, the
+  exact attempt and configuration, and a strictly later witness sequence.
+  Failed hardware checks record a sanitized stage and consume no attempt.
+  Successful completion is committed only after the result and a pre-commit
+  artifact inventory have been written; uncertain authority calls are never
+  retried.
+- Added CPU tests for SVD reference parity, coefficient and metric-contract
+  identity, admission/signature rejection, attempt-receipt replay rejection,
+  preflight failure handling, pair-primary checkpoint selection, backend seed
+  binding, and a 200-step training-loop lifecycle using a tiny synthetic
+  fixture. The tiny fixture is only a software test, not a model result.
 
 ## Validation performed
 
-The new targeted CPU suite passed **18 tests** in the pinned Python 3.12
-environment using PEFT 0.21.2. The existing dynamic LoRA test suite passed
-**202 tests** before the final numerical additions; both the full dynamic suite
-and complete repository suite are being rerun on the final source state.
+The Dynamic LoRA research suite passed **224 tests** and the repository-wide
+core suite passed **636 tests** on the current source state. The focused v5
+suite passed **21 tests** after the latest receipt and preflight changes. Ruff
+and whitespace checks pass for the v5 implementation and tests.
 
-The tests verify the SVD formulas on tiny synthetic layers. They do not
-establish ModernBERT training recovery, A100 behavior, allocation quality,
-checkpoint authenticity, or model generalization.
+These are software and synthetic-fixture checks. They do not establish
+ModernBERT/A100 training, SVD performance recovery, behavioral improvement,
+checkpoint authenticity, or generalization.
 
-Final validation on the current branch completed successfully: the pinned
-repository suite collected 636 tests and exited successfully, and the complete
-Dynamic LoRA research suite collected 210 tests and exited successfully. Ruff
-and whitespace checks also pass for the newly added files. These software
-checks do not substitute for an admitted GPU pilot.
+## Authorization required before Colab execution
 
-## Still blocked or untested
+No fresh signed admission or v5 attempt-authority service configuration is
+present in this checkout. Therefore `execute_admitted_static_pilot` was not
+called and no Colab runtime or model training was started.
 
-- No new training job has been admitted or run. The four ablation records are
-  candidate descriptions, not runnable worker jobs.
-- The local tensor artifacts from the earlier A100 diagnostic have not been
-  independently authenticated or moved into trusted content-addressed storage.
-- The A100 hardware preflight has not been run. A new wrapper requires an
-  operator-configured controller trust store, validates the protocol and
-  every legacy v4 job against its role-bound key, and stages only the verified
-  bytes before delegating to the existing runner. This local trust store is
-  not independent key custody, does not make the legacy ledger rollback
-  resistant, and is not a v5 scientific-pilot coordinator. The new research
-  config is not yet wired to an executable v5 trainer.
-- Static AdaLoRA performance parity has not been tested. Dynamic allocation,
-  behavioral qualification, retention, and independent evaluation remain
-  unclaimed.
-- The exact full source closure and publisher trust review remain outside this
-  first repair slice.
+Before the ModernBERT pilot can run, the controller needs all of the following:
 
-## Next authorized engineering gate
+1. A newly signed v5 admission for the exact config, dataset, source digest,
+   metric policy, dependency lock, A100/high-RAM preflight, update/exposure
+   limits, wall-clock limit, compute-unit allocation, and output-size limit.
+2. A controller-owned `SAAL_STATIC_PILOT_TRUST_STORE` containing the authorized
+   admission public key and a distinct attempt-authority public key. Do not
+   place private keys in the repository, Colab notebook, or worker.
+3. A separately administered attempt-authority client that implements the
+   one-use `consume_attempt` and terminal `finalize_attempt` operations and
+   returns receipts signed by the pinned attempt-authority key.
+4. A fresh Linux x86_64 Python 3.13 Colab runtime that passes the actual A100,
+   high-RAM, dependency-version, PEFT-source, and hash-lock preflight.
 
-Implement and test an isolated v5 diagnostic trainer/coordinator that consumes
-only a freshly signed v5 admission, uses an externally configured trust
-anchor, and logs initial/step/best/terminal CE, regularizer, gradient,
-clipping, effective-update, per-class, and per-family metrics. The current
-trust wrapper only gates the legacy v4 runner, so this integration is still
-required. Then obtain separate authorization for the 200-update static pilot.
-A successful pilot would still be a development result, not qualification.
+The hash-lock flag is an installer assertion; runtime package versions and the
+PEFT source bytes are checked directly, but wheel-origin hashes are not
+independently attested by this controller. The preflight result now records
+that distinction instead of claiming a verified hash-lock installation. The
+signed compute-unit allocation is recorded, but Colab compute units are not
+independently measured by this code. The result must say
+`NOT_INDEPENDENTLY_MEASURED`; the time, GPU memory, and sample/update bounds are
+the directly enforced limits. The trust-store file and preflight run in the
+controller's Colab environment, so they do not establish independent custody
+or hardware attestation. The controller is not a hostile-code sandbox.
+
+## Not established
+
+- No ModernBERT training or GPU/A100 compatibility run has occurred.
+- No new admission, budget receipt, or attempt was created or consumed.
+- No actual Colab cleanup was observed.
+- No independent fresh-process checkpoint replay has occurred; the engineering
+  fixture checks restoration within one process.
+- Static AdaLoRA performance recovery, dynamic-rank benefit, retention,
+  behavioral qualification, independent evaluation, promotion, and recursive
+  self-improvement remain unestablished.
+- The v5 attempt-authority protocol has a strict client contract, but no
+  separately deployed authority service is configured in this workspace.
+
+The older v4 campaigns and their registries, checkpoints, receipts, and failed
+attempts remain historical inputs and have not been rewritten or reused.

@@ -21,7 +21,7 @@ PEFT_VERSION = '0.21.2'
 _DIGEST = re.compile(r'^sha256:[0-9a-f]{64}$')
 _IDENTITY_FIELDS = {
     'model_spec', 'model_digest', 'tokenizer_digest', 'dataset_digest', 'source_digest',
-    'dependency_digest', 'sample_order_digest', 'seed', 'sampler_seed',
+    'dependency_digest', 'metric_policy_digest', 'sample_order_digest', 'seed', 'sampler_seed',
     'dropout_seed', 'batch_size', 'accumulation', 'adapter_learning_rate',
     'head_learning_rate', 'weight_decay', 'gradient_clip', 'target_modules',
     'precision', 'class_balance',
@@ -35,13 +35,25 @@ _CONFIG_FIELDS = {
     'external_deployment_allowed', 'final_holdout_included', 'resume_policy',
     'automatic_retries', 'execution_status', 'authorization_status',
 }
-SCIENTIFIC_SOURCE_FILES = (
-    'adaptive_contract_v5.py',
-    'dynamic_lora_v5/__init__.py',
-    'dynamic_lora_v5/svd_reference.py',
-    'pretrained_contract.py',
-    'spec.py',
-)
+def scientific_source_inventory():
+    """Hash the complete in-package Python import surface and model registry.
+
+    Python supports dynamic imports, so hashing a short, hand-maintained list
+    here could leave a newly imported worker dependency outside the admission
+    identity.  This intentionally over-approximates the worker closure: every
+    Python module shipped in ``saal_rsi`` is bound, including currently unused
+    modules.  Non-Python model and dependency artifacts have separate digests.
+    """
+    base = Path(__file__).parent
+    root = base.parent
+    files = {
+        path.relative_to(root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in sorted(base.rglob('*.py'))
+        if '__pycache__' not in path.parts
+    }
+    registry = base.parents[1] / 'configs/pretrained/registry.json'
+    files['configs/pretrained/registry.json'] = hashlib.sha256(registry.read_bytes()).hexdigest()
+    return files
 
 
 def _positive_float(value, field, *, allow_zero=False):
@@ -56,12 +68,8 @@ def _digest(value, field):
 
 
 def scientific_source_digest():
-    """Hash the diagnostic/configuration code; this is not a worker closure."""
-    base = Path(__file__).parent
-    files = {name: hashlib.sha256((base / name).read_bytes()).hexdigest()
-             for name in SCIENTIFIC_SOURCE_FILES}
-    registry = base.parents[1] / 'configs/pretrained/registry.json'
-    files['configs/pretrained/registry.json'] = hashlib.sha256(registry.read_bytes()).hexdigest()
+    """Hash the complete Python package closure and pretrained registry."""
+    files = scientific_source_inventory()
     from .spec import sha
     return sha(files)
 
@@ -70,7 +78,8 @@ def _validate_identity(identity):
     if type(identity) is not dict or set(identity) != _IDENTITY_FIELDS:
         raise ValueError('closed scientific input identity required')
     for field in ('model_digest', 'tokenizer_digest', 'dataset_digest',
-                  'source_digest', 'dependency_digest', 'sample_order_digest'):
+                  'source_digest', 'dependency_digest', 'metric_policy_digest',
+                  'sample_order_digest'):
         _digest(identity[field], field)
     if identity['source_digest'] != scientific_source_digest():
         raise ValueError('scientific configuration source identity mismatch')
@@ -82,6 +91,9 @@ def _validate_identity(identity):
         raise ValueError('model digest differs from immutable model revision')
     if identity['tokenizer_digest'] != spec.tokenizer_digest:
         raise ValueError('tokenizer digest differs from immutable model revision')
+    from .numerical_metrics_v2 import POLICY_DIGEST
+    if identity['metric_policy_digest'] != POLICY_DIGEST:
+        raise ValueError('numerical metric policy differs from the registered v2 contract')
     if identity['target_modules'] != targets(spec.model_kind):
         raise ValueError('registered ModernBERT AdaLoRA target inventory required')
     if identity['precision'] != spec.precision:
@@ -149,7 +161,7 @@ def _make_config(identity, orthogonal_coefficient, method='adalora-static-r12'):
                            else 'peft-0.21.2-zero-singular-values-v1'),
         'scaling': ('peft-0.21.2-alpha-over-r-v1' if method == 'fixed-r8'
                     else 'peft-0.21.2-stored-ranknum-v1'),
-        'checkpoint_policy': 'initial-every-20-best-terminal-v1',
+        'checkpoint_policy': 'initial-every-20-pair-primary-best-terminal-v2',
         'peft_version': PEFT_VERSION,
         'qualification_status': 'NOT_EVALUATED',
         'external_deployment_allowed': False,

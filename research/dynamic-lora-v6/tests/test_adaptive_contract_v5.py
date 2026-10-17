@@ -11,6 +11,7 @@ from saal_rsi.adaptive_contract_v5 import (
     scientific_source_digest,
     validate_pilot_config,
 )
+from saal_rsi.numerical_metrics_v2 import POLICY_DIGEST
 from saal_rsi.pretrained_contract import model_spec, targets
 
 
@@ -26,6 +27,7 @@ def identity():
         'dataset_digest': digest,
         'source_digest': scientific_source_digest(),
         'dependency_digest': 'sha256:' + hashlib.sha256(lock).hexdigest(),
+        'metric_policy_digest': POLICY_DIGEST,
         'sample_order_digest': digest,
         'seed': 29,
         'sampler_seed': 31,
@@ -92,6 +94,10 @@ def test_scientific_config_rejects_unregistered_or_invalid_input():
     invalid_source['source_digest'] = 'sha256:' + 'b' * 64
     with pytest.raises(ValueError, match='source identity'):
         build_static_adalora_pilot(invalid_source, 0.1)
+    invalid_metric = identity()
+    invalid_metric['metric_policy_digest'] = 'sha256:' + 'c' * 64
+    with pytest.raises(ValueError, match='numerical metric policy'):
+        build_static_adalora_pilot(invalid_metric, 0.1)
     with pytest.raises(ValueError, match='closed'):
         validate_pilot_config({'schema': 'saal-adaptive-job-v4'})
     changed = build_fixed_r8_reference(identity())
