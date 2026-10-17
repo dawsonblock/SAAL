@@ -164,6 +164,25 @@ def _ordered_job_paths(admission, protocol):
     return paths
 
 
+def _verified_cleanup_state(workspace, session, state=None):
+    """Return exact-session terminal monitor evidence, including after exceptions."""
+    candidates=[]
+    if isinstance(state,dict):
+        candidates.append(state)
+    path=Path(workspace)/'monitor-state.json'
+    if path.is_file() and not path.is_symlink():
+        try:
+            candidates.append(parse_unique_json(path.read_bytes()))
+        except (OSError,ValueError):
+            pass
+    for candidate in reversed(candidates):
+        if (candidate.get('session')==session and candidate.get('phase') in ('FAILED','COMPLETED')
+                and candidate.get('terminal') is True and candidate.get('cleanup_verified') is True
+                and candidate.get('evidence_errors')==[]):
+            return candidate
+    return None
+
+
 def _campaign_coordinator(config_path):
     """Called only after the exact runtime, lock and staged worker are ready."""
     from .adaptive_artifacts_v4 import validate_bundle
@@ -422,9 +441,11 @@ def execute(workspace, admission, artifacts, cache):
             write_json(workspace/'registry-export.json',ledger.records())
         finally:
             ledger.close()
+    cleanup_state=_verified_cleanup_state(workspace,session,state)
     outcome={'schema':'saal-v4-colab-campaign-terminal-v1','session':session,
         'campaign_state':'COMPLETED' if primary is None and state and state.get('phase')=='COMPLETED' and guard.failure is None else 'FAILED',
-        'cleanup_verified':bool(state and state.get('cleanup_verified')),
+        'cleanup_verified':cleanup_state is not None,
+        'cleanup_evidence_digest':sha(cleanup_state) if cleanup_state is not None else None,
         'compute_guard_failure':guard.failure,'compute_unit_cap':cap,
         'qualification_status':'NOT_EVALUATED','external_deployment_allowed':False}
     write_json(workspace/'campaign-terminal.json',outcome)

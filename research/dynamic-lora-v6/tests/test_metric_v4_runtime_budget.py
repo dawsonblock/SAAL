@@ -33,6 +33,15 @@ def test_signed_job_path_inventory_rejects_unadmitted_file(tmp_path):
         adaptive_colab_v4._ordered_job_paths(tmp_path, {"runs": [{"name": "fixed_r8_47"}]})
 
 
+def test_campaign_terminal_recovers_exact_failed_session_cleanup(tmp_path):
+    state={"session":"saal-exact-session","phase":"FAILED","terminal":True,
+        "cleanup_verified":True,"evidence_errors":[]}
+    from saal_rsi.spec import canonical
+    (tmp_path/"monitor-state.json").write_bytes(canonical(state))
+    assert adaptive_colab_v4._verified_cleanup_state(tmp_path,"saal-exact-session") == state
+    assert adaptive_colab_v4._verified_cleanup_state(tmp_path,"saal-other-session") is None
+
+
 def test_a100_high_ram_is_an_exact_colab_request():
     requirements = runtime_requirements('A100', 'HIGH_RAM')
     assert colab_create_command('saal-0123456789abcdefabcd', requirements) == [

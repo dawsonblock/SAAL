@@ -127,7 +127,9 @@ def build_adapter_config(adapter):
     """Build only the v4-admitted PEFT configuration for this adapter."""
     from .adaptive_contract_v4 import validate_adapter
     from peft import AdaLoraConfig, LoraConfig
-    validate_adapter(adapter, adapter.get('schedule', {}).get('total_step', 1000))
+    schedule=adapter.get('schedule')
+    total_steps=schedule.get('total_step',1000) if isinstance(schedule,dict) else 1000
+    validate_adapter(adapter,total_steps)
     args = dict(lora_alpha=adapter['lora_alpha'], lora_dropout=adapter['dropout'],
                 target_modules=adapter['target_modules'], modules_to_save=['head', 'classifier'],
                 bias='none')

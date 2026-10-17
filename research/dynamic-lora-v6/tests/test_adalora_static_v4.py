@@ -1,6 +1,6 @@
 import copy
 import torch
-from peft import AdaLoraConfig, get_peft_model
+from peft import AdaLoraConfig, LoraConfig, get_peft_model
 
 from saal_rsi.adaptive_contract_v4 import adapter_spec
 from saal_rsi.adaptive_backend_v4 import build_adapter_config
@@ -58,3 +58,10 @@ def test_static_adalora_updates_without_rank_allocator(monkeypatch):
     assert result['allocation_events'] == 0
     assert result['active_rank_total'] == 24
     assert any(not torch.equal(before[name], after[name]) for name in before)
+
+
+def test_fixed_lora_configs_without_rank_schedule():
+    for method, expected_rank in [('fixed-r8',8),('fixed-r12',12)]:
+        config=build_adapter_config(adapter_spec(method))
+        assert isinstance(config,LoraConfig)
+        assert config.r==expected_rank

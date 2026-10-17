@@ -19,7 +19,7 @@ from saal_rsi.numerical_metrics_v2 import POLICY,POLICY_DIGEST
 from saal_rsi.pretrained_contract import model_spec,registry_path
 from saal_rsi.spec import canonical,sha
 
-CAMPAIGN_ID='saal_v097_a100_diagnostic_v4_joborderfix_20261017'
+CAMPAIGN_ID='saal_v097_a100_diagnostic_v4_adapterfix_20261017'
 SEED=47
 METHODS=('fixed-r8','fixed-r12','adalora-static-r12','adalora-12-to-8')
 MAX_COMPUTE_UNITS=80
