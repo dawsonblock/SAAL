@@ -16,6 +16,7 @@ import uuid
 import zipfile
 from pathlib import Path
 
+from .adaptive_campaign import verify_colab_cli_version
 from .adaptive_campaign_v4 import replay_command, stage_worker
 from .adaptive_compute_budget_v4 import assess_budget, parse_usage
 from .adaptive_contract_v4 import SOURCES as WORKER_SOURCES
@@ -321,7 +322,6 @@ class _ComputeGuard:
 
 def execute(workspace, admission, artifacts, cache):
     """Execute one freshly signed v4 diagnostic with one A100/high-RAM request."""
-    from .adaptive_campaign_v4 import verify_colab_cli_version
     workspace=Path(workspace).resolve();admission=Path(admission).resolve();artifacts=Path(artifacts).resolve()
     if workspace.exists() or artifacts.exists():
         raise FileExistsError('v4 campaign output paths must be new; preserve prior evidence')

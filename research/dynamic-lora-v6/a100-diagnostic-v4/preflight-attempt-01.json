@@ -1,0 +1,13 @@
+{
+  "schema": "saal-a100-local-preflight-attempt-v1",
+  "attempt": "01",
+  "status": "FAILED_BEFORE_PROVISIONING",
+  "failure": "adaptive_colab_v4 imported verify_colab_cli_version from the nonexistent adaptive_campaign_v4 module",
+  "corrective_action": "Import the verifier from adaptive_campaign and add a regression test",
+  "colab_session_created": false,
+  "colab_provision_command_issued": false,
+  "training_started": false,
+  "compute_units_consumed": 0,
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false
+}

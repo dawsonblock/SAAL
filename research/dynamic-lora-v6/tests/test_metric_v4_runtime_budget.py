@@ -2,10 +2,15 @@ import copy
 
 import pytest
 
+from saal_rsi import adaptive_colab_v4
 from saal_rsi.adaptive_compute_budget_v4 import assess_budget, parse_usage
 from saal_rsi.adaptive_runtime_v4 import (
     GIB, colab_create_command, runtime_requirements, validate_runtime_observation,
 )
+
+
+def test_a100_runner_imports_signed_colab_version_verifier():
+    assert callable(adaptive_colab_v4.verify_colab_cli_version)
 
 
 def test_a100_high_ram_is_an_exact_colab_request():
