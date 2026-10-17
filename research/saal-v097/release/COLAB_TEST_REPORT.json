@@ -1,0 +1,290 @@
+{
+  "branch": "repair/saal-v097-wp02-recovery",
+  "colab_runtime": {
+    "cleanup": "Colab reported session terminated; subsequent sessions query returned no active sessions.",
+    "hardware": "CPU",
+    "machine": "x86_64",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "python": "3.13.16",
+    "script_elapsed_seconds": 667.12,
+    "session": "run-fa2e7f"
+  },
+  "created_at_utc": "2026-10-17T03:39:35Z",
+  "dependency_lock": {
+    "colab_base_torchao_removed": true,
+    "installation_exit_code": 0,
+    "path": "configs/dependency-locks/pretrained-linux-x86_64-py313.txt",
+    "sha256": "fe75c6508354d719c74d50cba540d1d5306d5c74d3b77d7ebc23f1f1f34e04b4",
+    "versions": {
+      "cryptography": "48.0.1",
+      "huggingface-hub": "1.33.0",
+      "numpy": "2.4.6",
+      "peft": "0.21.2",
+      "pytest": "8.4.2",
+      "safetensors": "0.8.0",
+      "torch": "2.10.0",
+      "torchao": null,
+      "transformers": "5.19.0"
+    }
+  },
+  "evidence_notebook": {
+    "path": "research/saal-v097/release/colab-evidence/run-fa2e7f.ipynb",
+    "sha256": "cefd64e8f4bc8ed8f8775edc42b9009da11ae364eb68b50947a64c9e88eae038"
+  },
+  "limitations": [
+    "This is engineering regression evidence for the exact source commit; it does not establish publisher authentication or complete WP0.2 provenance.",
+    "The run used CPU only. It is not a T4/GPU compatibility or model-training result.",
+    "No independent behavioral qualification, operational custody independence, production isolation, promotion authority, or recursive learning improvement is established."
+  ],
+  "overall_status": "PASS",
+  "prior_colab_attempts": [
+    {
+      "cause": "Missing targeted LFS fixtures and incompatible undeclared Colab torchao package.",
+      "core": {
+        "failed": 18,
+        "passed": 642,
+        "skipped": 1
+      },
+      "dynamic_lora_v6": "not run",
+      "run_id": "run-ff26f3",
+      "status": "INCOMPLETE_RUNNER_SETUP"
+    },
+    {
+      "cause": "Runner omitted PYTHONPATH=src; no product verdict.",
+      "core": "collection errors (57 reported)",
+      "dynamic_lora_v6": "import/collection error",
+      "run_id": "run-23e585",
+      "status": "INVALID_TEST_INVOCATION"
+    },
+    {
+      "cause": "Historical sequence ZIP and native AdaLoRA checkpoint LFS fixtures were omitted from the targeted download list.",
+      "core": {
+        "failed": 1,
+        "passed": 659,
+        "skipped": 1
+      },
+      "dynamic_lora_v6": {
+        "failed": 6,
+        "passed": 159
+      },
+      "run_id": "run-c6b2eb",
+      "status": "INCOMPLETE_FIXTURE_HYDRATION"
+    }
+  ],
+  "purpose": "Full CPU regression validation only; no model training or GPU campaign was run.",
+  "repository": "https://github.com/dawsonblock/SAAL.git",
+  "run_id": "run-fa2e7f",
+  "schema": "saal-v097-colab-test-report-v1",
+  "source_commit": "52ab4d391f0ce943bdda500ce9c1455a6f812daf",
+  "source_snapshot_digest": "cd8668220f616000f7fb2fc312c91f540fdc656e58d06d14843c934cec5dc456",
+  "suites": [
+    {
+      "duration_seconds": 307.96,
+      "errors": 0,
+      "exit_code": 0,
+      "failed": 0,
+      "name": "core",
+      "passed": 660,
+      "path": "tests",
+      "skip_reason": "macOS process restriction test is platform-specific and cannot run on Colab Linux.",
+      "skipped": 1,
+      "tests": 661
+    },
+    {
+      "duration_seconds": 33.48,
+      "errors": 0,
+      "exit_code": 0,
+      "failed": 0,
+      "name": "dynamic_lora_v6",
+      "passed": 165,
+      "path": "research/dynamic-lora-v6/tests",
+      "skipped": 0,
+      "tests": 165
+    }
+  ],
+  "targeted_lfs_recovery": {
+    "count": 29,
+    "files": [
+      {
+        "path": "examples/corrective_research/sequence-v2-smoke/0-experimental.safetensors",
+        "sha256": "6efa4217a808dbf99f89f5a6549b97244e779943c910b4e84266917ce5fb0222",
+        "size_bytes": 3462312,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/corrective_research/sequence-v2-smoke/0-fresh_control.safetensors",
+        "sha256": "6efa4217a808dbf99f89f5a6549b97244e779943c910b4e84266917ce5fb0222",
+        "size_bytes": 3462312,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/corrective_research/sequence-v2-smoke/1-experimental.safetensors",
+        "sha256": "c8549f48797d7c7553b30622bf908ab4caada219f805fb5d82115d186f048127",
+        "size_bytes": 3462312,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/corrective_research/sequence-v2-smoke/1-fresh_control.safetensors",
+        "sha256": "2b63147e3fe21c2a21a21e60c19cbb9f12f71fbcfd1acad3ca8d56c166c3baa3",
+        "size_bytes": 3462312,
+        "verified_on_colab": true
+      },
+      {
+        "path": "research/reliable-learning-v3/local-smoke-03/best.safetensors",
+        "sha256": "bb34c352c75b8ac402899bb9d5c90c52f9404ad44775cf6f45e3cf0f93fdfa92",
+        "size_bytes": 2375000,
+        "verified_on_colab": true
+      },
+      {
+        "path": "research/reliable-learning-v3/local-smoke-03/initial.safetensors",
+        "sha256": "27b4d11dbd154a40b1dec5f5f94686a7fe745f8b209b07937e271559092bc8f5",
+        "size_bytes": 2375000,
+        "verified_on_colab": true
+      },
+      {
+        "path": "research/reliable-learning-v3/local-smoke-03/terminal.safetensors",
+        "sha256": "bb34c352c75b8ac402899bb9d5c90c52f9404ad44775cf6f45e3cf0f93fdfa92",
+        "size_bytes": 2375000,
+        "verified_on_colab": true
+      },
+      {
+        "path": "research/diverse-learning-v1/experiment/artifacts/run-03-6616792a4767/best.safetensors",
+        "sha256": "3fdbe5576ea6b1f9a4b3c5aa54681ede7c696bd94d995d9ebbcb48bc01e8cc10",
+        "size_bytes": 3462312,
+        "verified_on_colab": true
+      },
+      {
+        "path": "research/diverse-learning-v1/experiment/artifacts/run-03-6616792a4767/initial.safetensors",
+        "sha256": "3fdbe5576ea6b1f9a4b3c5aa54681ede7c696bd94d995d9ebbcb48bc01e8cc10",
+        "size_bytes": 3462312,
+        "verified_on_colab": true
+      },
+      {
+        "path": "research/diverse-learning-v1/experiment/artifacts/run-03-6616792a4767/terminal.safetensors",
+        "sha256": "836e32b2626023af145ed7a50d0e3c174add8becb095a85ad37270fb11de2191",
+        "size_bytes": 3462312,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/pretrained-head-compat-v2/best.safetensors",
+        "sha256": "202da8881e669984b74424c38e016a077831b84c6de041b215d65f3747d179d7",
+        "size_bytes": 2375000,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/pretrained-head-compat-v2/initial.safetensors",
+        "sha256": "8c7dec9ad27405be85e8fabe9040af6088ad564c1043b263117dfd8a2ce46049",
+        "size_bytes": 2375000,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/pretrained-head-compat-v2/terminal.safetensors",
+        "sha256": "202da8881e669984b74424c38e016a077831b84c6de041b215d65f3747d179d7",
+        "size_bytes": 2375000,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/pretrained_research/v094-sequence-no-replay/0-experimental.safetensors",
+        "sha256": "ddac6d5693c8e730c6a5e52302fbb0ad82c68eb05189347ba14cf4e90a81344e",
+        "size_bytes": 4543656,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/pretrained_research/v094-sequence-no-replay/0-fresh_control.safetensors",
+        "sha256": "ddac6d5693c8e730c6a5e52302fbb0ad82c68eb05189347ba14cf4e90a81344e",
+        "size_bytes": 4543656,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/pretrained_research/v094-sequence-no-replay/1-experimental.safetensors",
+        "sha256": "4e7ea572008dc014c152d639dd14c316ea5158c3664159d9f5f8552adf081124",
+        "size_bytes": 4543656,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/pretrained_research/v094-sequence-no-replay/1-fresh_control.safetensors",
+        "sha256": "3676e3e118a290a1cfda5f8b56403dd875b9eaa122f6662b1610ced5a30b9429",
+        "size_bytes": 4543656,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/pretrained_research/v094-sequence-no-replay/2-experimental.safetensors",
+        "sha256": "6bf873d0e6d77fd4411bb2941be8db323b1b09cc889a4550619be15e2e92b80e",
+        "size_bytes": 4543656,
+        "verified_on_colab": true
+      },
+      {
+        "path": "examples/pretrained_research/v094-sequence-no-replay/2-fresh_control.safetensors",
+        "sha256": "b34c448e8b92dbf68c67f9cd539b166a20584a3f4098eb23c89cd074ceac98f0",
+        "size_bytes": 4543656,
+        "verified_on_colab": true
+      },
+      {
+        "path": "docs/history/v0.9.2/examples/family_protocol/checkpoint/adapter.safetensors",
+        "sha256": "267415e7c63fdccc30e7d8cc2fcc36ce49854b5ae4b3281c659615e4353d6501",
+        "size_bytes": 1416,
+        "verified_on_colab": true
+      },
+      {
+        "path": "docs/history/v0.9.2/examples/family_protocol/checkpoint/baseline.safetensors",
+        "sha256": "e4a00364729b1a94986d45087f900b80c432cf6be3269869cdb7592b30242d93",
+        "size_bytes": 34088,
+        "verified_on_colab": true
+      },
+      {
+        "path": "docs/history/v0.9.2/examples/model_demo/checkpoint/adapter.safetensors",
+        "sha256": "62dae37c2be2f3c2d6bf2def2954afe1c4c03bc54c4081895cd806b37ece8be7",
+        "size_bytes": 1416,
+        "verified_on_colab": true
+      },
+      {
+        "path": "docs/history/v0.9.2/examples/model_demo/checkpoint/baseline.safetensors",
+        "sha256": "e4a00364729b1a94986d45087f900b80c432cf6be3269869cdb7592b30242d93",
+        "size_bytes": 34088,
+        "verified_on_colab": true
+      },
+      {
+        "path": "docs/history/v0.9.4-learning-worker-v3.zip",
+        "sha256": "c9e12d785e0defd24e0f0829dcf8f5a4eea23d70e4a28bcb06592d3f93e6b77d",
+        "size_bytes": 34733,
+        "verified_on_colab": true
+      },
+      {
+        "path": "docs/history/v0.9.4-draft-worker-v2.zip",
+        "sha256": "cdba05c48abd0452def43af59e15355018a9e73b4fb842491901b05778466e57",
+        "size_bytes": 34397,
+        "verified_on_colab": true
+      },
+      {
+        "path": "docs/history/v0.9.4-sequence-worker-v1.zip",
+        "sha256": "49dce0aeb575646e2e5e48dfd12e8fa3e42e31e3337dacd1033d45b39c8888ca",
+        "size_bytes": 41687,
+        "verified_on_colab": true
+      },
+      {
+        "path": "research/dynamic-lora-v6/native-engineering-05/adalora_12_to_8/initial.safetensors",
+        "sha256": "4fb99ba0b8a907faa93316120020395da7736eb23dca7b4d73660403f81aa76e",
+        "size_bytes": 5631272,
+        "verified_on_colab": true
+      },
+      {
+        "path": "research/dynamic-lora-v6/native-engineering-05/adalora_12_to_8/best.safetensors",
+        "sha256": "4fb99ba0b8a907faa93316120020395da7736eb23dca7b4d73660403f81aa76e",
+        "size_bytes": 5631272,
+        "verified_on_colab": true
+      },
+      {
+        "path": "research/dynamic-lora-v6/native-engineering-05/adalora_12_to_8/terminal.safetensors",
+        "sha256": "d5192b17ca9676d3aae73dbe833d6d4da5d029757e470b278f15aca7b56e6851",
+        "size_bytes": 5631272,
+        "verified_on_colab": true
+      }
+    ],
+    "git_lfs_pull_exit_code": 0,
+    "sha256_and_declared_size_verified_for_every_file": true,
+    "total_bytes": 82823761
+  },
+  "warnings": [
+    "Two intentional duplicate ZIP-member fixture warnings occurred in archive-integrity tests."
+  ]
+}
