@@ -42,6 +42,16 @@ def test_campaign_terminal_recovers_exact_failed_session_cleanup(tmp_path):
     assert adaptive_colab_v4._verified_cleanup_state(tmp_path,"saal-other-session") is None
 
 
+def test_captured_artifact_receipt_is_validated_without_requiring_log_tail():
+    from saal_rsi.adaptive_artifacts_v4 import FILES
+    manifest={"schema":"saal-v4-artifact-transfer-v1","job_digest":"sha256:"+"a"*64,
+        "size":1234,"sha256":"b"*64,
+        "files":sorted(FILES|{"artifact_inventory.json","fresh_process_replay.json"})}
+    assert adaptive_colab_v4._validate_ready_manifest(manifest,manifest["job_digest"])==manifest
+    with pytest.raises(ValueError,match="receipt"):
+        adaptive_colab_v4._validate_ready_manifest(manifest,"sha256:"+"c"*64)
+
+
 def test_a100_high_ram_is_an_exact_colab_request():
     requirements = runtime_requirements('A100', 'HIGH_RAM')
     assert colab_create_command('saal-0123456789abcdefabcd', requirements) == [

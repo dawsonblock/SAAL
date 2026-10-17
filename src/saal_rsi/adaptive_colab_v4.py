@@ -138,7 +138,11 @@ def _parse_ready(output, job_digest):
             rows.append(record.get('manifest'))
     if len(rows) != 1:
         raise RuntimeError('missing or duplicate v4 remote artifact receipt')
-    manifest = rows[0]
+    return _validate_ready_manifest(rows[0],job_digest)
+
+
+def _validate_ready_manifest(manifest,job_digest):
+    """Validate the receipt already captured from the streamed Colab event."""
     if (type(manifest) is not dict or set(manifest) != {'schema','job_digest','size','sha256','files'}
             or manifest['schema'] != 'saal-v4-artifact-transfer-v1'
             or manifest['job_digest'] != job_digest or type(manifest['size']) is not int
@@ -224,7 +228,9 @@ def _campaign_coordinator(config_path):
                     '--timeout',str(timeout)],root/(name+'-remote.log'),timeout+60,remote_event)
                 if failures or len(ready)!=1:
                     raise RuntimeError('remote training/replay/export reported failure or missing receipt')
-                manifest=_parse_ready(output,digest)
+                # Colab streams JSON events to remote_event; stream_command's return value
+                # may contain only its retained tail, so validate the captured receipt.
+                manifest=_validate_ready_manifest(ready[0],digest)
                 local_archive=root/(name+'.zip')
                 stream_command(['colab','download','-s',session,remote_out+'.zip',str(local_archive)],
                     root/(name+'-download.log'),600)
