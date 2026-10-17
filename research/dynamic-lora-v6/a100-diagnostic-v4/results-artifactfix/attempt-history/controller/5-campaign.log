@@ -1,0 +1,13 @@
+{"monitor": "snapshot_download", "file": "config.json", "bytes": 1217}
+{"monitor": "snapshot_download", "file": "model.safetensors", "bytes": 598635032}
+{"monitor": "snapshot_download", "file": "special_tokens_map.json", "bytes": 694}
+{"monitor": "snapshot_download", "file": "tokenizer.json", "bytes": 2132967}
+{"monitor": "snapshot_download", "file": "tokenizer_config.json", "bytes": 20837}
+{"monitor": "worker_failure", "stage": "training_replay_export", "error_type": "RuntimeError", "detail": "v4 training or remote fresh-process replay failed: 1"}
+{"monitor": "campaign_progress", "completed_runs": 0, "total_runs": 4, "seed": 47, "mode": "fixed-r8"}
+Traceback (most recent call last):
+  File "/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller/coordinator.py", line 4, in <module>
+    _campaign_coordinator('/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller/campaign-config.json')
+  File "/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/src/saal_rsi/adaptive_colab_v4.py", line 266, in _campaign_coordinator
+    raise RuntimeError('v4 attempt interrupted; do not retry or replace: '+outcome['error']['detail'])
+RuntimeError: v4 attempt interrupted; do not retry or replace: remote training/replay/export reported failure or missing receipt

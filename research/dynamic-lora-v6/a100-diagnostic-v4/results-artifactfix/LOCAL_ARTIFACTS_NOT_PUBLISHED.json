@@ -1,0 +1,102 @@
+{
+  "items": [
+    {
+      "bytes": 4543656,
+      "filename": "best.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/fixed_r8_47/best.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "fixed_r8_47",
+      "sha256": "db3f2cf7451b471e0028caf6dc41c4859ec7b89c25e8fe46fcccec9d27eb9168"
+    },
+    {
+      "bytes": 4543656,
+      "filename": "initial.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/fixed_r8_47/initial.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "fixed_r8_47",
+      "sha256": "db3f2cf7451b471e0028caf6dc41c4859ec7b89c25e8fe46fcccec9d27eb9168"
+    },
+    {
+      "bytes": 4543656,
+      "filename": "terminal.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/fixed_r8_47/terminal.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "fixed_r8_47",
+      "sha256": "255bd52ff6ecbcec33f26da48dd60623530e57ecb37df332a0eb76c9b04dcac6"
+    },
+    {
+      "bytes": 5625048,
+      "filename": "best.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/fixed_r12_47/best.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "fixed_r12_47",
+      "sha256": "1d5ebd15abd62fa3f38b252f805d83a1000d9176ccd1b461eee4d0bbceef25f3"
+    },
+    {
+      "bytes": 5625048,
+      "filename": "initial.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/fixed_r12_47/initial.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "fixed_r12_47",
+      "sha256": "1d5ebd15abd62fa3f38b252f805d83a1000d9176ccd1b461eee4d0bbceef25f3"
+    },
+    {
+      "bytes": 5625048,
+      "filename": "terminal.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/fixed_r12_47/terminal.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "fixed_r12_47",
+      "sha256": "6b43344c94eb14aca79f0f88f33a7766d0dc675eae9052804107fbc471428440"
+    },
+    {
+      "bytes": 5631272,
+      "filename": "best.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/adalora_static_r12_47/best.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "adalora_static_r12_47",
+      "sha256": "876b1cad0242b8449c6f86956ea0a0dde7a85dd0336e34f0767a6e96ee34f801"
+    },
+    {
+      "bytes": 5631272,
+      "filename": "initial.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/adalora_static_r12_47/initial.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "adalora_static_r12_47",
+      "sha256": "876b1cad0242b8449c6f86956ea0a0dde7a85dd0336e34f0767a6e96ee34f801"
+    },
+    {
+      "bytes": 5631272,
+      "filename": "terminal.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/adalora_static_r12_47/terminal.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "adalora_static_r12_47",
+      "sha256": "70537dddbe8620d81316405c0418a5b9c60f635b3914d99ebde750681c20cbc3"
+    },
+    {
+      "bytes": 5631272,
+      "filename": "best.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/adalora_12_to_8_47/best.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "adalora_12_to_8_47",
+      "sha256": "876b1cad0242b8449c6f86956ea0a0dde7a85dd0336e34f0767a6e96ee34f801"
+    },
+    {
+      "bytes": 5631272,
+      "filename": "initial.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/adalora_12_to_8_47/initial.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "adalora_12_to_8_47",
+      "sha256": "876b1cad0242b8449c6f86956ea0a0dde7a85dd0336e34f0767a6e96ee34f801"
+    },
+    {
+      "bytes": 5631272,
+      "filename": "terminal.safetensors",
+      "local_path": "research/dynamic-lora-v6/a100-diagnostic-v4/artifacts-artifactfix/adalora_12_to_8_47/terminal.safetensors",
+      "publication_status": "LOCAL_ONLY_NOT_PUBLISHED_GIT_LFS_CLIENT_UNAVAILABLE",
+      "run": "adalora_12_to_8_47",
+      "sha256": "5f6f6a8de51dca131e4891d36edf2639275e809f9d6b14436cccec6eaea98323"
+    }
+  ],
+  "note": "Exact adapter tensor bytes remain at the listed local paths. They are not included because Git LFS upload is unavailable. Hashes identify local bytes; they do not establish independent publisher provenance.",
+  "schema": "saal-a100-local-artifact-handoff-v1"
+}

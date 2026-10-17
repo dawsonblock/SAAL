@@ -1,0 +1,10 @@
+{
+  "schema": "saal-v4-colab-campaign-terminal-v1",
+  "session": "saal-8518e3ee4d2a48aa8a25",
+  "campaign_state": "FAILED",
+  "cleanup_verified": false,
+  "compute_guard_failure": null,
+  "compute_unit_cap": 80,
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false
+}

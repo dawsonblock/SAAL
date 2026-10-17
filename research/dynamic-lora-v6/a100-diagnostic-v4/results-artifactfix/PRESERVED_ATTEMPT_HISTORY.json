@@ -1,0 +1,41 @@
+{
+  "attempts": [
+    {
+      "campaign_state": "FAILED",
+      "controller_directory": "controller",
+      "monitor_cleanup_verified": true,
+      "recovery": "Preserved as a consumed attempt; no rerun or budget reset.",
+      "runs": [
+        {
+          "error": {
+            "detail": "remote training/replay/export reported failure or missing receipt",
+            "type": "RuntimeError"
+          },
+          "run": "fixed_r8_47",
+          "state": "INTERRUPTED"
+        }
+      ],
+      "session": "saal-8518e3ee4d2a48aa8a25",
+      "terminal_cleanup_verified": false
+    },
+    {
+      "campaign_state": "FAILED",
+      "controller_directory": "controller-adapterfix",
+      "monitor_cleanup_verified": true,
+      "recovery": "Preserved as a consumed attempt; no rerun or budget reset.",
+      "runs": [
+        {
+          "error": {
+            "detail": "missing or duplicate v4 remote artifact receipt",
+            "type": "RuntimeError"
+          },
+          "run": "fixed_r8_47",
+          "state": "INTERRUPTED"
+        }
+      ],
+      "session": "saal-20de7241e0044a2887e8",
+      "terminal_cleanup_verified": true
+    }
+  ],
+  "schema": "saal-attempt-history-v1"
+}

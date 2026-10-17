@@ -1,0 +1,81 @@
+{
+  "schema": "saal-adaptive-colab-plan-v4",
+  "session": "saal-09c048d1ed6a4e129eca",
+  "job_digest": "sha256:4fc55c32c1b469c5b24e43869e188a6e75c322e6579357a8236c9ce83a8fc4b9",
+  "estimated_max_seconds": 14000,
+  "commands": [
+    [
+      "colab",
+      "new",
+      "-s",
+      "saal-09c048d1ed6a4e129eca",
+      "--gpu",
+      "A100",
+      "--high-mem"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-09c048d1ed6a4e129eca",
+      "/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller-artifactfix/gpu-lock.txt",
+      "/content/saal_v4_lock.txt"
+    ],
+    [
+      "colab",
+      "upload",
+      "-s",
+      "saal-09c048d1ed6a4e129eca",
+      "/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller-artifactfix/worker.zip",
+      "/content/saal_v4_worker.zip"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-09c048d1ed6a4e129eca",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller-artifactfix/install.py",
+      "--timeout",
+      "1320"
+    ],
+    [
+      "colab",
+      "exec",
+      "-s",
+      "saal-09c048d1ed6a4e129eca",
+      "-f",
+      "/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller-artifactfix/hardware.py",
+      "--timeout",
+      "90"
+    ],
+    [
+      "/Users/dawsonblock/Downloads/SAAL-RSI-validation-envs/adaptive-v6-py312/bin/python",
+      "-I",
+      "/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller-artifactfix/coordinator.py"
+    ],
+    [
+      "colab",
+      "stop",
+      "-s",
+      "saal-09c048d1ed6a4e129eca"
+    ]
+  ],
+  "phases": [
+    "PROVISIONING",
+    "UPLOAD_LOCK",
+    "UPLOAD_WORKER",
+    "INSTALL_DEPENDENCIES",
+    "HARDWARE_PREFLIGHT",
+    "CAMPAIGN"
+  ],
+  "requested_runtime": {
+    "accelerator": "A100",
+    "machine_shape": "HIGH_RAM",
+    "minimum_gpu_memory_bytes": 32212254720,
+    "minimum_host_memory_bytes": 34359738368,
+    "schema": "saal-colab-runtime-requirements-v1"
+  },
+  "compute_units_cap": 80,
+  "external_deployment_allowed": false
+}

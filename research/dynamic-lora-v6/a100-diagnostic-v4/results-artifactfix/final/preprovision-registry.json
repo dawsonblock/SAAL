@@ -1,0 +1,42 @@
+{
+  "schema": "saal-adaptive-budget-export-v4",
+  "protocol_digest": "sha256:4fc55c32c1b469c5b24e43869e188a6e75c322e6579357a8236c9ce83a8fc4b9",
+  "campaign_state": "PREPARED",
+  "provisioning_attempts": 0,
+  "attempts": [
+    {
+      "digest": "sha256:fecb7bfa3265ff93b399a2b66647b66b499cf536987d502fa46ca68ccbb511aa",
+      "run_id": "fixed_r8_47",
+      "reserved_seconds": 3200,
+      "state": "RESERVED",
+      "outcome": null
+    },
+    {
+      "digest": "sha256:ddc16889194eca9932453a2acc75ee4d5cb00fef68120daf9b38fe0b3d3bfcc8",
+      "run_id": "fixed_r12_47",
+      "reserved_seconds": 3200,
+      "state": "RESERVED",
+      "outcome": null
+    },
+    {
+      "digest": "sha256:2eef84d7fc44f000f08db4153fd924f251616cac8ba5577e811b314e8967b0e1",
+      "run_id": "adalora_static_r12_47",
+      "reserved_seconds": 3200,
+      "state": "RESERVED",
+      "outcome": null
+    },
+    {
+      "digest": "sha256:0e76d676ee543b8d04bed74baca834b971e2bf37720d3d8850faaee23f67fee6",
+      "run_id": "adalora_12_to_8_47",
+      "reserved_seconds": 3200,
+      "state": "RESERVED",
+      "outcome": null
+    }
+  ],
+  "rollback_resistant": false,
+  "compute_units_cap": 80,
+  "financial_cap": false,
+  "protected_alpha_consumed": false,
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false
+}

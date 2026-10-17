@@ -1,0 +1,32 @@
+{
+  "schema": "saal-colab-monitor-v3",
+  "session": "saal-8518e3ee4d2a48aa8a25",
+  "phase": "FAILED",
+  "job_digest": "sha256:cae114c599b206fea29067c88ee39f18a92ad4afaf4adb11b891f5b5c67dd757",
+  "deadline_epoch": 1792240098.7394419,
+  "heartbeat_epoch": 1792226179.9500191,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 0,
+  "total_steps": 0,
+  "external_deployment_allowed": false,
+  "evidence_errors": [],
+  "elapsed_seconds": 81.21032624999862,
+  "watchdog_pid": 56261,
+  "active_command": null,
+  "last_remote_event": {
+    "monitor": "campaign_progress",
+    "completed_runs": 0,
+    "total_runs": 4,
+    "seed": 47,
+    "mode": "fixed-r8"
+  },
+  "completed_runs": 0,
+  "total_runs": 4,
+  "current_seed": 47,
+  "current_mode": "fixed-r8",
+  "error": {
+    "type": "RuntimeError",
+    "detail": "Colab -I failed (1): wnload\", \"file\": \"special_tokens_map.json\", \"bytes\": 694}\n{\"monitor\": \"snapshot_download\", \"file\": \"tokenizer.json\", \"bytes\": 2132967}\n{\"monitor\": \"snapshot_download\", \"file\": \"tokenizer_config.json\", \"bytes\": 20837}\n{\"monitor\": \"worker_failure\", \"stage\": \"training_replay_export\", \"error_type\": \"RuntimeError\", \"detail\": \"v4 training or remote fresh-process replay failed: 1\"}\n{\"monitor\": \"campaign_progress\", \"completed_runs\": 0, \"total_runs\": 4, \"seed\": 47, \"mode\": \"fixed-r8\"}\nTraceback (most recent call last):\n  File \"/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller/coordinator.py\", line 4, in <module>\n    _campaign_coordinator('/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller/campaign-config.json')\n  File \"/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/src/saal_rsi/adaptive_colab_v4.py\", line 266, in _campaign_coordinator\n    raise RuntimeError('v4 attempt interrupted; do not retry or replace: '+outcome['error']['detail'])\nRuntimeError: v4 attempt interrupted; do not retry or replace: remote training/replay/export reported failure or missing receipt\n"
+  }
+}

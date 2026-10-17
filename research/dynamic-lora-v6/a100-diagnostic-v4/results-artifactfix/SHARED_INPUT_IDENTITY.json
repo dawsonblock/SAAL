@@ -1,0 +1,20 @@
+{
+  "dataset": {
+    "identical_across_arms": true,
+    "sha256": "208c6109ac06df73512894add66079e28b63960065d9b27edc5362278df2aacb"
+  },
+  "note": "Per-run sampler manifests bind the common record stream to distinct admitted job digests, so their raw bytes are intentionally different.",
+  "sampler_stream": {
+    "per_arm_job_digests": [
+      "sha256:fecb7bfa3265ff93b399a2b66647b66b499cf536987d502fa46ca68ccbb511aa",
+      "sha256:ddc16889194eca9932453a2acc75ee4d5cb00fef68120daf9b38fe0b3d3bfcc8",
+      "sha256:2eef84d7fc44f000f08db4153fd924f251616cac8ba5577e811b314e8967b0e1",
+      "sha256:0e76d676ee543b8d04bed74baca834b971e2bf37720d3d8850faaee23f67fee6"
+    ],
+    "record_ids_identical_across_arms": true,
+    "sample_exposures": 16000,
+    "seed": 47,
+    "sha256_excluding_per_job_digest": "0242c3b20457bdcdb08aa7781b5267c1673857066cd93ac8e69a30861df2df11"
+  },
+  "schema": "saal-shared-input-identity-v2"
+}

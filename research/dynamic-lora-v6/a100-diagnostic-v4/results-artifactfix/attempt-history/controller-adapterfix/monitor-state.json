@@ -1,0 +1,33 @@
+{
+  "schema": "saal-colab-monitor-v3",
+  "session": "saal-20de7241e0044a2887e8",
+  "phase": "FAILED",
+  "job_digest": "sha256:07e1b9e580351a012039004d6c5a3b94da3f31c8a7b21c76846b1d509c818fb1",
+  "deadline_epoch": 1792240419.0460448,
+  "heartbeat_epoch": 1792226850.7598379,
+  "terminal": true,
+  "cleanup_verified": true,
+  "progress_step": 1000,
+  "total_steps": 1000,
+  "external_deployment_allowed": false,
+  "evidence_errors": [],
+  "elapsed_seconds": 431.71187566700246,
+  "watchdog_pid": 64431,
+  "active_command": null,
+  "last_remote_event": {
+    "monitor": "campaign_progress",
+    "completed_runs": 0,
+    "total_runs": 4,
+    "seed": 47,
+    "mode": "fixed-r8"
+  },
+  "latest_objective_loss": 0.1399756707251072,
+  "completed_runs": 0,
+  "total_runs": 4,
+  "current_seed": 47,
+  "current_mode": "fixed-r8",
+  "error": {
+    "type": "RuntimeError",
+    "detail": "Colab -I failed (1):  \"dataset_manifest.json\", \"fresh_process_replay.json\", \"initial.safetensors\", \"initial_rank_pattern.json\", \"model_spec.json\", \"rank_history.jsonl\", \"rank_schedule.json\", \"resource_accounting.json\", \"result.json\", \"sampler_manifest.json\", \"signed_training_job.json\", \"snapshot_manifest.json\", \"terminal.safetensors\", \"terminal_rank_pattern.json\", \"training_metrics.jsonl\"]}}\n{\"monitor\": \"campaign_progress\", \"completed_runs\": 0, \"total_runs\": 4, \"seed\": 47, \"mode\": \"fixed-r8\"}\nTraceback (most recent call last):\n  File \"/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller-adapterfix/coordinator.py\", line 4, in <module>\n    _campaign_coordinator('/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/research/dynamic-lora-v6/a100-diagnostic-v4/controller-adapterfix/campaign-config.json')\n  File \"/Users/dawsonblock/Downloads/SAAL-dynamic-lora-followup/src/saal_rsi/adaptive_colab_v4.py\", line 285, in _campaign_coordinator\n    raise RuntimeError('v4 attempt interrupted; do not retry or replace: '+outcome['error']['detail'])\nRuntimeError: v4 attempt interrupted; do not retry or replace: missing or duplicate v4 remote artifact receipt\n"
+  }
+}

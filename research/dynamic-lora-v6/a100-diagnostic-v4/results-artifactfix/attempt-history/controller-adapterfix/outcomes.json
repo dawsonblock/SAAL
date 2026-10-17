@@ -1,0 +1,19 @@
+{
+  "schema": "saal-v4-engineering-outcomes-v1",
+  "runs": [
+    {
+      "run": "fixed_r8_47",
+      "job_digest": "sha256:bf6eb939c02e70791c89ca526ab9076f87850b2696ea46360190c6c6cef65f81",
+      "method": "fixed-r8",
+      "seed": 47,
+      "state": "INTERRUPTED",
+      "error": {
+        "type": "RuntimeError",
+        "detail": "missing or duplicate v4 remote artifact receipt"
+      },
+      "elapsed_seconds": 379.24848391699925
+    }
+  ],
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false
+}

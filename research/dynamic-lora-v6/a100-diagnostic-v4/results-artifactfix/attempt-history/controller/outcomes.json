@@ -1,0 +1,19 @@
+{
+  "schema": "saal-v4-engineering-outcomes-v1",
+  "runs": [
+    {
+      "run": "fixed_r8_47",
+      "job_digest": "sha256:6f88193750d0d36706b066913758973b578a8f3e99c795d5fcfe7ff04004427b",
+      "method": "fixed-r8",
+      "seed": 47,
+      "state": "INTERRUPTED",
+      "error": {
+        "type": "RuntimeError",
+        "detail": "remote training/replay/export reported failure or missing receipt"
+      },
+      "elapsed_seconds": 28.658077790998504
+    }
+  ],
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false
+}
