@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from saal_rsi.adaptive_artifacts_v4 import validate_bundle, read_json
 from saal_rsi.adaptive_evaluator_v4 import validate_jobs, validate_sources
 from saal_rsi.model_contract import verify
+from saal_rsi.adaptive_runtime_v4 import validate_runtime_observation
 from saal_rsi.spec import canonical, parse_unique_json, sha
 
 ORIGINAL_REPORT = Path(__file__).with_name("report_a100_pilot_v4.py")
@@ -83,6 +84,7 @@ def analyze(admission, campaign):
                 "local_replay_verified": outcome.get("local_replay_verified") is True,
                 "artifact_archive_sha256": outcome["artifact_archive_sha256"],
                 "artifact_bytes": outcome["artifact_bytes"],
+                "worker_runtime": result.get("runtime"),
             })
             base_hashes.append(result["unadapted_model_hash"])
         elif outcome:
@@ -92,6 +94,73 @@ def analyze(admission, campaign):
     terminal_path = campaign / "campaign-terminal.json"
     terminal = parse_unique_json(terminal_path.read_bytes()) if terminal_path.exists() else None
     completed = [run for run in runs if run["attempt_state"] == "COMPLETED"]
+    preflight_path = campaign / "4-hardware_preflight.log"
+    preflight_text = preflight_path.read_text(errors="replace") if preflight_path.is_file() else ""
+    preflight_records = []
+    for line in preflight_text.splitlines():
+        for offset, character in enumerate(line):
+            if character != "{":
+                continue
+            try:
+                candidate = json.loads(line[offset:])
+            except (ValueError, TypeError):
+                continue
+            if (type(candidate) is dict
+                    and candidate.get("monitor") == "hardware_preflight"):
+                preflight_records.append(candidate)
+                break
+    if len(preflight_records) == 1:
+        try:
+            validate_runtime_observation(
+                protocol["runtime_requirements"], preflight_records[0]["observation"]
+            )
+            preflight_status = "VERIFIED_STRUCTURED_SUCCESS"
+        except (KeyError, TypeError, ValueError):
+            preflight_status = "INVALID_STRUCTURED_OBSERVATION"
+    elif len(preflight_records) > 1:
+        preflight_status = "DUPLICATE_STRUCTURED_OBSERVATIONS"
+    elif "Traceback" in preflight_text or "CalledProcessError" in preflight_text:
+        preflight_status = "PROBE_EXCEPTION_NO_ACCEPTED_OBSERVATION"
+    elif preflight_path.is_file():
+        preflight_status = "NO_STRUCTURED_SUCCESS_OBSERVATION"
+    else:
+        preflight_status = "PREFLIGHT_LOG_MISSING"
+    worker_runtime = completed[0].get("worker_runtime") if completed else None
+    worker_observation_fields = {
+        "device", "gpu", "accelerator", "gpu_memory_bytes",
+        "free_gpu_bytes_preflight", "host_memory_bytes",
+        "high_memory_observed", "dependency_hash_lock_enforced",
+    }
+    worker_runtime_matches = False
+    if type(worker_runtime) is dict and worker_observation_fields <= set(worker_runtime):
+        try:
+            validate_runtime_observation(
+                protocol["runtime_requirements"],
+                {key: worker_runtime[key] for key in worker_observation_fields},
+            )
+            worker_runtime_matches = True
+        except (TypeError, ValueError):
+            worker_runtime_matches = False
+    hardware_assessment = {
+        "preflight_log_present": preflight_path.is_file(),
+        "preflight_status": preflight_status,
+        "preflight_structured_record_count": len(preflight_records),
+        "worker_runtime_recorded": type(worker_runtime) is dict,
+        "worker_runtime_matches_signed_requirements": worker_runtime_matches,
+        "worker_runtime_source": "candidate worker artifact self-report; not an independent host attestation",
+        "worker_runtime_summary": ({
+            key: worker_runtime.get(key) for key in (
+                "accelerator", "gpu", "gpu_memory_bytes", "host_memory_bytes",
+                "high_memory_observed", "dependency_hash_lock_enforced",
+                "python", "cuda_version",
+            )
+        } if type(worker_runtime) is dict else None),
+        "assurance_status": (
+            "WORKER_REPORT_MATCHED_BUT_CONTROLLER_PREFLIGHT_NOT_VERIFIED"
+            if worker_runtime_matches and preflight_status != "VERIFIED_STRUCTURED_SUCCESS"
+            else preflight_status
+        ),
+    }
     analysis_path = Path(__file__).resolve()
     analysis_digest = hashlib.sha256(analysis_path.read_bytes()).hexdigest()
     value = {
@@ -115,6 +184,7 @@ def analyze(admission, campaign):
         "same_unadapted_model_hash_across_completed_runs": len(set(base_hashes)) <= 1,
         "runs": runs,
         "campaign_terminal": terminal,
+        "hardware_assessment": hardware_assessment,
         "interpretation": (
             "One-seed public engineering diagnostic only. It can localize training behavior; "
             "it cannot establish independent generalization, retention, causal mechanism "
@@ -193,6 +263,13 @@ def analyze(admission, campaign):
         "Fixed-r8 produced the strongest terminal public metrics, but it still had 21 unauthorized proposals and a 79.2% worst-family score, so it was not eligible. Fixed-r12 finished lower on accuracy and pair consistency and retained 15 unauthorized proposals. Static and dynamic AdaLoRA both finished far below fixed-r8; dynamic allocation did occur (aggregate active rank 264→176 across 70 allocation events), so this result is not explained by a no-op allocator. On this single seed and public task population, it shows no AdaLoRA advantage.",
         "",
         "Unauthorized proposals at the terminal step were refusal-boundary errors (the system proposed an action where REFUSE was required); unsafe action on ASK examples was zero for all four arms at terminal. False refusals on permitted examples remained nonzero and varied by arm.",
+        "",
+        f"Hardware evidence: the controller's preflight log status is `{hardware_assessment['preflight_status']}`. "
+        f"The training artifacts' worker runtime records match the signed A100/high-RAM requirements: "
+        f"`{hardware_assessment['worker_runtime_matches_signed_requirements']}`. This is worker self-report, "
+        "not independent host attestation. The campaign remains recorded as completed, but the controller "
+        "preflight gate itself did not produce an accepted structured success record; the v5 controller "
+        "fix requires that record before launching training.",
     ]
     lines += [
         "", "## Limits", "",
