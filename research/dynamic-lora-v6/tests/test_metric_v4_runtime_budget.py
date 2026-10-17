@@ -13,6 +13,26 @@ def test_a100_runner_imports_signed_colab_version_verifier():
     assert callable(adaptive_colab_v4.verify_colab_cli_version)
 
 
+def test_signed_job_paths_follow_protocol_run_order(tmp_path):
+    jobs = tmp_path / "jobs"
+    jobs.mkdir()
+    for name in ("fixed_r8_47-job.json", "adalora_12_to_8_47-job.json"):
+        (jobs / name).write_text("{}")
+    protocol = {"runs": [{"name": "fixed_r8_47"}, {"name": "adalora_12_to_8_47"}]}
+    assert [p.name for p in adaptive_colab_v4._ordered_job_paths(tmp_path, protocol)] == [
+        "fixed_r8_47-job.json", "adalora_12_to_8_47-job.json"
+    ]
+
+
+def test_signed_job_path_inventory_rejects_unadmitted_file(tmp_path):
+    jobs = tmp_path / "jobs"
+    jobs.mkdir()
+    (jobs / "fixed_r8_47-job.json").write_text("{}")
+    (jobs / "unexpected-job.json").write_text("{}")
+    with pytest.raises(ValueError, match="inventory"):
+        adaptive_colab_v4._ordered_job_paths(tmp_path, {"runs": [{"name": "fixed_r8_47"}]})
+
+
 def test_a100_high_ram_is_an_exact_colab_request():
     requirements = runtime_requirements('A100', 'HIGH_RAM')
     assert colab_create_command('saal-0123456789abcdefabcd', requirements) == [

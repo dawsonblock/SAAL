@@ -151,6 +151,19 @@ def _parse_ready(output, job_digest):
     return manifest
 
 
+def _ordered_job_paths(admission, protocol):
+    """Load signed jobs in the exact run order bound by the protocol."""
+    directory=Path(admission)/'jobs'
+    names=[run['name']+'-job.json' for run in protocol['runs']]
+    if len(set(names))!=len(names):
+        raise ValueError('duplicate v4 run names')
+    paths=[directory/name for name in names]
+    if (any(not path.is_file() or path.is_symlink() for path in paths)
+            or {path.name for path in directory.glob('*.json')}!=set(names)):
+        raise ValueError('v4 signed job inventory differs from admitted run order')
+    return paths
+
+
 def _campaign_coordinator(config_path):
     """Called only after the exact runtime, lock and staged worker are ready."""
     from .adaptive_artifacts_v4 import validate_bundle
@@ -328,7 +341,8 @@ def execute(workspace, admission, artifacts, cache):
     pin=(admission/'controller.pub').read_text().strip()
     protocol_envelope=parse_unique_json((admission/'signed_protocol.json').read_bytes())
     protocol=verify(protocol_envelope,pin);validate_protocol(protocol)
-    job_envelopes=[parse_unique_json(p.read_bytes()) for p in sorted((admission/'jobs').glob('*.json'))]
+    job_paths=_ordered_job_paths(admission,protocol)
+    job_envelopes=[parse_unique_json(p.read_bytes()) for p in job_paths]
     jobs=validate_jobs(protocol,job_envelopes,pin)
     if len(job_envelopes)!=len(protocol['job_digests']):
         raise ValueError('signed v4 admission is missing a job envelope')
@@ -357,9 +371,7 @@ def execute(workspace, admission, artifacts, cache):
     (workspace/'install.py').write_text(_remote_installer(lock_digest,worker_digest))
     (workspace/'hardware.py').write_text(_hardware_probe(protocol['runtime_requirements']))
     session='saal-'+uuid.uuid4().hex[:20]
-    job_paths=[]
-    for source in sorted((admission/'jobs').glob('*.json')):
-        job_paths.append(str(source))
+    job_paths=[str(path) for path in job_paths]
     config={'workspace':str(workspace),'session':session,'pin':pin,
         'protocol':str(admission/'signed_protocol.json'),'jobs':job_paths,
         'ledger':str(workspace/'budget.sqlite3'),'artifacts':str(artifacts),

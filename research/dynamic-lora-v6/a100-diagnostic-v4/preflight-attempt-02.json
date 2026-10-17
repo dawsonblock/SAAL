@@ -1,0 +1,13 @@
+{
+  "schema": "saal-a100-local-preflight-attempt-v1",
+  "attempt": "02",
+  "status": "FAILED_BEFORE_PROVISIONING",
+  "failure": "signed job files were loaded in filename order rather than the protocol's signed run order",
+  "corrective_action": "Load the exact admitted inventory in protocol order and reject extra or missing job files",
+  "colab_session_created": false,
+  "colab_provision_command_issued": false,
+  "training_started": false,
+  "compute_units_consumed": 0,
+  "qualification_status": "NOT_EVALUATED",
+  "external_deployment_allowed": false
+}
