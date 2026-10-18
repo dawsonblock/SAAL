@@ -9,6 +9,7 @@ import pytest
 import torch
 from safetensors.torch import load_file, save_file
 
+from saal_rsi.adaptive_backend_v2_v4 import CudaSafeAdaLoRABackend
 from saal_rsi.adaptive_backend_v5 import StaticPilotBackendV5
 from saal_rsi.adaptive_contract_v4 import adapter_spec
 from saal_rsi.adaptive_contract_v5 import (
@@ -19,6 +20,7 @@ from saal_rsi.adaptive_dataset import training_projection
 from saal_rsi.adaptive_static_pilot_v5 import _ISSUER, _ExecutionPermit
 from saal_rsi.adaptive_training_v5 import (
     _checkpoint_selection_key,
+    _nonfinite_gradient_summary,
     _optimizer_completed,
     _train_static_pilot,
 )
@@ -27,6 +29,21 @@ from saal_rsi.epoch_sampler import sample_ids
 from saal_rsi.numerical_metrics_v2 import POLICY_DIGEST
 from saal_rsi.pretrained_contract import model_spec, targets
 from saal_rsi.spec import sha
+
+
+def test_static_pilot_inherits_exact_cuda_ranknum_normalization():
+    assert StaticPilotBackendV5.__bases__ == (CudaSafeAdaLoRABackend,)
+
+
+def test_nonfinite_gradient_summary_identifies_only_bad_tensor_elements():
+    good = torch.nn.Parameter(torch.tensor([1.0]))
+    bad = torch.nn.Parameter(torch.tensor([float('nan'), 2.0, float('inf')]))
+    good.grad = torch.tensor([0.5])
+    bad.grad = torch.tensor([float('nan'), 2.0, float('inf')])
+    assert _nonfinite_gradient_summary([('good', good), ('bad', bad)]) == [{
+        'name': 'bad', 'nonfinite_elements': 2, 'total_elements': 3,
+        'finite_max_abs': 2.0,
+    }]
 
 
 class TinySVDModel(torch.nn.Module):

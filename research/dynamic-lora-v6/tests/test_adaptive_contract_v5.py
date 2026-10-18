@@ -15,10 +15,10 @@ from saal_rsi.numerical_metrics_v2 import POLICY_DIGEST
 from saal_rsi.pretrained_contract import model_spec, targets
 
 
-def identity():
+def identity(precision='float16'):
     digest = 'sha256:' + 'a' * 64
     spec = model_spec('answerdotai/ModernBERT-base', method='none', backend='colab',
-                      precision='float16', budget='dynamic-lora-v5-pilot')
+                      precision=precision, budget='dynamic-lora-v5-pilot')
     lock = Path('configs/dependency-locks/pretrained-linux-x86_64-py313.txt').read_bytes()
     return {
         'model_spec': spec,
@@ -39,7 +39,7 @@ def identity():
         'weight_decay': 0.01,
         'gradient_clip': 1.0,
         'target_modules': targets('modernbert-seqcls-v1'),
-        'precision': 'float16',
+        'precision': precision,
         'class_balance': False,
     }
 
@@ -71,6 +71,16 @@ def test_fixed_r8_reference_matches_shared_conditions_without_regularizer():
     for key in ('steps', 'evaluation_interval', 'sample_exposures', 'optimizer',
                 'modules_to_save', 'head_policy', 'checkpoint_policy', 'peft_version'):
         assert baseline[key] == candidate[key]
+
+
+def test_float32_is_an_explicit_supported_precision_for_a100_admission():
+    admitted_identity = identity('float32')
+    baseline = build_fixed_r8_reference(admitted_identity)
+    static = build_static_adalora_pilot(admitted_identity, 0.1)
+    assert baseline['identity']['precision'] == 'float32'
+    assert baseline['identity']['model_spec']['precision'] == 'float32'
+    assert static['identity'] == baseline['identity']
+    assert static['authorization_status'] == 'FRESH_SIGNED_ADMISSION_REQUIRED'
 
 
 def test_candidate_is_not_a_v4_worker_job_and_rejects_policy_substitution():

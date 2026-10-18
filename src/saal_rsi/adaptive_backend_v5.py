@@ -8,13 +8,13 @@ from __future__ import annotations
 
 import torch
 
-from .adaptive_backend_v4 import AdaptiveModernBERTBackend
+from .adaptive_backend_v2_v4 import CudaSafeAdaLoRABackend
 from .adaptive_contract_v4 import adapter_spec
 from .dynamic_lora_v5.svd_reference import orthogonal_penalty_reference
 from .pretrained_contract import DECISIONS
 
 
-class StaticPilotBackendV5(AdaptiveModernBERTBackend):
+class StaticPilotBackendV5(CudaSafeAdaLoRABackend):
     """PEFT 0.21.2 backend with a frozen rank pattern for the short pilot."""
 
     def __init__(self, config, snapshot):
@@ -40,6 +40,9 @@ class StaticPilotBackendV5(AdaptiveModernBERTBackend):
 
     def initialize_experiment(self):
         inventory = super().initialize_experiment()
+        # The inherited v2/v4 shim normalizes only exact immutable rank-12
+        # scaling constants after PEFT's CUDA registration and rechecks the
+        # complete trainable/scaling tensor inventory.
         if self.adapter['method'] == 'adalora-static-r12':
             # Persist the actual v5 coefficient in the PEFT config metadata.
             self.model.base_model.peft_config['default'].orth_reg_weight = (

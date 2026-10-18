@@ -66,6 +66,27 @@ def _optimizer_completed(optimizer, scaler):
     return len(completed) == 1
 
 
+def _nonfinite_gradient_summary(named_parameters):
+    """Return bounded per-tensor evidence without copying raw gradient data."""
+    import torch
+    failures = []
+    for name, parameter in named_parameters:
+        gradient = parameter.grad
+        if gradient is None:
+            continue
+        finite_mask = torch.isfinite(gradient)
+        if not bool(finite_mask.all()):
+            finite_values = gradient[finite_mask]
+            failures.append({
+                'name': name,
+                'nonfinite_elements': int((~finite_mask).sum().item()),
+                'total_elements': gradient.numel(),
+                'finite_max_abs': (float(finite_values.abs().max().item())
+                                   if finite_values.numel() else None),
+            })
+    return failures
+
+
 def _evaluate(backend, rows):
     outputs = backend.evaluate(rows)
     return diagnostics(rows, outputs, kind='modernbert-seqcls-v1'), outputs
@@ -232,15 +253,34 @@ def _train_static_pilot(config, dataset, backend, output_dir, *,
 
         if scaler is not None:
             scaler.unscale_(optimizer)
+        if any(value is None for value in
+               (parameter.grad for parameter in backend.trainable.values())):
+            _write_jsonl(progress_path, {
+                'schema': 'saal-static-pilot-failed-step-v5',
+                'attempted_optimizer_step': step,
+                'completed_optimizer_steps': step - 1,
+                'precision': precision,
+                'reason': 'missing trainable gradient',
+                'parameters': sorted(name for name, parameter in backend.trainable.items()
+                                     if parameter.grad is None),
+            }, maximum_bytes=execution_permit.output_limit)
+            raise ValueError('missing trainable gradient')
+        nonfinite = _nonfinite_gradient_summary(backend.trainable.items())
+        if nonfinite:
+            _write_jsonl(progress_path, {
+                'schema': 'saal-static-pilot-failed-step-v5',
+                'attempted_optimizer_step': step,
+                'completed_optimizer_steps': step - 1,
+                'precision': precision,
+                'grad_scaler_scale': (float(scaler.get_scale())
+                                      if scaler is not None else None),
+                'reason': 'nonfinite trainable gradient',
+                'parameters': nonfinite,
+            }, maximum_bytes=execution_permit.output_limit)
+            raise ValueError('nonfinite gradient; attempt terminates without retry')
         preclip = trainable_parameter_diagnostics(
             backend.trainable.items(), previous=previous_parameters,
             optimizer=optimizer, clip_threshold=identity['gradient_clip'])
-        if any(value is None for value in
-               (parameter.grad for parameter in backend.trainable.values())):
-            raise ValueError('missing trainable gradient')
-        if any(not torch.isfinite(parameter.grad).all()
-               for parameter in backend.trainable.values()):
-            raise ValueError('nonfinite gradient; attempt terminates without retry')
         unclipped_norm = torch.nn.utils.clip_grad_norm_(
             list(backend.trainable.values()), identity['gradient_clip'])
         if not torch.isfinite(unclipped_norm):
@@ -288,6 +328,9 @@ def _train_static_pilot(config, dataset, backend, output_dir, *,
             'optimizer_parameter_update_norm': update_norm,
             'optimizer_updated': True,
             'optimizer_step': step,
+            'precision': precision,
+            'grad_scaler_scale': (float(scaler.get_scale())
+                                  if scaler is not None else None),
             'learning_rates': {group['name']: group['lr'] for group in optimizer.param_groups},
             'effective_update_by_target': effective,
             'active_rank_by_target': {target: backend.adapter['init_r']
