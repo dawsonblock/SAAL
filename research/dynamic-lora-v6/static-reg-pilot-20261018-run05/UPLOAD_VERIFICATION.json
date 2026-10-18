@@ -1,0 +1,28 @@
+{
+  "schema": "saal-colab-upload-verification-v1",
+  "campaign_id": "saal098-static-reg-20261018-05",
+  "status": "OPERATOR_OBSERVED_MATCH",
+  "verification_method": "Operator compared local SHA-256 and byte counts with remote Colab CLI readback before launch.",
+  "independent_attestation": false,
+  "uploads": [
+    {
+      "name": "signed-input-bundle",
+      "local_size_bytes": 705480,
+      "local_sha256": "191a2eaba2b392db69da9c60be5f2afc22e812b6198eca8faac53a0918b6b617",
+      "remote_readback": "MATCH"
+    },
+    {
+      "name": "remote-runner",
+      "local_size_bytes": 16739,
+      "local_sha256": "fc8d5c94ff0662ad45ea526fe4eb743fd2830bcfe5e155ff03b00708ef579c5b",
+      "remote_readback": "MATCH"
+    }
+  ],
+  "credential_handling": {
+    "input_bundle_contains_one_use_transport_credentials": true,
+    "input_bundle_in_public_results": false,
+    "replacement_bundle_absent_from_public_results": true,
+    "rotation_record_in_public_results": true
+  },
+  "limitation": "This is an operator record of CLI output, not a Google-signed upload attestation."
+}

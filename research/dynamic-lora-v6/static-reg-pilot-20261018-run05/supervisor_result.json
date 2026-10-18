@@ -1,0 +1,81 @@
+{
+  "admission_issued_at_epoch": 1792308278,
+  "attempts": [
+    {
+      "artifact_received": true,
+      "attempt_id": "saal098r05-arm-fixedr8",
+      "events": [
+        "CONSUMED",
+        "COMPLETED",
+        "ARTIFACT_RECEIVED"
+      ],
+      "terminal_status": "COMPLETED"
+    },
+    {
+      "artifact_received": true,
+      "attempt_id": "saal098r05-arm-orth0",
+      "events": [
+        "CONSUMED",
+        "COMPLETED",
+        "ARTIFACT_RECEIVED"
+      ],
+      "terminal_status": "COMPLETED"
+    },
+    {
+      "artifact_received": true,
+      "attempt_id": "saal098r05-arm-orth001",
+      "events": [
+        "CONSUMED",
+        "COMPLETED",
+        "ARTIFACT_RECEIVED"
+      ],
+      "terminal_status": "COMPLETED"
+    },
+    {
+      "artifact_received": true,
+      "attempt_id": "saal098r05-arm-orth01",
+      "events": [
+        "CONSUMED",
+        "COMPLETED",
+        "ARTIFACT_RECEIVED"
+      ],
+      "terminal_status": "COMPLETED"
+    },
+    {
+      "artifact_received": true,
+      "attempt_id": "saal098r05-arm-orth05",
+      "events": [
+        "CONSUMED",
+        "COMPLETED",
+        "ARTIFACT_RECEIVED"
+      ],
+      "terminal_status": "COMPLETED"
+    }
+  ],
+  "campaign_id": "saal098-static-reg-20261018-05",
+  "colab_balance_after": 166.87,
+  "colab_balance_before": 168.43,
+  "ended_at_epoch": 1792309474,
+  "estimated_upper_bound_cu_since_admission": 2.249,
+  "external_deployment_allowed": false,
+  "launch": {
+    "exit_code": 0,
+    "state": "START_REQUEST_RETURNED",
+    "stderr_tail": "",
+    "stdout_tail": "{\"log_path\": \"/content/saal-static-screen-bootstrap.log\", \"state\": \"RUNNING\", \"worker_pid\": 4816}\n"
+  },
+  "maximum_observed_rate_cu_per_hour": 6.77,
+  "monitor_failure_type": null,
+  "qualification_status": "NOT_EVALUATED",
+  "remote_kernel_log_downloaded": false,
+  "schema": "saal-static-screen-supervisor-result-v2",
+  "session": "saal-v098-static-reg-run05",
+  "started_at_epoch": 1792308607,
+  "status": "ALL_FIVE_TERMINAL_ARTIFACTS_RECEIVED",
+  "status_after_stop": "[colab] Session 'saal-v098-static-reg-run05' not found.",
+  "stop_exit_code": 0,
+  "stop_output": "[colab] Stopping session 'saal-v098-static-reg-run05'...\n[colab] Session terminated.",
+  "usage_after_stop": "Current balance: 166.87 compute units | Usage rate: 0.00/hr | Active assignments: 0",
+  "usage_before": "Current balance: 168.43 compute units | Usage rate: 6.77/hr | Active assignments: 1",
+  "verified_ledger_events": 15
+}
